@@ -15,72 +15,70 @@ const regions = [...new Set(schools.map((s) => s.region))].sort();
   />
 
   <section class="container-page py-6">
-    <div class="flex flex-col gap-4 lg:flex-row lg:items-stretch">
-      <div class="flex flex-col lg:w-80 lg:shrink-0">
-        <div class="mb-3 space-y-2">
-          <div class="relative">
-            <Icon name="tabler:search" class="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-            <label for="school-search" class="sr-only">Search school name</label>
-            <input
-              type="search"
-              id="school-search"
-              placeholder="Search school name..."
-              class="w-full rounded-[0.625rem] border border-border bg-background pl-10 pr-4 text-base outline-none focus:border-ring focus:ring-2 focus:ring-ring"
-              style="height: 2.5rem;"
-            />
-          </div>
-          <div class="relative">
-            <label for="region-filter" class="sr-only">Filter by region</label>
-            <select
-              id="region-filter"
-              class="w-full appearance-none rounded-[0.625rem] border border-border bg-background px-4 pr-10 text-base outline-none focus:border-ring focus:ring-2 focus:ring-ring"
-              style="height: 2.5rem;"
-            >
-              <option value="all">All regions</option>
-              {regions.map((region) => (
-                <option value={region}>{region}</option>
-              ))}
-            </select>
-            <Icon name="tabler:chevron-down" class="pointer-events-none absolute right-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-          </div>
-          <div class="flex items-center justify-between text-base text-muted-foreground">
-            <span id="school-count">{schools.length} schools</span>
-            <button id="reset-search" class="hidden text-foreground underline hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded">Show all schools</button>
-          </div>
+    <div class="grid gap-4 lg:grid-cols-[20rem_1fr]">
+      <div class="space-y-2">
+        <div class="relative">
+          <Icon name="tabler:search" class="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+          <label for="school-search" class="sr-only">Search school name</label>
+          <input
+            type="search"
+            id="school-search"
+            placeholder="Search school name..."
+            class="w-full rounded-[0.625rem] border border-border bg-background pl-10 pr-4 text-base outline-none focus:border-ring focus:ring-2 focus:ring-ring"
+            style="height: 2.5rem;"
+          />
         </div>
-
-        <div class="flex-1 overflow-y-auto rounded-xl border border-border lg:max-h-[600px]">
-          <ul id="school-list" class="divide-y divide-border">
-            {schools.map((school, i) => (
-              <li
-                class="school-item flex cursor-pointer items-start gap-3 p-3 transition-colors hover:bg-muted focus-visible:bg-muted focus-visible:outline-none"
-                tabindex="0"
-                role="button"
-                aria-label={`Focus ${school.name} on the map`}
-                data-name={school.name.toLowerCase()}
-                data-region={school.region}
-                data-lat={school.lat}
-                data-lng={school.lng}
-                data-index={i}
-              >
-                <div class="mt-1 shrink-0 text-primary">
-                  <Icon name="tabler:map-pin" class="h-4 w-4" />
-                </div>
-                <div class="min-w-0">
-                  <p class="truncate text-base font-medium">{school.name}</p>
-                  <p class="truncate text-sm text-muted-foreground">{school.town}, {school.region}</p>
-                </div>
-              </li>
+        <div class="relative">
+          <label for="region-filter" class="sr-only">Filter by region</label>
+          <select
+            id="region-filter"
+            class="w-full appearance-none rounded-[0.625rem] border border-border bg-background px-4 pr-10 text-base outline-none focus:border-ring focus:ring-2 focus:ring-ring"
+            style="height: 2.5rem;"
+          >
+            <option value="all">All regions</option>
+            {regions.map((region) => (
+              <option value={region}>{region}</option>
             ))}
-          </ul>
-          <p id="no-results" class="hidden p-6 text-center text-base text-muted-foreground">
-            No schools found. Try a different search or clear your filters.
-          </p>
+          </select>
+          <Icon name="tabler:chevron-down" class="pointer-events-none absolute right-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+        </div>
+        <div class="flex items-center justify-between text-base text-muted-foreground">
+          <span id="school-count">{schools.length} schools</span>
+          <button id="reset-search" class="hidden text-foreground underline hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded">Show all schools</button>
         </div>
       </div>
 
-      <div class="min-h-[500px] flex-1 overflow-hidden rounded-xl border border-border lg:min-h-[600px]">
-        <div id="map" style="height: 100%; width: 100%; min-height: 500px;"></div>
+      <div class="min-h-[400px] overflow-hidden rounded-xl border border-border lg:row-span-2 lg:min-h-[600px]">
+        <div id="map" style="height: 100%; width: 100%; min-height: 400px;"></div>
+      </div>
+
+      <div class="overflow-y-auto rounded-xl border border-border max-h-[400px] lg:max-h-[600px]">
+        <ul id="school-list" class="divide-y divide-border">
+          {schools.map((school, i) => (
+            <li
+              class="school-item flex cursor-pointer items-start gap-3 p-3 transition-colors hover:bg-muted focus-visible:bg-muted focus-visible:outline-none"
+              tabindex="0"
+              role="button"
+              aria-label={`Focus ${school.name} on the map`}
+              data-name={school.name.toLowerCase()}
+              data-region={school.region}
+              data-lat={school.lat}
+              data-lng={school.lng}
+              data-index={i}
+            >
+              <div class="mt-1 shrink-0 text-primary">
+                <Icon name="tabler:map-pin" class="h-4 w-4" />
+              </div>
+              <div class="min-w-0">
+                <p class="truncate text-base font-medium">{school.name}</p>
+                <p class="truncate text-sm text-muted-foreground">{school.town}, {school.region}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+        <p id="no-results" class="hidden p-6 text-center text-base text-muted-foreground">
+          No schools found. Try a different search or clear your filters.
+        </p>
       </div>
     </div>
   </section>

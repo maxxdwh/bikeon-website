@@ -55,8 +55,9 @@ Schema defined in `src/content.config.ts`. Guide markdown files have frontmatter
 
 ## Contact form
 
-- `src/pages/contact.astro` — form with Cloudflare Turnstile widget
-- `api/contact.ts` — Vercel serverless function. Verifies Turnstile token, sends email via Resend to `CONTACT_EMAIL` env var
+- `src/pages/contact.astro` — form with Cloudflare Turnstile widget (explicit rendering, `data-action="contact"`, widget reset on retry)
+- `api/contact.ts` — Vercel serverless function. Canonical siteverify: validates `success`, `action === "contact"`, and `hostname` against `TURNSTILE_HOSTNAMES` allowlist. Sends email via Resend to `CONTACT_EMAIL` env var
+- Env vars: `PUBLIC_TURNSTILE_SITE_KEY` (client), `TURNSTILE_SECRET_KEY` (server), `TURNSTILE_HOSTNAMES` (comma-separated frontend hostnames; local `.env` includes `localhost,127.0.0.1,bikeon.org.nz`; production Vercel must set `bikeon.org.nz` only)
 - Uses Node.js `req`/`res` style (not Fetch API `Request`/`Response` objects) — Vercel Node runtime wraps these differently
 - From address is `onboarding@resend.dev` (Resend sandbox) — update to `contact@bikeon.org.nz` once domain is verified
 

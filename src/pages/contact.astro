@@ -69,7 +69,7 @@ import HeroSection from '../components/HeroSection.astro';
               class="mt-1 block w-full rounded-[0.625rem] border border-border bg-background px-4 py-2.5 text-base outline-none transition-colors focus:border-ring focus:ring-2 focus:ring-ring"
             ></textarea>
           </div>
-          <div class="cf-turnstile" data-sitekey={import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || "YOUR_SITE_KEY"}></div>
+          <div id="turnstile-container" data-sitekey={import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || "YOUR_SITE_KEY"}></div>
           <button
             type="submit"
             class="btn btn-primary"
@@ -88,7 +88,18 @@ import HeroSection from '../components/HeroSection.astro';
   </section>
 </Layout>
 
-<script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<script is:inline>
+  window.onTurnstileLoad = function () {
+    var container = document.getElementById('turnstile-container');
+    if (container && !container.hasChildNodes()) {
+      window.turnstileWidgetId = window.turnstile.render(container, {
+        sitekey: container.getAttribute('data-sitekey'),
+        action: 'contact',
+      });
+    }
+  };
+</script>
+<script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onTurnstileLoad" async defer></script>
 <script>
   const form = document.getElementById('contact-form') as HTMLFormElement | null;
   form?.addEventListener('submit', async (e) => {
@@ -111,6 +122,11 @@ import HeroSection from '../components/HeroSection.astro';
       }
     } catch {
       error?.classList.remove('hidden');
+    } finally {
+      const widgetId = (window as any).turnstileWidgetId;
+      if (widgetId !== undefined) {
+        (window as any).turnstile?.reset(widgetId);
+      }
     }
   });
 </script>
