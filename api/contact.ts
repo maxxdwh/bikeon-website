@@ -68,7 +68,7 @@ export default async function handler(req: Request): Promise<Response> {
   try {
     await resend.emails.send({
       from: 'Bike On NZ Contact <onboarding@resend.dev>',
-      to: 'info@bikeon.org.nz',
+      to: process.env.CONTACT_EMAIL || 'info@bikeon.org.nz',
       replyTo: email,
       subject: `New contact form submission from ${name}`,
       text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
