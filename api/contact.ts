@@ -7,7 +7,7 @@ interface ContactBody {
   'cf-turnstile-response'?: string;
 }
 
-export default async function handler(req: Request): Promise<Response> {
+export default async function handler(req: any): Promise<Response> {
   if (req.method !== 'POST') {
     return new Response(JSON.stringify({ error: 'Method not allowed' }), {
       status: 405,
@@ -16,7 +16,7 @@ export default async function handler(req: Request): Promise<Response> {
   }
 
   let body: ContactBody;
-  const contentType = req.headers.get('content-type') || '';
+  const contentType = req.headers['content-type'] || req.headers.get?.('content-type') || '';
 
   if (contentType.includes('application/json')) {
     body = await req.json();
