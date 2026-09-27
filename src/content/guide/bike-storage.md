@@ -39,7 +39,7 @@ A welded padlock box works with closed-shackle or standard padlocks, giving extr
 
 ![A welded padlock protective box and hinge door](/images/guide/padlock-box.webp)
 
-## Where to put it
+## Where to put the container
 
 If the container's sitting on grass, keep it slightly raised on railway sleepers so air can circulate underneath. A concrete pad for the container and one out front for daytime bike parking, with a ramp up to the door lip, makes for a much smoother daily routine.
 

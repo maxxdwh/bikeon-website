@@ -69,8 +69,8 @@ const logoKey = import.meta.env.PUBLIC_LOGO_DEV_KEY;
           <div class="not-prose mt-8">
             <div class="divide-y divide-border">
               {(showBikeSuppliers ? supplierCategories.find((c) => c.category === 'Bikes')?.suppliers : supplierCategories.find((c) => c.category === 'Bike storage')?.suppliers)?.map((s) => (
-                <div class="flex flex-col gap-2 py-4 sm:flex-row sm:items-center sm:gap-6">
-                  <div class="flex items-start gap-4 sm:flex-1">
+                <div class="flex flex-row items-center gap-3 py-4 sm:gap-6">
+                  <div class="flex items-center gap-3 min-w-0 sm:gap-4 sm:flex-1">
                     {s.website && (
                       <img
                         src={`https://img.logo.dev/${new URL(s.website).hostname}?token=${logoKey}&size=128&format=webp&retina=true`}
@@ -82,14 +82,14 @@ const logoKey = import.meta.env.PUBLIC_LOGO_DEV_KEY;
                       />
                     )}
                     <div>
-                      <p class="text-lg font-semibold leading-tight text-foreground" style="font-family: var(--font-heading)">{s.name}</p>
+                      <p class="text-base font-semibold leading-tight text-foreground sm:text-lg" style="font-family: var(--font-heading)">{s.name}</p>
                       <div class="mt-1 flex flex-row gap-4 text-base text-muted-foreground">
                         {s.contact && <span class="font-medium text-foreground">{s.contact}</span>}
                         {s.phone && <span>{s.phone}</span>}
                       </div>
                     </div>
                   </div>
-                  <div class="flex items-center gap-1">
+                  <div class="flex items-center gap-1 shrink-0">
                     {s.email && (
                       <button
                         type="button"
