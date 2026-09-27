@@ -57,7 +57,7 @@ ViaStrada Consultants completed a detailed [Bikes in Schools Programme Assessmen
 
 In December 2020, Porirua City Council released [Riding Easy: Porirua Bikes in Schools Story (PDF)](https://bikeon.org.nz/wp-content/uploads/2021/02/Porirua-Bikes-in-Schools-Story-with-pics-Dec-2020.pdf), written by Louise Thornley for the Porirua Bikes in Schools network.
 
-### Recommendations
+### What we recommend schools do
 
 We recommend that all schools review the above information, particularly the two-page Recommendations for Schools handout. This contains valuable information that will help schools maximise the outcomes from their Bikes in Schools projects.
 
@@ -93,7 +93,7 @@ Get in touch with your local cycle skills provider (usually your council, a Regi
 
 Most schools mark the finished project with an official opening: a local Mayor, MP, or sportsperson to do the honours, plus parents, the local community, and often local media. A simple press release, an acknowledgement sign thanking your funders, and a heads-up to your local paper go a long way. See our Media page for examples of how other schools' openings have been covered.
 
-## Opening event
+## What an opening event looks like
 
 Most schools launch their Bikes in Schools project with an official opening. Usually, it involves special guests such as the local Mayor, MP, or a famous sportsperson to open it. Parents, the local community, and local media (and sometimes national) are always invited. Each school puts their own style onto the event.
 

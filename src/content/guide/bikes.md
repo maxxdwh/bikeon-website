@@ -56,10 +56,10 @@ Ask your supplier whether a six-week service check is included.
 
 Record each bike's serial number in your school's asset register, and add the whole fleet (bikes and helmets) to your insurance policy. Most schools file these under sports or PE equipment.
 
-## Cost
+## Approximate cost
 
 A full fleet typically costs $10,000 to $15,000 + GST, depending on supplier, brand, spec, and whether delivery and assembly are included. Get a few quotes, and ask each supplier about their ongoing servicing plan.
 
-## Suppliers
+## Getting quotes from local bike shops
 
 Get a couple of extra quotes from local bike shops too, especially for servicing.

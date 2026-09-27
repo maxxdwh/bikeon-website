@@ -26,7 +26,7 @@ Keep the fleet running with a simple routine: tyres pumped, chains oiled, brakes
 
 For further reading: [Bike Maintenance Schedule (PDF)](https://bikeon.org.nz/wp-content/uploads/2016/03/Bike-Maintenance-Schedule.pdf), [BikeWise Seven Point Safety Check (PDF)](https://bikewise.co.nz/sites/default/files/bike_wise_-_pocket_pamphlet_no_comp_1.pdf). For video walkthroughs, [madegood.org](http://www.madegood.org/bikes/repairs/) covers the basics, and Auckland Transport's [Bike Maintenance 101 playlist](https://www.youtube.com/playlist?list=PLwdQL7ny3E69KmXMU7crT2jPIvfPMqxE5) is a good one to share with staff.
 
-## Bike Shed Manual
+## The Bike Shed Manual: detailed fleet maintenance guide
 
 The [Bike Shed Manual (PDF)](https://bikeon.org.nz/wp-content/uploads/2016/03/bike_shed_manual.pdf) provides detailed information to help the school maintain their Bikes in Schools bike fleets.
 
@@ -44,7 +44,7 @@ If anyone has a crash (especially a knock to the head), tell an adult straight a
 
 [Check and fit your helmet](https://at.govt.nz/cycling-walking/bikes-gear/cycling-gear/check-and-fit-your-helmet) from Auckland Transport.
 
-## Check your bike: remember your ABC
+## Check your bike: Air, Brakes, Chain
 
 - **A: Air.** Are the tyres properly pumped up?
 - **B: Brakes.** Do the front and back brakes both work?
