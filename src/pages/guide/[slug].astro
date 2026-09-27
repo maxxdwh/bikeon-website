@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import { Icon } from 'astro-icon/components';
 import { getCollection, render } from 'astro:content';
 import { supplierCategories } from '../../data/suppliers';
 
@@ -97,7 +98,7 @@ const logoKey = import.meta.env.PUBLIC_LOGO_DEV_KEY;
                         data-copy={s.email}
                         aria-label={`Copy email address: ${s.email}`}
                       >
-                        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                        <Icon name="tabler:copy" class="h-4 w-4" />
                         <span class="copy-label">Email</span>
                       </button>
                     )}
@@ -110,7 +111,7 @@ const logoKey = import.meta.env.PUBLIC_LOGO_DEV_KEY;
                         aria-label={`Visit ${s.name} website (opens in new tab)`}
                       >
                         <span>Website</span>
-                        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+                        <Icon name="tabler:external-link" class="h-4 w-4" />
                       </a>
                     )}
                   </div>

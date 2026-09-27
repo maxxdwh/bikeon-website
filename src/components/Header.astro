@@ -1,5 +1,6 @@
 ---
 import { navItems } from '../data/nav';
+import { Icon } from 'astro-icon/components';
 
 const pathname = Astro.url.pathname;
 const isActive = (href: string) => {
@@ -25,7 +26,7 @@ const isActive = (href: string) => {
                 aria-haspopup="true"
               >
                 {item.label}
-                <svg class="h-3.5 w-3.5 opacity-50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                <Icon name="tabler:chevron-down" class="h-3.5 w-3.5 opacity-50" />
               </a>
               <ul class="invisible absolute left-0 top-full mt-1 w-56 rounded-xl border border-black/5 bg-card p-1 opacity-0 shadow-lg transition-all group-hover:visible group-focus-within:visible group-hover:opacity-100 group-focus-within:opacity-100">
                 {item.children.map((child) => (
@@ -59,7 +60,7 @@ const isActive = (href: string) => {
       aria-expanded="false"
       aria-controls="mobile-menu"
     >
-      <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <Icon name="tabler:menu-2" class="h-5 w-5" />
     </button>
   </nav>
 
@@ -71,7 +72,7 @@ const isActive = (href: string) => {
             <details class="group">
               <summary class={`flex cursor-pointer items-center justify-between rounded-lg px-3 py-2 text-base font-medium transition-colors hover:bg-black/5 ${isActive(item.href!) ? "text-link" : "text-foreground"}`}>
                 {item.label}
-                <svg class="h-3.5 w-3.5 transition-transform group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                <Icon name="tabler:chevron-down" class="h-3.5 w-3.5 transition-transform group-open:rotate-180" />
               </summary>
               <ul class="ml-2 mt-0.5 space-y-0.5 border-l border-black/5 pl-2">
                 {item.children.map((child) => (

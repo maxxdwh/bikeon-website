@@ -117,16 +117,6 @@ vercel           # Deploy as preview
 
 Not yet configured. When ready, add `bikeon.org.nz` in Vercel → Project → Settings → Domains, and update DNS at the registrar.
 
-## Key design decisions
-
-- **16px minimum font size** everywhere — no `text-sm` or `text-xs`
-- **17px body text** in longform prose (`text-[17px]`)
-- **72ch max-width** for guide article prose
-- **Underlined links in prose** — not bold, subtle hover to brand blue
-- **External links** auto-iconed with an up-right arrow SVG (rehype plugin)
-- **Figures** — image paragraphs wrapped in `<figure><figcaption>`, consecutive images grouped in a 3-column grid
-- **WCAG AA** contrast on all text and non-text elements
-
 ## TODO
 
 See [TODO.md](./TODO.md) for outstanding items: broken research links, low-res images, branding, custom domain, SEO redirects.

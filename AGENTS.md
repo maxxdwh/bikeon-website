@@ -12,6 +12,17 @@ Astro 7 static site. No client-side framework. Pages are `.astro` files in `src/
 
 The only serverless function is `api/contact.ts` (Vercel Node runtime, not Edge — uses `req`/`res` style, not Fetch API).
 
+## Icons
+
+Uses **Tabler Icons** (free, MIT) via `astro-icon` + `@iconify-json/tabler`. Usage:
+
+```astro
+import { Icon } from 'astro-icon/components';
+<Icon name="tabler:bike" class="h-5 w-5" />
+```
+
+Icons render as inline SVGs with `<symbol>`/`<use>` for deduplication. The one exception is the external-link icon in the rehype plugin (`astro.config.mjs`) — that's a raw SVG in the markdown AST and can't use the component.
+
 ## Styling rules
 
 - **Tailwind v4** via `@tailwindcss/vite` — config is in `src/styles/global.css`, not a `tailwind.config.js`

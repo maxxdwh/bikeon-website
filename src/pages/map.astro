@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Icon } from 'astro-icon/components';
 import schools from '../data/schools.json';
 
 const regions = [...new Set(schools.map((s) => s.region))].sort();
@@ -23,7 +24,7 @@ const regions = [...new Set(schools.map((s) => s.region))].sort();
       <div class="flex flex-col lg:w-80 lg:shrink-0">
         <div class="mb-3 space-y-2">
           <div class="relative">
-            <svg class="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <Icon name="tabler:search" class="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
             <label for="school-search" class="sr-only">Search school name</label>
             <input
               type="search"
@@ -43,7 +44,7 @@ const regions = [...new Set(schools.map((s) => s.region))].sort();
                 <option value={region}>{region}</option>
               ))}
             </select>
-            <svg class="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+            <Icon name="tabler:chevron-down" class="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
           </div>
           <div class="flex items-center justify-between text-base text-muted-foreground">
             <span id="school-count">{schools.length} schools</span>
@@ -66,7 +67,7 @@ const regions = [...new Set(schools.map((s) => s.region))].sort();
                 data-index={i}
               >
                 <div class="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
-                  <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                  <Icon name="tabler:map-pin" class="h-3.5 w-3.5" />
                 </div>
                 <div class="min-w-0">
                   <p class="truncate text-base font-medium">{school.name}</p>
