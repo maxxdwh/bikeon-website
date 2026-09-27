@@ -1,11 +1,136 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const guides = (await getCollection('guide')).sort((a, b) => a.data.order - b.data.order);
+
+const guideIcons: Record<string, string> = {
+  introduction: 'M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z M12 10h.01',
+  bikes: 'M5 17h14M5 17a2 2 0 1 0 0 .01M19 17a2 2 0 1 0 0 .01M6 17l3-6h6l3 6M9 11l1.5-4h3L15 11',
+  helmets: 'M12 3a8 8 0 0 0-8 8v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3a8 8 0 0 0-8-8Z',
+  'bike-storage': 'M3 9l9-7 9 7v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9Z M9 22V12h6v10',
+  'bike-tracks': 'M3 17l6-6 4 4 8-8 M3 7h6 M15 7h6',
+  'cycle-skills-training': 'M15 6a3 3 0 1 0-6 0 3 3 0 0 0 6 0Z M7 20l4-7 4 4 4-7',
+  'costs-and-funding': 'M12 2v20 M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6',
+  maintenance: 'M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76Z',
+};
 ---
 
 <Layout>
-	<Welcome />
+  <section class="border-b border-border bg-gradient-to-b from-primary/5 to-background">
+    <div class="container-page pt-28 pb-20 md:pt-36 md:pb-28">
+    <div class="max-w-[68ch]">
+        <h1 class="text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
+          Every Kiwi kid, riding a bike at school.
+        </h1>
+        <p class="mt-6 text-[17px] text-muted-foreground md:text-xl">
+          We help schools across New Zealand set up a complete Bikes in Schools package:
+          <a href="/guide/bikes" class="underline hover:no-underline"> bikes</a>,
+          <a href="/guide/helmets" class="underline hover:no-underline"> helmets</a>,
+          <a href="/guide/bike-tracks" class="underline hover:no-underline"> bike tracks</a>,
+          <a href="/guide/bike-storage" class="underline hover:no-underline"> secure storage</a>, and
+          <a href="/guide/cycle-skills-training" class="underline hover:no-underline"> cycle skills training</a>,
+          all on-site.
+        </p>
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <a
+            href="/guide/introduction"
+            class="inline-flex items-center justify-center rounded-lg bg-primary px-6 py-3 text-base font-semibold text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          >
+            Read the Guide
+          </a>
+          <a
+            href="https://cdn.prod.website-files.com/6a45542d49438f7a18066d32/6a59e3344de76eaad9429675_bikes-in-schools-101.pdf"
+            class="inline-flex items-center justify-center rounded-lg border border-border px-6 py-3 text-base font-semibold transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          >
+            1-pager PDF
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container-page py-24">
+      <div class="mx-auto max-w-5xl px-6">
+        <h2 class="sr-only">Bikes in Schools in stats</h2>
+        <div class="grid grid-cols-2 gap-8 md:grid-cols-4">
+          <div class="space-y-1 md:text-center">
+            <div class="text-primary text-4xl font-bold">200,000+</div>
+            <p class="text-muted-foreground">students with regular bike access</p>
+          </div>
+          <div class="space-y-1 md:text-center">
+            <div class="text-primary text-4xl font-bold">350+</div>
+            <p class="text-muted-foreground">schools with a project</p>
+          </div>
+          <div class="col-span-2 border-t pt-4 md:border-l md:border-t-0 md:pl-12 md:pt-0">
+            <p class="text-muted-foreground text-balance text-lg">Every school day, kids who might never ride otherwise are out on bikes, helmets, and tracks built right into their school grounds.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-page py-20">
+    <div class="max-w-[68ch]">
+      <h2 class="text-4xl font-bold tracking-tight md:text-5xl">Why Bikes in Schools?</h2>
+      <div class="mt-8 space-y-6 text-[17px] text-muted-foreground">
+        <p>
+          In 1990, Kiwi primary school kids were biking an average of 28 minutes a week. Today it's less
+          than 5 minutes a week, and a lot of children aren't riding at all.
+        </p>
+        <p>
+          We think the simplest fix is right there in the school grounds.
+        </p>
+        <p>
+          A Bikes in Schools package gives schools everything they need: bikes, helmets, a track, secure
+          storage, and cycle skills training, so every child can ride during the school day &mdash; not
+          just the ones who already have a bike at home.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-border bg-muted/20">
+    <div class="container-page py-20">
+      <h2 class="text-4xl font-bold tracking-tight md:text-5xl">Explore the guide</h2>
+      <p class="mt-6 text-[17px] text-muted-foreground">
+        Everything you need to plan, build, and run a Bikes in Schools project.
+      </p>
+      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {guides.map((guide) => (
+          <a
+            href={`/guide/${guide.id}`}
+            class="group rounded-xl border border-border bg-card p-6 transition-all hover:border-primary/50 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          >
+            <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d={guideIcons[guide.id] || 'M12 2v20'} />
+              </svg>
+            </div>
+            <h3 class="mt-4 text-lg font-semibold group-hover:text-link">{guide.data.title}</h3>
+            <p class="mt-2 text-base text-muted-foreground">{guide.data.description}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="container-page py-20">
+    <div class="rounded-2xl bg-primary p-10 text-center md:p-16">
+      <h2 class="text-4xl font-bold tracking-tight text-primary-foreground md:text-5xl">
+        Thinking about starting a project?
+      </h2>
+      <p class="mx-auto mt-4 max-w-xl text-[17px] text-primary-foreground">
+        Our guide covers everything: bikes, helmets, tracks, storage, training, costs, and funding. It's
+        free, and so is our advice.
+      </p>
+      <a
+        href="/guide/introduction"
+        class="mt-8 inline-flex items-center justify-center rounded-lg bg-foreground px-6 py-3 text-base font-semibold text-background transition-colors hover:bg-foreground/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+      >
+        Read the guide
+      </a>
+    </div>
+  </section>
 </Layout>

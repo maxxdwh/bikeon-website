@@ -1,0 +1,294 @@
+---
+import Layout from '../layouts/Layout.astro';
+import schools from '../data/schools.json';
+
+const regions = [...new Set(schools.map((s) => s.region))].sort();
+---
+
+<Layout title="Map of Schools — Bike On NZ" description="See where Bikes in Schools projects are across New Zealand.">
+  <section class="border-b border-border bg-gradient-to-b from-primary/5 to-background">
+    <div class="container-page pt-28 pb-12 md:pt-36 md:pb-16">
+      <div class="max-w-[68ch]">
+        <h1 class="text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">Map of Schools</h1>
+        <p class="mt-6 text-[17px] text-muted-foreground md:text-xl">
+          {schools.length}+ schools across New Zealand with a Bikes in Schools project. Search by name,
+          filter by region, or pan the map to see what's nearby.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-page py-6">
+    <div class="flex flex-col gap-4 lg:flex-row lg:items-stretch">
+      <div class="flex flex-col lg:w-80 lg:shrink-0">
+        <div class="mb-3 space-y-2">
+          <div class="relative">
+            <svg class="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <label for="school-search" class="sr-only">Search school name</label>
+            <input
+              type="search"
+              id="school-search"
+              placeholder="Search school name..."
+              class="w-full rounded-lg border border-input bg-background py-2 pl-9 pr-3 text-base outline-none focus:border-ring focus:ring-1 focus:ring-ring"
+            />
+          </div>
+          <div class="relative">
+            <label for="region-filter" class="sr-only">Filter by region</label>
+            <select
+              id="region-filter"
+              class="w-full appearance-none rounded-lg border border-input bg-background px-3 py-2 pr-9 text-base outline-none focus:border-ring focus:ring-1 focus:ring-ring"
+            >
+              <option value="all">All regions</option>
+              {regions.map((region) => (
+                <option value={region}>{region}</option>
+              ))}
+            </select>
+            <svg class="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </div>
+          <div class="flex items-center justify-between text-base text-muted-foreground">
+            <span id="school-count">{schools.length} schools</span>
+            <button id="reset-search" class="hidden text-link underline hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded">Show all schools</button>
+          </div>
+        </div>
+
+        <div class="flex-1 overflow-y-auto rounded-xl border border-border lg:max-h-[600px]">
+          <ul id="school-list" class="divide-y divide-border">
+            {schools.map((school, i) => (
+              <li
+                class="school-item flex cursor-pointer items-start gap-3 p-3 transition-colors hover:bg-muted focus-visible:bg-muted focus-visible:outline-none"
+                tabindex="0"
+                role="button"
+                aria-label={`Focus ${school.name} on the map`}
+                data-name={school.name.toLowerCase()}
+                data-region={school.region}
+                data-lat={school.lat}
+                data-lng={school.lng}
+                data-index={i}
+              >
+                <div class="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
+                  <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <div class="min-w-0">
+                  <p class="truncate text-base font-medium">{school.name}</p>
+                  <p class="truncate text-base text-muted-foreground">{school.town}, {school.region}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+          <p id="no-results" class="hidden p-6 text-center text-base text-muted-foreground">
+            No schools found. Try a different search or clear your filters.
+          </p>
+        </div>
+      </div>
+
+      <div class="min-h-[500px] flex-1 overflow-hidden rounded-xl border border-border lg:min-h-[600px]">
+        <div id="map" style="height: 100%; width: 100%; min-height: 500px;"></div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script is:inline define:vars={{ schools }}>
+  let map;
+  let markers = [];
+  let infoWindow;
+  let searchInput;
+  let regionFilter;
+  let listItems;
+  let countLabel;
+  let resetBtn;
+  let noResults;
+  let schoolFocused = false;
+  const defaultCenter = { lat: -40.9006, lng: 174.886 };
+  const defaultZoom = 5;
+
+  function initMap() {
+    const center = { lat: -40.9006, lng: 174.886 };
+    map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 5,
+      center,
+      mapTypeControl: false,
+      streetViewControl: false,
+      fullscreenControl: true,
+    });
+    infoWindow = new google.maps.InfoWindow();
+
+    schools.forEach((school, i) => {
+      const marker = new google.maps.Marker({
+        position: { lat: school.lat, lng: school.lng },
+        map,
+        title: school.name,
+      });
+      marker.addListener('click', () => {
+        openInfoWindow(i);
+      });
+      markers.push({ marker, school, index: i });
+    });
+
+    map.addListener('idle', updateListFromMapBounds);
+  }
+
+  function openInfoWindow(index) {
+    const { marker, school } = markers[index];
+    infoWindow.setContent(
+      `<div style="padding: 6px 4px;"><strong>${school.name}</strong><br/>${school.town}, ${school.region}</div>`
+    );
+    infoWindow.open(map, marker);
+  }
+
+  function focusSchool(index) {
+    const { school } = markers[index];
+    schoolFocused = true;
+    map.panTo({ lat: school.lat, lng: school.lng });
+    if (map.getZoom() < 12) map.setZoom(14);
+    openInfoWindow(index);
+    updateResetButton();
+  }
+
+  function normalize(str) {
+    return str
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/[''.']/g, '')
+      .replace(/\./g, '')
+      .replace(/\bschool\b/g, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  function applyFilters() {
+    const query = normalize(searchInput.value);
+    const region = regionFilter.value;
+    const hasFilters = query !== '' || region !== 'all';
+
+    const matched = [];
+
+    markers.forEach(({ marker, school, index }) => {
+      const schoolName = normalize(school.name);
+      const nameMatch = query === '' || schoolName.includes(query);
+      const regionMatch = region === 'all' || school.region === region;
+      const visible = nameMatch && regionMatch;
+      marker.setVisible(visible);
+      if (visible) matched.push({ school, index });
+    });
+
+    updateList(hasFilters);
+
+    if (hasFilters && matched.length > 0 && matched.length <= 50) {
+      const bounds = new google.maps.LatLngBounds();
+      matched.forEach(({ school }) => {
+        bounds.extend({ lat: school.lat, lng: school.lng });
+      });
+      map.fitBounds(bounds, 40);
+    }
+  }
+
+  function updateList(fromSearch) {
+    let visibleCount = 0;
+
+    listItems.forEach((item) => {
+      const index = parseInt(item.dataset.index);
+      const school = schools[index];
+      const query = normalize(searchInput.value);
+      const nameMatch = query === '' || normalize(school.name).includes(query);
+      const regionMatch = regionFilter.value === 'all' || school.region === regionFilter.value;
+      const inView = fromSearch ? true : isInBounds(school);
+      const visible = nameMatch && regionMatch && inView;
+      item.style.display = visible ? '' : 'none';
+      if (visible) visibleCount++;
+    });
+
+    countLabel.textContent = `${visibleCount} school${visibleCount !== 1 ? 's' : ''}`;
+    noResults.classList.toggle('hidden', visibleCount > 0);
+    updateResetButton();
+  }
+
+  function updateListFromMapBounds() {
+    if (hasActiveFilters()) return;
+    const zoom = map.getZoom();
+    const center = map.getCenter();
+    const atDefault = zoom <= defaultZoom && center && Math.abs(center.lat() - defaultCenter.lat) < 0.01 && Math.abs(center.lng() - defaultCenter.lng) < 0.01;
+    if (atDefault && schoolFocused) {
+      schoolFocused = false;
+      updateResetButton();
+    }
+    let visibleCount = 0;
+    listItems.forEach((item) => {
+      const index = parseInt(item.dataset.index);
+      const school = schools[index];
+      const inBounds = isInBounds(school);
+      item.style.display = inBounds ? '' : 'none';
+      if (inBounds) visibleCount++;
+    });
+    countLabel.textContent = `${visibleCount} school${visibleCount !== 1 ? 's' : ''} in view`;
+    noResults.classList.toggle('hidden', visibleCount > 0);
+  }
+
+  function isInBounds(school) {
+    const bounds = map.getBounds();
+    if (!bounds) return true;
+    return bounds.contains({ lat: school.lat, lng: school.lng });
+  }
+
+  function hasActiveFilters() {
+    return searchInput.value.trim() !== '' || regionFilter.value !== 'all';
+  }
+
+  function updateResetButton() {
+    const show = hasActiveFilters() || schoolFocused;
+    resetBtn.classList.toggle('hidden', !show);
+  }
+
+  function resetFilters() {
+    searchInput.value = '';
+    regionFilter.value = 'all';
+    schoolFocused = false;
+    infoWindow.close();
+    applyFilters();
+    map.setCenter(defaultCenter);
+    map.setZoom(defaultZoom);
+    updateResetButton();
+  }
+
+  window.initMap = initMap;
+
+  document.addEventListener('DOMContentLoaded', () => {
+    searchInput = document.getElementById('school-search');
+    regionFilter = document.getElementById('region-filter');
+    listItems = document.querySelectorAll('.school-item');
+    countLabel = document.getElementById('school-count');
+    resetBtn = document.getElementById('reset-search');
+    noResults = document.getElementById('no-results');
+
+    let searchTimer;
+    searchInput.addEventListener('input', () => {
+      clearTimeout(searchTimer);
+      searchTimer = setTimeout(applyFilters, 200);
+    });
+
+    regionFilter.addEventListener('change', applyFilters);
+
+    resetBtn.addEventListener('click', resetFilters);
+
+    listItems.forEach((item) => {
+      item.addEventListener('click', () => {
+        const index = parseInt(item.dataset.index);
+        focusSchool(index);
+      });
+      item.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          const index = parseInt(item.dataset.index);
+          focusSchool(index);
+        }
+      });
+    });
+  });
+</script>
+
+<script
+  is:inline
+  src={`https://maps.googleapis.com/maps/api/js?key=${import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY || 'YOUR_API_KEY'}&callback=initMap`}
+  async defer
+></script>

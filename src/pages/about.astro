@@ -1,0 +1,120 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { testimonials } from '../data/testimonials';
+---
+
+<Layout title="About — Bike On NZ" description="Bike On New Zealand Charitable Trust was founded in 2010 with a simple aim: help more New Zealanders to experience the many joys and benefits of riding a bike.">
+  <section class="border-b border-border bg-gradient-to-b from-primary/5 to-background">
+    <div class="container-page pt-28 pb-20 md:pt-36 md:pb-28">
+    <div class="max-w-[68ch]">
+        <h1 class="text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">About Bikes in Schools</h1>
+        <p class="mt-6 text-[17px] text-muted-foreground md:text-xl">
+          Bike On New Zealand Charitable Trust (CC44779) was founded in 2010 with a simple aim: help more
+          New Zealanders to experience the many joys and benefits of riding a bike.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-page py-20">
+    <div class="max-w-[68ch]">
+      <h2 class="text-4xl font-bold tracking-tight md:text-5xl">Our vision</h2>
+      <p class="mt-8 text-[17px] text-muted-foreground">
+        Regular and equal access to bikes and bike tracks within the school environment for all New
+        Zealand school children.
+      </p>
+    </div>
+  </section>
+
+  <section class="border-t border-border bg-muted/20">
+    <div class="container-page py-20">
+      <div class="grid gap-12 md:grid-cols-2">
+        <div>
+          <h2 class="text-4xl font-bold tracking-tight md:text-5xl">What we do</h2>
+          <p class="mt-8 text-[17px] text-muted-foreground">
+            We offer free, hands-on advice to any school or council in New Zealand keen to set up a
+            Bikes in Schools project, covering everything from project management to funding to getting
+            it built.
+          </p>
+          <p class="mt-6 text-[17px] text-muted-foreground">
+            Our <a href="/guide/introduction" class="underline hover:no-underline"> free guide</a> draws on
+            what we've learned working with schools right across the country. They walk through the what,
+            why, and how of setting up a Bikes in Schools (or similar) project at any school.
+          </p>
+          <a
+            href="/guide/introduction"
+            class="mt-6 inline-flex items-center justify-center rounded-lg bg-primary px-6 py-3 text-base font-semibold text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          >
+            Explore the Guide
+          </a>
+        </div>
+        <div class="flex items-center justify-center">
+          <img
+            src="/images/about-bg.jpg"
+            alt="Children riding bikes at school"
+            class="rounded-xl object-cover shadow-lg"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-border bg-muted/30">
+    <div class="container-page py-12">
+      <h2 class="text-center text-4xl font-bold tracking-tight md:text-5xl">By the numbers</h2>
+      <p class="mt-6 text-center text-[17px] text-muted-foreground">
+        Since 2010, Bikes in Schools and similar projects have helped over 200,000 students at 350+ schools
+        get regular, equal access to a bike at school.
+      </p>
+      <div class="mt-10 grid gap-8 text-center md:grid-cols-2">
+        <div>
+          <p class="text-5xl font-bold text-link md:text-6xl">200,000+</p>
+          <p class="mt-2 text-muted-foreground">students with regular bike access</p>
+        </div>
+        <div>
+          <p class="text-5xl font-bold text-link md:text-6xl">350+</p>
+          <p class="mt-2 text-muted-foreground">schools with a project</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-page py-20">
+    <h2 class="text-4xl font-bold tracking-tight md:text-5xl">What people say</h2>
+    <div class="mt-12 grid gap-6 md:grid-cols-2">
+      {testimonials.map((t) => (
+        <figure class="rounded-xl border border-border bg-card p-6 transition-all hover:shadow-md">
+          <blockquote class="text-[17px] text-foreground">&ldquo;{t.quote}&rdquo;</blockquote>
+          <figcaption class="mt-4 flex items-center gap-3">
+            <img src={t.image} alt={t.name} class="h-12 w-12 rounded-full object-cover" loading="lazy" />
+            <div>
+              <p class="font-semibold">{t.name}</p>
+              <p class="text-base text-muted-foreground">{t.role}</p>
+            </div>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </section>
+
+  <section class="border-t border-border bg-muted/20">
+    <div class="container-page py-20">
+      <div class="rounded-2xl bg-primary p-10 text-center md:p-16">
+        <h2 class="text-4xl font-bold tracking-tight text-primary-foreground md:text-5xl">
+          Thinking about starting a project?
+        </h2>
+        <p class="mx-auto mt-4 max-w-xl text-[17px] text-primary-foreground">
+          Our guide covers everything: bikes, helmets, tracks, storage, training, costs, and funding. It's
+          free, and so is our advice.
+        </p>
+        <a
+          href="/guide/introduction"
+          class="mt-8 inline-flex items-center justify-center rounded-lg bg-foreground px-6 py-3 text-base font-semibold text-background transition-colors hover:bg-foreground/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        >
+          Read the guide
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

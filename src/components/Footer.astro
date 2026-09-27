@@ -1,0 +1,62 @@
+---
+import { guideLinks, quickLinks, socialLinks } from '../data/nav';
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-border bg-muted/30">
+  <div class="container-page py-12">
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+      <div class="space-y-4">
+        <img src="/images/logo-long.png" alt="Bike On NZ" class="h-7 w-auto" />
+        <p class="text-base text-muted-foreground">
+          Bike On New Zealand Charitable Trust (CC44779)
+        </p>
+      </div>
+
+      <div>
+        <p class="mb-3 text-base font-semibold">Quick links</p>
+        <ul class="space-y-2">
+          {quickLinks.map((link) => (
+            <li>
+              <a href={link.href} class="text-base text-muted-foreground transition-colors hover:text-link hover:underline">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <p class="mb-3 text-base font-semibold">Guide</p>
+        <ul class="space-y-2">
+          {guideLinks.map((link) => (
+            <li>
+              <a href={link.href} class="text-base text-muted-foreground transition-colors hover:text-link hover:underline">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <p class="mb-3 text-base font-semibold">Social</p>
+        <ul class="space-y-2">
+          {socialLinks.map((link) => (
+            <li>
+              <a href={link.href} target="_blank" rel="noopener noreferrer" class="text-base text-muted-foreground transition-colors hover:text-link hover:underline">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-8 border-t border-border pt-6">
+      <p class="text-base text-muted-foreground">
+        &copy; Bike On New Zealand Charitable Trust 2010&ndash;{year}
+      </p>
+    </div>
+  </div>
+</footer>

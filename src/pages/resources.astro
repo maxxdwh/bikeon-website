@@ -1,0 +1,108 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { videos, playlistUrl } from '../data/videos';
+---
+
+<Layout title="Resources — Bike On NZ" description="Games, curriculum resources, and videos to use alongside a Bikes in Schools project, for teachers and classroom use.">
+  <section class="border-b border-border bg-gradient-to-b from-primary/5 to-background">
+    <div class="container-page pt-28 pb-20 md:pt-36 md:pb-28">
+      <div class="max-w-[68ch]">
+        <h1 class="text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">Resources</h1>
+        <p class="mt-6 text-[17px] text-muted-foreground md:text-xl">
+          Games, curriculum resources, and videos to use alongside a Bikes in Schools project, for
+          teachers and classroom use.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-page py-20">
+    <div class="grid gap-12 md:grid-cols-2">
+      <div>
+        <h2 class="text-4xl font-bold tracking-tight md:text-5xl">Bike games for schools</h2>
+        <p class="mt-8 text-[17px] text-muted-foreground">
+          NZTA's <a href="https://www.bikeready.govt.nz/assets/BikeReady/Public-Resources/bikeready-bike-games-for-schools.pdf" class="underline hover:no-underline"> Bike games for schools (PDF)</a>
+          covers key skills like balance, braking, and riding one-handed. Each card explains the equipment,
+          setup, and instructions, with variations for different ages and abilities. Most work for balance
+          bikes and trikes too.
+        </p>
+      </div>
+      <div>
+        <img src="/images/bike-games.jpg" alt="Bike games for schools" class="rounded-xl object-cover shadow-lg" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-border bg-muted/20">
+    <div class="container-page py-20">
+      <h2 class="text-4xl font-bold tracking-tight md:text-5xl">For the classroom</h2>
+      <ul class="mt-8 space-y-4">
+        <li class="rounded-xl border border-border bg-card p-6">
+          <a href="https://www.bikeready.govt.nz/schools/curriculum-resources/" class="text-lg font-semibold underline hover:no-underline">
+            BikeReady curriculum resources
+          </a>
+          <p class="mt-2 text-[17px] text-muted-foreground">
+            Written by education specialist Pam Hook, directly aligned with New Zealand Curriculum
+            achievement objectives, covering both practical and classroom-based learning.
+          </p>
+        </li>
+        <li class="rounded-xl border border-border bg-card p-6">
+          <a href="https://schooltravel.gw.govt.nz/resources-and-activities/classroom-ideas/active-travel-action/" class="text-lg font-semibold underline hover:no-underline">
+            Active Travel Action resource
+          </a>
+          <p class="mt-2 text-[17px] text-muted-foreground">
+            Developed by Greater Wellington Regional Council and Enviroschools, guides schools through
+            implementing sustainable active transport practices through student inquiry.
+          </p>
+        </li>
+        <li class="rounded-xl border border-border bg-card p-6">
+          <span class="text-lg font-semibold">Bikes in Schools: Schools Guide</span>
+          <p class="mt-2 text-[17px] text-muted-foreground">
+            Produced by Greater Wellington Regional Council, a handy guide for schools planning a
+            Bikes in Schools project. Covers implementation, maintenance, and curriculum links.
+          </p>
+          <p class="mt-2 text-base text-muted-foreground">
+            Note: Link to be confirmed &mdash; the GWRC-hosted PDF is currently returning 403. See TODO.md.
+          </p>
+        </li>
+        <li class="rounded-xl border border-border bg-card p-6">
+          <a href="https://at.govt.nz/cycling-walking/travelwise-school-programme/travelwise-resources/" class="text-lg font-semibold underline hover:no-underline">
+            Travelwise resources
+          </a>
+          <p class="mt-2 text-[17px] text-muted-foreground">
+            Auckland Transport's resources covering safe travel behaviour for teachers and students.
+          </p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="container-page py-20">
+    <h2 class="text-4xl font-bold tracking-tight md:text-5xl">Cycle education videos</h2>
+    <p class="mt-6 text-[17px] text-muted-foreground">
+      <a href={playlistUrl} class="underline hover:no-underline">See the full playlist on YouTube &rarr;</a>
+    </p>
+    <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {videos.map((video) => (
+        <a
+          href={video.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group flex items-center gap-4 rounded-xl border border-border bg-card p-6 transition-all hover:border-primary/50 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        >
+          <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </div>
+          <div>
+            <p class="text-base font-semibold group-hover:text-link">{video.title}</p>
+            <p class="text-base text-muted-foreground">{video.category}</p>
+          </div>
+        </a>
+      ))}
+    </div>
+    <p class="mt-8 text-[17px] text-muted-foreground">
+      Looking for training to go alongside these resources? See our
+      <a href="/guide/cycle-skills-training" class="underline hover:no-underline"> Cycle skills training</a> page.
+    </p>
+  </section>
+</Layout>

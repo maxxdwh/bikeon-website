@@ -1,0 +1,199 @@
+@import "tailwindcss";
+@import "@fontsource-variable/inclusive-sans";
+@import "@fontsource-variable/geist";
+@plugin "@tailwindcss/typography";
+
+@theme inline {
+  --font-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Inclusive Sans Variable", ui-sans-serif, system-ui, sans-serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-link: var(--link);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+}
+
+:root {
+  --radius: 0.625rem;
+
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+
+  /* Brand color — used for backgrounds, decorative elements, non-text */
+  --primary: #23adef;
+  /* Dark text on primary backgrounds (8.6:1 on #23adef — passes AA) */
+  --primary-foreground: oklch(0.145 0 0);
+  /* Darker blue for text/links on light backgrounds (5.6:1 on white — passes AA) */
+  --link: #0c6d9c;
+
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.4 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  /* Darker border for 3:1 non-text contrast on white */
+  --border: oklch(0.88 0 0);
+  --input: oklch(0.88 0 0);
+  --ring: #0c6d9c;
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  .prose p {
+    text-wrap: pretty;
+  }
+
+  .prose li {
+    text-wrap: pretty;
+  }
+
+  .prose {
+    text-wrap: pretty;
+  }
+
+  .prose figure {
+    margin: 2rem 0;
+  }
+
+  .prose figure img {
+    border-radius: 0.75rem;
+  }
+
+  .prose figcaption {
+    margin-top: 0.5rem;
+    text-align: left;
+    color: var(--muted-foreground);
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  @media (min-width: 640px) {
+    .prose .fig-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    .prose .fig-grid figure {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .prose .fig-grid figure img {
+      flex: 1;
+      width: 100%;
+      object-fit: cover;
+      aspect-ratio: 4 / 3;
+    }
+  }
+
+  .prose a {
+    color: var(--tw-prose-body);
+    font-weight: 400;
+    text-decoration-color: var(--border);
+    text-underline-offset: 2px;
+    transition: text-decoration-color 0.15s;
+  }
+
+  .prose a:hover {
+    text-decoration-color: var(--link);
+  }
+
+  .prose a .external-link-icon {
+    display: inline;
+    width: 1em;
+    height: 1em;
+    margin-left: 0.15em;
+    vertical-align: baseline;
+    opacity: 0.6;
+  }
+
+  .prose a:hover .external-link-icon {
+    opacity: 1;
+  }
+
+  a {
+    color: var(--link);
+  }
+}
+
+@layer components {
+  .container-page {
+    max-width: 80rem;
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    .container-page {
+      padding-inline: 2rem;
+    }
+  }
+
+  .skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -3rem;
+    z-index: 100;
+    border-radius: 0.5rem;
+    background: var(--foreground);
+    color: var(--background);
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: top 0.2s;
+  }
+
+  .skip-link:focus {
+    top: 1rem;
+  }
+}

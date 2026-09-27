@@ -1,0 +1,162 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection, render } from 'astro:content';
+import { supplierCategories } from '../../data/suppliers';
+
+export async function getStaticPaths() {
+  const guides = (await getCollection('guide')).sort((a, b) => a.data.order - b.data.order);
+  return guides.map((guide, i) => ({
+    params: { slug: guide.id },
+    props: {
+      guide,
+      prev: i > 0 ? guides[i - 1] : null,
+      next: i < guides.length - 1 ? guides[i + 1] : null,
+    },
+  }));
+}
+
+const { guide, prev, next } = Astro.props;
+const { Content } = await render(guide);
+const allGuides = (await getCollection('guide')).sort((a, b) => a.data.order - b.data.order);
+
+const showBikeSuppliers = guide.id === 'bikes';
+const showStorageSuppliers = guide.id === 'bike-storage';
+const logoKey = import.meta.env.PUBLIC_LOGO_DEV_KEY;
+---
+
+<Layout title={`${guide.data.title} — Bike On NZ`} description={guide.data.description}>
+  <section class="border-b border-border bg-gradient-to-b from-primary/5 to-background">
+    <div class="container-page pt-28 pb-12 md:pt-36 md:pb-16">
+      <div class="flex flex-col gap-10 md:flex-row md:items-center">
+        <div class="flex-1">
+          <nav class="mb-6 text-base text-muted-foreground" aria-label="Breadcrumb">
+            <a href="/guide/introduction" class="underline hover:no-underline">Guide</a>
+            <span class="mx-2" aria-hidden="true">/</span>
+            <span class="text-foreground">{guide.data.title}</span>
+          </nav>
+          <h1 class="text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">{guide.data.title}</h1>
+          <p class="mt-6 max-w-2xl text-balance text-[17px] text-muted-foreground md:text-xl">{guide.data.description}</p>
+        </div>
+        <img src={guide.data.heroImage} alt="" class="max-h-80 w-full max-w-sm rounded-2xl object-cover shadow-sm md:w-auto" />
+      </div>
+    </div>
+  </section>
+
+  <div class="container-page py-12">
+    <div class="grid gap-6 lg:grid-cols-12">
+      <aside class="hidden lg:col-span-3 lg:block">
+        <div class="sticky top-28">
+          <p class="mb-2 text-base font-semibold">Guide sections</p>
+          <ul class="space-y-0">
+            {allGuides.map((g) => (
+              <li>
+                <a
+                  href={`/guide/${g.id}`}
+                  class={`-ml-3 block rounded-lg px-3 py-2 text-base transition-all duration-200 ${g.id === guide.id ? 'bg-primary/10 font-semibold text-link' : 'text-muted-foreground hover:bg-muted hover:text-link'}`}
+                >
+                  {g.data.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </aside>
+
+      <article class="prose col-span-12 mx-auto max-w-[72ch] px-6 prose-p:text-[17px] prose-p:leading-[1.7] prose-headings:font-bold prose-headings:tracking-tight prose-headings:font-[var(--font-heading)] prose-headings:text-wrap-balance prose-h2:text-3xl prose-h2:mt-14 prose-h2:mb-4 prose-h2:first:mt-0 prose-h3:text-xl prose-h3:mt-10 prose-h3:mb-3 prose-h4:text-xl prose-h4:mt-8 prose-h4:mb-3 prose-p:mt-5 prose-p:mb-5 prose-p:text-wrap-pretty prose-ul:mt-5 prose-ul:mb-5 prose-ol:mt-5 prose-ol:mb-5 prose-li:mt-2 prose-a:underline prose-strong:font-normal lg:col-span-7">
+        <Content />
+
+        {(showBikeSuppliers || showStorageSuppliers) && (
+          <div class="not-prose mt-8">
+            <div class="divide-y divide-border">
+              {(showBikeSuppliers ? supplierCategories.find((c) => c.category === 'Bikes')?.suppliers : supplierCategories.find((c) => c.category === 'Bike storage')?.suppliers)?.map((s) => (
+                <div class="flex flex-col gap-2 py-4 sm:flex-row sm:items-center sm:gap-6">
+                  <div class="flex items-start gap-4 sm:flex-1">
+                    {s.website && (
+                      <img
+                        src={`https://img.logo.dev/${new URL(s.website).hostname}?token=${logoKey}&size=128&format=webp&retina=true`}
+                        alt=""
+                        width="40"
+                        height="40"
+                        class="h-10 w-10 rounded-md shrink-0 object-contain"
+                        loading="lazy"
+                      />
+                    )}
+                    <div>
+                      <p class="text-lg font-semibold leading-tight text-foreground" style="font-family: var(--font-heading)">{s.name}</p>
+                      <div class="mt-1 flex flex-row gap-4 text-base text-muted-foreground">
+                        {s.contact && <span class="font-medium text-foreground">{s.contact}</span>}
+                        {s.phone && <span>{s.phone}</span>}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-1">
+                    {s.email && (
+                      <button
+                        type="button"
+                        class="copy-btn inline-flex h-8 items-center gap-1.5 rounded-lg px-2 text-base font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-link"
+                        data-copy={s.email}
+                        aria-label={`Copy email address: ${s.email}`}
+                      >
+                        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                        <span class="copy-label">Email</span>
+                      </button>
+                    )}
+                    {s.website && (
+                      <a
+                        href={s.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex h-8 items-center gap-1.5 rounded-lg px-2 text-base font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-link"
+                        aria-label={`Visit ${s.name} website (opens in new tab)`}
+                      >
+                        <span>Website</span>
+                        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+                      </a>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </article>
+    </div>
+
+    <nav class="mt-16 flex items-center justify-between border-t border-border pt-8" aria-label="Guide navigation">
+      {prev ? (
+        <a href={`/guide/${prev.id}`} class="group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-lg p-1">
+          <span class="text-base text-muted-foreground">Previous</span>
+          <p class="mt-1 font-semibold group-hover:text-link">{prev.data.title}</p>
+        </a>
+      ) : <span />}
+      {next ? (
+        <a href={`/guide/${next.id}`} class="group text-right focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-lg p-1">
+          <span class="text-base text-muted-foreground">Next</span>
+          <p class="mt-1 font-semibold group-hover:text-link">{next.data.title}</p>
+        </a>
+      ) : <span />}
+    </nav>
+  </div>
+</Layout>
+
+<script>
+  document.querySelectorAll('.copy-btn')?.forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      const text = btn.dataset.copy;
+      if (!text) return;
+      const label = btn.querySelector('.copy-label');
+      try {
+        await navigator.clipboard.writeText(text);
+        if (label) {
+          const original = label.textContent;
+          label.textContent = 'Copied';
+          btn.classList.add('text-link');
+          setTimeout(() => {
+            label.textContent = original;
+            btn.classList.remove('text-link');
+          }, 1500);
+        }
+      } catch {}
+    });
+  });
+</script>
