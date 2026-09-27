@@ -86,7 +86,7 @@
     font-weight: 700;
     letter-spacing: -0.04em;
     text-wrap: balance;
-    scroll-margin-top: 7rem;
+    scroll-margin-top: 9rem;
   }
 
   p {
@@ -110,7 +110,7 @@
   }
 
   .prose figure img {
-    border-radius: 0.75rem;
+    border-radius: 0.5rem;
   }
 
   .prose figcaption {
@@ -124,7 +124,7 @@
   @media (min-width: 640px) {
     .prose .fig-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
       gap: 1rem;
       margin: 2rem 0;
     }
@@ -205,6 +205,14 @@
     .container-page {
       padding-inline: 2rem;
     }
+  }
+
+  .hero-dither {
+    background-image:
+      linear-gradient(to bottom, oklch(0.85 0.12 230 / 0.20), var(--background)),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='2' height='2'%3E%3Crect width='1' height='1' fill='black' opacity='0.15'/%3E%3Crect x='1' y='1' width='1' height='1' fill='black' opacity='0.15'/%3E%3C/svg%3E");
+    background-size: 100% 100%, 3px 3px;
+    background-blend-mode: normal, multiply;
   }
 
   .skip-link {

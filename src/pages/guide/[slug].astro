@@ -25,10 +25,24 @@ const logoKey = import.meta.env.PUBLIC_LOGO_DEV_KEY;
 ---
 
 <Layout title={`${guide.data.title} — Bike On NZ`} description={guide.data.description}>
+  <nav id="guide-nav" class="sticky top-[76px] z-40 mx-auto w-[calc(100%-1.5rem)] max-w-[80rem] rounded-2xl border border-black/5 transition-colors duration-200">
+    <div class="container-page">
+      <div class="flex justify-center gap-1 overflow-x-auto px-6 py-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        {allGuides.map((g) => (
+          <a
+            href={`/guide/${g.id}`}
+            class={`shrink-0 rounded-full px-3 py-1.5 text-sm font-medium transition-colors ${g.id === guide.id ? 'bg-primary/10 text-foreground' : 'text-muted-foreground hover:bg-muted hover:text-foreground'}`}
+          >
+            {g.data.title}
+          </a>
+        ))}
+      </div>
+    </div>
+  </nav>
+
   <section class="relative overflow-hidden">
     <div class="absolute inset-0 bg-gradient-to-b from-[#23adef]/20 to-background"></div>
-    <div class="pointer-events-none absolute inset-0 opacity-40 mix-blend-overlay" style="background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23n)' /%3E%3C/svg%3E&quot;);"></div>
-    <div class="relative z-10 container-page pt-28 pb-16 text-center md:pt-44">
+    <div class="relative z-10 container-page pt-28 pb-12 text-center md:pt-44">
       <p class="text-sm font-semibold uppercase tracking-wider text-primary" style="font-family: var(--font-mono)">Guide</p>
       <div class="mx-auto mt-3 max-w-[68ch]">
         <h1 class="text-4xl font-bold tracking-tight [text-wrap:balance] md:text-5xl lg:text-6xl">{guide.data.title}</h1>
@@ -38,31 +52,13 @@ const logoKey = import.meta.env.PUBLIC_LOGO_DEV_KEY;
   </section>
 
   <div class="w-full py-12">
-    <div class="flex w-full gap-8 px-6 lg:px-12 lg:items-start">
-      <aside class="hidden flex-1 justify-end lg:flex">
-        <div class="sticky top-28 w-48">
-          <p class="mb-2 text-base font-semibold">The Guide</p>
-          <ul class="space-y-0">
-            {allGuides.map((g) => (
-              <li>
-                <a
-                  href={`/guide/${g.id}`}
-                  class={`-ml-3 block rounded-lg px-3 py-2 text-base transition-all duration-200 ${g.id === guide.id ? 'bg-primary/10 font-semibold text-foreground' : 'text-muted-foreground hover:bg-muted hover:text-foreground'}`}
-                >
-                  {g.data.title}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </aside>
-
-      <article class="prose w-full max-w-[72ch] shrink-0 prose-p:text-[17px] prose-p:leading-[1.7] prose-headings:font-bold prose-headings:tracking-tight prose-headings:font-[var(--font-heading)] prose-headings:text-wrap-balance prose-h2:text-3xl prose-h2:mt-14 prose-h2:mb-4 prose-h2:first:mt-0 prose-h3:text-xl prose-h3:mt-10 prose-h3:mb-3 prose-h4:text-xl prose-h4:mt-8 prose-h4:mb-3 prose-p:mt-5 prose-p:mb-5 prose-p:text-wrap-pretty prose-ul:mt-5 prose-ul:mb-5 prose-ol:mt-5 prose-ol:mb-5 prose-li:mt-2 prose-a:underline prose-a:font-normal prose-strong:font-normal">
+    <div class="mx-auto flex w-full max-w-[80rem] gap-12 px-6 lg:items-start">
+      <article class="prose mx-auto w-full max-w-[60ch] flex-1 px-6 lg:px-0 prose-p:text-[17px] prose-p:leading-[1.7] prose-headings:font-bold prose-headings:tracking-tight prose-headings:font-[var(--font-heading)] prose-headings:text-wrap-balance prose-h2:text-3xl prose-h2:mt-14 prose-h2:mb-4 prose-h2:first:mt-0 prose-h3:text-xl prose-h3:mt-10 prose-h3:mb-3 prose-h4:text-xl prose-h4:mt-8 prose-h4:mb-3 prose-p:mt-5 prose-p:mb-5 prose-p:text-wrap-pretty prose-ul:mt-5 prose-ul:mb-5 prose-ol:mt-5 prose-ol:mb-5 prose-li:mt-2 prose-a:underline prose-a:font-normal prose-strong:font-normal">
         <div class="not-prose mb-8 lg:hidden">
           <p class="mb-2 text-sm font-semibold text-muted-foreground">On this page</p>
           <div id="toc-pills" class="flex flex-wrap gap-2"></div>
         </div>
-        <img src={guide.data.heroImage} alt="" class="not-prose mb-8 w-full rounded-2xl object-cover shadow-sm" />
+        <img src={guide.data.heroImage} alt="" class="not-prose mb-8 w-full rounded-lg object-cover shadow-sm" />
         <Content />
 
         {(showBikeSuppliers || showStorageSuppliers) && (
@@ -121,15 +117,15 @@ const logoKey = import.meta.env.PUBLIC_LOGO_DEV_KEY;
         )}
       </article>
 
-      <aside class="hidden flex-1 lg:flex">
-        <div class="sticky top-28 w-48">
+      <aside class="hidden shrink-0 self-stretch lg:block" style="width: 260px;">
+        <div class="sticky top-[130px]">
           <p class="mb-2 text-base font-semibold">On this page</p>
           <ul id="toc-list" class="space-y-0 text-sm"></ul>
         </div>
       </aside>
     </div>
 
-    <nav class="mx-auto mt-16 w-full max-w-[72ch] px-6 flex flex-col gap-4 sm:grid sm:grid-cols-2 lg:px-0" aria-label="Guide navigation">
+    <nav class="mx-auto mt-16 w-full max-w-[60ch] px-6 flex flex-col gap-4 sm:grid sm:grid-cols-2 lg:px-0" aria-label="Guide navigation">
       {prev ? (
         <a href={`/guide/${prev.id}`} class="group flex flex-col gap-1 rounded-xl border border-border p-5 transition-colors hover:bg-primary/10 hover:border-primary/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
           <span class="flex items-center gap-1 text-sm text-muted-foreground">
@@ -149,6 +145,18 @@ const logoKey = import.meta.env.PUBLIC_LOGO_DEV_KEY;
     </nav>
   </div>
 </Layout>
+
+<script>
+  const guideNav = document.getElementById('guide-nav');
+  if (guideNav) {
+    const update = () => {
+      guideNav.classList.toggle('bg-background/80', window.scrollY > 100);
+      guideNav.classList.toggle('backdrop-blur-lg', window.scrollY > 100);
+    };
+    window.addEventListener('scroll', update);
+    update();
+  }
+</script>
 
 <script>
   document.querySelectorAll('.copy-btn')?.forEach((btn) => {
@@ -201,7 +209,7 @@ const logoKey = import.meta.env.PUBLIC_LOGO_DEV_KEY;
       let activeIdx = -1;
       headings.forEach((h, i) => {
         const rect = h.getBoundingClientRect();
-        if (rect.top <= 120) activeIdx = i;
+        if (rect.top <= 140) activeIdx = i;
       });
       tocLinks.forEach((link, i) => {
         if (i === activeIdx) {
