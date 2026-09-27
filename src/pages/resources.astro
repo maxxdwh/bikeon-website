@@ -23,16 +23,11 @@ const gameVideos = videosWithThumbs.filter((v) => v.category === 'Bike Games');
 
   <section class="container-page py-12">
     <div class="grid gap-6 lg:grid-cols-12">
-      <div class="prose col-span-12 mx-auto max-w-[72ch] px-6 prose-p:text-[17px] prose-p:leading-[1.7] prose-headings:font-bold prose-headings:tracking-tight prose-headings:font-[var(--font-heading)] prose-headings:text-wrap-balance prose-h2:text-3xl prose-h2:mt-14 prose-h2:mb-4 prose-h2:first:mt-0 prose-h3:text-xl prose-h3:mt-10 prose-h3:mb-3 prose-h4:text-xl prose-h4:mt-8 prose-h4:mb-3 prose-p:mt-5 prose-p:mb-5 prose-p:text-wrap-pretty prose-ul:mt-5 prose-ul:mb-5 prose-ol:mt-5 prose-ol:mb-5 prose-li:mt-2 prose-a:underline prose-strong:font-normal lg:col-span-7 lg:col-start-3">
+      <div class="prose col-span-12 mx-auto max-w-[72ch] prose-p:text-[17px] prose-p:leading-[1.7] prose-headings:font-bold prose-headings:tracking-tight prose-headings:font-[var(--font-heading)] prose-headings:text-wrap-balance prose-h2:text-3xl prose-h2:mt-14 prose-h2:mb-4 prose-h2:first:mt-0 prose-h3:text-xl prose-h3:mt-10 prose-h3:mb-3 prose-h4:text-xl prose-h4:mt-8 prose-h4:mb-3 prose-p:mt-5 prose-p:mb-5 prose-p:text-wrap-pretty prose-ul:mt-5 prose-ul:mb-5 prose-ol:mt-5 prose-ol:mb-5 prose-li:mt-2 prose-a:underline prose-strong:font-normal lg:col-span-7 lg:col-start-3">
 
-        <div class="not-prose mb-6 lg:hidden">
-          <div class="relative">
-            <label for="toc-select" class="sr-only">On this page</label>
-            <select id="toc-select" class="w-full appearance-none rounded-[0.625rem] border border-border bg-background px-4 text-base outline-none focus:border-ring focus:ring-2 focus:ring-ring" style="height: 2.5rem;">
-              <option value="">On this page</option>
-            </select>
-            <Icon name="tabler:chevron-down" class="pointer-events-none absolute right-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-          </div>
+        <div class="not-prose mb-8 lg:hidden">
+          <p class="mb-2 text-sm font-semibold text-muted-foreground">On this page</p>
+          <div id="toc-pills" class="flex flex-wrap gap-2"></div>
         </div>
 
         <h2>Bike games for schools</h2>
@@ -175,7 +170,7 @@ const gameVideos = videosWithThumbs.filter((v) => v.category === 'Bike Games');
   const tocList = document.getElementById('toc-list');
   if (article && tocList) {
     const headings = article.querySelectorAll('h2');
-    const tocSelect = document.getElementById('toc-select');
+    const tocPills = document.getElementById('toc-pills');
     headings.forEach((h, i) => {
       if (!h.id) h.id = 'heading-' + i;
       const li = document.createElement('li');
@@ -185,20 +180,17 @@ const gameVideos = videosWithThumbs.filter((v) => v.category === 'Bike Games');
       a.className = 'toc-link -ml-3 block rounded-lg px-3 py-1.5 text-muted-foreground transition-colors hover:bg-primary/10 hover:text-foreground';
       li.appendChild(a);
       tocList.appendChild(li);
-      if (tocSelect) {
-        const opt = document.createElement('option');
-        opt.value = h.id;
-        opt.textContent = h.textContent;
-        tocSelect.appendChild(opt);
+      if (tocPills) {
+        const pill = document.createElement('a');
+        pill.href = '#' + h.id;
+        pill.textContent = h.textContent;
+        pill.className = 'toc-pill rounded-full border border-border px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:bg-muted';
+        tocPills.appendChild(pill);
       }
     });
-    if (tocSelect) {
-      tocSelect.addEventListener('change', () => {
-        if (tocSelect.value) document.getElementById(tocSelect.value)?.scrollIntoView({ behavior: 'smooth' });
-      });
-    }
 
     const tocLinks = tocList.querySelectorAll('.toc-link');
+    const tocPillsAll = tocPills ? tocPills.querySelectorAll('.toc-pill') : [];
     let ticking = false;
     function updateActive() {
       let activeIdx = -1;
@@ -213,6 +205,15 @@ const gameVideos = videosWithThumbs.filter((v) => v.category === 'Bike Games');
         } else {
           link.classList.remove('text-foreground', 'font-medium');
           link.classList.add('text-muted-foreground');
+        }
+      });
+      tocPillsAll.forEach((pill, i) => {
+        if (i === activeIdx) {
+          pill.classList.add('bg-primary/10', 'text-foreground', 'font-medium');
+          pill.classList.remove('text-muted-foreground');
+        } else {
+          pill.classList.remove('bg-primary/10', 'text-foreground', 'font-medium');
+          pill.classList.add('text-muted-foreground');
         }
       });
       ticking = false;
