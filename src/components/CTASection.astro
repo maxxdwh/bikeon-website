@@ -1,0 +1,54 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<section class="container-page py-20">
+  <a href="/guide/introduction" id="cta-block" class="group relative block overflow-hidden rounded-2xl bg-primary px-6 py-16 text-center md:px-16 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+    <div class="relative z-10 mx-auto max-w-xl">
+      <h2 class="text-4xl font-bold tracking-tight text-balance text-primary-foreground md:text-5xl">
+        Planning a Bikes in Schools project?
+      </h2>
+      <p class="mt-4 text-[17px] text-balance text-primary-foreground">
+        Our guide covers everything: bikes, helmets, tracks, storage, training, costs, and funding. It's
+        free, and so is our advice.
+      </p>
+      <span
+        class="btn btn-secondary mt-8 bg-white text-primary hover:bg-white/90"
+      >
+        <span class="inline-flex items-center">Read the guide</span>
+        <Icon name="tabler:arrow-right" class="h-4 w-0 shrink-0 overflow-hidden opacity-0 transition-all duration-200 group-hover:ml-2 group-hover:w-4 group-hover:opacity-100" />
+      </span>
+    </div>
+    <div id="polaroids" class="relative z-10 mt-16 -mb-32 flex justify-center">
+      <img src="/images/opening-event-1.jpg" alt="" class="polaroid hidden h-36 w-auto -rotate-5 -mr-6 rounded-xl border-4 border-white object-cover shadow-xl md:block" loading="lazy" aria-hidden="true" />
+      <img src="/images/opening-event-2.jpg" alt="" class="polaroid hidden h-36 w-auto rotate-3 -mr-6 rounded-xl border-4 border-white object-cover shadow-xl md:block" loading="lazy" aria-hidden="true" />
+      <img src="/images/opening-event-3.jpg" alt="" class="polaroid hidden h-36 w-auto -rotate-3 -mr-6 rounded-xl border-4 border-white object-cover shadow-xl md:block" loading="lazy" aria-hidden="true" />
+      <img src="/images/opening-event-4.jpg" alt="" class="polaroid hidden h-36 w-auto rotate-5 -mr-6 rounded-xl border-4 border-white object-cover shadow-xl md:block" loading="lazy" aria-hidden="true" />
+      <img src="/images/bledisloe-opening.jpg" alt="" class="polaroid hidden h-36 w-auto -rotate-4 rounded-xl border-4 border-white object-cover shadow-xl md:block" loading="lazy" aria-hidden="true" />
+    </div>
+  </a>
+</section>
+
+<script>
+  const cta = document.getElementById('cta-block');
+  const polaroids = document.querySelectorAll('.polaroid');
+  if (cta && polaroids.length) {
+    const delays = Array.from(polaroids).map(() => 50 + Math.random() * 150);
+    const minDelay = Math.min(...delays);
+    cta.addEventListener('mouseenter', () => {
+      polaroids.forEach((p, i) => {
+        p.style.transition = 'none';
+        p.style.transform = 'translateY(2rem)';
+        p.offsetHeight;
+        p.style.transition = `transform 200ms cubic-bezier(0.34, 1.56, 0.64, 1) ${delays[i] - minDelay}ms`;
+        p.style.transform = 'translateY(-1.25rem)';
+      });
+    });
+    cta.addEventListener('mouseleave', () => {
+      polaroids.forEach((p, i) => {
+        p.style.transition = `transform 200ms ease-out ${delays[i] - minDelay}ms`;
+        p.style.transform = 'translateY(2rem)';
+      });
+    });
+  }
+</script>

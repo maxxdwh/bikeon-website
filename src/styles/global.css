@@ -1,11 +1,13 @@
 @import "tailwindcss";
 @import "@fontsource-variable/inclusive-sans";
 @import "@fontsource-variable/geist";
+@import "@fontsource-variable/geist-mono";
 @plugin "@tailwindcss/typography";
 
 @theme inline {
   --font-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
-  --font-heading: "Inclusive Sans Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono Variable", ui-monospace, monospace;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -34,31 +36,31 @@
 }
 
 :root {
-  --radius: 0.625rem;
+  --radius: 0.3125rem;
 
   --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
+  --foreground: oklch(0.145 0.02 240);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
+  --card-foreground: oklch(0.145 0.02 240);
 
   /* Brand color — used for backgrounds, decorative elements, non-text */
-  --primary: #23adef;
-  /* Dark text on primary backgrounds (8.6:1 on #23adef — passes AA) */
-  --primary-foreground: oklch(0.145 0 0);
-  /* Darker blue for text/links on light backgrounds (5.6:1 on white — passes AA) */
-  --link: #0c6d9c;
+  --primary: #006da8;
+  /* White text on primary backgrounds (5.6:1 on #006da8 — passes AA) */
+  --primary-foreground: oklch(1 0 0);
+  /* Monochrome links — same as foreground, distinguished by underline */
+  --link: oklch(0.145 0.02 240);
 
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.4 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.97 0.01 240);
+  --secondary-foreground: oklch(0.205 0.01 240);
+  --muted: oklch(0.97 0.01 240);
+  --muted-foreground: oklch(0.42 0.03 240);
+  --accent: oklch(0.97 0.01 240);
+  --accent-foreground: oklch(0.205 0.01 240);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.985 0 0);
   /* Darker border for 3:1 non-text contrast on white */
-  --border: oklch(0.88 0 0);
-  --input: oklch(0.88 0 0);
+  --border: oklch(0.88 0.01 240);
+  --input: oklch(0.88 0.01 240);
   --ring: #0c6d9c;
 }
 
@@ -75,11 +77,16 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
     font-weight: 700;
     letter-spacing: -0.04em;
     text-wrap: balance;
+    scroll-margin-top: 7rem;
   }
 
   p {
@@ -164,6 +171,27 @@
   a {
     color: var(--link);
   }
+
+  .prose table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+  }
+
+  .prose th {
+    text-align: left;
+    font-weight: 600;
+  }
+
+  .prose td {
+    text-align: left;
+  }
+
+  .prose td:nth-child(2) {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
 }
 
 @layer components {
@@ -195,5 +223,49 @@
 
   .skip-link:focus {
     top: 1rem;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.5rem;
+    padding-inline: 1rem;
+    border-radius: 0.625rem;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.15s ease;
+  }
+
+  .btn-primary {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+  }
+
+  .btn-primary:hover {
+    background-color: color-mix(in oklch, var(--primary) 90%, black);
+  }
+
+  .btn-secondary {
+    background-color: var(--background);
+    color: var(--foreground);
+    border: 1px solid var(--border);
+  }
+
+  .btn-secondary:hover {
+    background-color: var(--muted);
+  }
+
+  .btn-ghost {
+    color: var(--foreground);
+  }
+
+  .btn-ghost:hover {
+    background-color: var(--muted);
+  }
+
+  .btn:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--ring);
   }
 }

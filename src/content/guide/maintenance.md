@@ -1,6 +1,6 @@
 ---
 title: "Maintenance"
-description: "How to keep bikes, tracks, and helmets safe and ready to use, year after year."
+description: "Keeping bikes, tracks, and helmets safe year after year."
 order: 8
 heroImage: "/images/guide/maintenance.webp"
 ---
@@ -9,7 +9,7 @@ heroImage: "/images/guide/maintenance.webp"
 
 Limestone tracks built to 100mm deep mostly need an occasional weed spray and some attention around the edges of the riding track. Pump and skills tracks need weeding too, and a limestone pump track might need a light top-up once a year.
 
-Most schools fold this into regular property maintenance, handled by the caretaker. An annual working bee, or a call back to whoever built the track, works just as well. A levelling bar helps with riding track upkeep — it makes the construction and maintenance of a limestone riding track much easier. A power broom does the same for the skills track, great for tidying up.
+Most schools fold this into regular property maintenance, handled by the caretaker. An annual working bee, or a call back to whoever built the track, works just as well. A levelling bar helps with riding track upkeep. It makes the construction and maintenance of a limestone riding track much easier. A power broom does the same for the skills track, great for tidying up.
 
 ## Bike maintenance
 
@@ -40,7 +40,7 @@ A few "bike tips" signs around the tracks help reinforce safe riding. Examples f
 2. Make a V shape with two fingers and slide it under your ears: the straps should sit firm against your fingers.
 3. One finger under the chin strap: it should feel firm there too.
 
-If anyone has a crash — especially a knock to the head — tell an adult straight away.
+If anyone has a crash (especially a knock to the head), tell an adult straight away.
 
 [Check and fit your helmet](https://at.govt.nz/cycling-walking/bikes-gear/cycling-gear/check-and-fit-your-helmet) from Auckland Transport.
 

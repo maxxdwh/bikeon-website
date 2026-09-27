@@ -1,76 +1,262 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import HeroSection from '../components/HeroSection.astro';
+import { Icon } from 'astro-icon/components';
 import media from '../data/media.json';
 
-const years = [...new Set(media.map((m) => m.year))].sort((a, b) => b - a);
+function getHostname(url) {
+  try {
+    return new URL(url).hostname.replace(/^www\./, '');
+  } catch {
+    return null;
+  }
+}
+
+const sourceCounts = Object.entries(
+  media.reduce((acc, m) => {
+    acc[m.source] = (acc[m.source] ?? 0) + 1;
+    return acc;
+  }, {})
+).sort((a, b) => b[1] - a[1]).filter(([, count]) => count >= 5);
+
+const sourceHostnames = {};
+for (const m of media) {
+  if (!sourceHostnames[m.source]) {
+    const h = getHostname(m.url);
+    if (h) sourceHostnames[m.source] = h;
+  }
+}
+
+const mediaWithLogos = media.map((m) => ({
+  ...m,
+  hostname: getHostname(m.url),
+}));
 ---
 
 <Layout title="Media — Bike On NZ" description="Year by year press coverage since the very first Bikes in Schools opening back in 2010.">
-  <section class="border-b border-border bg-gradient-to-b from-primary/5 to-background">
-    <div class="container-page pt-28 pb-20 md:pt-36 md:pb-28">
-      <div class="max-w-[68ch]">
-        <h1 class="text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">Media</h1>
-        <p class="mt-6 text-[17px] text-muted-foreground md:text-xl">
-          Year by year press coverage since the very first Bikes in Schools opening back in 2010.
-        </p>
+  <HeroSection
+    title="Media"
+    description="Year by year press coverage since the very first Bikes in Schools opening back in 2010."
+    centered
+  />
+
+  <section class="container-page py-6">
+    <div class="flex flex-col gap-4 lg:flex-row lg:items-stretch">
+      <div class="flex flex-col lg:w-80 lg:shrink-0">
+        <div class="mb-3 space-y-2">
+          <div class="relative">
+            <Icon name="tabler:search" class="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+            <label for="media-search" class="sr-only">Search stories</label>
+            <input
+              type="search"
+              id="media-search"
+              placeholder="Search stories..."
+              class="w-full rounded-[0.625rem] border border-border bg-background pl-10 pr-4 text-base outline-none focus:border-ring focus:ring-2 focus:ring-ring"
+              style="height: 2.5rem;"
+            />
+          </div>
+
+          <button id="mobile-filter-toggle" class="btn btn-secondary w-full lg:hidden">
+            <Icon name="tabler:adjustments" class="mr-2 h-4 w-4" /> Filter
+          </button>
+
+          <div id="publisher-list" class="space-y-1 lg:block hidden">
+            <button data-source="all" class="publisher-chip flex w-full items-center justify-between gap-2 rounded-lg px-3 py-1.5 text-sm transition-colors bg-primary/10 font-semibold text-primary">Show all</button>
+            {sourceCounts.map(([source, count]) => (
+              <button data-source={source} class="publisher-chip flex w-full items-center gap-2 rounded-lg px-3 py-1.5 text-sm transition-colors hover:bg-muted">
+                {sourceHostnames[source] ? (
+                  <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-white">
+                    <img
+                      src={`https://www.google.com/s2/favicons?domain=${sourceHostnames[source]}&sz=32`}
+                      alt=""
+                      width="12"
+                      height="12"
+                      class="h-3 w-3 object-contain"
+                      loading="lazy"
+                    />
+                  </span>
+                ) : null}
+                <span class="truncate">{source}</span>
+                <span class="ml-auto shrink-0 opacity-50">{count}</span>
+              </button>
+            ))}
+          </div>
+
+          <div class="flex items-center justify-between text-base text-muted-foreground">
+            <span id="story-count">{media.length} stories</span>
+            <button id="reset-search" class="hidden text-foreground underline hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded">Clear</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex-1">
+        <div id="media-cards" class="divide-y divide-border rounded-xl border border-border">
+          {mediaWithLogos.map((story) => (
+            story.archived ? (
+              <div
+                data-search={`${story.title} ${story.source} ${story.date} ${story.year}`.toLowerCase()}
+                data-year={story.year}
+                data-source={story.source}
+                class="media-card group flex items-start gap-3 p-3 transition-colors hover:bg-muted"
+              >
+                {story.hostname ? (
+                  <img
+                    src={`https://www.google.com/s2/favicons?domain=${story.hostname}&sz=96`}
+                    alt=""
+                    width="20"
+                    height="20"
+                    class="h-5 w-5 shrink-0 object-contain"
+                    loading="lazy"
+                  />
+                ) : (
+                  <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-primary/10 text-sm font-medium text-primary">
+                    {story.source.charAt(0)}
+                  </span>
+                )}
+                <div class="min-w-0 flex-1">
+                  <p class="font-medium leading-snug group-hover:text-foreground">{story.title}</p>
+                  <p class="mt-0.5 text-sm text-muted-foreground">{story.source} · {story.date}</p>
+                </div>
+                <span class="mt-0.5 shrink-0 text-sm text-muted-foreground opacity-0 transition-opacity duration-150 group-hover:opacity-100">Archived</span>
+              </div>
+            ) : (
+              <a
+                href={story.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-search={`${story.title} ${story.source} ${story.date} ${story.year}`.toLowerCase()}
+                data-year={story.year}
+                data-source={story.source}
+                class="media-card group flex items-start gap-3 p-3 transition-colors hover:bg-muted focus-visible:outline-none focus-visible:bg-muted"
+              >
+                {story.hostname ? (
+                  <img
+                    src={`https://www.google.com/s2/favicons?domain=${story.hostname}&sz=96`}
+                    alt=""
+                    width="20"
+                    height="20"
+                    class="h-5 w-5 shrink-0 object-contain"
+                    loading="lazy"
+                  />
+                ) : (
+                  <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-primary/10 text-sm font-medium text-primary">
+                    {story.source.charAt(0)}
+                  </span>
+                )}
+                <div class="min-w-0 flex-1">
+                  <p class="font-medium leading-snug group-hover:text-foreground">{story.title}</p>
+                  <p class="mt-0.5 text-sm text-muted-foreground">{story.source} · {story.date}</p>
+                </div>
+                <Icon name="tabler:arrow-up-right" class="h-4 w-4 shrink-0 text-muted-foreground opacity-40 transition-opacity group-hover:opacity-100" />
+              </a>
+            )
+          ))}
+        </div>
+        <div id="no-results" class="hidden flex-col items-center justify-center gap-3 py-16 text-center">
+          <div class="space-y-1">
+            <p class="text-lg font-medium">No stories found</p>
+            <p class="text-sm text-muted-foreground">Try a different search or clear your filters.</p>
+          </div>
+          <button id="no-results-clear" class="btn btn-secondary mt-4">Clear filters</button>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="container-page py-12">
-    <div class="mb-8 flex flex-wrap items-center gap-3">
-      <label for="year-filter" class="text-base font-medium">Filter by year:</label>
-      <select
-        id="year-filter"
-        class="rounded-lg border border-input bg-background px-3 py-2 text-base outline-none focus:border-ring focus:ring-1 focus:ring-ring"
-      >
-        <option value="all">All years</option>
-        {years.map((year) => (
-          <option value={year}>{year}</option>
-        ))}
-      </select>
-      <span id="story-count" class="text-base text-muted-foreground">{media.length} stories</span>
+  <div id="drawer-overlay" class="fixed inset-0 z-40 bg-black/40 lg:hidden hidden"></div>
+  <aside id="publisher-drawer" class="fixed inset-x-0 bottom-0 z-50 max-h-[75vh] translate-y-full rounded-t-2xl bg-background p-5 shadow-xl transition-transform duration-200 lg:hidden">
+    <div class="flex items-center justify-between">
+      <h2 class="text-lg font-semibold">Publishers</h2>
+      <button id="drawer-close" class="rounded-lg p-1.5 hover:bg-muted" aria-label="Close">
+        <Icon name="tabler:x" class="h-5 w-5" />
+      </button>
     </div>
-
-    <div id="media-list" class="grid gap-3">
-      {media.map((story) => (
-        <a
-          href={story.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          data-year={story.year}
-          class="media-item group flex items-start justify-between gap-4 rounded-xl border border-border bg-card p-6 transition-all hover:border-primary/50 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-        >
-          <div class="min-w-0">
-            <p class="font-medium group-hover:text-link">{story.title}</p>
-            <p class="mt-1 text-base text-muted-foreground">{story.source}</p>
-          </div>
-          <div class="shrink-0 text-right">
-            <p class="text-base text-muted-foreground">{story.date}</p>
-            <p class="text-base text-muted-foreground">{story.year}</p>
-          </div>
-        </a>
-      ))}
-    </div>
-  </section>
+    <div id="drawer-publishers" class="mt-4 max-h-[60vh] space-y-1 overflow-y-auto"></div>
+  </aside>
 </Layout>
 
-<script>
-  const filter = document.getElementById('year-filter') as HTMLSelectElement | null;
-  const count = document.getElementById('story-count');
-  const items = document.querySelectorAll<HTMLElement>('.media-item');
+<script is:inline>
+  const searchInput = document.getElementById('media-search');
+  const countLabel = document.getElementById('story-count');
+  const resetBtn = document.getElementById('reset-search');
+  const noResults = document.getElementById('no-results');
+  const cardsContainer = document.getElementById('media-cards');
+  const cards = document.querySelectorAll('.media-card');
+  const chips = document.querySelectorAll('.publisher-chip');
+  let activeSource = 'all';
 
-  filter?.addEventListener('change', (e) => {
-    const year = (e.target as HTMLSelectElement).value;
+  function filter() {
+    const query = searchInput.value.trim().toLowerCase();
     let visible = 0;
 
-    items.forEach((item) => {
-      const itemYear = item.getAttribute('data-year');
-      const show = year === 'all' || itemYear === year;
-      item.style.display = show ? '' : 'none';
+    cards.forEach((card) => {
+      const searchText = card.getAttribute('data-search') ?? '';
+      const cardSource = card.getAttribute('data-source') ?? '';
+      const show = (query === '' || searchText.includes(query)) && (activeSource === 'all' || cardSource === activeSource);
+      card.style.display = show ? '' : 'none';
       if (show) visible++;
     });
 
-    if (count) count.textContent = `${visible} stories`;
+    countLabel.textContent = visible + (visible === 1 ? ' story' : ' stories');
+    noResults.classList.toggle('hidden', visible > 0);
+    cardsContainer.classList.toggle('hidden', visible === 0);
+    const hasFilters = query !== '' || activeSource !== 'all';
+    resetBtn.classList.toggle('hidden', !hasFilters);
+  }
+
+  chips.forEach((chip) => {
+    chip.addEventListener('click', () => {
+      activeSource = chip.getAttribute('data-source');
+      chips.forEach((c) => c.classList.remove('bg-primary/10', 'text-primary', 'font-semibold'));
+      chip.classList.add('bg-primary/10', 'text-primary', 'font-semibold');
+      filter();
+    });
   });
+
+  searchInput.addEventListener('input', filter);
+  function clearFilters() {
+    searchInput.value = '';
+    activeSource = 'all';
+    chips.forEach((c) => c.classList.remove('bg-primary/10', 'text-primary', 'font-semibold'));
+    chips[0].classList.add('bg-primary/10', 'text-primary', 'font-semibold');
+    filter();
+  }
+  resetBtn.addEventListener('click', clearFilters);
+  document.getElementById('no-results-clear').addEventListener('click', clearFilters);
+
+  const mobileToggle = document.getElementById('mobile-filter-toggle');
+  const drawer = document.getElementById('publisher-drawer');
+  const overlay = document.getElementById('drawer-overlay');
+  const drawerClose = document.getElementById('drawer-close');
+  const drawerPublishers = document.getElementById('drawer-publishers');
+  const publisherList = document.getElementById('publisher-list');
+
+  function openDrawer() {
+    drawerPublishers.innerHTML = publisherList.innerHTML;
+    drawer.classList.remove('translate-y-full');
+    overlay.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+    drawerPublishers.querySelectorAll('.publisher-chip').forEach((chip) => {
+      if (chip.getAttribute('data-source') === activeSource) {
+        chip.classList.add('bg-primary/10', 'text-primary', 'font-semibold');
+      }
+      chip.addEventListener('click', () => {
+        activeSource = chip.getAttribute('data-source');
+        publisherList.querySelectorAll('.publisher-chip').forEach((c) => c.classList.remove('bg-primary/10', 'text-primary', 'font-semibold'));
+        publisherList.querySelector(`[data-source="${activeSource}"]`).classList.add('bg-primary/10', 'text-primary', 'font-semibold');
+        closeDrawer();
+        filter();
+      });
+    });
+  }
+
+  function closeDrawer() {
+    drawer.classList.add('translate-y-full');
+    overlay.classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+
+  mobileToggle.addEventListener('click', openDrawer);
+  drawerClose.addEventListener('click', closeDrawer);
+  overlay.addEventListener('click', closeDrawer);
 </script>

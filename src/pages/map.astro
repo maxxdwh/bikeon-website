@@ -1,54 +1,51 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Icon } from 'astro-icon/components';
+import HeroSection from '../components/HeroSection.astro';
 import schools from '../data/schools.json';
 
 const regions = [...new Set(schools.map((s) => s.region))].sort();
 ---
 
 <Layout title="Map of Schools — Bike On NZ" description="See where Bikes in Schools projects are across New Zealand.">
-  <section class="border-b border-border bg-gradient-to-b from-primary/5 to-background">
-    <div class="container-page pt-28 pb-12 md:pt-36 md:pb-16">
-      <div class="max-w-[68ch]">
-        <h1 class="text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">Map of Schools</h1>
-        <p class="mt-6 text-[17px] text-muted-foreground md:text-xl">
-          {schools.length}+ schools across New Zealand with a Bikes in Schools project. Search by name,
-          filter by region, or pan the map to see what's nearby.
-        </p>
-      </div>
-    </div>
-  </section>
+  <HeroSection
+    title="Map of Schools"
+    description={`${schools.length}+ schools across New Zealand with a Bikes in Schools project. Search by name, filter by region, or pan the map to see what's nearby.`}
+    centered
+  />
 
   <section class="container-page py-6">
     <div class="flex flex-col gap-4 lg:flex-row lg:items-stretch">
       <div class="flex flex-col lg:w-80 lg:shrink-0">
         <div class="mb-3 space-y-2">
           <div class="relative">
-            <Icon name="tabler:search" class="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+            <Icon name="tabler:search" class="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
             <label for="school-search" class="sr-only">Search school name</label>
             <input
               type="search"
               id="school-search"
               placeholder="Search school name..."
-              class="w-full rounded-lg border border-input bg-background py-2 pl-9 pr-3 text-base outline-none focus:border-ring focus:ring-1 focus:ring-ring"
+              class="w-full rounded-[0.625rem] border border-border bg-background pl-10 pr-4 text-base outline-none focus:border-ring focus:ring-2 focus:ring-ring"
+              style="height: 2.5rem;"
             />
           </div>
           <div class="relative">
             <label for="region-filter" class="sr-only">Filter by region</label>
             <select
               id="region-filter"
-              class="w-full appearance-none rounded-lg border border-input bg-background px-3 py-2 pr-9 text-base outline-none focus:border-ring focus:ring-1 focus:ring-ring"
+              class="w-full appearance-none rounded-[0.625rem] border border-border bg-background px-4 pr-10 text-base outline-none focus:border-ring focus:ring-2 focus:ring-ring"
+              style="height: 2.5rem;"
             >
               <option value="all">All regions</option>
               {regions.map((region) => (
                 <option value={region}>{region}</option>
               ))}
             </select>
-            <Icon name="tabler:chevron-down" class="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+            <Icon name="tabler:chevron-down" class="pointer-events-none absolute right-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
           </div>
           <div class="flex items-center justify-between text-base text-muted-foreground">
             <span id="school-count">{schools.length} schools</span>
-            <button id="reset-search" class="hidden text-link underline hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded">Show all schools</button>
+            <button id="reset-search" class="hidden text-foreground underline hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded">Show all schools</button>
           </div>
         </div>
 
@@ -66,12 +63,12 @@ const regions = [...new Set(schools.map((s) => s.region))].sort();
                 data-lng={school.lng}
                 data-index={i}
               >
-                <div class="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
-                  <Icon name="tabler:map-pin" class="h-3.5 w-3.5" />
+                <div class="mt-1 shrink-0 text-primary">
+                  <Icon name="tabler:map-pin" class="h-4 w-4" />
                 </div>
                 <div class="min-w-0">
                   <p class="truncate text-base font-medium">{school.name}</p>
-                  <p class="truncate text-base text-muted-foreground">{school.town}, {school.region}</p>
+                  <p class="truncate text-sm text-muted-foreground">{school.town}, {school.region}</p>
                 </div>
               </li>
             ))}
@@ -101,12 +98,12 @@ const regions = [...new Set(schools.map((s) => s.region))].sort();
   let noResults;
   let schoolFocused = false;
   const defaultCenter = { lat: -40.9006, lng: 174.886 };
-  const defaultZoom = 5;
+  const defaultZoom = 6;
 
   function initMap() {
     const center = { lat: -40.9006, lng: 174.886 };
     map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 5,
+      zoom: 6,
       center,
       mapTypeControl: false,
       streetViewControl: false,

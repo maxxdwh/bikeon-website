@@ -26,7 +26,7 @@ Icons render as inline SVGs with `<symbol>`/`<use>` for deduplication. The one e
 ## Styling rules
 
 - **Tailwind v4** via `@tailwindcss/vite` — config is in `src/styles/global.css`, not a `tailwind.config.js`
-- **16px minimum font** — never use `text-sm` (14px) or `text-xs` (12px). Use `text-base` (16px) or larger
+- **16px minimum font** — never use `text-xs` (12px). Use `text-base` (16px) or larger. Exception: `text-sm` (14px) is allowed for meta/secondary text (dates, sources, captions)
 - **Body text in prose**: `text-[17px]`
 - **Prose max-width**: `72ch`
 - **Heading font**: Inclusive Sans Variable. **Body font**: Geist Variable
@@ -82,3 +82,4 @@ Schema defined in `src/content.config.ts`. Guide markdown files have frontmatter
 - Don't bold prose links or prose strong text
 - Don't add comments unless asked
 - Don't commit `.env`
+- Don't run `npm run build` after every edit — only build when explicitly asked or before committing

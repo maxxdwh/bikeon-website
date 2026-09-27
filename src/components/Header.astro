@@ -12,7 +12,7 @@ const isActive = (href: string) => {
 <header class="fixed left-1/2 top-3 z-50 w-[calc(100%-1.5rem)] max-w-[80rem] -translate-x-1/2">
   <nav class="flex h-16 items-center justify-between rounded-2xl border border-black/5 bg-background/80 px-6 shadow-lg shadow-black/5 backdrop-blur-lg">
     <a href="/" class="flex items-center gap-2">
-      <img src="/images/logo-long.png" alt="Bike On NZ" class="h-8 w-auto" />
+      <img src="/images/logo-long.png" alt="Bike On NZ" class="h-6 w-auto" />
     </a>
 
     <ul class="hidden items-center gap-0.5 lg:flex">
@@ -22,7 +22,7 @@ const isActive = (href: string) => {
             <div class="group relative focus-within:block">
               <a
                 href={item.href}
-                class={`flex items-center gap-1 rounded-lg px-2.5 py-1.5 text-base font-medium transition-colors hover:bg-black/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${isActive(item.href!) ? "text-link" : "text-foreground"}`}
+                class={`flex items-center gap-1 rounded-lg px-2.5 py-1.5 text-base font-medium transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${isActive(item.href!) ? "text-foreground" : "text-muted-foreground"}`}
                 aria-haspopup="true"
               >
                 {item.label}
@@ -33,7 +33,7 @@ const isActive = (href: string) => {
                   <li>
                     <a
                       href={child.href}
-                      class={`block rounded-lg px-3 py-2 text-base transition-colors hover:bg-black/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${isActive(child.href) ? "text-link font-medium" : "text-foreground"}`}
+                      class={`block rounded-lg px-3 py-2 text-base transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${isActive(child.href) ? "text-foreground font-medium" : "text-muted-foreground"}`}
                     >
                       {child.label}
                     </a>
@@ -44,7 +44,7 @@ const isActive = (href: string) => {
           ) : (
             <a
               href={item.href}
-              class={`block rounded-lg px-2.5 py-1.5 text-base font-medium transition-colors hover:bg-black/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${isActive(item.href!) ? "text-link" : "text-foreground"}`}
+              class={`block rounded-lg px-2.5 py-1.5 text-base font-medium transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${isActive(item.href!) ? "text-foreground" : "text-muted-foreground"}`}
             >
               {item.label}
             </a>
@@ -70,7 +70,7 @@ const isActive = (href: string) => {
         <li>
           {item.children ? (
             <details class="group">
-              <summary class={`flex cursor-pointer items-center justify-between rounded-lg px-3 py-2 text-base font-medium transition-colors hover:bg-black/5 ${isActive(item.href!) ? "text-link" : "text-foreground"}`}>
+              <summary class={`flex cursor-pointer items-center justify-between rounded-lg px-3 py-2 text-base font-medium transition-colors hover:bg-muted ${isActive(item.href!) ? "text-foreground" : "text-muted-foreground"}`}>
                 {item.label}
                 <Icon name="tabler:chevron-down" class="h-3.5 w-3.5 transition-transform group-open:rotate-180" />
               </summary>
@@ -79,7 +79,7 @@ const isActive = (href: string) => {
                   <li>
                     <a
                       href={child.href}
-                      class={`block rounded-lg px-3 py-2 text-base transition-colors hover:bg-black/5 ${isActive(child.href) ? "text-link font-medium" : "text-muted-foreground"}`}
+                      class={`block rounded-lg px-3 py-2 text-base transition-colors hover:bg-muted ${isActive(child.href) ? "text-foreground font-medium" : "text-muted-foreground"}`}
                     >
                       {child.label}
                     </a>
@@ -88,18 +88,18 @@ const isActive = (href: string) => {
               </ul>
             </details>
           ) : (
-            <a
-              href={item.href}
-              class={`block rounded-lg px-3 py-2 text-base font-medium transition-colors hover:bg-black/5 ${isActive(item.href!) ? "text-link" : "text-foreground"}`}
-            >
-              {item.label}
-            </a>
-          )}
-        </li>
-      ))}
-    </ul>
-  </div>
-</header>
+              <a
+                href={item.href}
+                class={`block rounded-lg px-3 py-2 text-base font-medium transition-colors hover:bg-muted ${isActive(item.href!) ? "text-foreground" : "text-muted-foreground"}`}
+              >
+                {item.label}
+              </a>
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </header>
 
 <script>
   const toggle = document.getElementById('mobile-menu-toggle');

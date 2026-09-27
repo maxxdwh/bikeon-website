@@ -1,6 +1,6 @@
 ---
 title: "Costs and funding"
-description: "What a typical Bikes in Schools project costs, who funds them, and how to get Board approval."
+description: "Typical costs, funding sources, and Board approval."
 order: 7
 heroImage: "/images/guide/costs-and-funding.jpg"
 ---
@@ -36,11 +36,9 @@ Costs can also shift by region. Bikes and helmets are priced fairly consistently
 
 Get at least three quotes for every item. Talking to nearby schools that have already run a project is also useful. They'll have real feedback on suppliers and contractors, and seeing a finished project in person gives you a much better feel for what's possible.
 
-[Explore the Bikes in Schools map](/map).
-
 ## Who funds these projects?
 
-Funding has come from a real mix of sources over the years:
+Funding has come from a mix of sources over the years:
 
 - Community groups, foundations, and trusts (the Lion Foundation, for example)
 - Local councils (increasingly common)

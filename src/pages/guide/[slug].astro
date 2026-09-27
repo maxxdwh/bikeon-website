@@ -3,7 +3,6 @@ import Layout from '../../layouts/Layout.astro';
 import { Icon } from 'astro-icon/components';
 import { getCollection, render } from 'astro:content';
 import { supplierCategories } from '../../data/suppliers';
-
 export async function getStaticPaths() {
   const guides = (await getCollection('guide')).sort((a, b) => a.data.order - b.data.order);
   return guides.map((guide, i) => ({
@@ -26,19 +25,14 @@ const logoKey = import.meta.env.PUBLIC_LOGO_DEV_KEY;
 ---
 
 <Layout title={`${guide.data.title} — Bike On NZ`} description={guide.data.description}>
-  <section class="border-b border-border bg-gradient-to-b from-primary/5 to-background">
-    <div class="container-page pt-28 pb-12 md:pt-36 md:pb-16">
-      <div class="flex flex-col gap-10 md:flex-row md:items-center">
-        <div class="flex-1">
-          <nav class="mb-6 text-base text-muted-foreground" aria-label="Breadcrumb">
-            <a href="/guide/introduction" class="underline hover:no-underline">Guide</a>
-            <span class="mx-2" aria-hidden="true">/</span>
-            <span class="text-foreground">{guide.data.title}</span>
-          </nav>
-          <h1 class="text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">{guide.data.title}</h1>
-          <p class="mt-6 max-w-2xl text-balance text-[17px] text-muted-foreground md:text-xl">{guide.data.description}</p>
-        </div>
-        <img src={guide.data.heroImage} alt="" class="max-h-80 w-full max-w-sm rounded-2xl object-cover shadow-sm md:w-auto" />
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-[#23adef]/20 to-background"></div>
+    <div class="pointer-events-none absolute inset-0 opacity-40 mix-blend-overlay" style="background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23n)' /%3E%3C/svg%3E&quot;);"></div>
+    <div class="relative z-10 container-page pt-36 pb-16 text-center md:pt-44">
+      <p class="text-sm font-semibold uppercase tracking-wider text-primary" style="font-family: var(--font-mono)">Guide</p>
+      <div class="mx-auto mt-3 max-w-[68ch]">
+        <h1 class="text-4xl font-bold tracking-tight [text-wrap:balance] md:text-5xl lg:text-6xl">{guide.data.title}</h1>
+        <p class="mt-6 text-[17px] text-muted-foreground [text-wrap:balance] md:text-xl">{guide.data.description}</p>
       </div>
     </div>
   </section>
@@ -47,13 +41,13 @@ const logoKey = import.meta.env.PUBLIC_LOGO_DEV_KEY;
     <div class="grid gap-6 lg:grid-cols-12">
       <aside class="hidden lg:col-span-3 lg:block">
         <div class="sticky top-28">
-          <p class="mb-2 text-base font-semibold">Guide sections</p>
+          <p class="mb-2 text-base font-semibold">The Guide</p>
           <ul class="space-y-0">
             {allGuides.map((g) => (
               <li>
                 <a
                   href={`/guide/${g.id}`}
-                  class={`-ml-3 block rounded-lg px-3 py-2 text-base transition-all duration-200 ${g.id === guide.id ? 'bg-primary/10 font-semibold text-link' : 'text-muted-foreground hover:bg-muted hover:text-link'}`}
+                  class={`-ml-3 block rounded-lg px-3 py-2 text-base transition-all duration-200 ${g.id === guide.id ? 'bg-primary/10 font-semibold text-foreground' : 'text-muted-foreground hover:bg-muted hover:text-foreground'}`}
                 >
                   {g.data.title}
                 </a>
@@ -63,7 +57,17 @@ const logoKey = import.meta.env.PUBLIC_LOGO_DEV_KEY;
         </div>
       </aside>
 
-      <article class="prose col-span-12 mx-auto max-w-[72ch] px-6 prose-p:text-[17px] prose-p:leading-[1.7] prose-headings:font-bold prose-headings:tracking-tight prose-headings:font-[var(--font-heading)] prose-headings:text-wrap-balance prose-h2:text-3xl prose-h2:mt-14 prose-h2:mb-4 prose-h2:first:mt-0 prose-h3:text-xl prose-h3:mt-10 prose-h3:mb-3 prose-h4:text-xl prose-h4:mt-8 prose-h4:mb-3 prose-p:mt-5 prose-p:mb-5 prose-p:text-wrap-pretty prose-ul:mt-5 prose-ul:mb-5 prose-ol:mt-5 prose-ol:mb-5 prose-li:mt-2 prose-a:underline prose-strong:font-normal lg:col-span-7">
+      <article class="prose col-span-12 mx-auto max-w-[72ch] px-6 prose-p:text-[17px] prose-p:leading-[1.7] prose-headings:font-bold prose-headings:tracking-tight prose-headings:font-[var(--font-heading)] prose-headings:text-wrap-balance prose-h2:text-3xl prose-h2:mt-14 prose-h2:mb-4 prose-h2:first:mt-0 prose-h3:text-xl prose-h3:mt-10 prose-h3:mb-3 prose-h4:text-xl prose-h4:mt-8 prose-h4:mb-3 prose-p:mt-5 prose-p:mb-5 prose-p:text-wrap-pretty prose-ul:mt-5 prose-ul:mb-5 prose-ol:mt-5 prose-ol:mb-5 prose-li:mt-2 prose-a:underline prose-a:font-normal prose-strong:font-normal lg:col-span-7">
+        <div class="not-prose mb-6 lg:hidden">
+          <div class="relative">
+            <label for="toc-select" class="sr-only">On this page</label>
+            <select id="toc-select" class="w-full appearance-none rounded-[0.625rem] border border-border bg-background px-4 text-base outline-none focus:border-ring focus:ring-2 focus:ring-ring" style="height: 2.5rem;">
+              <option value="">On this page</option>
+            </select>
+            <Icon name="tabler:chevron-down" class="pointer-events-none absolute right-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+          </div>
+        </div>
+        <img src={guide.data.heroImage} alt="" class="not-prose mb-8 w-full rounded-2xl object-cover shadow-sm" />
         <Content />
 
         {(showBikeSuppliers || showStorageSuppliers) && (
@@ -94,7 +98,7 @@ const logoKey = import.meta.env.PUBLIC_LOGO_DEV_KEY;
                     {s.email && (
                       <button
                         type="button"
-                        class="copy-btn inline-flex h-8 items-center gap-1.5 rounded-lg px-2 text-base font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-link"
+                        class="copy-btn inline-flex h-8 items-center gap-1.5 rounded-lg px-2 text-base font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
                         data-copy={s.email}
                         aria-label={`Copy email address: ${s.email}`}
                       >
@@ -107,7 +111,7 @@ const logoKey = import.meta.env.PUBLIC_LOGO_DEV_KEY;
                         href={s.website}
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="inline-flex h-8 items-center gap-1.5 rounded-lg px-2 text-base font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-link"
+                        class="inline-flex h-8 items-center gap-1.5 rounded-lg px-2 text-base font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
                         aria-label={`Visit ${s.name} website (opens in new tab)`}
                       >
                         <span>Website</span>
@@ -121,19 +125,30 @@ const logoKey = import.meta.env.PUBLIC_LOGO_DEV_KEY;
           </div>
         )}
       </article>
+
+      <aside class="hidden lg:col-span-2 lg:block">
+        <div class="sticky top-28">
+          <p class="mb-2 text-base font-semibold">On this page</p>
+          <ul id="toc-list" class="space-y-0 text-sm"></ul>
+        </div>
+      </aside>
     </div>
 
-    <nav class="mt-16 flex items-center justify-between border-t border-border pt-8" aria-label="Guide navigation">
+    <nav class="mt-16 flex flex-col gap-4 sm:grid sm:grid-cols-2" aria-label="Guide navigation">
       {prev ? (
-        <a href={`/guide/${prev.id}`} class="group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-lg p-1">
-          <span class="text-base text-muted-foreground">Previous</span>
-          <p class="mt-1 font-semibold group-hover:text-link">{prev.data.title}</p>
+        <a href={`/guide/${prev.id}`} class="group flex flex-col gap-1 rounded-xl border border-border p-5 transition-colors hover:bg-primary/10 hover:border-primary/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+          <span class="flex items-center gap-1 text-sm text-muted-foreground">
+            <Icon name="tabler:arrow-left" class="h-4 w-4" /> Previous
+          </span>
+          <p class="font-semibold group-hover:text-foreground">{prev.data.title}</p>
         </a>
       ) : <span />}
       {next ? (
-        <a href={`/guide/${next.id}`} class="group text-right focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-lg p-1">
-          <span class="text-base text-muted-foreground">Next</span>
-          <p class="mt-1 font-semibold group-hover:text-link">{next.data.title}</p>
+        <a href={`/guide/${next.id}`} class="group flex flex-col items-end gap-1 rounded-xl border border-border p-5 text-right transition-colors hover:bg-primary/10 hover:border-primary/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+          <span class="flex items-center gap-1 text-sm text-muted-foreground">
+            Next <Icon name="tabler:arrow-right" class="h-4 w-4" />
+          </span>
+          <p class="font-semibold group-hover:text-foreground">{next.data.title}</p>
         </a>
       ) : <span />}
     </nav>
@@ -151,13 +166,207 @@ const logoKey = import.meta.env.PUBLIC_LOGO_DEV_KEY;
         if (label) {
           const original = label.textContent;
           label.textContent = 'Copied';
-          btn.classList.add('text-link');
+          btn.classList.add('text-foreground');
           setTimeout(() => {
             label.textContent = original;
-            btn.classList.remove('text-link');
+            btn.classList.remove('text-foreground');
           }, 1500);
         }
       } catch {}
+    });
+  });
+
+  const article = document.querySelector('article');
+  const tocList = document.getElementById('toc-list');
+  if (article && tocList) {
+    const headings = article.querySelectorAll('h2');
+    const tocSelect = document.getElementById('toc-select');
+    headings.forEach((h, i) => {
+      if (!h.id) h.id = 'heading-' + i;
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = '#' + h.id;
+      a.textContent = h.textContent;
+      a.className = 'toc-link -ml-3 block rounded-lg px-3 py-1.5 text-muted-foreground transition-colors hover:bg-primary/10 hover:text-foreground';
+      li.appendChild(a);
+      tocList.appendChild(li);
+      if (tocSelect) {
+        const opt = document.createElement('option');
+        opt.value = h.id;
+        opt.textContent = h.textContent;
+        tocSelect.appendChild(opt);
+      }
+    });
+    if (tocSelect) {
+      tocSelect.addEventListener('change', () => {
+        if (tocSelect.value) document.getElementById(tocSelect.value)?.scrollIntoView({ behavior: 'smooth' });
+      });
+    }
+
+    const tocLinks = tocList.querySelectorAll('.toc-link');
+    let ticking = false;
+    function updateActive() {
+      let activeIdx = -1;
+      headings.forEach((h, i) => {
+        const rect = h.getBoundingClientRect();
+        if (rect.top <= 120) activeIdx = i;
+      });
+      tocLinks.forEach((link, i) => {
+        if (i === activeIdx) {
+          link.classList.add('text-foreground', 'font-medium');
+          link.classList.remove('text-muted-foreground');
+        } else {
+          link.classList.remove('text-foreground', 'font-medium');
+          link.classList.add('text-muted-foreground');
+        }
+      });
+      ticking = false;
+    }
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(updateActive);
+      }
+    });
+    updateActive();
+  }
+</script>
+
+<script is:inline>
+  document.querySelectorAll('article table').forEach((table) => {
+    var wrapper = document.createElement('div');
+    wrapper.className = 'not-prose mt-2 mb-8 relative hidden lg:block';
+    table.parentNode.insertBefore(wrapper, table.nextSibling);
+
+    var btn = document.createElement('button');
+    btn.setAttribute('aria-haspopup', 'true');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.className = 'inline-flex h-8 items-center gap-1.5 rounded-[0.625rem] border border-border bg-background px-3 text-sm font-medium transition-colors hover:bg-muted';
+    var dlIcon = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>';
+    var chevIcon = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chevron transition-transform duration-150"><polyline points="6 9 12 15 18 9"/></svg>';
+    var btnLabel = 'Download this table';
+    btn.innerHTML = dlIcon + ' <span class="btn-text">' + btnLabel + '</span> ' + chevIcon;
+
+    var menu = document.createElement('div');
+    menu.setAttribute('role', 'menu');
+    menu.className = 'absolute left-0 top-9 z-10 hidden rounded-[0.625rem] border border-border bg-background py-1 shadow-lg';
+    var svgWrap = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 text-muted-foreground">';
+    var icons = {
+      csv: svgWrap + '<path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M5 12V5a2 2 0 0 1 2-2h7l5 5v4M7 16.5a1.5 1.5 0 0 0-3 0v3a1.5 1.5 0 0 0 3 0m3 .75c0 .414.336.75.75.75H12a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1h-1a1 1 0 0 1-1-1v-1a1 1 0 0 1 1-1h1.25a.75.75 0 0 1 .75.75m3-.75l2 6l2-6"/></svg>',
+      xls: svgWrap + '<path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M5 12V5a2 2 0 0 1 2-2h7l5 5v4M4 15l4 6m-4 0l4-6m9 5.25c0 .414.336.75.75.75H19a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1h-1a1 1 0 0 1-1-1v-1a1 1 0 0 1 1-1h1.25a.75.75 0 0 1 .75.75M11 15v6h3"/></svg>',
+      pdf: svgWrap + '<path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M5 12V5a2 2 0 0 1 2-2h7l5 5v4M5 18h1.5a1.5 1.5 0 0 0 0-3H5v6m12-3h2m1-3h-3v6m-6-6v6h1a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2z"/></svg>'
+    };
+    var items = [
+      { fmt: 'csv', label: 'Download as CSV' },
+      { fmt: 'xls', label: 'Download as Excel (XLS)' },
+      { fmt: 'pdf', label: 'Download as PDF' }
+    ];
+    menu.innerHTML = items.map(function(item, i) {
+      return '<button role="menuitem" tabindex="-1" class="menu-item flex w-full items-center gap-2 px-4 py-1.5 text-left text-sm hover:bg-primary/10 hover:text-foreground focus:bg-primary/10 focus:text-foreground focus:outline-none" data-fmt="' + item.fmt + '">' + icons[item.fmt] + ' ' + item.label + '</button>';
+    }).join('');
+    wrapper.appendChild(btn);
+    wrapper.appendChild(menu);
+
+    var menuItems = menu.querySelectorAll('.menu-item');
+    var chevron = btn.querySelector('.chevron');
+    var btnText = btn.querySelector('.btn-text');
+    var isOpen = false;
+
+    function openMenu() {
+      menu.classList.remove('hidden');
+      isOpen = true;
+      btn.setAttribute('aria-expanded', 'true');
+      chevron.style.transform = 'rotate(180deg)';
+      menuItems[0].focus();
+    }
+    function closeMenu() {
+      menu.classList.add('hidden');
+      isOpen = false;
+      btn.setAttribute('aria-expanded', 'false');
+      chevron.style.transform = '';
+    }
+
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      if (isOpen) closeMenu(); else openMenu();
+    });
+    document.addEventListener('click', function() { if (isOpen) closeMenu(); });
+    document.addEventListener('keydown', function(e) {
+      if (!isOpen) return;
+      if (e.key === 'Escape') { closeMenu(); btn.focus(); }
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        var idx = Array.from(menuItems).indexOf(document.activeElement);
+        menuItems[(idx + 1) % menuItems.length].focus();
+      }
+      if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        var idx = Array.from(menuItems).indexOf(document.activeElement);
+        menuItems[(idx - 1 + menuItems.length) % menuItems.length].focus();
+      }
+    });
+
+    function downloadTable(fmt) {
+      var rows = table.querySelectorAll('tr');
+      var data = Array.from(rows).map(function(row) {
+        return Array.from(row.querySelectorAll('th, td')).map(function(cell) {
+          return cell.textContent.trim();
+        });
+      });
+      if (fmt === 'csv') {
+        var csv = data.map(function(row) {
+          return row.map(function(cell) {
+            return '"' + cell.replace(/"/g, '""') + '"';
+          }).join(',');
+        }).join('\n');
+        var blob = new Blob([csv], { type: 'text/csv' });
+        var a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'bikes-in-schools-costs.csv';
+        a.click();
+        URL.revokeObjectURL(a.href);
+      } else if (fmt === 'xls') {
+        var xls = data.map(function(row, i) {
+          var cells = row.map(function(cell) {
+            var tag = i === 0 ? 'th' : 'td';
+            return '<' + tag + '>' + cell + '</' + tag + '>';
+          }).join('');
+          return '<tr>' + cells + '</tr>';
+        }).join('');
+        var html = '<html><head><meta charset="utf-8"></head><body><table>' + xls + '</table></body></html>';
+        var blob = new Blob([html], { type: 'application/vnd.ms-excel' });
+        var a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'bikes-in-schools-costs.xls';
+        a.click();
+        URL.revokeObjectURL(a.href);
+      } else if (fmt === 'pdf') {
+        var tbl = data.map(function(row, i) {
+          var cells = row.map(function(cell) {
+            var tag = i === 0 ? 'th' : 'td';
+            return '<' + tag + ' style="border:1px solid #ddd;padding:8px 12px;text-align:left;font-size:14px">' + cell + '</' + tag + '>';
+          }).join('');
+          return '<tr>' + cells + '</tr>';
+        }).join('');
+        var printWin = window.open('', '_blank');
+        printWin.document.write('<html><head><title>Typical costs for Bikes in Schools</title><style>body{font-family:system-ui,sans-serif;padding:2rem}h1{font-size:18px;margin-bottom:0}h2{font-size:13px;font-weight:400;color:#666;margin-bottom:1.5rem}table{border-collapse:collapse;width:100%}th{font-weight:600;background:#f5f5f5}</style></head><body><h1>Typical costs for Bikes in Schools</h1><h2>bikeon.org.nz</h2><table>' + tbl + '</table></body></html>');
+        printWin.document.close();
+        printWin.focus();
+        setTimeout(function() { printWin.print(); }, 250);
+      }
+    }
+
+    menuItems.forEach(function(item) {
+      item.addEventListener('click', function() {
+        downloadTable(item.getAttribute('data-fmt'));
+        closeMenu();
+        btnText.textContent = 'Downloaded!';
+        btn.classList.add('text-primary');
+        setTimeout(function() {
+          btnText.textContent = btnLabel;
+          btn.classList.remove('text-primary');
+        }, 1500);
+      });
     });
   });
 </script>

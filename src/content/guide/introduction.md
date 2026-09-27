@@ -1,8 +1,8 @@
 ---
 title: "Start here"
-description: "Welcome to the Bikes in Schools guide. Learn what a Bikes in Schools project is, why it matters, and how to plan one."
+description: "What a Bikes in Schools project is and how to plan one."
 order: 1
-heroImage: "/images/guide/introduction.webp"
+heroImage: "/images/testimonials/pt-england-opening.jpg"
 ---
 
 ## What is Bikes in Schools?
@@ -27,7 +27,7 @@ Kiwi kids are biking a lot less than they used to. Between 1990 and 2014, the av
 
 Bikes in Schools changes that fast. Regular access to a bike goes from around 30% of students to 100%, and that shift is both immediate and easy to measure.
 
-Principals, teachers, parents, and cycle skills providers report the same things again and again: more confident, resilient kids; real health and wellbeing gains; a chance for students to manage a bit of risk safely; and a habit of riding that often follows kids and their families well beyond the school gates. Read about how it played out at [Pinehaven School](http://www.enviroschools.org.nz/in_your_region/wellington/featured-projects/bikes-build-resilience-at-pinehaven-school).
+Principals, teachers, parents, and cycle skills providers report the same things again and again: more confident, resilient kids; health and wellbeing gains; a chance for students to manage a bit of risk safely; and a habit of riding that often follows kids and their families well beyond the school gates. Read about how it played out at [Pinehaven School](http://www.enviroschools.org.nz/in_your_region/wellington/featured-projects/bikes-build-resilience-at-pinehaven-school).
 
 ## What the research says
 
@@ -37,11 +37,11 @@ Several independent studies back this up.
 
 The EIT tracked three schools over two years through testing, surveys, and focus groups with parents and teachers. Three key findings:
 
-1. **Parents and teachers** across all three schools **maintained a high level of engagement** in the project. Teachers continued to incorporate Bikes in Schools into the 2012 curriculum.
-2. **Teachers reported many physical benefits** including increased physical fitness, motor skills, and coordination. The data showed an **increase in estimated VO₂max** (a measure of aerobic fitness).
-3. Data demonstrated that **the percentage of obese children dropped** from 2011 to 2012, **against the national trend**, which saw childhood obesity increase by 2% from 2006/7 to 2011/12.
+1. Parents and teachers across all three schools maintained a high level of engagement in the project. Teachers continued to incorporate Bikes in Schools into the 2012 curriculum.
+2. Teachers reported many physical benefits including increased physical fitness, motor skills, and coordination. The data showed an increase in estimated VO₂max (a measure of aerobic fitness).
+3. Data demonstrated that the percentage of obese children dropped from 2011 to 2012, against the national trend, which saw childhood obesity increase by 2% from 2006/7 to 2011/12.
 
-### Mackie Research — ACC evaluations (2018 & 2019)
+### Mackie Research: ACC evaluations (2018 & 2019)
 
 Mackie Research conducted evaluations commissioned and funded by ACC. The 2018 [Preliminary Report: Fun, Active, Safe & Social (PDF)](https://bikeon.org.nz/wp-content/uploads/2018/04/Preliminary-Report.-Short-term-Evaluation-of-Bikes-in-Schools-March-2018-Executive-Summary-5th-April-2018.pdf) provided preliminary findings, recommendations, and school snapshots.
 
@@ -49,7 +49,7 @@ The 2019 [Final Report (PDF)](https://bikeon.org.nz/wp-content/uploads/2019/05/B
 - [Recommendations for Schools (PDF)](https://bikeon.org.nz/wp-content/uploads/2019/05/Bikes-in-Schools-Evaluation-2019-Recommendations-for-Schools.pdf)
 - [Recommendations for Stakeholders, Councils & Funders (PDF)](https://bikeon.org.nz/wp-content/uploads/2019/05/Bikes-in-Schools-Evaluation-2019-Recommendations-for-Stakeholders-Councils-Funders.pdf)
 
-### ViaStrada — Palmerston North City Council (2017)
+### ViaStrada: Palmerston North City Council (2017)
 
 ViaStrada Consultants completed a detailed [Bikes in Schools Programme Assessment (PDF)](https://bikeon.org.nz/wp-content/uploads/2018/02/Bikes-in-Schools-Programme-Assessment.pdf) for the Palmerston North City Council, which resulted in the council confirming funding for additional schools. As reported in the [local media](https://www.stuff.co.nz/manawatu-standard/news/100049092/more-bikes-in-schools-confirmed-thanks-to-council-funding), "So far, six schools are part of the programme, which has been hailed a success in a review by consultants ViaStrada, with more than 1600 children now riding more often, with better skills, and health benefits."
 
@@ -79,7 +79,7 @@ Before any fundraising starts, get formal sign-off from your Board of Trustees. 
 
 ### 2. Line up your funding
 
-Most schools piece funding together from a few different sources rather than one big grant. Hold off on building until most of the money's confirmed — it makes the whole build smoother and lets contractors share time and equipment on-site. See Costs and funding for the full breakdown.
+Most schools piece funding together from a few different sources rather than one big grant. Hold off on building until most of the money's confirmed. It makes the whole build smoother and lets contractors share time and equipment on-site. See Costs and funding for the full breakdown.
 
 ### 3. Order bikes, helmets, and storage with time to spare
 
@@ -87,7 +87,7 @@ Suppliers need lead time, especially for a full fleet or a converted shipping co
 
 ### 4. Book cycle skills training
 
-Get in touch with your local cycle skills provider — usually your council, a Regional Sports Trust, or local Police — well before your tracks are due to open. Training booked in advance means kids are ready to ride safely from day one.
+Get in touch with your local cycle skills provider (usually your council, a Regional Sports Trust, or local Police) well before your tracks are due to open. Training booked in advance means kids are ready to ride safely from day one.
 
 ### 5. Plan your opening
 

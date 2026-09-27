@@ -1,15 +1,15 @@
 ---
 title: "Bike storage"
-description: "Everything you need to know about converted shipping containers: specs, fit-out ideas, security, and siting."
+description: "Shipping container specs, fit-out, security, and siting."
 order: 4
-heroImage: "/images/guide/bike-storage-hero.webp"
+heroImage: "/images/guide/introduction.webp"
 ---
 
 ## Why secure storage matters
 
 Bikes need to live somewhere safe, secure, and alarmed if you can manage it. The closer that spot is to the tracks, the more the bikes get ridden.
 
-Some schools make do with an existing shed or unused classroom. Others go purpose-built. Either way, think carefully about location and layout before you commit — easy access for teachers and kids, at exactly the time they need it, should drive every other decision.
+Some schools make do with an existing shed or unused classroom. Others go purpose-built. Either way, think carefully about location and layout before you commit. Easy access for teachers and kids, at exactly the time they need it, should drive every other decision.
 
 ## The shipping container option
 
@@ -66,7 +66,7 @@ A fully converted and painted 40-foot container with two doors typically costs $
 
 ## Colour
 
-Forest green is a popular choice for blending into the grounds, but most suppliers can match your school colours — ask for a colour chart. Some schools turn the painting into a student art project.
+Forest green is a popular choice for blending into the grounds, but most suppliers can match your school colours. Ask for a colour chart. Some schools turn the painting into a student art project.
 
 ## Fitting it out
 

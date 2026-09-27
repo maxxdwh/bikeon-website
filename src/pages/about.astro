@@ -1,120 +1,279 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import CTASection from '../components/CTASection.astro';
+import HeroSection from '../components/HeroSection.astro';
+import { Icon } from 'astro-icon/components';
 import { testimonials } from '../data/testimonials';
+
+const featuredTestimonials = testimonials.slice(0, 6);
 ---
 
-<Layout title="About — Bike On NZ" description="Bike On New Zealand Charitable Trust was founded in 2010 with a simple aim: help more New Zealanders to experience the many joys and benefits of riding a bike.">
-  <section class="border-b border-border bg-gradient-to-b from-primary/5 to-background">
-    <div class="container-page pt-28 pb-20 md:pt-36 md:pb-28">
-    <div class="max-w-[68ch]">
-        <h1 class="text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">About Bikes in Schools</h1>
-        <p class="mt-6 text-[17px] text-muted-foreground md:text-xl">
-          Bike On New Zealand Charitable Trust (CC44779) was founded in 2010 with a simple aim: help more
-          New Zealanders to experience the many joys and benefits of riding a bike.
+<Layout title="About — Bike On NZ" description="Bike On New Zealand Charitable Trust (CC44779) was founded in 2010 to help more New Zealanders experience the joys and benefits of riding a bike.">
+
+  <!-- Hero: Header 153 — centered text + 8 photos sliding in from sides -->
+  <section id="hero-153" class="relative" style="height: 200vh;">
+    <div class="sticky top-0 flex min-h-screen flex-col items-center justify-center overflow-hidden">
+    <!-- Left photos -->
+    <div class="absolute left-0 z-20 flex h-full w-[45%] items-center overflow-hidden">
+      <div class="hero-153-img absolute w-full max-w-[90%] sm:max-w-[60%] md:max-w-[50%] lg:max-w-[40%] rounded-xl overflow-hidden" style="bottom: 68%; left: -10%;">
+        <img class="aspect-[4/3] w-full object-cover" src="/images/about/ready-to-cut-ribbon.jpg" alt="Children ready to cut the ribbon" loading="lazy" />
+      </div>
+    </div>
+    <div class="absolute left-0 z-20 flex h-full w-[45%] items-center overflow-hidden">
+      <div class="hero-153-img absolute w-full max-w-[90%] sm:max-w-[60%] md:max-w-[50%] lg:max-w-[40%] rounded-xl overflow-hidden" style="left: -20%;">
+        <img class="aspect-[4/3] w-full object-cover" src="/images/about/holy-cross-kids.jpg" alt="Children with bikes at school" loading="lazy" />
+      </div>
+    </div>
+    <div class="absolute left-0 z-20 flex h-full w-[45%] items-center overflow-hidden">
+      <div class="hero-153-img absolute w-full max-w-[90%] sm:max-w-[60%] md:max-w-[50%] lg:max-w-[40%] rounded-xl overflow-hidden" style="top: 68%; left: -10%;">
+        <img class="aspect-[4/3] w-full object-cover" src="/images/about/mayor-and-riders.jpg" alt="Mayor and children with bikes" loading="lazy" />
+      </div>
+    </div>
+    <div class="absolute left-0 z-20 flex h-full w-[45%] items-center overflow-hidden">
+      <div class="hero-153-img absolute w-full max-w-[90%] sm:max-w-[60%] md:max-w-[50%] lg:max-w-[40%] rounded-xl overflow-hidden" style="right: 0; bottom: -10%;">
+        <img class="aspect-[4/3] w-full object-cover" src="/images/about/friends-on-the-track.jpg" alt="Kids riding on a bike track" loading="lazy" />
+      </div>
+    </div>
+    <!-- Right photos -->
+    <div class="absolute right-0 z-20 flex h-full w-[45%] items-center overflow-hidden">
+      <div class="hero-153-img absolute w-full max-w-[90%] sm:max-w-[60%] md:max-w-[50%] lg:max-w-[40%] rounded-xl overflow-hidden" style="bottom: 68%; right: -10%;">
+        <img class="aspect-[4/3] w-full object-cover" src="/images/about/ribbon-cutting.jpg" alt="Ribbon cutting at a school opening" loading="lazy" />
+      </div>
+    </div>
+    <div class="absolute right-0 z-20 flex h-full w-[45%] items-center overflow-hidden">
+      <div class="hero-153-img absolute w-full max-w-[90%] sm:max-w-[60%] md:max-w-[50%] lg:max-w-[40%] rounded-xl overflow-hidden" style="right: -20%;">
+        <img class="aspect-[4/3] w-full object-cover" src="/images/about/royal-oak-opening.jpg" alt="Royal Oak School opening" loading="lazy" />
+      </div>
+    </div>
+    <div class="absolute right-0 z-20 flex h-full w-[45%] items-center overflow-hidden">
+      <div class="hero-153-img absolute w-full max-w-[90%] sm:max-w-[60%] md:max-w-[50%] lg:max-w-[40%] rounded-xl overflow-hidden" style="top: 68%; right: -10%;">
+        <img class="aspect-[4/3] w-full object-cover" src="/images/about/westpark-opening.jpg" alt="Westpark School opening" loading="lazy" />
+      </div>
+    </div>
+    <div class="absolute right-0 z-20 flex h-full w-[45%] items-center overflow-hidden">
+      <div class="hero-153-img absolute w-full max-w-[90%] sm:max-w-[60%] md:max-w-[50%] lg:max-w-[40%] rounded-xl overflow-hidden" style="right: 0; bottom: -15%;">
+        <img class="aspect-[4/3] w-full object-cover" src="/images/about/news-at-school.jpg" alt="School bike event in the news" loading="lazy" />
+      </div>
+    </div>
+
+    <div class="relative z-30 px-[5%] py-16 md:py-24 lg:py-28">
+      <div class="mx-auto max-w-lg text-center">
+        <h1 class="text-4xl font-bold tracking-tight [text-wrap:balance] md:text-5xl lg:text-6xl">About Bikes in Schools</h1>
+        <p class="mt-5 text-[17px] text-muted-foreground [text-wrap:balance] md:text-xl">
+          Bike On New Zealand Charitable Trust (CC44779) was founded in 2010 with a simple aim: help more New Zealanders experience the joys and benefits of riding a bike.
         </p>
+        <div class="mt-6 flex items-center justify-center gap-3 md:mt-8">
+          <a href="/guide/introduction" class="btn btn-primary">Read the guide</a>
+          <a href="/contact" class="btn btn-secondary">Get in touch</a>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container-page py-10">
+      <div class="grid grid-cols-3 gap-8 text-center">
+        <div>
+          <p class="text-4xl font-bold tracking-tight text-primary" style="font-variant-numeric: tabular-nums;">200k+</p>
+          <p class="mt-2 text-sm text-muted-foreground">Students riding</p>
+        </div>
+        <div>
+          <p class="text-4xl font-bold tracking-tight text-primary" style="font-variant-numeric: tabular-nums;">400+</p>
+          <p class="mt-2 text-sm text-muted-foreground">Schools</p>
+        </div>
+        <div>
+          <p class="text-4xl font-bold tracking-tight text-primary" style="font-variant-numeric: tabular-nums;">15</p>
+          <p class="mt-2 text-sm text-muted-foreground">Years running</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="container-page py-20">
-    <div class="max-w-[68ch]">
-      <h2 class="text-4xl font-bold tracking-tight md:text-5xl">Our vision</h2>
-      <p class="mt-8 text-[17px] text-muted-foreground">
+  <section class="container-page py-12">
+    <div class="grid gap-6 lg:grid-cols-12">
+    <div class="prose col-span-12 mx-auto max-w-[72ch] px-6 prose-p:text-[17px] prose-p:leading-[1.7] prose-headings:font-bold prose-headings:tracking-tight prose-headings:font-[var(--font-heading)] prose-headings:text-wrap-balance prose-h2:text-3xl prose-h2:mt-14 prose-h2:mb-4 prose-h2:first:mt-0 prose-h3:text-xl prose-h3:mt-10 prose-h3:mb-3 prose-h4:text-xl prose-h4:mt-8 prose-h4:mb-3 prose-p:mt-5 prose-p:mb-5 prose-p:text-wrap-pretty prose-ul:mt-5 prose-ul:mb-5 prose-ol:mt-5 prose-ol:mb-5 prose-li:mt-2 prose-a:underline prose-a:font-normal prose-strong:font-normal lg:col-span-7 lg:col-start-3">
+      <h2>Our vision</h2>
+      <p>
         Regular and equal access to bikes and bike tracks within the school environment for all New
         Zealand school children.
       </p>
-    </div>
-  </section>
-
-  <section class="border-t border-border bg-muted/20">
-    <div class="container-page py-20">
-      <div class="grid gap-12 md:grid-cols-2">
-        <div>
-          <h2 class="text-4xl font-bold tracking-tight md:text-5xl">What we do</h2>
-          <p class="mt-8 text-[17px] text-muted-foreground">
-            We offer free, hands-on advice to any school or council in New Zealand keen to set up a
-            Bikes in Schools project, covering everything from project management to funding to getting
-            it built.
-          </p>
-          <p class="mt-6 text-[17px] text-muted-foreground">
-            Our <a href="/guide/introduction" class="underline hover:no-underline"> free guide</a> draws on
-            what we've learned working with schools right across the country. They walk through the what,
-            why, and how of setting up a Bikes in Schools (or similar) project at any school.
-          </p>
-          <a
-            href="/guide/introduction"
-            class="mt-6 inline-flex items-center justify-center rounded-lg bg-primary px-6 py-3 text-base font-semibold text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-          >
-            Explore the Guide
-          </a>
-        </div>
-        <div class="flex items-center justify-center">
-          <img
-            src="/images/about-bg.jpg"
-            alt="Children riding bikes at school"
-            class="rounded-xl object-cover shadow-lg"
-            loading="lazy"
-          />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="border-t border-border bg-muted/30">
-    <div class="container-page py-12">
-      <h2 class="text-center text-4xl font-bold tracking-tight md:text-5xl">By the numbers</h2>
-      <p class="mt-6 text-center text-[17px] text-muted-foreground">
-        Since 2010, Bikes in Schools and similar projects have helped over 200,000 students at 350+ schools
-        get regular, equal access to a bike at school.
+      <p>
+        Children should not need to own a bike, have parents who cycle, or live in a particular
+        neighbourhood to experience riding. A bike, a helmet, and a safe place to ride are there for
+        every student.
       </p>
-      <div class="mt-10 grid gap-8 text-center md:grid-cols-2">
-        <div>
-          <p class="text-5xl font-bold text-link md:text-6xl">200,000+</p>
-          <p class="mt-2 text-muted-foreground">students with regular bike access</p>
-        </div>
-        <div>
-          <p class="text-5xl font-bold text-link md:text-6xl">350+</p>
-          <p class="mt-2 text-muted-foreground">schools with a project</p>
-        </div>
+
+      <h2>What we do</h2>
+      <p>
+        We offer free, hands-on advice to any school or council in New Zealand keen to set up a Bikes
+        in Schools project, covering everything from project management to funding to getting it
+        built.
+      </p>
+      <p>
+        Our <a href="/guide/introduction">free guide</a> draws on what we've learned working with
+        schools right across the country. It walks through the what, why, and how of setting up a
+        Bikes in Schools project at any school.
+      </p>
+      <div class="not-prose mt-8 flex flex-wrap gap-3">
+        <a href="/guide/introduction" class="btn btn-primary">Read the guide</a>
+        <a href="https://www.youtube.com/@bikesinschoolsnz" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+          <Icon name="tabler:brand-youtube" class="mr-2 h-4 w-4" /> YouTube
+        </a>
+      </div>
+
+      <h2>Bikes in Schools in action</h2>
+      <p>
+        Bikes in Schools is a complete biking package built within a school so every student can ride
+        on a regular basis. The school owns a fleet of 30 to 50 bikes in four sizes, a helmet for
+        every child, on-site tracks, secure storage, and cycle skills training.
+      </p>
+      <p>
+        The school owns all the bikes and helmets, and they stay on school property. The tracks are
+        built on the school grounds. Everything is there, ready to go, every day.
+      </p>
+      <div class="mt-8 aspect-video overflow-hidden rounded-xl ring-1 ring-black/5">
+        <iframe
+          class="h-full w-full"
+          src="https://www.youtube.com/embed/LTdJk0JgVJA"
+          title="Bikes in Schools in action"
+          loading="lazy"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+      </div>
+
+      <h2>The impact</h2>
+      <p>
+        Regular access to riding a bike goes from around 30% of students to 100%. That impact is
+        immediate and measurable.
+      </p>
+      <p>
+        Feedback from principals, teachers, parents, and students consistently shows that riding
+        builds confidence, self-esteem, and resilience. Children get fitter, gain skills, and start
+        using a bike for everyday transport. Families often ride more together too.
+      </p>
+      <p>
+        Independent research by the Eastern Institute of Technology tracked three schools over two
+        years. Teachers reported increased fitness, motor skills, and coordination. The percentage
+        of overweight children dropped, against the national trend.
+      </p>
+      <p>
+        In 2019, Mackie Research released a report commissioned by ACC titled <em>Fun, Active, Safe
+        and Social</em>. It confirmed positive outcomes across health, skills, and participation.
+      </p>
+
+      <h2>Explore the map</h2>
+      <p>
+        See every school with a Bikes in Schools project across Aotearoa, 400+ and counting.
+      </p>
+      <div class="not-prose mt-8">
+        <a href="/map" class="btn btn-primary">View the map</a>
       </div>
     </div>
+  </div>
   </section>
 
-  <section class="container-page py-20">
-    <h2 class="text-4xl font-bold tracking-tight md:text-5xl">What people say</h2>
-    <div class="mt-12 grid gap-6 md:grid-cols-2">
-      {testimonials.map((t) => (
-        <figure class="rounded-xl border border-border bg-card p-6 transition-all hover:shadow-md">
-          <blockquote class="text-[17px] text-foreground">&ldquo;{t.quote}&rdquo;</blockquote>
-          <figcaption class="mt-4 flex items-center gap-3">
-            <img src={t.image} alt={t.name} class="h-12 w-12 rounded-full object-cover" loading="lazy" />
-            <div>
+  <section class="container-page py-16">
+    <div class="mx-auto mb-12 max-w-[42rem] text-center">
+      <h2 class="text-3xl font-bold tracking-tight md:text-4xl">What people say</h2>
+    </div>
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {featuredTestimonials.map((t) => (
+        <figure class="overflow-hidden rounded-xl border border-border bg-card transition-all hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+          <div class="aspect-[3/2] overflow-hidden">
+            <img src={t.image} alt={t.name} class="h-full w-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6">
+            <blockquote class="text-[17px] text-foreground">&ldquo;{t.quote}&rdquo;</blockquote>
+            <figcaption class="mt-5">
               <p class="font-semibold">{t.name}</p>
               <p class="text-base text-muted-foreground">{t.role}</p>
-            </div>
-          </figcaption>
+            </figcaption>
+          </div>
         </figure>
       ))}
     </div>
   </section>
 
-  <section class="border-t border-border bg-muted/20">
-    <div class="container-page py-20">
-      <div class="rounded-2xl bg-primary p-10 text-center md:p-16">
-        <h2 class="text-4xl font-bold tracking-tight text-primary-foreground md:text-5xl">
-          Thinking about starting a project?
-        </h2>
-        <p class="mx-auto mt-4 max-w-xl text-[17px] text-primary-foreground">
-          Our guide covers everything: bikes, helmets, tracks, storage, training, costs, and funding. It's
-          free, and so is our advice.
-        </p>
-        <a
-          href="/guide/introduction"
-          class="mt-8 inline-flex items-center justify-center rounded-lg bg-foreground px-6 py-3 text-base font-semibold text-background transition-colors hover:bg-foreground/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-        >
-          Read the guide
-        </a>
-      </div>
-    </div>
-  </section>
+  <CTASection />
 </Layout>
+
+<style>
+  .hero-153-img {
+    opacity: 0;
+    transition: transform 0.8s cubic-bezier(0.33, 1.25, 0.45, 1), opacity 0.6s ease;
+  }
+  .hero-153-img.in-view {
+    opacity: 1;
+  }
+  .hero-153-img.scrolling {
+    transition: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-153-img {
+      transition: none;
+      opacity: 1;
+    }
+  }
+</style>
+
+<script>
+  const section = document.getElementById('hero-153');
+  if (section) {
+    const imgs = section.querySelectorAll('.hero-153-img');
+    const initialOffsets = [
+      'translateX(-120%)',
+      'translateX(-80%)',
+      'translateX(-140%)',
+      'translateY(130%)',
+      'translateX(120%)',
+      'translateX(135%)',
+      'translateX(110%)',
+      'translateY(120%)',
+    ];
+    const scrollOffsets = [
+      { x: -45, y: 0 },
+      { x: -30, y: 0 },
+      { x: -45, y: 0 },
+      { x: 0, y: -50 },
+      { x: 45, y: 0 },
+      { x: 45, y: 0 },
+      { x: 40, y: 0 },
+      { x: 0, y: -50 },
+    ];
+    imgs.forEach((img, i) => {
+      img.style.transform = initialOffsets[i] || 'translateX(0)';
+    });
+    requestAnimationFrame(() => {
+      imgs.forEach((img, i) => {
+        setTimeout(() => {
+          img.classList.add('in-view');
+          img.style.transform = 'translate(0, 0)';
+          setTimeout(() => img.classList.add('scrolling'), 800);
+        }, i * 80);
+      });
+    });
+
+    let ticking = false;
+    function onScroll() {
+      const rect = section.getBoundingClientRect();
+      const total = rect.height - window.innerHeight;
+      const progress = Math.max(0, Math.min(1, -rect.top / total));
+      imgs.forEach((img, i) => {
+        if (!img.classList.contains('scrolling')) return;
+        const s = scrollOffsets[i] || { x: 0, y: 0 };
+        img.style.transform = `translate(${s.x * progress}vw, ${s.y * progress}%)`;
+        img.style.opacity = `${1 - progress * 1.5}`;
+      });
+      ticking = false;
+    }
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(onScroll);
+      }
+    });
+    onScroll();
+  }
+</script>

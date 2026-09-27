@@ -1,102 +1,1309 @@
 [
-  { "title": "New funding for Bikes in Schools", "date": "October 2025", "source": "Beehive (NZ Government)", "year": 2025, "url": "https://www.beehive.govt.nz/release/new-funding-bikes-schools" },
-  { "title": "'Schools are asking for more': Rangitīkei children benefit from Bikes in Schools programme", "date": "April 2025", "source": "Whanganui Chronicle", "year": 2025, "url": "https://www.nzherald.co.nz/whanganui-chronicle/news/schools-are-asking-for-more-rangitikei-children-benefit-from-bikes-in-schools-programme/M5P26JV64VFOVK4RKYMS5UCIR4/" },
-  { "title": "Fresh bikes for Christchurch east students", "date": "March 2025", "source": "Newsline (Christchurch City Council)", "year": 2025, "url": "https://www.newsline.ccc.govt.nz/news/story/fresh-bikes-for-christchurch-east-students" },
-  { "title": "Vision of bike track completed at Castlecliff School in Whanganui", "date": "June 2024", "source": "NZ Herald", "year": 2024, "url": "https://www.nzherald.co.nz/whanganui-chronicle/whanganui-midweek/vision-of-bike-track-completed-at-castlecliff-school-in-whanganui/WZRIGE2IE5DVBL7OCADNA4KUOE/" },
-  { "title": "Maungatapu bike track a \"community initiative\"", "date": "April 2024", "source": "SunLive", "year": 2024, "url": "https://www.sunlive.co.nz/news/341207-maungatapu-bike-track-a--community-initiative-.html" },
-  { "title": "Generous donation funds joy", "date": "April 2024", "source": "Daily Encourager", "year": 2024, "url": "https://dailyencourager.co.nz/generous-donation-funds-joy/" },
-  { "title": "Porirua students on the right track", "date": "March 2024", "source": "Ministry for Pacific Peoples", "year": 2024, "url": "https://www.mpp.govt.nz/news-and-events/news-from-2/porirua-students-on-the-right-track/" },
-  { "title": "'Bike Hui' sees students get the most from bikes and tracks", "date": "September 2023", "source": "Newsline (Christchurch City Council)", "year": 2023, "url": "https://newsline.ccc.govt.nz/news/story/bike-hui-sees-students-get-the-most-from-bikes-and-tracks" },
-  { "title": "Tū Manawa Active Aotearoa Fund provides new wheels for Kaponga pupils", "date": "December 2022", "source": "NZ Herald", "year": 2022, "url": "https://www.nzherald.co.nz/stratford-press/news/tu-manawa-active-aotearoa-fund-provides-new-wheels-for-kaponga-pupils/46GH4XS33RHLFMZS6J2EBRVKIU/" },
-  { "title": "Te Puna school bike track is pumping", "date": "August 2022", "source": "SunLive", "year": 2022, "url": "https://www.sunlive.co.nz/news/299772-te-puna-school-bike-track-is-pumping.html" },
-  { "title": "Te Kura o Wairau bike track streets ahead for safe riding", "date": "May 2022", "source": "Stuff", "year": 2022, "url": "https://www.stuff.co.nz/manawatu-standard/news/300597117/te-kura-o-wairau-bike-track-streets-ahead-for-safe-riding" },
-  { "title": "Kaponga Primary School: Wheely good fun with new bike track", "date": "March 2022", "source": "NZ Herald", "year": 2022, "url": "https://www.nzherald.co.nz/stratford-press/news/kaponga-primary-school-wheely-good-fun-with-new-bike-track/OP62BBJAZBC2QQSAGKAPDM5STY/" },
-  { "title": "Kerikeri school's pump track building skills, resilience", "date": "February 2022", "source": "NZ Herald", "year": 2022, "url": "https://www.nzherald.co.nz/northern-advocate/news/kerikeri-schools-pump-track-building-skills-resilience/3QQSYTQLSM7AZH2XLJGFPNZ6QM/" },
-  { "title": "Let's Go Bike in Schools programme surprises Waitara and Inglewood pupils", "date": "December 2021", "source": "NZ Herald", "year": 2021, "url": "https://www.nzherald.co.nz/stratford-press/news/lets-go-bike-in-schools-programme-surprises-waitara-and-inglewood-pupils/WGSPKU25JHH5ODJELX532M4JQ4/" },
-  { "title": "Flash new wheels: Avon School pupils receive new scooters, bikes and helmets", "date": "August 2021", "source": "NZ Herald", "year": 2021, "url": "https://www.nzherald.co.nz/stratford-press/news/flash-new-wheels-avon-school-pupils-receive-new-scooters-bikes-and-helmets/KY5WVZVGTWHSFDBCIEAXJYG2E4/" },
-  { "title": "Teachers learn through new games to promote road safety to children and whānau", "date": "July 2021", "source": "Greater Wellington Regional Council", "year": 2021, "url": "https://www.gw.govt.nz/teachers-learn-through-new-games-to-promote-road-safety-to-children-and-whanau/" },
-  { "title": "Excitement for all at Selwyn School as bike track officially opened", "date": "June 2021", "source": "NZ Herald", "year": 2021, "url": "https://www.nzherald.co.nz/rotorua-daily-post/news/excitement-for-all-at-selwyn-school-as-bike-track-officially-opened/2RE5P4V6MJ5BZBJRGW67OULFCM/" },
-  { "title": "Walker pedals in for track launch", "date": "March 2021", "source": "Bikes in Schools (BikeOn)", "year": 2021, "url": "https://bikeon.org.nz/wp-content/uploads/2021/04/Walker-pedals-in-for-track-launch.pdf" },
-  { "title": "Wheels in motion at Awapuni School", "date": "March 2021", "source": "Gisborne Herald", "year": 2021, "url": "http://www.gisborneherald.co.nz/local-news/20210306/wheels-in-motion-at-awapuni-school/" },
-  { "title": "Appleby School pumped to have new bike track", "date": "March 2021", "source": "Stuff", "year": 2021, "url": "https://www.stuff.co.nz/nelson-mail/news/124305050/appleby-school-pumped-to-have-new-bike-track" },
-  { "title": "Bikes in Schools 'best thing ever'", "date": "March 2021", "source": "Dominion Post", "year": 2021, "url": "https://www.stuff.co.nz/dominion-post/news/local-papers/kapi-mana-news/124390343/bikes-in-schools-best-thing-ever" },
-  { "title": "Bikes in Schools: best thing ever", "date": "January 2021", "source": "RNZ", "year": 2021, "url": "https://www.rnz.co.nz/national/programmes/ninetonoon/audio/2018780985/bikes-in-schools-best-thing-ever" },
-  { "title": "Wheels in motion: school opens new bike, scooter track", "date": "November 2020", "source": "Otago Daily Times", "year": 2020, "url": "https://www.odt.co.nz/news/dunedin/wheels-motion-school-opens-new-bike-scooter-track" },
-  { "title": "Waitara East School's new cycle track is proving a big hit", "date": "October 2020", "source": "Stuff", "year": 2020, "url": "https://www.stuff.co.nz/taranaki-daily-news/news/123229364/waitara-east-schools-new-cycle-track-is-proving-a-big-hit" },
-  { "title": "Pumped up about new Golden Bay community track", "date": "September 2020", "source": "Stuff", "year": 2020, "url": "https://www.stuff.co.nz/nelson-mail/nelson-top-stories/122836115/pumped-up-about-new-golden-bay-community-track" },
-  { "title": "KEA Kids News: New bikes and track help students learn to ride", "date": "September 2020", "source": "Stuff", "year": 2020, "url": "https://www.stuff.co.nz/national/kea-kids-news/300096512/kea-kids-news-new-bikes-and-track-help-students-learn-to-ride" },
-  { "title": "20,000 more Kiwi kids on bikes", "date": "February 2020", "source": "Beehive (NZ Government)", "year": 2020, "url": "https://www.beehive.govt.nz/release/20000-more-kiwi-kids-bikes" },
-  { "title": "Teachers take over as Spotswood College's new pump track gets its official opening", "date": "February 2020", "source": "Stuff", "year": 2020, "url": "https://www.stuff.co.nz/taranaki-daily-news/119301010/teachers-take-over-as-spotswood-colleges-new-pump-track-gets-its-official-opening" },
-  { "title": "On track for a new journey", "date": "November 2019", "source": "SunLive", "year": 2019, "url": "https://www.sunlive.co.nz/news/225624-on-track-new-journey.html" },
-  { "title": "Volunteers give Papamoa children a new bike track", "date": "November 2019", "source": "SunLive", "year": 2019, "url": "https://www.sunlive.co.nz/news/225844-volunteers-give-pamapoa-children-new-bike-track.html" },
-  { "title": "Central Crank - It's back with add-ons!", "date": "September 2019", "source": "Scoop", "year": 2019, "url": "http://www.scoop.co.nz/stories/AK1909/S00036/central-crank-sunday-22nd-september.htm" },
-  { "title": "Tapawera students hit the playground on 40 donated bikes", "date": "August 2019", "source": "Stuff", "year": 2019, "url": "https://www.stuff.co.nz/nelson-mail/114776822/tapawera-students-hit-the-playground-on-40-donated-bikes" },
-  { "title": "Temuka Primary School's new bike track to open in coming weeks", "date": "July 2019", "source": "Stuff", "year": 2019, "url": "https://www.stuff.co.nz/timaru-herald/news/114595560/temuka-primary-schools-new-bike-track-to-open-in-coming-weeks" },
-  { "title": "Temuka Primary School plans cycle track around playground", "date": "May 2019", "source": "Stuff", "year": 2019, "url": "https://www.stuff.co.nz/timaru-herald/news/111612467/temuka-primary-school-plans-cycle-track-around-playground" },
-  { "title": "Pupils' idea for track now reality", "date": "February 2019", "source": "The Ensign", "year": 2019, "url": "http://www.theensign.co.nz/community/pupils-idea-for-track-now-reality/" },
-  { "title": "Pupils make tracks as biking facility launched", "date": "February 2019", "source": "Bikes in Schools (BikeOn)", "year": 2019, "url": "https://bikeon.org.nz/wp-content/uploads/2019/02/MSC-Cook-Strait-News.pdf" },
-  { "title": "Lumsden School kids wait in anticipation for new bike park to open", "date": "February 2019", "source": "Stuff", "year": 2019, "url": "https://www.stuff.co.nz/southland-times/news/110589376/lumsden-school-kids-wait-in-anticipation-for-new-bike-park-to-open" },
-  { "title": "Getting Kiwi kids BikeReady", "date": "November 2018", "source": "Māori Television", "year": 2018, "url": "https://www.maoritelevision.com/news/education/getting-kiwi-kids-bikeready" },
-  { "title": "$23 million to get kids on bikes", "date": "November 2018", "source": "Otago Daily Times", "year": 2018, "url": "https://www.odt.co.nz/news/national/23-million-get-kids-bikes" },
-  { "title": "Bikes in Schools project gets funding boost", "date": "November 2018", "source": "RNZ", "year": 2018, "url": "https://www.radionz.co.nz/news/national/376820/bikes-in-schools-project-gets-funding-boost" },
-  { "title": "$23m for more bikes in schools", "date": "November 2018", "source": "RNZ", "year": 2018, "url": "https://www.radionz.co.nz/national/programmes/checkpoint/audio/2018672917/23m-for-more-bikes-in-schools" },
-  { "title": "$23 million in Government funding announced to get more school children cycling", "date": "November 2018", "source": "Stuff", "year": 2018, "url": "https://www.stuff.co.nz/national/108863277/23-million-in-government-funding-announced-to-get-more-school-children-cycling" },
-  { "title": "Thousands of kids to have access to bikes and helmets", "date": "November 2018", "source": "RNZ", "year": 2018, "url": "https://www.radionz.co.nz/news/political/376867/thousands-of-kids-to-have-access-to-bikes-and-helmets" },
-  { "title": "Students pumped over new bike track", "date": "November 2018", "source": "Stuff", "year": 2018, "url": "https://www.stuff.co.nz/nelson-mail/news/108566452/students-pumped-over-new-bike-track" },
-  { "title": "Bikes in Schools recognised in award", "date": "October 2018", "source": "Gisborne Herald", "year": 2018, "url": "http://gisborneherald.co.nz/localnews/3736938-135/bikes-in-schools-recognised-in-award" },
-  { "title": "Carisbrook School's new bike track open to rider's", "date": "October 2018", "source": "Otago Daily Times", "year": 2018, "url": "https://www.odt.co.nz/news/dunedin/carisbrook-schools-new-bike-track-open-riders" },
-  { "title": "Puni school opens new bike track", "date": "October 2018", "source": "Stuff", "year": 2018, "url": "https://www.stuff.co.nz/waikato-times/news/franklin-county-news/107534046/puni-scholl-opens-new-bike-track" },
-  { "title": "Lower Hutt students urge people to donate a dollar to help nearby school", "date": "August 2018", "source": "Stuff", "year": 2018, "url": "https://www.stuff.co.nz/dominion-post/capital-life/capital-day/106593463/lower-hutt-students-urge-people-to-donate-a-dollar-to-help-nearby-school" },
-  { "title": "Funding boost helps Kimbolton School get pupils bike lessons on track", "date": "August 2018", "source": "Stuff", "year": 2018, "url": "https://www.stuff.co.nz/manawatu-standard/news/106320640/funding-boost-helps-kimbolton-school-get-pupils-bike-lessons-on-track" },
-  { "title": "Bike riding a breeze at Selwyn Ridge", "date": "August 2018", "source": "The Weekend Sun", "year": 2018, "url": "https://theweekendsun.co.nz/news/4620-bike-riding-breeze-at-selwyn-ridge.html" },
-  { "title": "Bikes project worthy winner of NZ award", "date": "August 2018", "source": "Gisborne Herald", "year": 2018, "url": "http://gisborneherald.co.nz/localnews/3515594-135/bikes-project-worthy-winner-of-nz" },
-  { "title": "Students design their own sign", "date": "July 2018", "source": "Gisborne Herald", "year": 2018, "url": "http://gisborneherald.co.nz/localnews/3501806-135/students-design-their-own-sign" },
-  { "title": "Ōtaki School children on their bikes thanks to the South Korean Government", "date": "July 2018", "source": "Stuff", "year": 2018, "url": "https://www.stuff.co.nz/dominion-post/news/wellington/105731886/taki-school-children-on-their-bikes-thanks-to-the-south-korean-government" },
-  { "title": "Nelson Intermediate geared up with new bikes", "date": "June 2018", "source": "Stuff", "year": 2018, "url": "https://www.stuff.co.nz/nelson-mail/news/104856724/nelson-intermediate-geared-up-with-new-bik" },
-  { "title": "New bike track at Rai Valley Area School has kids pumped", "date": "June 2018", "source": "Stuff", "year": 2018, "url": "https://www.stuff.co.nz/life-style/parenting/104812800/new-bike-track-at-rai-valley-area-school-has-kids-pumped" },
-  { "title": "Cycling their way to a better future", "date": "June 2018", "source": "Gisborne Herald", "year": 2018, "url": "http://gisborneherald.co.nz/localnews/3411135-135/cycling-their-way-to-a-better" },
-  { "title": "New bike track developed by school proving popular", "date": "May 2018", "source": "Bikes in Schools (BikeOn)", "year": 2018, "url": "https://bikeon.org.nz/wp-content/uploads/2018/05/new-track-proving-popular.pdf" },
-  { "title": "Randwick has three new cycling tracks but not enough bikes for its pupils", "date": "March 2018", "source": "Stuff", "year": 2018, "url": "https://www.stuff.co.nz/national/health/102277982/randwick-has-three-new-cycling-tracks-but-not-enough-bikes-for-its-pupils" },
-  { "title": "School counters downward cycling trend", "date": "March 2018", "source": "Stuff", "year": 2018, "url": "https://www.stuff.co.nz/national/education/101998042/school-counters-downward-cycling-trend" },
-  { "title": "Makara Pupils Right On Track", "date": "February 2018", "source": "Bikes in Schools (BikeOn)", "year": 2018, "url": "https://bikeon.org.nz/wp-content/uploads/2018/02/Independent-Herald-article-February-2018.pdf" },
-  { "title": "Makauri School opens new bike track", "date": "February 2018", "source": "Gisborne Herald", "year": 2018, "url": "http://gisborneherald.co.nz/localnews/3230948-135/makauri-school-opens-new-bike-track" },
-  { "title": "On Track to Legacy", "date": "February 2018", "source": "Bikes in Schools (BikeOn)", "year": 2018, "url": "https://bikeon.org.nz/wp-content/uploads/2018/02/Cook-Strait-News-Feb-2018.pdf" },
-  { "title": "More bikes in schools confirmed thanks to council funding", "date": "December 2017", "source": "Stuff", "year": 2017, "url": "https://www.stuff.co.nz/manawatu-standard/news/100049092/more-bikes-in-schools-confirmed-thanks-to-council-funding" },
-  { "title": "Peddling to success via the school bike track", "date": "December 2017", "source": "Bikes in Schools (BikeOn)", "year": 2017, "url": "https://bikeon.org.nz/wp-content/uploads/2018/01/School-News-December-2017.pdf" },
-  { "title": "New Bike Track Officially Open", "date": "November 2017", "source": "Cambridge News", "year": 2017, "url": "https://www.cambridgenews.nz/2017/11/new-bike-track-officially-open/" },
-  { "title": "New Strathmore Bike Park a student initiative", "date": "November 2017", "source": "Bikes in Schools (BikeOn)", "year": 2017, "url": "https://bikeon.org.nz/wp-content/uploads/2017/11/ScotsCollege_Community-Bike-Park_media-release.pdf" },
-  { "title": "Gate Pa School Bike Project", "date": "November 2017", "source": "Bikes in Schools (BikeOn)", "year": 2017, "url": "https://bikeon.org.nz/wp-content/uploads/2017/11/Rotary-Down-Under-article-Nov-2017.pdf" },
-  { "title": "Gate Pa school up for Cycle award", "date": "September 2017", "source": "SunLive", "year": 2017, "url": "http://sunlive.co.nz/news/162525-gate-pa-school-up-cycle-award.html" },
-  { "title": "Helping more kids to learn to ride a bike for life", "date": "July 2017", "source": "Beehive (NZ Government)", "year": 2017, "url": "https://beehive.govt.nz/release/helping-more-kids-learn-ride-bike-life" },
-  { "title": "Bikes in Schools Auckland celebrates 25th school at Ranui", "date": "July 2017", "source": "Scoop", "year": 2017, "url": "http://www.scoop.co.nz/stories/ED1707/S00077/bikes-in-schools-auckland-celebrates-25th-school-at-ranui.htm" },
-  { "title": "Ranui School celebrates new Bikes in Schools track", "date": "July 2017", "source": "YouTube", "year": 2017, "url": "https://www.youtube.com/watch?v=bBwDKpv0uPo" },
-  { "title": "Ranui School opening event", "date": "July 2017", "source": "YouTube", "year": 2017, "url": "https://www.youtube.com/watch?v=eFqQuj2B-K4" },
-  { "title": "Waikirikiri School opens new bike track", "date": "June 2017", "source": "Gisborne Herald", "year": 2017, "url": "http://gisborneherald.co.nz/localnews/2855017-135/waikirikiri-school-opens-new-bike-track" },
-  { "title": "City school's new cycle track a hit with kids and teachers", "date": "June 2017", "source": "Stuff", "year": 2017, "url": "http://www.stuff.co.nz/taranaki-daily-news/news/midweek/93036049/city-schools-new-cycle-track-a-hit-with-kids-and-teachers" },
-  { "title": "School cycle trail leads to bike boom", "date": "May 2017", "source": "Stuff", "year": 2017, "url": "http://www.stuff.co.nz/marlborough-express/news/93019420/school-cycle-trail-leads-to-bike-boom" },
-  { "title": "Bike track for beginners opens in Waiwhetu", "date": "May 2017", "source": "Stuff", "year": 2017, "url": "http://www.stuff.co.nz/national/health/92985588/bike-track-for-beginners-opens-in-waiwhetu" },
-  { "title": "Sixth bike track opens as future funding is considered", "date": "May 2017", "source": "Stuff", "year": 2017, "url": "http://www.stuff.co.nz/manawatu-standard/news/92886439/Sixth-bike-track-opens-as-future-funding-is-considered" },
-  { "title": "Henderson Valley School's new bike track", "date": "May 2017", "source": "YouTube", "year": 2017, "url": "https://www.youtube.com/watch?v=cAwbHYzTyFM" },
-  { "title": "Rata St raises $60,000 for new cycle track and bikes", "date": "March 2017", "source": "Stuff", "year": 2017, "url": "http://www.stuff.co.nz/dominion-post/capital-life/90945475/Rata-St-raises-60-000-for-new-cycle-track-and-bikes" },
-  { "title": "Whangaparaoa School: Teacher cycle skills instructor training", "date": "March 2017", "source": "Harbour Sport", "year": 2017, "url": "http://harboursport.co.nz/project/whangaparaoa-school-teacher-cycle-skills-instructor-training/" },
-  { "title": "New Cycle Track for the Naenae Community", "date": "March 2017", "source": "Scoop", "year": 2017, "url": "http://www.scoop.co.nz/stories/AK1703/S00710/new-cycle-track-for-the-naenae-community.htm" },
-  { "title": "Walton School kids first to test their new cycle track", "date": "March 2017", "source": "Stuff", "year": 2017, "url": "http://www.stuff.co.nz/waikato-times/news/matamata-chronicle/90589120/walton-school-kids-first-to-test-their-new-cycle-track" },
-  { "title": "Kids love classes on two wheels for Bikes in Schools", "date": "March 2017", "source": "Stuff", "year": 2017, "url": "http://www.stuff.co.nz/manawatu-standard/news/90558233/kids-love-classes-on-two-wheels-for-bikes-in-schools" },
-  { "title": "Push to net bike tracks for more Palmerston North schools", "date": "March 2017", "source": "Stuff", "year": 2017, "url": "http://www.stuff.co.nz/manawatu-standard/news/90352251/push-to-net-bike-tracks-for-more-palmerston-north-schools" },
-  { "title": "School bike track ready to ride", "date": "March 2017", "source": "Bikes in Schools (BikeOn)", "year": 2017, "url": "https://bikeon.org.nz/wp-content/uploads/2017/03/Rodney-Times-7Mar2017-page3.jpg" },
-  { "title": "A wheel win for primary", "date": "March 2017", "source": "Bikes in Schools (BikeOn)", "year": 2017, "url": "https://bikeon.org.nz/wp-content/uploads/2017/03/Rodney-Times-7Mar2017-page15.jpg" },
-  { "title": "Whangaparaoa Primary School opens long awaited bike track", "date": "March 2017", "source": "Stuff", "year": 2017, "url": "http://www.stuff.co.nz/auckland/local-news/rodney-times/90018045/whangaparaoa-primary-school-opens-long-awaited-bike-track" },
-  { "title": "School gets own bike track", "date": "March 2017", "source": "Stuff", "year": 2017, "url": "http://www.stuff.co.nz/waikato-times/news/south-waikato-news/89875446/school-gets-own-bike-track" },
-  { "title": "Bikes in Schools – it's Pt England's turn!", "date": "February 2017", "source": "Bike Auckland", "year": 2017, "url": "https://www.bikeauckland.org.nz/bikes-schools-pt-englands-turn/" },
-  { "title": "Makaraka School aims for healthy bodies and minds", "date": "January 2017", "source": "Gisborne Herald", "year": 2017, "url": "http://gisborneherald.co.nz/localnews/2638467-135/makaraka-school-aims-for-healthy-bodies" },
-  { "title": "Firth Primary School gets the wheels turning on cycle track", "date": "November 2016", "source": "Stuff", "year": 2016, "url": "http://www.stuff.co.nz/waikato-times/news/matamata-chronicle/86541986/firth-primary-school-gets-the-wheels-turning-on-cycle-track" },
-  { "title": "St Mary's have themselves a wheelie good day", "date": "November 2016", "source": "Stuff", "year": 2016, "url": "http://www.stuff.co.nz/auckland/local-news/western-leader/86620926/st-marys-have-themselves-a-wheelie-good-day" },
-  { "title": "Old boy and newest pupil open St Mary's bike tracks", "date": "November 2016", "source": "Stuff", "year": 2016, "url": "http://www.stuff.co.nz/manawatu-standard/news/86609399/old-boy-and-newest-pupil-open-st-marys-bike-tracks" },
-  { "title": "Terrace End pupils are getting bike fit", "date": "October 2016", "source": "Stuff", "year": 2016, "url": "http://www.stuff.co.nz/manawatu-standard/news/85847357/terrace-end-pupils-are-getting-bike-fit" },
-  { "title": "New Cycle Track Opens", "date": "October 2016", "source": "Bikes in Schools (BikeOn)", "year": 2016, "url": "https://bikeon.org.nz/wp-content/uploads/2017/03/new-cycle-track-opens.jpg" },
-  { "title": "Bikes in Schools", "date": "October 2016", "source": "Scoop", "year": 2016, "url": "http://www.scoop.co.nz/stories/ED1610/S00010/bikes-in-schools.htm" },
-  { "title": "ECT grant to Bikes in Schools", "date": "September 2016", "source": "Gisborne Herald", "year": 2016, "url": "http://gisborneherald.co.nz/localnews/2481585-135/ect-grant-to-bikes-in-schools" },
-  { "title": "Construction underway for Amesbury School's new bike track", "date": "September 2016", "source": "Bikes in Schools (BikeOn)", "year": 2016, "url": "https://bikeon.org.nz/wp-content/uploads/2016/09/IH-article-re-Sod-tuning.jpg" },
-  { "title": "The kids are green and fit at Houghton Valley School", "date": "September 2016", "source": "Newswire", "year": 2016, "url": "http://www.newswire.co.nz/2016/09/kids-green-fit-houghton-valley-school/" },
-  { "title": "Gulf Harbour School Bikes Track Fundraiser Promo", "date": "September 2016", "source": "YouTube", "year": 2016, "url": "https://www.youtube.com/watch?v=8d8aaQVwhuk" }
+  {
+    "title": "New funding for Bikes in Schools",
+    "date": "October 2025",
+    "source": "Beehive (NZ Government)",
+    "year": 2025,
+    "url": "https://www.beehive.govt.nz/release/new-funding-bikes-schools"
+  },
+  {
+    "title": "'Schools are asking for more': Rangitīkei children benefit from Bikes in Schools programme",
+    "date": "April 2025",
+    "source": "Whanganui Chronicle",
+    "year": 2025,
+    "url": "https://www.nzherald.co.nz/whanganui-chronicle/news/schools-are-asking-for-more-rangitikei-children-benefit-from-bikes-in-schools-programme/M5P26JV64VFOVK4RKYMS5UCIR4/"
+  },
+  {
+    "title": "Fresh bikes for Christchurch east students",
+    "date": "March 2025",
+    "source": "Newsline (Christchurch City Council)",
+    "year": 2025,
+    "url": "https://www.newsline.ccc.govt.nz/news/story/fresh-bikes-for-christchurch-east-students"
+  },
+  {
+    "title": "Vision of bike track completed at Castlecliff School in Whanganui",
+    "date": "June 2024",
+    "source": "NZ Herald",
+    "year": 2024,
+    "url": "https://www.nzherald.co.nz/whanganui-chronicle/whanganui-midweek/vision-of-bike-track-completed-at-castlecliff-school-in-whanganui/WZRIGE2IE5DVBL7OCADNA4KUOE/"
+  },
+  {
+    "title": "Maungatapu bike track a \"community initiative\"",
+    "date": "April 2024",
+    "source": "SunLive",
+    "year": 2024,
+    "url": "https://www.sunlive.co.nz/news/341207-maungatapu-bike-track-a--community-initiative-.html"
+  },
+  {
+    "title": "Generous donation funds joy",
+    "date": "April 2024",
+    "source": "Daily Encourager",
+    "year": 2024,
+    "url": "https://dailyencourager.co.nz/generous-donation-funds-joy/"
+  },
+  {
+    "title": "Porirua students on the right track",
+    "date": "March 2024",
+    "source": "Ministry for Pacific Peoples",
+    "year": 2024,
+    "url": "https://www.mpp.govt.nz/news-and-events/news-from-2/porirua-students-on-the-right-track/"
+  },
+  {
+    "title": "'Bike Hui' sees students get the most from bikes and tracks",
+    "date": "September 2023",
+    "source": "Newsline (Christchurch City Council)",
+    "year": 2023,
+    "url": "https://newsline.ccc.govt.nz/news/story/bike-hui-sees-students-get-the-most-from-bikes-and-tracks"
+  },
+  {
+    "title": "Tū Manawa Active Aotearoa Fund provides new wheels for Kaponga pupils",
+    "date": "December 2022",
+    "source": "NZ Herald",
+    "year": 2022,
+    "url": "https://www.nzherald.co.nz/stratford-press/news/tu-manawa-active-aotearoa-fund-provides-new-wheels-for-kaponga-pupils/46GH4XS33RHLFMZS6J2EBRVKIU/"
+  },
+  {
+    "title": "Te Puna school bike track is pumping",
+    "date": "August 2022",
+    "source": "SunLive",
+    "year": 2022,
+    "url": "https://www.sunlive.co.nz/news/299772-te-puna-school-bike-track-is-pumping.html"
+  },
+  {
+    "title": "Te Kura o Wairau bike track streets ahead for safe riding",
+    "date": "May 2022",
+    "source": "Stuff",
+    "year": 2022,
+    "url": "https://www.stuff.co.nz/manawatu-standard/news/300597117/te-kura-o-wairau-bike-track-streets-ahead-for-safe-riding"
+  },
+  {
+    "title": "Kaponga Primary School: Wheely good fun with new bike track",
+    "date": "March 2022",
+    "source": "NZ Herald",
+    "year": 2022,
+    "url": "https://www.nzherald.co.nz/stratford-press/news/kaponga-primary-school-wheely-good-fun-with-new-bike-track/OP62BBJAZBC2QQSAGKAPDM5STY/"
+  },
+  {
+    "title": "Kerikeri school's pump track building skills, resilience",
+    "date": "February 2022",
+    "source": "NZ Herald",
+    "year": 2022,
+    "url": "https://www.nzherald.co.nz/northern-advocate/news/kerikeri-schools-pump-track-building-skills-resilience/3QQSYTQLSM7AZH2XLJGFPNZ6QM/"
+  },
+  {
+    "title": "Let's Go Bike in Schools programme surprises Waitara and Inglewood pupils",
+    "date": "December 2021",
+    "source": "NZ Herald",
+    "year": 2021,
+    "url": "https://www.nzherald.co.nz/stratford-press/news/lets-go-bike-in-schools-programme-surprises-waitara-and-inglewood-pupils/WGSPKU25JHH5ODJELX532M4JQ4/"
+  },
+  {
+    "title": "Flash new wheels: Avon School pupils receive new scooters, bikes and helmets",
+    "date": "August 2021",
+    "source": "NZ Herald",
+    "year": 2021,
+    "url": "https://www.nzherald.co.nz/stratford-press/news/flash-new-wheels-avon-school-pupils-receive-new-scooters-bikes-and-helmets/KY5WVZVGTWHSFDBCIEAXJYG2E4/"
+  },
+  {
+    "title": "Teachers learn through new games to promote road safety to children and whānau",
+    "date": "July 2021",
+    "source": "Greater Wellington Regional Council",
+    "year": 2021,
+    "url": "https://www.gw.govt.nz/teachers-learn-through-new-games-to-promote-road-safety-to-children-and-whanau/"
+  },
+  {
+    "title": "Excitement for all at Selwyn School as bike track officially opened",
+    "date": "June 2021",
+    "source": "NZ Herald",
+    "year": 2021,
+    "url": "https://www.nzherald.co.nz/rotorua-daily-post/news/excitement-for-all-at-selwyn-school-as-bike-track-officially-opened/2RE5P4V6MJ5BZBJRGW67OULFCM/"
+  },
+  {
+    "title": "Wheels in motion at Awapuni School",
+    "date": "March 2021",
+    "source": "Gisborne Herald",
+    "year": 2021,
+    "url": "http://www.gisborneherald.co.nz/local-news/20210306/wheels-in-motion-at-awapuni-school/"
+  },
+  {
+    "title": "Appleby School pumped to have new bike track",
+    "date": "March 2021",
+    "source": "Stuff",
+    "year": 2021,
+    "url": "https://www.stuff.co.nz/nelson-mail/news/124305050/appleby-school-pumped-to-have-new-bike-track"
+  },
+  {
+    "title": "Bikes in Schools 'best thing ever'",
+    "date": "March 2021",
+    "source": "Dominion Post",
+    "year": 2021,
+    "url": "https://www.stuff.co.nz/dominion-post/news/local-papers/kapi-mana-news/124390343/bikes-in-schools-best-thing-ever"
+  },
+  {
+    "title": "Longest school track in NZ",
+    "date": "March 2021",
+    "source": "Wairarapa Times-Age",
+    "year": 2021,
+    "url": "https://times-age.co.nz/longest-school-track-in-nz"
+  },
+  {
+    "title": "Bikes in Schools: best thing ever",
+    "date": "January 2021",
+    "source": "RNZ",
+    "year": 2021,
+    "url": "https://www.rnz.co.nz/national/programmes/ninetonoon/audio/2018780985/bikes-in-schools-best-thing-ever"
+  },
+  {
+    "title": "Wheels in motion: school opens new bike, scooter track",
+    "date": "November 2020",
+    "source": "Otago Daily Times",
+    "year": 2020,
+    "url": "https://www.odt.co.nz/news/dunedin/wheels-motion-school-opens-new-bike-scooter-track"
+  },
+  {
+    "title": "Waitara East School's new cycle track is proving a big hit",
+    "date": "October 2020",
+    "source": "Stuff",
+    "year": 2020,
+    "url": "https://www.stuff.co.nz/taranaki-daily-news/news/123229364/waitara-east-schools-new-cycle-track-is-proving-a-big-hit"
+  },
+  {
+    "title": "Pumped up about new Golden Bay community track",
+    "date": "September 2020",
+    "source": "Stuff",
+    "year": 2020,
+    "url": "https://www.stuff.co.nz/nelson-mail/nelson-top-stories/122836115/pumped-up-about-new-golden-bay-community-track"
+  },
+  {
+    "title": "KEA Kids News: New bikes and track help students learn to ride",
+    "date": "September 2020",
+    "source": "Stuff",
+    "year": 2020,
+    "url": "https://www.stuff.co.nz/national/kea-kids-news/300096512/kea-kids-news-new-bikes-and-track-help-students-learn-to-ride"
+  },
+  {
+    "title": "Rotorua Primary School officially opens new bike track and trail",
+    "date": "July 2020",
+    "source": "NZ Herald",
+    "year": 2020,
+    "url": "https://www.nzherald.co.nz/rotorua-daily-post/news/article.cfm?c_id=1503438&objectid=12344519",
+    "archived": true
+  },
+  {
+    "title": "Term ends with cycle track opening at St Joseph's School, Waipukurau",
+    "date": "July 2020",
+    "source": "NZ Herald",
+    "year": 2020,
+    "url": "https://www.nzherald.co.nz/cycling/news/article.cfm?c_id=31&objectid=12346230",
+    "archived": true
+  },
+  {
+    "title": "20,000 more Kiwi kids on bikes",
+    "date": "February 2020",
+    "source": "Beehive (NZ Government)",
+    "year": 2020,
+    "url": "https://www.beehive.govt.nz/release/20000-more-kiwi-kids-bikes"
+  },
+  {
+    "title": "Teachers take over as Spotswood College's new pump track gets its official opening",
+    "date": "February 2020",
+    "source": "Stuff",
+    "year": 2020,
+    "url": "https://www.stuff.co.nz/taranaki-daily-news/119301010/teachers-take-over-as-spotswood-colleges-new-pump-track-gets-its-official-opening"
+  },
+  {
+    "title": "Sunset Primary School celebrates new facilities with Rotorua community",
+    "date": "February 2020",
+    "source": "NZ Herald",
+    "year": 2020,
+    "url": "https://www.nzherald.co.nz/rotorua-daily-post/news/article.cfm?c_id=1503438&objectid=12309224",
+    "archived": true
+  },
+  {
+    "title": "On track for a new journey",
+    "date": "November 2019",
+    "source": "SunLive",
+    "year": 2019,
+    "url": "https://www.sunlive.co.nz/news/225624-on-track-new-journey.html"
+  },
+  {
+    "title": "Volunteers give Papamoa children a new bike track",
+    "date": "November 2019",
+    "source": "SunLive",
+    "year": 2019,
+    "url": "https://www.sunlive.co.nz/news/225844-volunteers-give-pamapoa-children-new-bike-track.html"
+  },
+  {
+    "title": "Community rally together for new bike track in Pāpāmoa",
+    "date": "November 2019",
+    "source": "NZ Herald",
+    "year": 2019,
+    "url": "https://www.nzherald.co.nz/bay-of-plenty-times/news/article.cfm?c_id=1503343&objectid=12283168",
+    "archived": true
+  },
+  {
+    "title": "Volunteers give Papamoa children a new bike track",
+    "date": "November 2019",
+    "source": "SunLive",
+    "year": 2019,
+    "url": "https://www.sunlive.co.nz/news/225844-volunteers-give-papamoa-children-new-bike-track.html"
+  },
+  {
+    "title": "Weeee! Pupils ride Pāpāmoa school's brand new cycle track",
+    "date": "October 2019",
+    "source": "NZ Herald",
+    "year": 2019,
+    "url": "https://www.nzherald.co.nz/bay-of-plenty-times/news/article.cfm?c_id=1503343&objectid=12279653",
+    "archived": true
+  },
+  {
+    "title": "Central Crank - It's back with add-ons!",
+    "date": "September 2019",
+    "source": "Scoop",
+    "year": 2019,
+    "url": "http://www.scoop.co.nz/stories/AK1909/S00036/central-crank-sunday-22nd-september.htm"
+  },
+  {
+    "title": "Tapawera students hit the playground on 40 donated bikes",
+    "date": "August 2019",
+    "source": "Stuff",
+    "year": 2019,
+    "url": "https://www.stuff.co.nz/nelson-mail/114776822/tapawera-students-hit-the-playground-on-40-donated-bikes"
+  },
+  {
+    "title": "Hugs, high-fives and tears shed as Rotorua pupils receive new bikes",
+    "date": "August 2019",
+    "source": "NZ Herald",
+    "year": 2019,
+    "url": "https://www.nzherald.co.nz/rotorua-daily-post/news/article.cfm?c_id=1503438&objectid=12261879",
+    "archived": true
+  },
+  {
+    "title": "Temuka Primary School's new bike track to open in coming weeks",
+    "date": "July 2019",
+    "source": "Stuff",
+    "year": 2019,
+    "url": "https://www.stuff.co.nz/timaru-herald/news/114595560/temuka-primary-schools-new-bike-track-to-open-in-coming-weeks"
+  },
+  {
+    "title": "Westmere school hits the dirt with new mountain bike track",
+    "date": "July 2019",
+    "source": "NZ Herald",
+    "year": 2019,
+    "url": "https://www.nzherald.co.nz/wanganui-chronicle/news/article.cfm?c_id=1503426&objectid=12252955",
+    "archived": true
+  },
+  {
+    "title": "Whakarewarewa School given seven cycles in the Bike it Forward campaign",
+    "date": "June 2019",
+    "source": "NZ Herald",
+    "year": 2019,
+    "url": "https://www.nzherald.co.nz/live-in-rotorua/news/article.cfm?c_id=1504072&objectid=12233233",
+    "archived": true
+  },
+  {
+    "title": "Temuka Primary School plans cycle track around playground",
+    "date": "May 2019",
+    "source": "Stuff",
+    "year": 2019,
+    "url": "https://www.stuff.co.nz/timaru-herald/news/111612467/temuka-primary-school-plans-cycle-track-around-playground"
+  },
+  {
+    "title": "Bike track $15,000 closer",
+    "date": "May 2019",
+    "source": "Wairarapa Times-Age",
+    "year": 2019,
+    "url": "https://times-age.co.nz/bike-track-15000-closer"
+  },
+  {
+    "title": "Ngatea's new cycle/walk trail",
+    "date": "May 2019",
+    "source": "Sport Waikato",
+    "year": 2019,
+    "url": "https://www.sportwaikato.org.nz/news/ngatea-s-new-cycle-walk-trail.aspx",
+    "archived": true
+  },
+  {
+    "title": "Bikes in schools cycle track officially opened at Keith St School in Whanganui",
+    "date": "March 2019",
+    "source": "NZ Herald",
+    "year": 2019,
+    "url": "https://www.nzherald.co.nz/primary-education/news/article.cfm?c_id=288&objectid=12216068",
+    "archived": true
+  },
+  {
+    "title": "Pupils' idea for track now reality",
+    "date": "February 2019",
+    "source": "The Ensign",
+    "year": 2019,
+    "url": "http://www.theensign.co.nz/community/pupils-idea-for-track-now-reality/"
+  },
+  {
+    "title": "Lumsden School kids wait in anticipation for new bike park to open",
+    "date": "February 2019",
+    "source": "Stuff",
+    "year": 2019,
+    "url": "https://www.stuff.co.nz/southland-times/news/110589376/lumsden-school-kids-wait-in-anticipation-for-new-bike-park-to-open"
+  },
+  {
+    "title": "Whau Valley School students wheel along new shared path",
+    "date": "December 2018",
+    "source": "NZ Herald",
+    "year": 2018,
+    "url": "https://www.nzherald.co.nz/northern-advocate/news/article.cfm?c_id=1503450&objectid=12169013",
+    "archived": true
+  },
+  {
+    "title": "Getting Kiwi kids BikeReady",
+    "date": "November 2018",
+    "source": "Māori Television",
+    "year": 2018,
+    "url": "https://www.maoritelevision.com/news/education/getting-kiwi-kids-bikeready"
+  },
+  {
+    "title": "$23 million to get kids on bikes",
+    "date": "November 2018",
+    "source": "Otago Daily Times",
+    "year": 2018,
+    "url": "https://www.odt.co.nz/news/national/23-million-get-kids-bikes"
+  },
+  {
+    "title": "Bikes in Schools project gets funding boost",
+    "date": "November 2018",
+    "source": "RNZ",
+    "year": 2018,
+    "url": "https://www.radionz.co.nz/news/national/376820/bikes-in-schools-project-gets-funding-boost"
+  },
+  {
+    "title": "$23m for more bikes in schools",
+    "date": "November 2018",
+    "source": "RNZ",
+    "year": 2018,
+    "url": "https://www.radionz.co.nz/national/programmes/checkpoint/audio/2018672917/23m-for-more-bikes-in-schools"
+  },
+  {
+    "title": "$23 million in Government funding announced to get more school children cycling",
+    "date": "November 2018",
+    "source": "Stuff",
+    "year": 2018,
+    "url": "https://www.stuff.co.nz/national/108863277/23-million-in-government-funding-announced-to-get-more-school-children-cycling"
+  },
+  {
+    "title": "Thousands of kids to have access to bikes and helmets",
+    "date": "November 2018",
+    "source": "RNZ",
+    "year": 2018,
+    "url": "https://www.radionz.co.nz/news/political/376867/thousands-of-kids-to-have-access-to-bikes-and-helmets"
+  },
+  {
+    "title": "Students pumped over new bike track",
+    "date": "November 2018",
+    "source": "Stuff",
+    "year": 2018,
+    "url": "https://www.stuff.co.nz/nelson-mail/news/108566452/students-pumped-over-new-bike-track"
+  },
+  {
+    "title": "New bike track gets Tawhero and St Marcellin schools pedalling",
+    "date": "November 2018",
+    "source": "NZ Herald",
+    "year": 2018,
+    "url": "https://www.nzherald.co.nz/cycling/news/article.cfm?c_id=31&objectid=12155906",
+    "archived": true
+  },
+  {
+    "title": "NZTA to give $23m to get more children riding bicycles",
+    "date": "November 2018",
+    "source": "NZ Herald",
+    "year": 2018,
+    "url": "https://www.nzherald.co.nz/nz/news/article.cfm?c_id=1&objectid=12166313",
+    "archived": true
+  },
+  {
+    "title": "Bikes in Schools recognised in award",
+    "date": "October 2018",
+    "source": "Gisborne Herald",
+    "year": 2018,
+    "url": "http://gisborneherald.co.nz/localnews/3736938-135/bikes-in-schools-recognised-in-award"
+  },
+  {
+    "title": "Carisbrook School's new bike track open to rider's",
+    "date": "October 2018",
+    "source": "Otago Daily Times",
+    "year": 2018,
+    "url": "https://www.odt.co.nz/news/dunedin/carisbrook-schools-new-bike-track-open-riders"
+  },
+  {
+    "title": "Puni school opens new bike track",
+    "date": "October 2018",
+    "source": "Stuff",
+    "year": 2018,
+    "url": "https://www.stuff.co.nz/waikato-times/news/franklin-county-news/107534046/puni-scholl-opens-new-bike-track"
+  },
+  {
+    "title": "Hastings Intermediate BMX track a New Zealand first",
+    "date": "October 2018",
+    "source": "NZ Herald",
+    "year": 2018,
+    "url": "https://www.nzherald.co.nz/good-news/news/article.cfm?c_id=1503279&objectid=12147197",
+    "archived": true
+  },
+  {
+    "title": "Lower Hutt students urge people to donate a dollar to help nearby school",
+    "date": "August 2018",
+    "source": "Stuff",
+    "year": 2018,
+    "url": "https://www.stuff.co.nz/dominion-post/capital-life/capital-day/106593463/lower-hutt-students-urge-people-to-donate-a-dollar-to-help-nearby-school"
+  },
+  {
+    "title": "Funding boost helps Kimbolton School get pupils bike lessons on track",
+    "date": "August 2018",
+    "source": "Stuff",
+    "year": 2018,
+    "url": "https://www.stuff.co.nz/manawatu-standard/news/106320640/funding-boost-helps-kimbolton-school-get-pupils-bike-lessons-on-track"
+  },
+  {
+    "title": "Bike riding a breeze at Selwyn Ridge",
+    "date": "August 2018",
+    "source": "The Weekend Sun",
+    "year": 2018,
+    "url": "https://theweekendsun.co.nz/news/4620-bike-riding-breeze-at-selwyn-ridge.html"
+  },
+  {
+    "title": "Bikes project worthy winner of NZ award",
+    "date": "August 2018",
+    "source": "Gisborne Herald",
+    "year": 2018,
+    "url": "http://gisborneherald.co.nz/localnews/3515594-135/bikes-project-worthy-winner-of-nz"
+  },
+  {
+    "title": "Students design their own sign",
+    "date": "July 2018",
+    "source": "Gisborne Herald",
+    "year": 2018,
+    "url": "http://gisborneherald.co.nz/localnews/3501806-135/students-design-their-own-sign"
+  },
+  {
+    "title": "Ōtaki School children on their bikes thanks to the South Korean Government",
+    "date": "July 2018",
+    "source": "Stuff",
+    "year": 2018,
+    "url": "https://www.stuff.co.nz/dominion-post/news/wellington/105731886/taki-school-children-on-their-bikes-thanks-to-the-south-korean-government"
+  },
+  {
+    "title": "Bike track funding a win for schools",
+    "date": "July 2018",
+    "source": "Whanganui District Council",
+    "year": 2018,
+    "url": "https://www.whanganui.govt.nz/our-council/news-media/media-releases/Pages/default.aspx?newsItem=8948"
+  },
+  {
+    "title": "Nelson Intermediate geared up with new bikes",
+    "date": "June 2018",
+    "source": "Stuff",
+    "year": 2018,
+    "url": "https://www.stuff.co.nz/nelson-mail/news/104856724/nelson-intermediate-geared-up-with-new-bik"
+  },
+  {
+    "title": "New bike track at Rai Valley Area School has kids pumped",
+    "date": "June 2018",
+    "source": "Stuff",
+    "year": 2018,
+    "url": "https://www.stuff.co.nz/life-style/parenting/104812800/new-bike-track-at-rai-valley-area-school-has-kids-pumped"
+  },
+  {
+    "title": "Cycling their way to a better future",
+    "date": "June 2018",
+    "source": "Gisborne Herald",
+    "year": 2018,
+    "url": "http://gisborneherald.co.nz/localnews/3411135-135/cycling-their-way-to-a-better"
+  },
+  {
+    "title": "Randwick has three new cycling tracks but not enough bikes for its pupils",
+    "date": "March 2018",
+    "source": "Stuff",
+    "year": 2018,
+    "url": "https://www.stuff.co.nz/national/health/102277982/randwick-has-three-new-cycling-tracks-but-not-enough-bikes-for-its-pupils"
+  },
+  {
+    "title": "School counters downward cycling trend",
+    "date": "March 2018",
+    "source": "Stuff",
+    "year": 2018,
+    "url": "https://www.stuff.co.nz/national/education/101998042/school-counters-downward-cycling-trend"
+  },
+  {
+    "title": "Churton School bike track",
+    "date": "March 2018",
+    "source": "NZ Herald",
+    "year": 2018,
+    "url": "http://www.nzherald.co.nz/wanganui-chronicle/video/news/video.cfm?c_id=1503418&gal_cid=1503418&gallery_id=189458",
+    "archived": true
+  },
+  {
+    "title": "30th school joins Bikes in Schools project",
+    "date": "March 2018",
+    "source": "Our Auckland",
+    "year": 2018,
+    "url": "https://ourauckland.aucklandcouncil.govt.nz/articles/news/2018/3/30th-school-joins-bikes-in-schools-project"
+  },
+  {
+    "title": "Pupils get new bikes and track",
+    "date": "March 2018",
+    "source": "Star",
+    "year": 2018,
+    "url": "http://www.star.kiwi/2018/03/pupils-get-new-bikes-and-track"
+  },
+  {
+    "title": "Makauri School opens new bike track",
+    "date": "February 2018",
+    "source": "Gisborne Herald",
+    "year": 2018,
+    "url": "http://gisborneherald.co.nz/localnews/3230948-135/makauri-school-opens-new-bike-track"
+  },
+  {
+    "title": "Kids revel in the opening of new Bledisloe School Bikes in Schools track",
+    "date": "February 2018",
+    "source": "NZ Herald",
+    "year": 2018,
+    "url": "http://www.nzherald.co.nz/hawkes-bay-today/news/article.cfm?c_id=1503462&objectid=11990643",
+    "archived": true
+  },
+  {
+    "title": "More bikes in schools confirmed thanks to council funding",
+    "date": "December 2017",
+    "source": "Stuff",
+    "year": 2017,
+    "url": "https://www.stuff.co.nz/manawatu-standard/news/100049092/more-bikes-in-schools-confirmed-thanks-to-council-funding"
+  },
+  {
+    "title": "New Bike Track Officially Open",
+    "date": "November 2017",
+    "source": "Cambridge News",
+    "year": 2017,
+    "url": "https://www.cambridgenews.nz/2017/11/new-bike-track-officially-open/"
+  },
+  {
+    "title": "WCC Bikes in School project up for national award",
+    "date": "October 2017",
+    "source": "YouTube",
+    "year": 2017,
+    "url": "https://www.youtube.com/watch?v=lSyD6OUpOyA"
+  },
+  {
+    "title": "New bike track a community effort",
+    "date": "October 2017",
+    "source": "NZ Herald",
+    "year": 2017,
+    "url": "http://www.nzherald.co.nz/wanganui-chronicle/news/article.cfm?c_id=1503426&objectid=11935112",
+    "archived": true
+  },
+  {
+    "title": "Gate Pa school up for Cycle award",
+    "date": "September 2017",
+    "source": "SunLive",
+    "year": 2017,
+    "url": "http://sunlive.co.nz/news/162525-gate-pa-school-up-cycle-award.html"
+  },
+  {
+    "title": "Tauranga principal finalist in NZ biking awards",
+    "date": "September 2017",
+    "source": "NZ Herald",
+    "year": 2017,
+    "url": "http://www.nzherald.co.nz/bay-of-plenty-times/news/article.cfm?c_id=1503343&objectid=11921154",
+    "archived": true
+  },
+  {
+    "title": "Bikes in Schools Auckland celebrates 25th school",
+    "date": "August 2017",
+    "source": "Our Auckland",
+    "year": 2017,
+    "url": "https://ourauckland.aucklandcouncil.govt.nz/articles/news/2017/08/bikes-in-schools-auckland-celebrates-25th-school/?mc_cid=3d98535e6c&mc_eid=7359f3464f"
+  },
+  {
+    "title": "Hand-cycle frees one-legged Zane to speed around with his mates",
+    "date": "August 2017",
+    "source": "NZ Herald",
+    "year": 2017,
+    "url": "http://www.nzherald.co.nz/nz/news/article.cfm?c_id=1&objectid=11910336",
+    "archived": true
+  },
+  {
+    "title": "Helping more kids to learn to ride a bike for life",
+    "date": "July 2017",
+    "source": "Beehive (NZ Government)",
+    "year": 2017,
+    "url": "https://beehive.govt.nz/release/helping-more-kids-learn-ride-bike-life"
+  },
+  {
+    "title": "Bikes in Schools Auckland celebrates 25th school at Ranui",
+    "date": "July 2017",
+    "source": "Scoop",
+    "year": 2017,
+    "url": "http://www.scoop.co.nz/stories/ED1707/S00077/bikes-in-schools-auckland-celebrates-25th-school-at-ranui.htm"
+  },
+  {
+    "title": "Ranui School celebrates new Bikes in Schools track",
+    "date": "July 2017",
+    "source": "YouTube",
+    "year": 2017,
+    "url": "https://www.youtube.com/watch?v=bBwDKpv0uPo"
+  },
+  {
+    "title": "Ranui School opening event",
+    "date": "July 2017",
+    "source": "YouTube",
+    "year": 2017,
+    "url": "https://www.youtube.com/watch?v=eFqQuj2B-K4"
+  },
+  {
+    "title": "Waikirikiri School opens new bike track",
+    "date": "June 2017",
+    "source": "Gisborne Herald",
+    "year": 2017,
+    "url": "http://gisborneherald.co.nz/localnews/2855017-135/waikirikiri-school-opens-new-bike-track"
+  },
+  {
+    "title": "City school's new cycle track a hit with kids and teachers",
+    "date": "June 2017",
+    "source": "Stuff",
+    "year": 2017,
+    "url": "http://www.stuff.co.nz/taranaki-daily-news/news/midweek/93036049/city-schools-new-cycle-track-a-hit-with-kids-and-teachers"
+  },
+  {
+    "title": "Springlands School Bike track opens",
+    "date": "June 2017",
+    "source": "Facebook",
+    "year": 2017,
+    "url": "https://www.facebook.com/MarlDistCouncil/posts/1457905600935738"
+  },
+  {
+    "title": "School cycle trail leads to bike boom",
+    "date": "May 2017",
+    "source": "Stuff",
+    "year": 2017,
+    "url": "http://www.stuff.co.nz/marlborough-express/news/93019420/school-cycle-trail-leads-to-bike-boom"
+  },
+  {
+    "title": "Bike track for beginners opens in Waiwhetu",
+    "date": "May 2017",
+    "source": "Stuff",
+    "year": 2017,
+    "url": "http://www.stuff.co.nz/national/health/92985588/bike-track-for-beginners-opens-in-waiwhetu"
+  },
+  {
+    "title": "Sixth bike track opens as future funding is considered",
+    "date": "May 2017",
+    "source": "Stuff",
+    "year": 2017,
+    "url": "http://www.stuff.co.nz/manawatu-standard/news/92886439/Sixth-bike-track-opens-as-future-funding-is-considered"
+  },
+  {
+    "title": "Henderson Valley School's new bike track",
+    "date": "May 2017",
+    "source": "YouTube",
+    "year": 2017,
+    "url": "https://www.youtube.com/watch?v=cAwbHYzTyFM"
+  },
+  {
+    "title": "Henderson Valley School kids hit the track",
+    "date": "May 2017",
+    "source": "Our Auckland",
+    "year": 2017,
+    "url": "https://ourauckland.aucklandcouncil.govt.nz/articles/news/2017/05/henderson-valley-school-kids-hit-the-track"
+  },
+  {
+    "title": "Minister marks progress on Rotorua cycleways",
+    "date": "May 2017",
+    "source": "NZ Herald",
+    "year": 2017,
+    "url": "http://www.nzherald.co.nz/rotorua-daily-post/news/article.cfm?c_id=1503438&objectid=11858544",
+    "archived": true
+  },
+  {
+    "title": "Cotswold second school to get bike tracks",
+    "date": "May 2017",
+    "source": "Star",
+    "year": 2017,
+    "url": "http://www.star.kiwi/2017/05/cotswold-second-school-to-get-bike-tracks"
+  },
+  {
+    "title": "Latest Rotorua cycleway now officially open",
+    "date": "May 2017",
+    "source": "Rotorua Lakes Council",
+    "year": 2017,
+    "url": "http://www.rotorualakescouncil.nz/our-council/news/Pages/default.aspx?newsItem=7562",
+    "archived": true
+  },
+  {
+    "title": "New school tracks get students on the move",
+    "date": "April 2017",
+    "source": "NZ Herald",
+    "year": 2017,
+    "url": "http://www.nzherald.co.nz/wanganui-chronicle/news/article.cfm?c_id=1503426&objectid=11835365",
+    "archived": true
+  },
+  {
+    "title": "Rata St raises $60,000 for new cycle track and bikes",
+    "date": "March 2017",
+    "source": "Stuff",
+    "year": 2017,
+    "url": "http://www.stuff.co.nz/dominion-post/capital-life/90945475/Rata-St-raises-60-000-for-new-cycle-track-and-bikes"
+  },
+  {
+    "title": "Whangaparaoa School: Teacher cycle skills instructor training",
+    "date": "March 2017",
+    "source": "Harbour Sport",
+    "year": 2017,
+    "url": "http://harboursport.co.nz/project/whangaparaoa-school-teacher-cycle-skills-instructor-training/"
+  },
+  {
+    "title": "New Cycle Track for the Naenae Community",
+    "date": "March 2017",
+    "source": "Scoop",
+    "year": 2017,
+    "url": "http://www.scoop.co.nz/stories/AK1703/S00710/new-cycle-track-for-the-naenae-community.htm"
+  },
+  {
+    "title": "Walton School kids first to test their new cycle track",
+    "date": "March 2017",
+    "source": "Stuff",
+    "year": 2017,
+    "url": "http://www.stuff.co.nz/waikato-times/news/matamata-chronicle/90589120/walton-school-kids-first-to-test-their-new-cycle-track"
+  },
+  {
+    "title": "Kids love classes on two wheels for Bikes in Schools",
+    "date": "March 2017",
+    "source": "Stuff",
+    "year": 2017,
+    "url": "http://www.stuff.co.nz/manawatu-standard/news/90558233/kids-love-classes-on-two-wheels-for-bikes-in-schools"
+  },
+  {
+    "title": "Push to net bike tracks for more Palmerston North schools",
+    "date": "March 2017",
+    "source": "Stuff",
+    "year": 2017,
+    "url": "http://www.stuff.co.nz/manawatu-standard/news/90352251/push-to-net-bike-tracks-for-more-palmerston-north-schools"
+  },
+  {
+    "title": "Whangaparaoa Primary School opens long awaited bike track",
+    "date": "March 2017",
+    "source": "Stuff",
+    "year": 2017,
+    "url": "http://www.stuff.co.nz/auckland/local-news/rodney-times/90018045/whangaparaoa-primary-school-opens-long-awaited-bike-track"
+  },
+  {
+    "title": "School gets own bike track",
+    "date": "March 2017",
+    "source": "Stuff",
+    "year": 2017,
+    "url": "http://www.stuff.co.nz/waikato-times/news/south-waikato-news/89875446/school-gets-own-bike-track"
+  },
+  {
+    "title": "Oranga Primary kids hit the bike track",
+    "date": "March 2017",
+    "source": "Our Auckland",
+    "year": 2017,
+    "url": "http://ourauckland.aucklandcouncil.govt.nz/articles/news/2017/03/oranga-primary-kids-hit-the-bike-track"
+  },
+  {
+    "title": "Bikes in Schools – it's Pt England's turn!",
+    "date": "February 2017",
+    "source": "Bike Auckland",
+    "year": 2017,
+    "url": "https://www.bikeauckland.org.nz/bikes-schools-pt-englands-turn/"
+  },
+  {
+    "title": "Cycleway 'heaven' opens behind Gate Pa School",
+    "date": "February 2017",
+    "source": "NZ Herald",
+    "year": 2017,
+    "url": "http://www.nzherald.co.nz/bay-of-plenty-times/news/article.cfm?c_id=1503343&objectid=11806266",
+    "archived": true
+  },
+  {
+    "title": "Pt England School celebrates new bikes and cycling track",
+    "date": "February 2017",
+    "source": "Our Auckland",
+    "year": 2017,
+    "url": "http://ourauckland.aucklandcouncil.govt.nz/articles/news/2017/02/pt-england-school-celebrates-50-new-bikes-and-400m-cycling-track"
+  },
+  {
+    "title": "Makaraka School aims for healthy bodies and minds",
+    "date": "January 2017",
+    "source": "Gisborne Herald",
+    "year": 2017,
+    "url": "http://gisborneherald.co.nz/localnews/2638467-135/makaraka-school-aims-for-healthy-bodies"
+  },
+  {
+    "title": "15 Tairawhiti schools will have cycle tracks by 2018",
+    "date": "January 2017",
+    "source": "Sport Gisborne",
+    "year": 2017,
+    "url": "http://www.sportgisborne.org.nz/15-gisborne-schools-will-have-cycle-tracks-by-2018",
+    "archived": true
+  },
+  {
+    "title": "Firth Primary School gets the wheels turning on cycle track",
+    "date": "November 2016",
+    "source": "Stuff",
+    "year": 2016,
+    "url": "http://www.stuff.co.nz/waikato-times/news/matamata-chronicle/86541986/firth-primary-school-gets-the-wheels-turning-on-cycle-track"
+  },
+  {
+    "title": "St Mary's have themselves a wheelie good day",
+    "date": "November 2016",
+    "source": "Stuff",
+    "year": 2016,
+    "url": "http://www.stuff.co.nz/auckland/local-news/western-leader/86620926/st-marys-have-themselves-a-wheelie-good-day"
+  },
+  {
+    "title": "Old boy and newest pupil open St Mary's bike tracks",
+    "date": "November 2016",
+    "source": "Stuff",
+    "year": 2016,
+    "url": "http://www.stuff.co.nz/manawatu-standard/news/86609399/old-boy-and-newest-pupil-open-st-marys-bike-tracks"
+  },
+  {
+    "title": "St Mary's Avondale gets Bikes in Schools",
+    "date": "November 2016",
+    "source": "Our Auckland",
+    "year": 2016,
+    "url": "http://ourauckland.aucklandcouncil.govt.nz/articles/news/2016/11/st-marys-gets-bikes-in-schools"
+  },
+  {
+    "title": "Terrace End pupils are getting bike fit",
+    "date": "October 2016",
+    "source": "Stuff",
+    "year": 2016,
+    "url": "http://www.stuff.co.nz/manawatu-standard/news/85847357/terrace-end-pupils-are-getting-bike-fit"
+  },
+  {
+    "title": "Bikes in Schools",
+    "date": "October 2016",
+    "source": "Scoop",
+    "year": 2016,
+    "url": "http://www.scoop.co.nz/stories/ED1610/S00010/bikes-in-schools.htm"
+  },
+  {
+    "title": "Community will share benefits of cycle track",
+    "date": "October 2016",
+    "source": "NZ Herald",
+    "year": 2016,
+    "url": "http://www.nzherald.co.nz/wanganui-chronicle/news/article.cfm?c_id=1503426&objectid=11728122",
+    "archived": true
+  },
+  {
+    "title": "Cycleway opens for family fun",
+    "date": "October 2016",
+    "source": "NZ Herald",
+    "year": 2016,
+    "url": "http://www.nzherald.co.nz/wanganui-chronicle/news/article.cfm?c_id=1503426&objectid=11726878",
+    "archived": true
+  },
+  {
+    "title": "Bike track no obstacle for Gulf Harbour School",
+    "date": "October 2016",
+    "source": "Local Matters",
+    "year": 2016,
+    "url": "http://www.localmatters.co.nz/Lifestyle/sport/Sport+Archives/2016/October+2016/Bike+track+no+obstacle+for+Gulf+Harbour+School.html",
+    "archived": true
+  },
+  {
+    "title": "ECT grant to Bikes in Schools",
+    "date": "September 2016",
+    "source": "Gisborne Herald",
+    "year": 2016,
+    "url": "http://gisborneherald.co.nz/localnews/2481585-135/ect-grant-to-bikes-in-schools"
+  },
+  {
+    "title": "The kids are green and fit at Houghton Valley School",
+    "date": "September 2016",
+    "source": "Newswire",
+    "year": 2016,
+    "url": "http://www.newswire.co.nz/2016/09/kids-green-fit-houghton-valley-school/",
+    "archived": true
+  },
+  {
+    "title": "Gulf Harbour School Bikes Track Fundraiser Promo",
+    "date": "September 2016",
+    "source": "YouTube",
+    "year": 2016,
+    "url": "https://www.youtube.com/watch?v=8d8aaQVwhuk"
+  },
+  {
+    "title": "Work Starts on New Cycle Track",
+    "date": "September 2016",
+    "source": "NZ Herald",
+    "year": 2016,
+    "url": "http://www.nzherald.co.nz/wanganui-chronicle/midweek/news/article.cfm?c_id=1503658&objectid=11718456",
+    "archived": true
+  },
+  {
+    "title": "ECCT gives big for Bikes in Schools",
+    "date": "August 2016",
+    "source": "Gisborne Herald",
+    "year": 2016,
+    "url": "http://gisborneherald.co.nz/localnews/2421224-135/ecct-gives-big-for-bikes-in"
+  },
+  {
+    "title": "Fifty bikes donated to Tauranga school",
+    "date": "August 2016",
+    "source": "NZ Herald",
+    "year": 2016,
+    "url": "http://www.nzherald.co.nz/nz/news/article.cfm?c_id=1&objectid=11687303",
+    "archived": true
+  },
+  {
+    "title": "Bikes Build Resilience at Pinehaven School.",
+    "date": "August 2016",
+    "source": "Enviroschools",
+    "year": 2016,
+    "url": "http://www.enviroschools.org.nz/in_your_region/wellington/featured-projects/bikes-build-resilience-at-pinehaven-school",
+    "archived": true
+  },
+  {
+    "title": "Ashbrook delights in bike freedom",
+    "date": "August 2016",
+    "source": "Opotiki News",
+    "year": 2016,
+    "url": "http://www.opotikinews.co.nz/blog/690789",
+    "archived": true
+  },
+  {
+    "title": "Auckland school spins with joy around the playground",
+    "date": "July 2016",
+    "source": "Stuff",
+    "year": 2016,
+    "url": "http://www.stuff.co.nz/auckland/local-news/manukau-courier/81524665/auckland-school-spins-with-joy-around-the-playground"
+  },
+  {
+    "title": "Royal Road School bike track",
+    "date": "June 2016",
+    "source": "Henderson Rotary",
+    "year": 2016,
+    "url": "http://www.hendersonrotary.co.nz/royal-road-school-bike-track"
+  },
+  {
+    "title": "Plans to turn 'hidden jewel' into community cycleway",
+    "date": "May 2016",
+    "source": "NZ Herald",
+    "year": 2016,
+    "url": "http://www.nzherald.co.nz/bay-of-plenty-times/news/article.cfm?c_id=1503343&objectid=11631574",
+    "archived": true
+  },
+  {
+    "title": "Anonymous donation boosts Rawhiti School cycling programme",
+    "date": "May 2016",
+    "source": "Stuff",
+    "year": 2016,
+    "url": "http://www.stuff.co.nz/the-press/christchurch-life/79564698/Anonymous-donation-boosts-Rawhiti-School-cycling-programme"
+  },
+  {
+    "title": "Bikes in Schools gives primary students new skills",
+    "date": "May 2016",
+    "source": "Stuff",
+    "year": 2016,
+    "url": "http://www.stuff.co.nz/auckland/local-news/north-shore-times/79638187/bikes-in-schools-gives-primary-students-new-skills"
+  },
+  {
+    "title": "Wheels turning quickly for Bikes in Schools programme",
+    "date": "May 2016",
+    "source": "Stuff",
+    "year": 2016,
+    "url": "http://www.stuff.co.nz/manawatu-standard/news/80452795/wheels-turning-quickly-for-bikes-in-schools-programme"
+  },
+  {
+    "title": "Editorial: Cycle tracks a safe idea",
+    "date": "May 2016",
+    "source": "NZ Herald",
+    "year": 2016,
+    "url": "http://www.nzherald.co.nz/bay-of-plenty-times/news/article.cfm?c_id=1503343&objectid=11632264",
+    "archived": true
+  },
+  {
+    "title": "Helping children onto bikes",
+    "date": "May 2016",
+    "source": "Palmerston North City Council",
+    "year": 2016,
+    "url": "https://www.pncc.govt.nz/news-events-and-culture/news/helping-children-onto-bikes"
+  },
+  {
+    "title": "School cycle track up and running",
+    "date": "April 2016",
+    "source": "NZ Herald",
+    "year": 2016,
+    "url": "http://nzherald.co.nz/northern-advocate/news/article.cfm?c_id=1503450&objectid=11615468",
+    "archived": true
+  },
+  {
+    "title": "Lakeview School track first in the region",
+    "date": "April 2016",
+    "source": "NZ Herald",
+    "year": 2016,
+    "url": "http://www.nzherald.co.nz/wairarapa-times-age/news/article.cfm?c_id=1503414&objectid=11621717",
+    "archived": true
+  },
+  {
+    "title": "Masterton's Lakeview School gets on board the Bikes in School programme",
+    "date": "April 2016",
+    "source": "Stuff",
+    "year": 2016,
+    "url": "http://www.stuff.co.nz/dominion-post/news/local-papers/wairarapa-news/79079830/mastertons-lakeview-school-gets-on-board-the-bikes-in-school-programme"
+  },
+  {
+    "title": "School's new track boosts bike skills",
+    "date": "April 2016",
+    "source": "NZ Herald",
+    "year": 2016,
+    "url": "http://www.nzherald.co.nz/northern-advocate/news/article.cfm?c_id=1503450&objectid=11630152",
+    "archived": true
+  },
+  {
+    "title": "Next steps for Bikes in Schools Gisborne",
+    "date": "March 2016",
+    "source": "Scoop",
+    "year": 2016,
+    "url": "http://www.scoop.co.nz/stories/AK1603/S00746/next-steps-for-bikes-in-schools.htm"
+  },
+  {
+    "title": "More Bikes in Schools Needed",
+    "date": "February 2016",
+    "source": "Our Auckland",
+    "year": 2016,
+    "url": "http://ourauckland.aucklandcouncil.govt.nz/articles/news/2016/02/bikes-in-schools"
+  },
+  {
+    "title": "Kaiti first with school bike tracks",
+    "date": "February 2016",
+    "source": "Gisborne Herald",
+    "year": 2016,
+    "url": "http://gisborneherald.co.nz/localnews/2192500-135/kaiti-first-with-school-bike-tracks"
+  },
+  {
+    "title": "School's biking initiative rewarded",
+    "date": "February 2016",
+    "source": "NZ Herald",
+    "year": 2016,
+    "url": "http://www.nzherald.co.nz/northern-advocate/news/article.cfm?c_id=1503450&objectid=11592595",
+    "archived": true
+  },
+  {
+    "title": "Making tracks at Kaiti School",
+    "date": "January 2016",
+    "source": "Gisborne Herald",
+    "year": 2016,
+    "url": "http://gisborneherald.co.nz/localnews/2131471-135/making-tracks-at-kaiti-school"
+  },
+  {
+    "title": "School going flat out to get kids on bikes",
+    "date": "October 2015",
+    "source": "NZ Herald",
+    "year": 2015,
+    "url": "http://www.nzherald.co.nz/northern-advocate/news/article.cfm?c_id=1503450&objectid=11532006",
+    "archived": true
+  },
+  {
+    "title": "Musselburgh track shows the way",
+    "date": "September 2015",
+    "source": "Otago Daily Times",
+    "year": 2015,
+    "url": "http://www.odt.co.nz/news/dunedin/355582/musselburgh-track-shows-way",
+    "archived": true
+  },
+  {
+    "title": "Students get on their bikes",
+    "date": "August 2015",
+    "source": "Education Gazette",
+    "year": 2015,
+    "url": "https://gazette.education.govt.nz/articles/1H9crt-students-get-on-their-bikes",
+    "archived": true
+  },
+  {
+    "title": "Bikes in Schools – ride on, Tamaki Primary!",
+    "date": "June 2015",
+    "source": "Bike Auckland",
+    "year": 2015,
+    "url": "https://www.bikeauckland.org.nz/bikes-in-schools-ride-on-tamaki-primary"
+  },
+  {
+    "title": "Bikes in Schools having huge impact",
+    "date": "May 2015",
+    "source": "NZ Herald",
+    "year": 2015,
+    "url": "http://www.nzherald.co.nz/element-magazine/news/article.cfm?c_id=1503340&objectid=11261532",
+    "archived": true
+  },
+  {
+    "title": "Bikes in Schools [audio]",
+    "date": "May 2015",
+    "source": "RNZ",
+    "year": 2015,
+    "url": "http://www.radionz.co.nz/national/programmes/thiswayup/audio/201756377/bikes-in-schools"
+  },
+  {
+    "title": "Taking to the track: cycle track opens at Holy Cross",
+    "date": "April 2015",
+    "source": "The Star",
+    "year": 2015,
+    "url": "http://issuu.com/the.star/docs/215097cs?e=1420315/12199217",
+    "archived": true
+  },
+  {
+    "title": "Cycleway opens at school",
+    "date": "March 2015",
+    "source": "Helensville News",
+    "year": 2015,
+    "url": "http://www.helensville.co.nz/helensvillenews/issues/2015/HelensvilleNews-March-2015.pdf",
+    "archived": true
+  },
+  {
+    "title": "More Wellington kids riding bikes",
+    "date": "March 2015",
+    "source": "Wellington City Council",
+    "year": 2015,
+    "url": "http://wellington.govt.nz/your-council/news/2015/03/more-wellington-kids-riding-bikes",
+    "archived": true
+  },
+  {
+    "title": "Bikenomics : What’s cycling worth?",
+    "date": "December 2014",
+    "source": "RNZ",
+    "year": 2014,
+    "url": "http://www.radionz.co.nz/national/programmes/sunday/audio/20161014/bikenomics-what-s-cycling-worth"
+  },
+  {
+    "title": "Wonderful new \"Bikes in Schools Auckland\" video launched",
+    "date": "October 2014",
+    "source": "YouTube",
+    "year": 2014,
+    "url": "https://www.youtube.com/watch?v=qyJ-Y6Ver6A&list=UUjapn-HvMCZZwMizDtBsTAg"
+  },
+  {
+    "title": "Waihi East School opens their Bike Track",
+    "date": "October 2014",
+    "source": "Google+",
+    "year": 2014,
+    "url": "https://plus.google.com/109151752502758755417/stories/99893f57-c5a5-3ed3-8626-f0fa1a717db91491282191b"
+  },
+  {
+    "title": "More Wellington Kids to be Out Riding Bikes",
+    "date": "August 2014",
+    "source": "Wellington City Council",
+    "year": 2014,
+    "url": "http://wellington.govt.nz/your-council/news/2014/08/more-wellington-kids-to-be-out-riding-bikes",
+    "archived": true
+  },
+  {
+    "title": "Faster, fitter future for cyclists",
+    "date": "May 2014",
+    "source": "NZ Herald",
+    "year": 2014,
+    "url": "http://www.nzherald.co.nz/northern-advocate/news/article.cfm?c_id=1503450&objectid=11261992",
+    "archived": true
+  },
+  {
+    "title": "Bike and fitness tracks at schools",
+    "date": "November 2013",
+    "source": "Ministry of Education",
+    "year": 2013,
+    "url": "http://www.education.govt.nz/school/property/state-schools/school-facilities/bike-and-fitness-tracks",
+    "archived": true
+  },
+  {
+    "title": "SROI study proves impact of Bikes in Schools",
+    "date": "November 2013",
+    "source": "Akina",
+    "year": 2013,
+    "url": "http://akina.org.nz/news/sroi-study-proves-impact-of-bikes-in-schools",
+    "archived": true
+  },
+  {
+    "title": "Kaikohe East School opens bike trail",
+    "date": "November 2013",
+    "source": "NZ Herald",
+    "year": 2013,
+    "url": "http://www.nzherald.co.nz/northern-advocate/photos/news/image.cfm?c_id=1503443&gal_cid=1503443&gallery_id=138957#13023855",
+    "archived": true
+  },
+  {
+    "title": "Government supports school cycle and fitness tracks",
+    "date": "October 2013",
+    "source": "Beehive (NZ Government)",
+    "year": 2013,
+    "url": "http://www.beehive.govt.nz/release/government-supports-school-cycle-and-fitness-tracks"
+  },
+  {
+    "title": "Big celebrations as North school benefits from cycle scheme",
+    "date": "June 2013",
+    "source": "NZ Herald",
+    "year": 2013,
+    "url": "http://www.nzherald.co.nz/northern-advocate/news/article.cfm?c_id=1503450&objectid=11103390",
+    "archived": true
+  },
+  {
+    "title": "James Street School Whakatane",
+    "date": "May 2013",
+    "source": "YouTube",
+    "year": 2013,
+    "url": "http://www.youtube.com/watch?v=Y2SWm8dAmjI&feature=youtu.be"
+  },
+  {
+    "title": "Wellsford School celebrates cycle track",
+    "date": "April 2012",
+    "source": "Local Matters",
+    "year": 2012,
+    "url": "http://www.localmatters.co.nz/Mahurangi+Matters/Mahurangi+News+archives/News+-+April+2012/Wellsford+School+celebrates+cycle+track.html"
+  },
+  {
+    "title": "New bikes and cycle track for kids of Mangere Primary",
+    "date": "March 2012",
+    "source": "Scoop",
+    "year": 2012,
+    "url": "http://www.scoop.co.nz/stories/ED1202/S00127/new-bikes-and-cycle-track-for-mangere-primary.htm"
+  },
+  {
+    "title": "Treasured school bike track under threat",
+    "date": "March 2012",
+    "source": "Stuff",
+    "year": 2012,
+    "url": "http://www.stuff.co.nz/the-press/news/schools/7944023/Treasured-school-bike-track-under-threat"
+  },
+  {
+    "title": "School's bike track a gift from firms, community",
+    "date": "March 2012",
+    "source": "NZ Herald",
+    "year": 2012,
+    "url": "http://www.nzherald.co.nz/nz/news/article.cfm?c_id=1&objectid=10789829",
+    "archived": true
+  },
+  {
+    "title": "Nigel Latta says little cyclers hold key to life",
+    "date": "February 2012",
+    "source": "NZ Herald",
+    "year": 2012,
+    "url": "http://www.nzherald.co.nz/hawkes-bay-today/news/article.cfm?c_id=1503462&objectid=11055594",
+    "archived": true
+  },
+  {
+    "title": "Hastings school opens new cycle track",
+    "date": "November 2011",
+    "source": "Hastings District Council",
+    "year": 2011,
+    "url": "https://www.hastingsdc.govt.nz/hastings-school-opens-new-cycle-track?page=1",
+    "archived": true
+  },
+  {
+    "title": "Bike On Maraenui",
+    "date": "November 2010",
+    "source": "Napier Mail",
+    "year": 2010,
+    "url": "https://www.pressreader.com/new-zealand/the-napier-mail/20101103/281479272792381"
+  },
+  {
+    "title": "Gift coaxes schoolkids back to bikes",
+    "date": "February 2010",
+    "source": "Stuff",
+    "year": 2010,
+    "url": "http://www.stuff.co.nz/national/education/3347120/Gift-coaxes-schoolkids-back-to-bikes"
+  }
 ]

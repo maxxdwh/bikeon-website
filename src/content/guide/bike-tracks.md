@@ -1,6 +1,6 @@
 ---
 title: "Bike tracks"
-description: "Specs and costs for riding tracks, pump tracks, and skills tracks, in limestone and asphalt."
+description: "Specs and costs for riding, pump, and skills tracks."
 order: 5
 heroImage: "/images/guide/bike-tracks.webp"
 ---
@@ -16,7 +16,7 @@ Fifty or more kids can ride at once on a well-built riding track. Beyond biking,
 - 2 metres wide
 - 200 to 700+ metres long, depending on the school
 - 75 to 100mm deep
-- Gentle curves rather than straight lines — more fun to ride, and they naturally slow things down
+- Gentle curves rather than straight lines: more fun to ride, and they naturally slow things down
 - Costs vary by region; check with local builders on the right surface material for your area
 
 [Limesand Track Construction (PDF)](https://bikeon.org.nz/wp-content/uploads/2016/03/limesand-track-construction.pdf)
@@ -38,7 +38,7 @@ More schools are choosing asphalt or hot mix over limestone. It costs more upfro
 
 ## The pump track
 
-Kids don't pedal on a pump track — they pump their bikes through the rollers to keep moving, a bit like working a swing. It's the track kids love most, and it burns more energy than the others.
+Kids don't pedal on a pump track. They pump their bikes through the rollers to keep moving, a bit like working a swing. It's the track kids love most, and it burns more energy than the others.
 
 Limit it to six riders at a time. Loop your track designer in with your bike supplier before building starts; different bikes have different centres of gravity, and having a kid's bike on-site during construction helps the design suit what you'll actually be riding.
 
@@ -52,7 +52,7 @@ Limit it to six riders at a time. Loop your track designer in with your bike sup
 
 ## The skills track
 
-A limestone track with a series of obstacles — skinnies, a slalom, a see-saw, and similar. It's the slowest of the three to ride, on purpose: it asks for concentration rather than speed, and it's particularly good for hand-eye coordination. Like the pump track, keep it to six riders at a time.
+A limestone track with a series of obstacles: skinnies, a slalom, a see-saw, and similar. It's the slowest of the three to ride, on purpose: it asks for concentration rather than speed, and it's particularly good for hand-eye coordination. Like the pump track, keep it to six riders at a time.
 
 - Around 10m by 30m
 - Costs run $6,000 to $10,000, depending on size, obstacle count, and region
