@@ -64,10 +64,6 @@ W: 2.44m · H: 2.9m · L: 12.2m
 
 A fully converted and painted 40-foot container with two doors typically costs $8,000 to $10,000 + GST, depending on supplier and location.
 
-## Choosing a colour
-
-Forest green is a popular choice for blending into the grounds, but most suppliers can match your school colours. Ask for a colour chart. Some schools turn the painting into a student art project.
-
 ## Fitting it out
 
 What goes inside depends on the budget. Some suppliers offer a fit-out package ($1,000 to $3,000) with a steel bike rack, helmet hooks, and shelving.
@@ -77,6 +73,10 @@ Plenty of schools go the DIY route: upcycled wooden pallets make a solid bike ra
 ![Colour-coded parking bays](/images/guide/colour-coded-parking.webp)
 
 ![A place to hang helmets](/images/guide/helmet-hooks.webp)
+
+### Choosing a colour
+
+Forest green is a popular choice for blending into the grounds, but most suppliers can match your school colours. Ask for a colour chart. Some schools turn the painting into a student art project.
 
 ## Storage ideas worth borrowing
 

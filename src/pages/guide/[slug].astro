@@ -70,7 +70,7 @@ const logoKey = import.meta.env.PUBLIC_LOGO_DEV_KEY;
             <div class="divide-y divide-border">
               {(showBikeSuppliers ? supplierCategories.find((c) => c.category === 'Bikes')?.suppliers : supplierCategories.find((c) => c.category === 'Bike storage')?.suppliers)?.map((s) => (
                 <div class="flex flex-row items-center gap-3 py-4 sm:gap-6">
-                  <div class="flex items-center gap-3 min-w-0 sm:gap-4 sm:flex-1">
+                  <div class="flex items-center gap-4 min-w-0 flex-1 sm:gap-6">
                     {s.website && (
                       <img
                         src={`https://img.logo.dev/${new URL(s.website).hostname}?token=${logoKey}&size=128&format=webp&retina=true`}
