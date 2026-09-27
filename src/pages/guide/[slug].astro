@@ -38,8 +38,8 @@ const logoKey = import.meta.env.PUBLIC_LOGO_DEV_KEY;
   </section>
 
   <div class="container-page py-12">
-    <div class="grid gap-6 lg:grid-cols-12">
-      <aside class="hidden lg:col-span-3 lg:block">
+    <div class="flex gap-12 lg:items-start">
+      <aside class="hidden w-48 shrink-0 lg:block">
         <div class="sticky top-28">
           <p class="mb-2 text-base font-semibold">The Guide</p>
           <ul class="space-y-0">
@@ -57,7 +57,7 @@ const logoKey = import.meta.env.PUBLIC_LOGO_DEV_KEY;
         </div>
       </aside>
 
-      <article class="prose col-span-12 mx-auto max-w-[72ch] prose-p:text-[17px] prose-p:leading-[1.7] prose-headings:font-bold prose-headings:tracking-tight prose-headings:font-[var(--font-heading)] prose-headings:text-wrap-balance prose-h2:text-3xl prose-h2:mt-14 prose-h2:mb-4 prose-h2:first:mt-0 prose-h3:text-xl prose-h3:mt-10 prose-h3:mb-3 prose-h4:text-xl prose-h4:mt-8 prose-h4:mb-3 prose-p:mt-5 prose-p:mb-5 prose-p:text-wrap-pretty prose-ul:mt-5 prose-ul:mb-5 prose-ol:mt-5 prose-ol:mb-5 prose-li:mt-2 prose-a:underline prose-a:font-normal prose-strong:font-normal lg:col-span-7">
+      <article class="prose mx-auto w-full max-w-[72ch] prose-p:text-[17px] prose-p:leading-[1.7] prose-headings:font-bold prose-headings:tracking-tight prose-headings:font-[var(--font-heading)] prose-headings:text-wrap-balance prose-h2:text-3xl prose-h2:mt-14 prose-h2:mb-4 prose-h2:first:mt-0 prose-h3:text-xl prose-h3:mt-10 prose-h3:mb-3 prose-h4:text-xl prose-h4:mt-8 prose-h4:mb-3 prose-p:mt-5 prose-p:mb-5 prose-p:text-wrap-pretty prose-ul:mt-5 prose-ul:mb-5 prose-ol:mt-5 prose-ol:mb-5 prose-li:mt-2 prose-a:underline prose-a:font-normal prose-strong:font-normal">
         <div class="not-prose mb-8 lg:hidden">
           <p class="mb-2 text-sm font-semibold text-muted-foreground">On this page</p>
           <div id="toc-pills" class="flex flex-wrap gap-2"></div>
@@ -121,7 +121,7 @@ const logoKey = import.meta.env.PUBLIC_LOGO_DEV_KEY;
         )}
       </article>
 
-      <aside class="hidden lg:col-span-2 lg:block">
+      <aside class="hidden w-48 shrink-0 lg:block">
         <div class="sticky top-28">
           <p class="mb-2 text-base font-semibold">On this page</p>
           <ul id="toc-list" class="space-y-0 text-sm"></ul>
