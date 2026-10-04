@@ -11,13 +11,13 @@ These figures are approximate, vary by region, and exclude GST. Based on an aver
 
 | Item | Typical cost | Notes |
 | --- | --- | --- |
-| 50 bikes | $16,000 | Number of bikes may vary |
-| 100 helmets | $2,000 | Mix of small, medium, large |
-| Riding track (limestone), 300m | $30,000 | Length affects cost |
-| Pump track | $8,000 | Highly recommended |
-| Skills track | $10,000 | Highly recommended |
-| Bike storage | $14,000 | Converted container, if needed |
-| **Average total** | **$80,000** | Limestone-track basis |
+| 50 bikes | $15,000 | Number of bikes may vary |
+| 100 helmets | $3,000 | Mix of small, medium, large |
+| Riding track (limestone), 300m | $45,000 | Length affects cost |
+| Pump track | $15,000 | Highly recommended |
+| Skills track | $7,000 | Highly recommended |
+| Bike storage | $15,000 | Converted container, if needed |
+| **Average total** | **$100,000** | Limestone-track basis |
 
 A similar project built with asphalt tracks instead runs closer to **$125,000**.
 
@@ -43,13 +43,14 @@ Funding has come from a mix of sources over the years:
 - Community groups, foundations, and trusts (the Lion Foundation, for example)
 - Local councils (increasingly common)
 - Businesses, particularly local contractors
-- Government agencies, including DHBs and PHOs
+- Government agencies
+- Health providers
 - Individuals and non-profits, including Bike On NZ itself
 - Parents and the wider school community
 
 Where you can, hold off building until most of the funding's secured. It makes the whole build smoother and often lets different contractors share equipment and time on-site.
 
-Some schools have also been able to put Ministry of Education property budget (5YP) toward building tracks. [Read the government press release](http://www.beehive.govt.nz/release/government-supports-school-cycle-and-fitness-tracks).
+Some schools have also been able to put Ministry of Education 5-Year Agreement (5YA) or 10-Year Property Plan (10YPP) funding toward building tracks. [Read the government press release](https://www.beehive.govt.nz/release/government-supports-school-cycle-and-fitness-tracks).
 
 ## Getting Board approval
 

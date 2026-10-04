@@ -2,7 +2,7 @@
 title: "Bike storage"
 description: "Shipping container specs, fit-out, security, and siting."
 order: 4
-heroImage: "../../assets/images/guide/introduction.webp"
+heroImage: "../../assets/images/guide/bike-storage.webp"
 ---
 
 ## Why secure storage matters
@@ -62,7 +62,7 @@ W: 2.44m · H: 2.9m · L: 12.2m
 
 ## Approximate cost
 
-A fully converted and painted 40-foot container with two doors typically costs $8,000 to $10,000 + GST, depending on supplier and location.
+A fully converted and painted 40-foot container with two doors typically costs $10,000 to $15,000 + GST, depending on supplier and location.
 
 ## Fitting it out
 
@@ -92,4 +92,4 @@ Forest green is a popular choice for blending into the grounds, but most supplie
 
 ## Getting quotes from local suppliers
 
-Get quotes from local suppliers too, because prices and lead times can vary.
+Start with the suppliers below, then get quotes from local suppliers as well. Prices can vary.
