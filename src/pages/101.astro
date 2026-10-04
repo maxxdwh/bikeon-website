@@ -1,0 +1,498 @@
+---
+import '../styles/global.css';
+import { Image } from 'astro:assets';
+import logo from '../assets/images/logo-long.svg';
+import helmetFit from '../assets/images/guide/helmets.webp';
+import royalOak from '../assets/images/about/royal-oak-opening.jpg';
+import friendsOnTrack from '../assets/images/about/friends-on-the-track.jpg';
+import pumpTrack from '../assets/images/guide/pump-track.webp';
+import skillsTrack from '../assets/images/guide/skills-track.webp';
+import ridingTrack from '../assets/images/guide/bike-tracks.webp';
+import { testimonials } from '../data/testimonials';
+
+const year = new Date().getFullYear();
+
+const pack = [
+  ['Bikes', 'A fleet of 30 to 50 quality bikes, usually across four sizes'],
+  ['Helmets', 'A good-quality helmet for every child'],
+  ['Tracks', 'A riding track, pump track, skills track, or some combination'],
+  ['Storage', 'Secure bike storage, usually a converted shipping container'],
+  ['Training', 'Introductory cycle skills training, free through BikeReady'],
+];
+
+const costs = [
+  ['50 bikes', '$16,000'],
+  ['100 helmets', '$2,000'],
+  ['Riding track (limestone), 300m', '$30,000'],
+  ['Pump track', '$8,000'],
+  ['Skills track', '$10,000'],
+  ['Bike storage (converted container)', '$14,000'],
+];
+
+const tracks = [
+  {
+    name: 'Riding track',
+    image: ridingTrack,
+    text: 'Where most of the riding happens. It usually runs around the outside of the playing fields, and fifty or more kids can ride at once. Schools also use it for walking, running and triathlons.',
+  },
+  {
+    name: 'Pump track',
+    image: pumpTrack,
+    text: 'Kids pump their bikes through the rollers rather than pedalling. It is the track kids love most. Around 20m by 20m, mostly dirt with limestone on top, six riders at a time.',
+  },
+  {
+    name: 'Skills track',
+    image: skillsTrack,
+    text: 'A limestone track with obstacles such as skinnies, a slalom and a see-saw. It asks for concentration rather than speed. Around 10m by 30m, six riders at a time.',
+  },
+];
+
+const steps = [
+  ['Plan', 'Get your school behind it', 'Talk to your principal, teachers, Board of Trustees and parents, and decide who will lead the project. Visit a nearby school that already has tracks.'],
+  ['', 'Decide what you need and get quotes', 'Work out how many bikes and helmets suit your roll, which tracks fit your grounds, and whether you need storage. Get quotes, including from local bike shops.'],
+  ['', 'Get Board approval', 'Confirm Board approval before fundraising. Most funders want a letter of Board support and a minuted resolution covering where, who and how much.'],
+  ['', 'Line up your funding', 'Funding usually comes from several sources rather than one grant.'],
+  ['Build', 'Build the tracks', 'Where you can, wait until all or most of the funding is confirmed, so contractors can be on-site together and share equipment.'],
+  ['', 'Order bikes, helmets and storage', 'If you are getting a shipping container, check the delivery truck can reach the spot where it will sit.'],
+  ['Ride', 'Book cycle skills training', 'Contact your local provider (usually your council, a Regional Sports Trust or local Police) in advance, so training runs from the day the tracks open.'],
+  ['', 'Hold your opening', 'Most schools hold an official opening with a local Mayor, MP or sportsperson, and use it to thank their funders.'],
+  ['', 'Keep it going', 'Set aside around $3,000 a year from your operational budget for bike and track maintenance.'],
+];
+
+const quotes = ['Hon John Key', 'Sarah Walker']
+  .map((name) => testimonials.find((t) => t.name === name))
+  .filter((t) => t !== undefined);
+---
+
+<!doctype html>
+<html lang="en-NZ">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Bikes in Schools 101</title>
+  </head>
+  <body>
+    <main>
+      <section class="sheet">
+        <header class="masthead">
+          <Image src={logo} alt="Bikes in Schools" width={433} height={68} layout="fixed" loading="eager" />
+          <span class="masthead__tag">101</span>
+        </header>
+
+        <p class="intro">
+          Bikes in Schools is a complete biking package built right into a school, so every child gets to
+          ride during the school day, not just the kids who already have a bike at home.
+        </p>
+
+        <div class="photos">
+          <Image src={helmetFit} alt="" width={420} height={260} fit="cover" loading="eager" />
+          <Image src={royalOak} alt="" width={420} height={260} fit="cover" loading="eager" />
+          <Image src={friendsOnTrack} alt="" width={420} height={260} fit="cover" loading="eager" />
+        </div>
+
+        <div class="cols">
+          <div>
+            <h2>What's in the package</h2>
+            <ul class="pack">
+              {pack.map(([name, text]) => (
+                <li>
+                  <strong>{name}</strong>
+                  <span>{text}</span>
+                </li>
+              ))}
+            </ul>
+            <p>
+              The school owns everything: the bikes, the helmets, the tracks and the storage. It all stays
+              on school grounds, ready to use every day.
+            </p>
+
+            <h2>Why it matters</h2>
+            <div class="stats">
+              <div>
+                <p class="num">28 → 4</p>
+                <p>minutes a week New Zealand 5 to 12 year olds spent biking, 1990 to 2014</p>
+              </div>
+              <div>
+                <p class="num">30% → 100%</p>
+                <p>of students with regular access to a bike once a project opens</p>
+              </div>
+            </div>
+            <p>
+              Since 2010, more than 400 schools have set up Bikes in Schools or a similar project, and over
+              200,000 children now ride at school.
+            </p>
+          </div>
+
+          <div>
+            <h2>What it costs</h2>
+            <p>Approximate figures for an average school of 300 students, excluding GST.</p>
+            <table>
+              <tbody>
+                {costs.map(([item, cost]) => (
+                  <tr>
+                    <td>{item}</td>
+                    <td>{cost}</td>
+                  </tr>
+                ))}
+                <tr class="total">
+                  <td>Average total</td>
+                  <td>$80,000</td>
+                </tr>
+              </tbody>
+            </table>
+            <p>
+              A similar project with asphalt tracks runs closer to $125,000. Budget around $3,000 a year
+              for maintenance. Costs vary by region, and track building is the biggest variable.
+            </p>
+
+            <h2>Who funds it</h2>
+            <p>
+              Schools usually combine several sources: community groups, foundations and trusts; local
+              councils; businesses, particularly local contractors; government agencies; and parents and
+              the wider school community. Some schools have also used their Ministry of Education property
+              budget for tracks.
+            </p>
+          </div>
+        </div>
+
+        <h2>What people say</h2>
+        <div class="quotes">
+          {quotes.map((t) => (
+            <figure>
+              <blockquote>&ldquo;{t.quote}&rdquo;</blockquote>
+              <figcaption>
+                <strong>{t.name}</strong>, {t.role}
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+
+        <footer class="foot">
+          <span>bikeon.org.nz</span>
+          <span>1 of 2</span>
+          <span>Bike On New Zealand Charitable Trust (CC44779)</span>
+        </footer>
+      </section>
+
+      <section class="sheet">
+        <header class="masthead masthead--small">
+          <Image src={logo} alt="Bikes in Schools" width={433} height={68} layout="fixed" />
+          <span class="masthead__tag">101</span>
+        </header>
+
+        <h2>The three tracks</h2>
+        <div class="tracks">
+          {tracks.map((track) => (
+            <div>
+              <Image src={track.image} alt="" width={380} height={220} fit="cover" />
+              <h3>{track.name}</h3>
+              <p>{track.text}</p>
+            </div>
+          ))}
+        </div>
+
+        <h2>How to plan your project</h2>
+        <ol class="steps">
+          {steps.map(([stage, title, text], i) => (
+            <li>
+              <span class="steps__n">{i + 1}</span>
+              <div>
+                <h3>
+                  {stage && <span class="steps__stage">{stage}</span>}
+                  {title}
+                </h3>
+                <p>{text}</p>
+              </div>
+              <span class="steps__box" aria-hidden="true"></span>
+            </li>
+          ))}
+        </ol>
+
+        <div class="contact">
+          <div>
+            <h2>Free advice for any school</h2>
+            <p>
+              We offer free, hands-on advice to any school or council in New Zealand. The full guide, a map
+              of schools near you, and teaching resources are on our website.
+            </p>
+          </div>
+          <div class="contact__details">
+            <p><strong>bikeon.org.nz</strong></p>
+            <p>info@bikeon.org.nz</p>
+            <p>PO Box 13009, Hastings</p>
+          </div>
+        </div>
+
+        <footer class="foot">
+          <span>bikeon.org.nz</span>
+          <span>2 of 2</span>
+          <span>Updated {year}</span>
+        </footer>
+      </section>
+    </main>
+  </body>
+</html>
+
+<style>
+  @page {
+    size: A4;
+    margin: 0;
+  }
+  body {
+    background: var(--line-soft);
+    font-size: 9.5pt;
+    line-height: 1.45;
+    color: var(--text);
+  }
+  .sheet {
+    position: relative;
+    width: 210mm;
+    height: 297mm;
+    margin: 8mm auto;
+    padding: 13mm 14mm 16mm;
+    overflow: hidden;
+    background: #fff;
+  }
+  .masthead {
+    display: flex;
+    align-items: flex-end;
+    gap: 3mm;
+    padding-bottom: 4mm;
+    border-bottom: 2px solid var(--blue-700);
+  }
+  .masthead :global(img) {
+    height: 14mm;
+    width: auto;
+  }
+  .masthead--small :global(img) {
+    height: 8.5mm;
+  }
+  .masthead__tag {
+    font-family: var(--font-heading);
+    font-size: 30pt;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 0.95;
+    color: var(--ink);
+  }
+  .masthead--small .masthead__tag {
+    font-size: 18pt;
+  }
+  .intro {
+    margin-top: 5mm;
+    font-size: 13pt;
+    line-height: 1.4;
+    color: var(--ink);
+    text-wrap: balance;
+  }
+  .photos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3mm;
+    margin-top: 5mm;
+  }
+  .photos :global(img),
+  .tracks :global(img) {
+    width: 100%;
+    height: auto;
+    border-radius: 2.5mm;
+  }
+  .photos :global(img) {
+    aspect-ratio: 2 / 1;
+    object-fit: cover;
+  }
+  .tracks :global(img) {
+    aspect-ratio: 2.2 / 1;
+    object-fit: cover;
+  }
+  .cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 9mm;
+    margin-top: 1mm;
+  }
+  h2 {
+    margin: 5mm 0 2mm;
+    font-size: 13.5pt;
+    color: var(--ink);
+  }
+  h3 {
+    font-size: 10.5pt;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 1.25;
+    color: var(--ink);
+  }
+  p {
+    margin-bottom: 2mm;
+  }
+  strong {
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .pack {
+    margin-bottom: 2.5mm;
+    padding: 0;
+    list-style: none;
+  }
+  .pack li {
+    display: grid;
+    grid-template-columns: 17mm 1fr;
+    gap: 2mm;
+    padding-block: 1.3mm;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3mm;
+    margin-bottom: 2.5mm;
+  }
+  .stats > div {
+    padding: 3mm;
+    border-radius: 2.5mm;
+    background: var(--tint);
+  }
+  .stats p {
+    margin: 0;
+    font-size: 8.5pt;
+    line-height: 1.35;
+  }
+  .stats .num {
+    margin-bottom: 1mm;
+    font-family: var(--font-heading);
+    font-size: 16pt;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    color: var(--ink);
+  }
+  table {
+    width: 100%;
+    margin-bottom: 2.5mm;
+    border-collapse: collapse;
+    border-top: 2px solid var(--ink);
+  }
+  td {
+    padding: 1.4mm 0;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  td:last-child {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  .total td {
+    border-bottom: 2px solid var(--ink);
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .tracks {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5mm;
+  }
+  .tracks h3 {
+    margin: 2mm 0 1mm;
+  }
+  .tracks p {
+    margin: 0;
+  }
+  .steps {
+    padding: 0;
+    list-style: none;
+  }
+  .steps li {
+    display: grid;
+    grid-template-columns: 7mm 1fr 6mm;
+    gap: 3mm;
+    align-items: start;
+    padding-block: 1mm;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .steps p {
+    margin: 0.5mm 0 0;
+  }
+  .steps__stage {
+    margin-right: 1.5mm;
+    padding: 0.3mm 2mm;
+    border-radius: 999px;
+    background: var(--tint);
+    font-size: 8pt;
+    font-weight: 700;
+    color: var(--blue-700);
+    vertical-align: 0.3mm;
+  }
+  .steps__n {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 7mm;
+    height: 7mm;
+    border-radius: 50%;
+    background: var(--blue-700);
+    color: #fff;
+    font-weight: 700;
+  }
+  .steps__box {
+    width: 5.5mm;
+    height: 5.5mm;
+    margin-top: 0.5mm;
+    border: 1.5px solid var(--ink);
+    border-radius: 1mm;
+  }
+  .quotes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 7mm;
+  }
+  .quotes figure {
+    padding-left: 3mm;
+    border-left: 3px solid var(--brand);
+  }
+  .quotes blockquote {
+    color: var(--ink);
+  }
+  .quotes figcaption {
+    margin-top: 1.5mm;
+    font-size: 8.5pt;
+  }
+  .contact {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 8mm;
+    align-items: center;
+    margin-top: 4mm;
+    padding: 4mm 6mm;
+    border-radius: 3mm;
+    background: var(--tint);
+  }
+  .contact h2 {
+    margin-top: 0;
+  }
+  .contact p {
+    margin: 0;
+  }
+  .contact__details {
+    font-size: 10.5pt;
+    line-height: 1.5;
+  }
+  .foot {
+    position: absolute;
+    inset: auto 14mm 7mm;
+    display: flex;
+    justify-content: space-between;
+    font-size: 8pt;
+    color: var(--muted-foreground);
+  }
+  @media print {
+    body {
+      background: #fff;
+    }
+    .sheet {
+      margin: 0;
+      break-after: page;
+    }
+  }
+</style>

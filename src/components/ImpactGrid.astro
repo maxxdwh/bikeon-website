@@ -1,0 +1,24 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  items: { stat: string; label: string; image: ImageMetadata; alt: string }[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto max-sm:-mx-[var(--gutter)] max-sm:scroll-px-[var(--gutter)] max-sm:px-[var(--gutter)] [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:grid sm:grid-cols-2 sm:overflow-visible lg:grid-cols-3">
+  {items.map((item, i) => (
+    <div class="relative aspect-[4/5] w-[82%] shrink-0 snap-start overflow-hidden rounded-xl sm:contents">
+      <div class:list={['panel panel--white absolute inset-x-3 bottom-3 z-10 gap-1 px-5 py-4 sm:static sm:justify-end sm:gap-3 sm:p-6', i === 1 && 'sm:max-lg:order-2', i === 2 && 'sm:max-lg:order-3']}>
+        <p class="stat">{item.stat}</p>
+        <p class="copy">{item.label}</p>
+      </div>
+      <div class:list={['absolute inset-0 overflow-hidden sm:static sm:rounded-xl', i === 1 && 'sm:max-lg:order-1', i === 2 && 'sm:max-lg:order-3']}>
+        <Image src={item.image} alt={item.alt} width={640} height={416} fit="cover" class="h-full w-full object-cover" />
+      </div>
+    </div>
+  ))}
+</div>

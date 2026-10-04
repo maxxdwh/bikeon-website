@@ -1,111 +1,255 @@
 ---
+import { Image } from 'astro:assets';
+import logo from '../assets/images/logo-long.svg';
 import { navItems } from '../data/nav';
-import { Icon } from 'astro-icon/components';
 
 const pathname = Astro.url.pathname;
 const isActive = (href: string) => {
   if (href === '/') return pathname === '/';
   return pathname.startsWith(href);
 };
+const isGroupActive = (item: (typeof navItems)[number]) =>
+  item.children ? pathname.startsWith('/guide') : isActive(item.href!);
 ---
 
-<header class="fixed left-1/2 top-3 z-50 w-[calc(100%-1.5rem)] max-w-[80rem] -translate-x-1/2">
-  <nav class="flex h-16 items-center justify-between rounded-2xl border border-black/5 bg-background/80 px-6 shadow-lg shadow-black/5 backdrop-blur-lg">
-    <a href="/" class="flex items-center gap-2">
-      <img src="/images/logo-long.png" alt="Bike On NZ" class="h-6 w-auto" />
+<header class="site-header">
+  <div class="container-page bar">
+    <a class="brand" href="/">
+      <Image src={logo} alt="Bikes in Schools" width={178} height={28} layout="fixed" loading="eager" class="h-7 w-auto" />
     </a>
 
-    <ul class="hidden items-center gap-0.5 lg:flex">
-      {navItems.map((item) => (
-        <li class="relative">
-          {item.children ? (
-            <div class="group relative focus-within:block">
-              <a
-                href={item.href}
-                class={`flex items-center gap-1 rounded-lg px-2.5 py-1.5 text-base font-medium transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${isActive(item.href!) ? "text-foreground" : "text-muted-foreground"}`}
-                aria-haspopup="true"
-              >
-                {item.label}
-                <Icon name="tabler:chevron-down" class="h-3.5 w-3.5 opacity-50" />
-              </a>
-              <ul class="invisible absolute left-0 top-full mt-1 w-56 rounded-xl border border-black/5 bg-card p-1 opacity-0 shadow-lg transition-all group-hover:visible group-focus-within:visible group-hover:opacity-100 group-focus-within:opacity-100">
-                {item.children.map((child) => (
-                  <li>
-                    <a
-                      href={child.href}
-                      class={`block rounded-lg px-3 py-2 text-base transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${isActive(child.href) ? "text-foreground font-medium" : "text-muted-foreground"}`}
-                    >
-                      {child.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ) : (
-            <a
-              href={item.href}
-              class={`block rounded-lg px-2.5 py-1.5 text-base font-medium transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${isActive(item.href!) ? "text-foreground" : "text-muted-foreground"}`}
-            >
-              {item.label}
-            </a>
-          )}
-        </li>
-      ))}
-    </ul>
-
     <button
-      id="mobile-menu-toggle"
-      class="inline-flex items-center justify-center rounded-lg p-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring lg:hidden"
-      aria-label="Toggle menu"
+      class="menu-toggle"
+      type="button"
       aria-expanded="false"
-      aria-controls="mobile-menu"
+      aria-controls="site-nav"
+      data-menu-toggle
     >
-      <Icon name="tabler:menu-2" class="h-5 w-5" />
+      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+        <path class="i-open" d="M3 6h14M3 10h14M3 14h14"></path>
+        <path class="i-close" d="M5 5l10 10M15 5L5 15"></path>
+      </svg>
+      <span data-menu-label>Menu</span>
     </button>
-  </nav>
 
-  <div id="mobile-menu" class="hidden mt-2 rounded-2xl border border-black/5 bg-card/90 p-2 shadow-lg backdrop-blur-lg lg:hidden">
-    <ul class="space-y-0.5">
-      {navItems.map((item) => (
-        <li>
-          {item.children ? (
-            <details class="group">
-              <summary class={`flex cursor-pointer items-center justify-between rounded-lg px-3 py-2 text-base font-medium transition-colors hover:bg-muted ${isActive(item.href!) ? "text-foreground" : "text-muted-foreground"}`}>
-                {item.label}
-                <Icon name="tabler:chevron-down" class="h-3.5 w-3.5 transition-transform group-open:rotate-180" />
-              </summary>
-              <ul class="ml-2 mt-0.5 space-y-0.5 border-l border-black/5 pl-2">
+    <nav id="site-nav" class="site-nav" aria-label="Main">
+      <ul class="site-nav__list">
+        {navItems.map((item) => (
+          <li class:list={[item.children && 'has-sub']}>
+            <a href={item.href} aria-current={isGroupActive(item) ? 'page' : undefined}>
+              {item.label}
+              {item.children && (
+                <svg class="caret" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" focusable="false">
+                  <path d="M2.5 4.5 6 8l3.5-3.5"></path>
+                </svg>
+              )}
+            </a>
+            {item.children && (
+              <ul class="sub">
                 {item.children.map((child) => (
                   <li>
-                    <a
-                      href={child.href}
-                      class={`block rounded-lg px-3 py-2 text-base transition-colors hover:bg-muted ${isActive(child.href) ? "text-foreground font-medium" : "text-muted-foreground"}`}
-                    >
+                    <a href={child.href} aria-current={isActive(child.href) ? 'page' : undefined}>
                       {child.label}
                     </a>
                   </li>
                 ))}
               </ul>
-            </details>
-          ) : (
-              <a
-                href={item.href}
-                class={`block rounded-lg px-3 py-2 text-base font-medium transition-colors hover:bg-muted ${isActive(item.href!) ? "text-foreground" : "text-muted-foreground"}`}
-              >
-                {item.label}
-              </a>
             )}
           </li>
         ))}
       </ul>
-    </div>
-  </header>
+    </nav>
+  </div>
+</header>
 
 <script>
-  const toggle = document.getElementById('mobile-menu-toggle');
-  const menu = document.getElementById('mobile-menu');
-  toggle?.addEventListener('click', () => {
-    menu?.classList.toggle('hidden');
-    toggle.setAttribute('aria-expanded', menu?.classList.contains('hidden') ? 'false' : 'true');
-  });
+  const toggle = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
+  const nav = document.getElementById('site-nav');
+  const label = document.querySelector<HTMLElement>('[data-menu-label]');
+
+  if (toggle && nav && label) {
+    const setOpen = (open: boolean) => {
+      toggle.setAttribute('aria-expanded', String(open));
+      nav.toggleAttribute('data-open', open);
+      document.documentElement.style.overflow = open ? 'hidden' : '';
+      label.textContent = open ? 'Close' : 'Menu';
+    };
+    toggle.addEventListener('click', () =>
+      setOpen(toggle.getAttribute('aria-expanded') !== 'true'),
+    );
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && nav.hasAttribute('data-open')) {
+        setOpen(false);
+        toggle.focus();
+      }
+    });
+    matchMedia('(min-width: 64rem)').addEventListener('change', (e) => e.matches && setOpen(false));
+  }
 </script>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: #fff;
+    border-bottom: 1px solid var(--line);
+  }
+  .bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0 1.5rem;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    min-height: var(--header-h);
+  }
+  .site-nav {
+    font-weight: 600;
+    font-size: 1rem;
+  }
+  .site-nav ul {
+    padding: 0;
+    list-style: none;
+  }
+  .site-nav__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 1.25rem;
+  }
+  .site-nav__list > li {
+    position: relative;
+  }
+  .site-nav__list > li > a {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding-block: 0.75rem;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+  }
+  .site-nav__list > li > a:hover {
+    border-bottom-color: var(--brand);
+  }
+  .site-nav__list > li > a[aria-current='page'] {
+    border-bottom-color: var(--blue-700);
+  }
+  .caret {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.75;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .sub a {
+    display: block;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .sub a:hover {
+    background: var(--tint-2);
+  }
+  .sub a[aria-current='page'] {
+    color: var(--blue-700);
+  }
+
+  .menu-toggle {
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 2.75rem;
+    padding: 0 1rem;
+    border-radius: 999px;
+    border: 2px solid var(--line-strong);
+    background: #fff;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  .menu-toggle svg {
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    fill: none;
+  }
+  .menu-toggle .i-close,
+  .menu-toggle[aria-expanded='true'] .i-open {
+    display: none;
+  }
+  .menu-toggle[aria-expanded='true'] .i-close {
+    display: inline;
+  }
+
+  @media (min-width: 64rem) {
+    .site-nav__list > li > a {
+      height: var(--header-h);
+      padding-block: 0;
+    }
+    .sub {
+      position: absolute;
+      left: -0.75rem;
+      top: 100%;
+      width: 15rem;
+      padding: 0.5rem;
+      border: 1px solid var(--line);
+      border-radius: 1rem;
+      background: #fff;
+      box-shadow: 0 12px 24px -12px rgb(11 31 42 / 0.25);
+      visibility: hidden;
+      opacity: 0;
+      transition:
+        opacity 0.15s,
+        visibility 0.15s;
+    }
+    .has-sub:hover .sub,
+    .has-sub:focus-within .sub {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  @media (max-width: 63.99rem) {
+    :global(.js) .menu-toggle {
+      display: inline-flex;
+    }
+    .site-nav {
+      width: 100%;
+      height: calc(100dvh - var(--header-h) - 1px);
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      padding-bottom: 2rem;
+    }
+    :global(.js) .site-nav:not([data-open]) {
+      display: none;
+    }
+    .site-nav__list {
+      flex-direction: column;
+    }
+    .site-nav__list > li > a {
+      padding: 0.875rem 0.25rem;
+      font-size: 1.125rem;
+      border-bottom: 1px solid var(--line-soft);
+    }
+    .site-nav__list > li > a:hover {
+      border-bottom-color: var(--line-soft);
+    }
+    .site-nav__list > li > a[aria-current='page'] {
+      color: var(--blue-700);
+      border-bottom-color: var(--line-soft);
+    }
+    .caret {
+      display: none;
+    }
+    .sub {
+      padding: 0.25rem 0 0.5rem 0.75rem;
+      border-bottom: 1px solid var(--line-soft);
+      font-weight: 500;
+    }
+  }
+</style>

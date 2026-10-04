@@ -1,5 +1,136 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "buildCommand": "npm run build",
-  "outputDirectory": "dist"
+  "outputDirectory": "dist",
+  "redirects": [
+    {
+      "source": "/about-us",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/bikes-in-schools-intro",
+      "destination": "/guide/introduction",
+      "permanent": true
+    },
+    {
+      "source": "/bikes-in-schools",
+      "destination": "/guide/introduction",
+      "permanent": true
+    },
+    {
+      "source": "/what-people-say",
+      "destination": "/#what-people-say",
+      "permanent": true
+    },
+    {
+      "source": "/teaching-resources",
+      "destination": "/resources",
+      "permanent": true
+    },
+    {
+      "source": "/wp-content/uploads/2016/03/Bike-Maintenance-Schedule.pdf",
+      "destination": "/downloads/bike-maintenance-schedule.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/wp-content/uploads/2016/03/bike_shed_manual.pdf",
+      "destination": "/downloads/bike-shed-manual.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/wp-content/uploads/2016/03/limesand-track-construction.pdf",
+      "destination": "/downloads/limesand-track-construction.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/wp-content/uploads/2016/03/skills_track.pdf",
+      "destination": "/downloads/how-to-build-a-skills-track.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/wp-content/uploads/2018/02/Bikes-in-Schools-Programme-Assessment.pdf",
+      "destination": "/downloads/bikes-in-schools-programme-assessment.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/wp-content/uploads/2018/04/Preliminary-Report.-Short-term-Evaluation-of-Bikes-in-Schools-March-2018-Executive-Summary-5th-April-2018.pdf",
+      "destination": "/downloads/evaluation-2018-preliminary-report-executive-summary.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/wp-content/uploads/2019/01/Cycling-NZ-Household-Travel-Survey-2011-to-2014.pdf",
+      "destination": "/downloads/nz-household-travel-survey-cycling-2011-2014.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/wp-content/uploads/2019/05/Bikes-in-Schools-Evaluation-2019-Recommendations-for-Schools.pdf",
+      "destination": "/downloads/evaluation-2019-recommendations-for-schools.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/wp-content/uploads/2019/05/Bikes-in-Schools-Evaluation-2019-Recommendations-for-Stakeholders-Councils-Funders.pdf",
+      "destination": "/downloads/evaluation-2019-recommendations-for-stakeholders.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/wp-content/uploads/2021/02/Porirua-Bikes-in-Schools-Story-with-pics-Dec-2020.pdf",
+      "destination": "/downloads/porirua-bikes-in-schools-story-2020.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/wp-content/uploads/2023/04/Bikes-in-Schools-101.pdf",
+      "destination": "/downloads/bikes-in-schools-101.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/wp-content/uploads/2015/11/sign-1.pdf",
+      "destination": "/downloads/track-sign-example-1.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/wp-content/uploads/2015/11/sign-2.pdf",
+      "destination": "/downloads/track-sign-example-2.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/wp-content/uploads/2015/11/sign-3.pdf",
+      "destination": "/downloads/track-sign-example-3.pdf",
+      "permanent": true
+    }
+  ],
+  "trailingSlash": false,
+  "cleanUrls": true,
+  "headers": [
+    {
+      "source": "/_astro/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
+        }
+      ]
+    }
+  ]
 }

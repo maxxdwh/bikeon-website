@@ -1,84 +1,126 @@
 ---
-import { guideLinks, socialLinks } from '../data/nav';
+import { Image } from 'astro:assets';
+import logo from '../assets/images/logo-white-long.svg';
+import { guideLinks, quickLinks, socialLinks } from '../data/nav';
 const year = new Date().getFullYear();
-
-const brandIcons: Record<string, string> = {
-  Facebook: `<svg viewBox="0 0 24 24" fill="currentColor" class="h-4.5 w-4.5"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>`,
-  YouTube: `<svg viewBox="0 0 24 24" fill="currentColor" class="h-4.5 w-4.5"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>`,
-};
+const siteLinks = quickLinks.filter((link) => link.href !== '/');
 ---
 
-<footer class="text-background" style="background-color: #0a1e2e;">
-  <div class="container-page py-16">
-    <div class="grid gap-12 md:grid-cols-3">
-      <div class="space-y-4">
-        <img src="/images/logo-long.png" alt="Bike On NZ" class="h-6 w-auto brightness-0 invert" />
-        <p class="max-w-xs text-balance text-background/60">
+<footer class="site-footer">
+  <div class="container-page inner">
+    <div class="cols">
+      <div class="about">
+        <a class="brand" href="/">
+          <Image src={logo} alt="Bikes in Schools" width={178} height={28} layout="fixed" class="h-7 w-auto" />
+        </a>
+        <p>
           A charitable trust helping schools across New Zealand give every student the chance to ride a bike at school.
         </p>
       </div>
 
-      <div>
-        <p class="mb-4 text-base font-semibold">Explore the guide</p>
-        <ul class="grid grid-cols-2 gap-x-6 gap-y-3">
+      <nav aria-label="Guide">
+        <p class="heading">Explore the guide</p>
+        <ul class="two-col">
           {guideLinks.map((link) => (
             <li>
-              <a href={link.href} class="text-background/60 transition-colors hover:text-background hover:underline">
-                {link.label}
-              </a>
+              <a href={link.href}>{link.label}</a>
             </li>
           ))}
         </ul>
-      </div>
+      </nav>
 
-      <div>
-        <p class="mb-4 text-base font-semibold">Site</p>
-        <ul class="space-y-3">
-          <li>
-            <a href="/about" class="text-background/60 transition-colors hover:text-background hover:underline">
-              About
-            </a>
-          </li>
-          <li>
-            <a href="/resources" class="text-background/60 transition-colors hover:text-background hover:underline">
-              Resources
-            </a>
-          </li>
-          <li>
-            <a href="/map" class="text-background/60 transition-colors hover:text-background hover:underline">
-              Map of Schools
-            </a>
-          </li>
-          <li>
-            <a href="/media" class="text-background/60 transition-colors hover:text-background hover:underline">
-              Media
-            </a>
-          </li>
-          <li>
-            <a href="/contact" class="text-background/60 transition-colors hover:text-background hover:underline">
-              Contact
-            </a>
-          </li>
+      <nav aria-label="Site">
+        <p class="heading">Site</p>
+        <ul>
+          {siteLinks.map((link) => (
+            <li>
+              <a href={link.href}>{link.label}</a>
+            </li>
+          ))}
         </ul>
-      </div>
+      </nav>
     </div>
 
-    <div class="mt-12 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between pt-6 text-background/60">
+    <div class="base">
       <p>
         &copy; Bike On New Zealand Charitable Trust (CC44779) 2010&ndash;{year}
       </p>
-      <div class="flex gap-3">
+      <ul class="social">
         {socialLinks.map((link) => (
-          <a
-            href={link.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="flex h-9 w-9 items-center justify-center rounded-lg border border-background/20 text-background/60 transition-colors hover:border-background/40 hover:text-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-            aria-label={link.label}
-            set:html={brandIcons[link.label]}
-          />
+          <li>
+            <a href={link.href} target="_blank" rel="noopener noreferrer">
+              {link.label}
+            </a>
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
   </div>
 </footer>
+
+<style>
+  .site-footer {
+    background: var(--ink);
+    color: var(--on-dark-muted);
+    font-size: 1rem;
+  }
+  .inner {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    padding-block: 3.5rem 3rem;
+  }
+  .cols {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5rem 3rem;
+  }
+  .cols > * {
+    flex: 1 1 14rem;
+    min-width: 0;
+  }
+  .about {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 22rem;
+  }
+  .about p {
+    text-wrap: balance;
+  }
+  .heading {
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    color: #fff;
+  }
+  ul {
+    padding: 0;
+    list-style: none;
+  }
+  .two-col {
+    columns: 2 8rem;
+    column-gap: 1.5rem;
+  }
+  a {
+    display: inline-block;
+    padding-block: 0.375rem;
+    color: #fff;
+    text-decoration: none;
+  }
+  a:hover {
+    color: var(--brand);
+  }
+  .base {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--ink-2);
+  }
+  .social {
+    display: flex;
+    gap: 1.5rem;
+  }
+</style>

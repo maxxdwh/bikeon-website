@@ -1,8 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import CTASection from '../components/CTASection.astro';
-import HeroSection from '../components/HeroSection.astro';
 import { Icon } from 'astro-icon/components';
+import { Image } from 'astro:assets';
+import bikeGames from '../assets/images/bike-games.jpg';
 import { videos, playlistUrl } from '../data/videos';
 
 const videosWithThumbs = videos.map((v) => {
@@ -15,32 +16,33 @@ const gameVideos = videosWithThumbs.filter((v) => v.category === 'Bike Games');
 ---
 
 <Layout title="Resources — Bike On NZ" description="Games, curriculum resources, and videos to use alongside a Bikes in Schools project, for teachers and classroom use.">
-  <HeroSection
-    title="Resources"
-    description="Games, curriculum resources, and videos to use alongside a Bikes in Schools project, for teachers and classroom use."
-    centered
-  />
+  <section class="container-page page-top pb-[var(--section)]">
+    <div class="flex w-full gap-12 lg:items-start lg:justify-between">
+      <div class="w-full min-w-0 max-w-[var(--measure)]">
+        <header class="flex flex-col gap-4">
+          <h1 class="h-page">Resources</h1>
+          <p class="lead">
+            Games, curriculum resources, and videos to use alongside a Bikes in Schools project, for teachers and classroom use.
+          </p>
+        </header>
 
-  <section class="w-full py-12">
-    <div class="mx-auto flex w-full max-w-[80rem] gap-12 px-6 lg:items-start">
-      <div class="hidden shrink-0 lg:block" style="width: 204px;"></div>
-      <div class="prose mx-auto w-full max-w-[60ch] flex-1 px-6 lg:px-0 prose-p:text-[17px] prose-p:leading-[1.7] prose-headings:font-bold prose-headings:tracking-tight prose-headings:font-[var(--font-heading)] prose-headings:text-wrap-balance prose-h2:text-3xl prose-h2:mt-14 prose-h2:mb-4 prose-h2:first:mt-0 prose-h3:text-xl prose-h3:mt-10 prose-h3:mb-3 prose-h4:text-xl prose-h4:mt-8 prose-h4:mb-3 prose-p:mt-5 prose-p:mb-5 prose-p:text-wrap-pretty prose-ul:mt-5 prose-ul:mb-5 prose-ol:mt-5 prose-ol:mb-5 prose-li:mt-2 prose-a:underline prose-strong:font-normal">
-
-        <div class="not-prose mb-8 lg:hidden">
-          <p class="mb-2 text-sm font-semibold text-muted-foreground">On this page</p>
-          <div id="toc-pills" class="flex flex-wrap gap-2"></div>
+        <div class="no-print mt-8 rounded-lg bg-tint-2 px-6 py-5 lg:hidden">
+          <p class="mb-3 text-lg font-bold">On this page</p>
+          <div id="toc-pills" class="flex flex-col gap-2"></div>
         </div>
 
-        <h2>Bike games for schools</h2>
+      <div class="prose mt-10">
+
+        <h2 id="bike-games-for-schools">Bike games for schools</h2>
         <p>
           NZTA's Bike games for schools covers key skills like balance, braking, and riding
           one-handed. Each card explains the equipment, setup, and instructions, with variations for
           different ages and abilities. Most work for balance bikes and trikes too.
         </p>
-        <div class="not-prose mt-8">
-          <img src="/images/bike-games.jpg" alt="Bike games for schools" class="w-full rounded-xl object-cover" loading="lazy" />
+        <div class="not-prose my-6">
+          <Image src={bikeGames} alt="Bike games for schools" width={760} class="w-full rounded-xl object-cover" />
         </div>
-        <p class="mt-4">
+        <p>
           <a href="https://www.bikeready.govt.nz/assets/BikeReady/Public-Resources/bikeready-bike-games-for-schools.pdf" target="_blank" rel="noopener noreferrer">Bike games for schools (PDF, 2 MB) <Icon name="tabler:arrow-up-right" class="ml-1 inline h-4 w-4 align-baseline" /></a>
         </p>
 
@@ -58,7 +60,7 @@ const gameVideos = videosWithThumbs.filter((v) => v.category === 'Bike Games');
             objectives, covering both practical and classroom-based learning.
           </li>
           <li>
-            <a href="https://schooltravel.gw.govt.nz/resources-and-activities/classroom-ideas/active-travel-action/" target="_blank" rel="noopener noreferrer">Active Travel Action resource</a>
+            <a href="https://kurakete.gw.govt.nz/assets/Uploads/Making-it-count/ATA-full-resource.pdf" target="_blank" rel="noopener noreferrer">Active Travel Action resource (PDF)</a>
             <br />
             Developed by Greater Wellington Regional Council and Enviroschools, guides schools through
             sustainable active transport practices through student inquiry.
@@ -82,32 +84,34 @@ const gameVideos = videosWithThumbs.filter((v) => v.category === 'Bike Games');
           skills.
         </p>
         <p>
-          <a href={playlistUrl}> See the full playlist on YouTube </a>.
+          <a href={playlistUrl} target="_blank" rel="noopener noreferrer"> See the full playlist on YouTube </a>.
         </p>
-        <div class="not-prose mt-8 grid gap-4 sm:grid-cols-2">
+        <div class="not-prose mt-6 grid gap-4 sm:grid-cols-2">
           {educationVideos.map((video) => (
             <a
               href={video.url}
               target="_blank"
               rel="noopener noreferrer"
-              class="group overflow-hidden rounded-xl border border-border bg-card transition-all hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              class="panel group gap-0 overflow-hidden p-0"
             >
               <div class="relative aspect-video overflow-hidden">
-                <img
+                <Image
                   src={video.thumb}
                   alt={video.title}
-                  class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                  loading="lazy"
+                  width={372}
+                  height={209}
+                  fit="cover"
+                  class="h-full w-full object-cover"
                 />
-                <span class="absolute inset-0 flex items-center justify-center bg-black/20 transition-opacity group-hover:bg-black/30">
-                  <span class="flex h-12 w-12 items-center justify-center rounded-full bg-white/90 text-primary">
-                    <span class="text-xl">▶</span>
+                <span class="absolute inset-0 flex items-center justify-center">
+                  <span class="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-white transition-colors group-hover:bg-ink">
+                    <Icon name="tabler:player-play-filled" class="h-5 w-5" />
                   </span>
                 </span>
               </div>
-              <div class="p-4">
-                <p class="font-semibold">{video.title}</p>
-                <p class="text-base text-muted-foreground opacity-50">youtube.com</p>
+              <div class="px-5 py-4">
+                <p class="font-bold leading-snug">{video.title}</p>
+                <p class="meta mt-1">Video · {video.duration} · NZTA on YouTube</p>
               </div>
             </a>
           ))}
@@ -116,48 +120,51 @@ const gameVideos = videosWithThumbs.filter((v) => v.category === 'Bike Games');
         <h2>Bike games</h2>
         <p>
           These bike games from NZTA are a fun way for students to practise key bike control skills
-          like balance, braking, and riding with one hand. Each card explains the equipment, setup,
-          and instructions, with variations for different ages and abilities. Most work for balance
-          bikes and trikes too.
+          like balance, braking, and riding with one hand. Each video shows one game being played.
+          The equipment, setup, and instructions for every game are on the cards in
+          <a href="#bike-games-for-schools">Bike games for schools</a>.
         </p>
-        <div class="not-prose mt-8 grid gap-4 sm:grid-cols-2">
+        <div class="not-prose mt-6 grid gap-4 sm:grid-cols-2">
           {gameVideos.map((video) => (
             <a
               href={video.url}
               target="_blank"
               rel="noopener noreferrer"
-              class="group overflow-hidden rounded-xl border border-border bg-card transition-all hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              class="panel group gap-0 overflow-hidden p-0"
             >
               <div class="relative aspect-video overflow-hidden">
-                <img
+                <Image
                   src={video.thumb}
                   alt={video.title}
-                  class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                  loading="lazy"
+                  width={372}
+                  height={209}
+                  fit="cover"
+                  class="h-full w-full object-cover"
                 />
-                <span class="absolute inset-0 flex items-center justify-center bg-black/20 transition-opacity group-hover:bg-black/30">
-                  <span class="flex h-12 w-12 items-center justify-center rounded-full bg-white/90 text-primary">
-                    <span class="text-xl">▶</span>
+                <span class="absolute inset-0 flex items-center justify-center">
+                  <span class="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-white transition-colors group-hover:bg-ink">
+                    <Icon name="tabler:player-play-filled" class="h-5 w-5" />
                   </span>
                 </span>
               </div>
-              <div class="p-4">
-                <p class="font-semibold">{video.title}</p>
-                <p class="text-base text-muted-foreground opacity-50">youtube.com</p>
+              <div class="px-5 py-4">
+                <p class="font-bold leading-snug">{video.title}</p>
+                <p class="meta mt-1">Video · {video.duration} · NZTA on YouTube</p>
               </div>
             </a>
           ))}
         </div>
         <p class="mt-8">
-          Looking for training to go alongside these resources? See our <a href="/guide/cycle-skills-training">Cycle skills training</a> page.
+          Looking for training to go alongside these resources? See our <a href="/guide/cycle-skills-training" target="_blank" rel="noopener">Cycle skills training</a> page.
         </p>
 
       </div>
+      </div>
 
-      <aside class="hidden shrink-0 self-stretch lg:block" style="width: 204px;">
-        <div class="sticky top-28">
-          <p class="mb-2 text-base font-semibold">On this page</p>
-          <ul id="toc-list" class="space-y-0 text-sm"></ul>
+      <aside class="no-print hidden shrink-0 self-stretch lg:block" style="width: 260px;">
+        <div class="sticky top-24 rounded-lg bg-tint-2 px-6 py-5">
+          <p class="mb-3 text-lg font-bold">On this page</p>
+          <ul id="toc-list" class="flex flex-col gap-2"></ul>
         </div>
       </aside>
     </div>
@@ -178,14 +185,14 @@ const gameVideos = videosWithThumbs.filter((v) => v.category === 'Bike Games');
       const a = document.createElement('a');
       a.href = '#' + h.id;
       a.textContent = h.textContent;
-      a.className = 'toc-link -ml-3 block rounded-lg px-3 py-1.5 text-muted-foreground transition-colors hover:bg-primary/10 hover:text-foreground';
+      a.className = 'toc-link block font-semibold leading-snug no-underline hover:underline';
       li.appendChild(a);
       tocList.appendChild(li);
       if (tocPills) {
         const pill = document.createElement('a');
         pill.href = '#' + h.id;
         pill.textContent = h.textContent;
-        pill.className = 'toc-pill rounded-full border border-border px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:bg-muted';
+        pill.className = 'toc-pill block font-semibold leading-snug no-underline hover:underline';
         tocPills.appendChild(pill);
       }
     });
@@ -199,23 +206,8 @@ const gameVideos = videosWithThumbs.filter((v) => v.category === 'Bike Games');
         const rect = h.getBoundingClientRect();
         if (rect.top <= 120) activeIdx = i;
       });
-      tocLinks.forEach((link, i) => {
-        if (i === activeIdx) {
-          link.classList.add('text-foreground', 'font-medium');
-          link.classList.remove('text-muted-foreground');
-        } else {
-          link.classList.remove('text-foreground', 'font-medium');
-          link.classList.add('text-muted-foreground');
-        }
-      });
-      tocPillsAll.forEach((pill, i) => {
-        if (i === activeIdx) {
-          pill.classList.add('bg-primary/10', 'text-foreground', 'font-medium');
-          pill.classList.remove('text-muted-foreground');
-        } else {
-          pill.classList.remove('bg-primary/10', 'text-foreground', 'font-medium');
-          pill.classList.add('text-muted-foreground');
-        }
+      [...tocLinks, ...tocPillsAll].forEach((link, i) => {
+        link.classList.toggle('text-ink', i % headings.length === activeIdx);
       });
       ticking = false;
     }

@@ -2,7 +2,7 @@
 title: "Cycle skills training"
 description: "Booking cycle skills training and finding a provider."
 order: 6
-heroImage: "/images/guide/cycle-skills-training.webp"
+heroImage: "../../assets/images/guide/cycle-skills-training.webp"
 ---
 
 ## Book cycle skills training early

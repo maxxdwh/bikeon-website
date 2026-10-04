@@ -1,0 +1,109 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  id: string;
+}
+
+const { id } = Astro.props;
+---
+
+<details class="guide-export group mt-4 border-t border-border pt-3" data-guide-export>
+  <summary class="flex min-h-11 cursor-pointer list-none items-center justify-between gap-2 font-bold [&::-webkit-details-marker]:hidden">
+    <span class="flex items-center gap-2">
+      <Icon name="tabler:printer" class="h-5 w-5 text-primary" />
+      Print or save
+    </span>
+    <Icon name="tabler:chevron-down" class="h-4 w-4 transition-transform group-open:rotate-180" />
+  </summary>
+
+  <div class="flex flex-col gap-4 pt-4 pb-1">
+    <fieldset class="flex flex-col gap-1">
+      <legend class="meta mb-1 font-semibold">What to include</legend>
+      <label class="flex min-h-9 cursor-pointer items-center gap-2">
+        <input type="radio" name={`${id}-scope`} value="page" checked class="h-4 w-4 accent-primary" />
+        This page
+      </label>
+      <label class="flex min-h-9 cursor-pointer items-center gap-2">
+        <input type="radio" name={`${id}-scope`} value="all" class="h-4 w-4 accent-primary" />
+        The whole guide
+      </label>
+    </fieldset>
+
+    <label class="flex min-h-9 cursor-pointer items-center gap-2">
+      <input type="checkbox" data-images checked class="h-4 w-4 accent-primary" />
+      Include images
+    </label>
+
+    <div class="flex flex-col gap-2">
+      <button type="button" class="btn btn-sm" data-action="print">
+        <Icon name="tabler:printer" class="h-4 w-4 shrink-0" /> Print or save PDF
+      </button>
+      <button type="button" class="btn btn-secondary btn-sm" data-action="copy">
+        <Icon name="tabler:copy" class="h-4 w-4" /> <span data-copy-label>Copy text</span>
+      </button>
+    </div>
+
+    <p class="meta">To save a PDF, choose "Save as PDF" in the print window.</p>
+  </div>
+</details>
+
+<script>
+  const blocks = 'h1, h2, h3, h4, p, li, tr, figcaption';
+
+  const toText = (root: ParentNode) =>
+    Array.from(root.querySelectorAll<HTMLElement>('[data-guide-title], [data-guide-text]'))
+      .map((el) => {
+        if (el.hasAttribute('data-guide-title')) return `\n${el.textContent?.trim().toUpperCase()}\n`;
+        return Array.from(el.querySelectorAll<HTMLElement>(blocks))
+          .filter((b) => !b.closest('.no-print') && !(b.matches('p, li') && b.querySelector(blocks)))
+          .map((b) => {
+            const text = (b.matches('tr')
+              ? Array.from(b.children).map((c) => c.textContent?.trim()).join('\t')
+              : b.textContent ?? ''
+            ).replace(/[ \t\n]+/g, (m) => (m.includes('\t') ? '\t' : ' ')).trim();
+            if (b.matches('h2')) return `\n${text}\n`;
+            if (b.matches('h3, h4')) return `\n${text}`;
+            if (b.matches('li')) return `- ${text}`;
+            return text;
+          })
+          .filter(Boolean)
+          .join('\n');
+      })
+      .join('\n')
+      .replace(/\n{3,}/g, '\n\n')
+      .trim();
+
+  document.querySelectorAll<HTMLDetailsElement>('[data-guide-export]').forEach((panel) => {
+    const scope = () => panel.querySelector<HTMLInputElement>('input[type="radio"]:checked')?.value ?? 'page';
+    const images = () => panel.querySelector<HTMLInputElement>('[data-images]')?.checked ?? true;
+
+    panel.querySelector('[data-action="print"]')?.addEventListener('click', () => {
+      if (scope() === 'all') {
+        window.open(`/guide/print?print=1&images=${images() ? 1 : 0}`, '_blank');
+        return;
+      }
+      document.documentElement.classList.toggle('no-images', !images());
+      window.addEventListener('afterprint', () => document.documentElement.classList.remove('no-images'), { once: true });
+      window.print();
+    });
+
+    panel.querySelector('[data-action="copy"]')?.addEventListener('click', async () => {
+      const label = panel.querySelector('[data-copy-label]');
+      try {
+        let root: ParentNode = document;
+        if (scope() === 'all') {
+          const html = await (await fetch('/guide/print')).text();
+          root = new DOMParser().parseFromString(html, 'text/html');
+        }
+        await navigator.clipboard.writeText(toText(root));
+        if (label) label.textContent = 'Copied';
+      } catch {
+        if (label) label.textContent = 'Could not copy';
+      }
+      setTimeout(() => {
+        if (label) label.textContent = 'Copy text';
+      }, 2000);
+    });
+  });
+</script>

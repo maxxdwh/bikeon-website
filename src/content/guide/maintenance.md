@@ -2,7 +2,7 @@
 title: "Maintenance"
 description: "Keeping bikes, tracks, and helmets safe year after year."
 order: 8
-heroImage: "/images/guide/maintenance.webp"
+heroImage: "../../assets/images/guide/maintenance.webp"
 ---
 
 ## Track maintenance
@@ -24,15 +24,15 @@ Keep the fleet running with a simple routine: tyres pumped, chains oiled, brakes
 - Check nuts and bolts stay tight
 - Get a bike mechanic to check the whole fleet at least once a year
 
-For further reading: [Bike Maintenance Schedule (PDF)](https://bikeon.org.nz/wp-content/uploads/2016/03/Bike-Maintenance-Schedule.pdf), [BikeWise Seven Point Safety Check (PDF)](https://bikewise.co.nz/sites/default/files/bike_wise_-_pocket_pamphlet_no_comp_1.pdf). For video walkthroughs, [madegood.org](http://www.madegood.org/bikes/repairs/) covers the basics, and Auckland Transport's [Bike Maintenance 101 playlist](https://www.youtube.com/playlist?list=PLwdQL7ny3E69KmXMU7crT2jPIvfPMqxE5) is a good one to share with staff.
+For further reading: [Bike Maintenance Schedule (PDF)](/downloads/bike-maintenance-schedule.pdf). For video walkthroughs, Auckland Transport's [Bike Maintenance 101 playlist](https://www.youtube.com/playlist?list=PLwdQL7ny3E69KmXMU7crT2jPIvfPMqxE5) is a good one to share with staff.
 
 ### The Bike Shed Manual: detailed fleet maintenance guide
 
-The [Bike Shed Manual (PDF)](https://bikeon.org.nz/wp-content/uploads/2016/03/bike_shed_manual.pdf) provides detailed information to help the school maintain their Bikes in Schools bike fleets.
+The [Bike Shed Manual (PDF)](/downloads/bike-shed-manual.pdf) provides detailed information to help the school maintain their Bikes in Schools bike fleets.
 
 ## Safety signage
 
-A few "bike tips" signs around the tracks help reinforce safe riding. Examples from Palmerston North City Council and Wellington City Council: [Sign 1 (PDF)](https://cdn.prod.website-files.com/6a45542d49438f7a18066d32/6a594664915e0afc716d43b6_sign-1.pdf) · [Sign 2 (PDF)](https://cdn.prod.website-files.com/6a45542d49438f7a18066d32/6a594664ba4beb103f4ea116_sign-2.pdf) · [Sign 3 (PDF)](https://cdn.prod.website-files.com/6a45542d49438f7a18066d32/6a59466558338f04488449d3_sign-3.pdf)
+A few "bike tips" signs around the tracks help reinforce safe riding. Examples from Palmerston North City Council and Wellington City Council: [Sign 1 (PDF)](/downloads/track-sign-example-1.pdf) · [Sign 2 (PDF)](/downloads/track-sign-example-2.pdf) · [Sign 3 (PDF)](/downloads/track-sign-example-3.pdf)
 
 ## Check your helmet
 

@@ -1,0 +1,87 @@
+---
+import { Icon } from 'astro-icon/components';
+import { supplierCategories } from '../data/suppliers';
+
+interface Props {
+  category: string;
+}
+
+const { category } = Astro.props;
+const suppliers = supplierCategories.find((c) => c.category === category)?.suppliers ?? [];
+const logoKey = import.meta.env.PUBLIC_LOGO_DEV_KEY;
+---
+
+<div class="supplier-list not-prose mt-8 rounded-lg border border-border px-5 sm:px-6">
+  <div class="divide-y divide-line-soft">
+    {suppliers.map((s) => (
+      <div class="supplier flex flex-row items-center gap-3 py-4 sm:gap-6">
+        <div class="flex min-w-0 flex-1 items-center gap-4 sm:gap-6">
+          {s.website && (
+            <img
+              src={`https://img.logo.dev/${new URL(s.website).hostname}?token=${logoKey}&size=128&format=webp&retina=true`}
+              alt=""
+              width="40"
+              height="40"
+              class="h-10 w-10 shrink-0 rounded-sm object-contain print:hidden"
+              loading="lazy"
+            />
+          )}
+          <div>
+            <p class="text-lg font-bold leading-tight text-ink">{s.name}</p>
+            <div class="mt-1 flex flex-row flex-wrap gap-x-4 text-base text-muted-foreground">
+              {s.contact && <span class="font-semibold text-ink">{s.contact}</span>}
+              {s.phone && <span>{s.phone}</span>}
+              {s.email && <span class="hidden print:inline">{s.email}</span>}
+              {s.website && <span class="hidden print:inline">{new URL(s.website).hostname.replace(/^www\./, '')}</span>}
+            </div>
+          </div>
+        </div>
+        <div class="flex shrink-0 items-center gap-4 print:hidden">
+          {s.email && (
+            <button
+              type="button"
+              class="copy-btn inline-flex min-h-11 cursor-pointer items-center gap-1.5 text-base font-semibold text-link underline hover:text-ink"
+              data-copy={s.email}
+              aria-label={`Copy email address: ${s.email}`}
+            >
+              <Icon name="tabler:copy" class="h-4 w-4" />
+              <span class="copy-label">Email</span>
+            </button>
+          )}
+          {s.website && (
+            <a
+              href={s.website}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex min-h-11 items-center gap-1.5 text-base font-semibold"
+              aria-label={`Visit ${s.name} website (opens in new tab)`}
+            >
+              <span>Website</span>
+              <Icon name="tabler:external-link" class="h-4 w-4" />
+            </a>
+          )}
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.copy-btn').forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      const text = btn.dataset.copy;
+      if (!text) return;
+      const label = btn.querySelector('.copy-label');
+      try {
+        await navigator.clipboard.writeText(text);
+        if (label) {
+          const original = label.textContent;
+          label.textContent = 'Copied';
+          setTimeout(() => {
+            label.textContent = original;
+          }, 1500);
+        }
+      } catch {}
+    });
+  });
+</script>

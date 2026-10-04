@@ -2,27 +2,13 @@
 interface Props {
   title: string;
   description?: string;
-  centered?: boolean;
+  narrow?: boolean;
 }
 
-const { title, description, centered = false } = Astro.props;
+const { title, description, narrow = false } = Astro.props;
 ---
 
-<section class="relative overflow-hidden">
-  {centered && (
-    <div class="absolute inset-0 bg-gradient-to-b from-[#23adef]/20 to-background"></div>
-  )}
-  {!centered && (
-    <div class="absolute inset-0 bg-gradient-to-b from-primary/5 to-background"></div>
-  )}
-  <div class:list={["relative z-10 container-page pt-28 pb-16 md:pt-44 md:pb-20", centered && "text-center"]}>
-    <div class:list={["max-w-[68ch]", centered && "mx-auto"]}>
-      <h1 class="text-4xl font-bold tracking-tight [text-wrap:balance] md:text-5xl lg:text-6xl">{title}</h1>
-      {description && (
-        <p class="mt-6 text-[17px] text-muted-foreground [text-wrap:balance] md:text-xl">
-          {description}
-        </p>
-      )}
-    </div>
-  </div>
-</section>
+<header class:list={[narrow ? 'measure' : 'container-page', 'page-top flex flex-col gap-4 pb-8']}>
+  <h1 class="h-page">{title}</h1>
+  {description && <p class="lead">{description}</p>}
+</header>

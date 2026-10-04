@@ -2,7 +2,7 @@
 title: "Bike storage"
 description: "Shipping container specs, fit-out, security, and siting."
 order: 4
-heroImage: "/images/guide/introduction.webp"
+heroImage: "../../assets/images/guide/introduction.webp"
 ---
 
 ## Why secure storage matters
@@ -27,7 +27,7 @@ A shipping container with a flat floor is better than a ribbed steel one because
 
 Hinged doors are usually the most secure option and often cheaper than roller doors. A sliding door is a third option some schools choose.
 
-![A converted shipping container with sliding doors](/images/guide/sliding-door.webp)
+![A converted shipping container with sliding doors](../../assets/images/guide/sliding-door.webp)
 
 Smaller fleets or trickier sites sometimes call for a 20-foot container rather than the full 40-foot.
 
@@ -37,17 +37,17 @@ Some schools add lighting, power outlets, and a connection to the school's exist
 
 A welded padlock box works with closed-shackle or standard padlocks, giving extra protection to the padlock itself. If you've gone with a roller door, a security gate fitted over the front makes a real difference.
 
-![A welded padlock protective box and hinge door](/images/guide/padlock-box.webp)
+![A welded padlock protective box and hinge door](../../assets/images/guide/padlock-box.webp)
 
 ## Where to put the container
 
 If the container's sitting on grass, keep it slightly raised on railway sleepers so air can circulate underneath. A concrete pad for the container and one out front for daytime bike parking, with a ramp up to the door lip, makes for a much smoother daily routine.
 
-![A concrete pad out front for daytime bike parking](/images/guide/bike-storage-hero.webp)
+![A concrete pad out front for daytime bike parking](../../assets/images/guide/bike-storage-hero.webp)
 
 A container truck is usually around 18 metres long. Make sure there's enough room to get it onto site, and that the truck can park parallel to where the container's going. If you're not sure, ask the trucking company to do a site visit first.
 
-![Delivery of a shipping container](/images/guide/container-delivery.png)
+![Delivery of a shipping container](../../assets/images/guide/container-delivery.png)
 
 ## Container dimensions
 
@@ -70,9 +70,9 @@ What goes inside depends on the budget. Some suppliers offer a fit-out package (
 
 Plenty of schools go the DIY route: upcycled wooden pallets make a solid bike rack, especially painted to colour-code where each size parks.
 
-![Colour-coded parking bays](/images/guide/colour-coded-parking.webp)
+![Colour-coded parking bays](../../assets/images/guide/colour-coded-parking.webp)
 
-![A place to hang helmets](/images/guide/helmet-hooks.webp)
+![A place to hang helmets](../../assets/images/guide/helmet-hooks.webp)
 
 ### Choosing a colour
 

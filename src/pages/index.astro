@@ -3,9 +3,24 @@ import Layout from '../layouts/Layout.astro';
 import { Icon } from 'astro-icon/components';
 import CTASection from '../components/CTASection.astro';
 import { getCollection } from 'astro:content';
-import { testimonials } from '../data/testimonials';
+import { Image } from 'astro:assets';
+import heroHelmet from '../assets/images/guide/helmets.webp';
+import royalOak from '../assets/images/about/royal-oak-opening.jpg';
+import ptEngland from '../assets/images/about/pt-england-opening.jpg';
+import bledisloe from '../assets/images/bledisloe-opening.jpg';
+import friendsOnTrack from '../assets/images/about/friends-on-the-track.jpg';
+import ribbonCutting from '../assets/images/about/ribbon-cutting.jpg';
+import holyCross from '../assets/images/about/holy-cross-kids.jpg';
+import Testimonials from '../components/Testimonials.astro';
+import ImpactGrid from '../components/ImpactGrid.astro';
 
 const guides = (await getCollection('guide')).sort((a, b) => a.data.order - b.data.order);
+
+const impact = [
+  { stat: '200,000+', label: 'students with regular bike access', image: friendsOnTrack, alt: 'Kids riding on a bike track' },
+  { stat: '400+', label: 'schools with a project', image: ribbonCutting, alt: 'Bikes in Schools opening event' },
+  { stat: '2010', label: 'the year we started', image: holyCross, alt: 'Children with bikes at school' },
+];
 
 const guideIcons: Record<string, string> = {
   introduction: 'tabler:flag',
@@ -20,334 +35,183 @@ const guideIcons: Record<string, string> = {
 ---
 
 <Layout>
-  <section class="relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-b from-[#23adef]/20 to-background"></div>
-    <div class="relative z-10 container-page pt-28 pb-16 md:pt-44 md:pb-20">
-      <div class="grid items-center gap-12 md:grid-cols-2 md:gap-16">
-        <div class="max-w-[68ch]">
-          <h1 class="text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
-            Every Kiwi kid, riding a bike at school.
-          </h1>
-          <p class="mt-6 text-[17px] text-foreground text-wrap-balance md:text-xl">
-            We help schools across New Zealand set up a complete Bikes in Schools package:
-            <a href="/guide/bikes" class="underline hover:no-underline"> bikes</a>,
-            <a href="/guide/helmets" class="underline hover:no-underline"> helmets</a>,
-            <a href="/guide/bike-tracks" class="underline hover:no-underline"> bike tracks</a>,
-            <a href="/guide/bike-storage" class="underline hover:no-underline"> secure storage</a>, and
-            <a href="/guide/cycle-skills-training" class="underline hover:no-underline"> cycle skills training</a>,
-            all on-site.
-          </p>
-          <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a href="/guide/introduction" class="btn btn-primary">Read the Guide</a>
-            <a
-              href="https://cdn.prod.website-files.com/6a45542d49438f7a18066d32/6a59e3344de76eaad9429675_bikes-in-schools-101.pdf"
-              class="btn btn-secondary"
-            >
-              1-pager PDF
-            </a>
-          </div>
-        </div>
-        <div class="aspect-video">
-          <div id="hero-video" class="relative h-full w-full overflow-hidden rounded-xl ring-1 ring-black/5">
-            <iframe
-              id="hero-video-iframe"
-              class="h-full w-full"
-              src="https://www.youtube.com/embed/fifjTa1FNfY?autoplay=1&mute=1&start=13&loop=1&playlist=fifjTa1FNfY&controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&disablekb=1&enablejsapi=1"
-              title="Bikes in Schools"
-              loading="lazy"
-              allow="autoplay; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
-            <button
-              id="hero-video-toggle"
-              class="absolute inset-0 flex items-center justify-center bg-transparent transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-              aria-label="Pause video"
-            >
-              <span class="flex h-14 w-14 items-center justify-center rounded-full bg-black/40 backdrop-blur-sm transition-opacity opacity-0 group-hover:opacity-100">
-                <Icon name="tabler:player-pause-filled" class="h-6 w-6 text-white" />
-              </span>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="relative z-10 container-page pb-16 md:pb-20">
-      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <a href="/guide/introduction" class="group flex flex-col gap-4 rounded-xl border border-border bg-card p-6 transition-all hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
-          <Icon name="tabler:book" class="h-6 w-6 text-primary" />
-          <div>
-            <h3 class="text-xl font-semibold">Read the guide</h3>
-            <p class="mt-1 text-[17px] text-muted-foreground">Plan and run a project.</p>
-          </div>
-        </a>
-        <a href="/map" class="group flex flex-col gap-4 rounded-xl border border-border bg-card p-6 transition-all hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
-          <Icon name="tabler:map" class="h-6 w-6 text-primary" />
-          <div>
-            <h3 class="text-xl font-semibold">Explore the map</h3>
-            <p class="mt-1 text-[17px] text-muted-foreground">350+ schools across Aotearoa.</p>
-          </div>
-        </a>
-        <a href="/resources" class="group flex flex-col gap-4 rounded-xl border border-border bg-card p-6 transition-all hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
-          <Icon name="tabler:school-bell" class="h-6 w-6 text-primary" />
-          <div>
-            <h3 class="text-xl font-semibold">Teaching resources</h3>
-            <p class="mt-1 text-[17px] text-muted-foreground">Games, curriculum, and videos.</p>
-          </div>
-        </a>
-        <a href="/contact" class="group flex flex-col gap-4 rounded-xl border border-border bg-card p-6 transition-all hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
-          <Icon name="tabler:mail" class="h-6 w-6 text-primary" />
-          <div>
-            <h3 class="text-xl font-semibold">Contact us</h3>
-            <p class="mt-1 text-[17px] text-muted-foreground">Free advice for any school.</p>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section class="container-page py-16 md:py-20">
-      <h2 class="text-center text-3xl font-bold tracking-tight md:text-4xl">What is Bikes in Schools?</h2>
-      <div class="mt-10 grid gap-8 md:grid-cols-3 md:gap-12">
-      <div>
-        <h3 class="text-xl font-semibold">A complete package</h3>
-        <p class="mt-2 text-[17px] text-muted-foreground">
-          The school owns a fleet of bikes, helmets, and tracks, all on-site. Every child can ride
-          during the school day, not just those with a bike at home.
-        </p>
-      </div>
-      <div>
-        <h3 class="text-xl font-semibold">Built into the school day</h3>
-        <p class="mt-2 text-[17px] text-muted-foreground">
-          Teachers incorporate riding into the curriculum. No special trips or transport. Kids walk
-          out the door and ride. Low input for staff, high output for students.
-        </p>
-      </div>
-      <div>
-        <h3 class="text-xl font-semibold">Everything included</h3>
-        <p class="mt-2 text-[17px] text-muted-foreground">
-          Bikes, helmets, tracks, secure storage, and cycle skills training. Around $200 per child
-          one-off, with funding support available from councils and funders.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="container-page py-20">
-    <div class="grid items-center gap-12 md:grid-cols-2 md:gap-x-12 lg:gap-x-20">
-      <div>
-        <h2 class="text-3xl font-bold tracking-tight md:text-4xl">Why Bikes in Schools?</h2>
-        <div class="mt-6 max-w-[72ch] space-y-4 text-[17px] text-muted-foreground">
-          <p>
-            In 1990, Kiwi kids biked 28 minutes a week. Today it's under 5 minutes, and many
-            don't ride at all.
-          </p>
-          <p>
-            Bikes in Schools puts a complete biking package on school grounds so every child can
-            ride, not just those with a bike at home. Principals report more confident, active
-            students.
-          </p>
-        </div>
-      </div>
-      <div>
-        <img
-          src="/images/bledisloe-opening.jpg"
-          alt="Bikes in Schools opening event"
-          class="w-full rounded-xl object-cover"
-          loading="lazy"
-        />
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="container-page py-16 md:py-20">
-      <h2 class="text-center text-3xl font-bold tracking-tight md:text-4xl">Impact, nationwide</h2>
-      <p class="mx-auto mt-6 max-w-[68ch] text-balance text-center text-[17px] text-muted-foreground">
-        Every school day, kids who might never ride otherwise are out on bikes, helmets, and tracks
-        built right into their school grounds.
+  <section class="container-page flex flex-wrap items-center gap-12 py-[clamp(2.5rem,7vw,4rem)]">
+    <div class="flex min-w-0 flex-[1_1_26rem] flex-col gap-6">
+      <h1 class="h-hero">Every Kiwi kid, riding a bike at school.</h1>
+      <p class="lead">
+        We help schools across New Zealand set up a complete Bikes in Schools package:{' '}
+        <a href="/guide/bikes" target="_blank" rel="noopener">bikes</a>,{' '}
+        <a href="/guide/helmets" target="_blank" rel="noopener">helmets</a>,{' '}
+        <a href="/guide/bike-tracks" target="_blank" rel="noopener">bike tracks</a>,{' '}
+        <a href="/guide/bike-storage" target="_blank" rel="noopener">secure storage</a>, and{' '}
+        <a href="/guide/cycle-skills-training" target="_blank" rel="noopener">cycle skills training</a>,
+        all on-site.
       </p>
-      <div class="mt-6 text-center">
-        <a href="/map" class="btn btn-primary">Explore the map</a>
+      <div class="flex flex-wrap gap-3">
+        <a href="/guide/introduction" class="btn">Read the Guide</a>
+        <a
+          href="/downloads/bikes-in-schools-101.pdf"
+          target="_blank"
+          rel="noopener"
+          class="btn btn-secondary"
+        >
+          1-pager PDF
+        </a>
       </div>
-      <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        <div class="flex flex-col justify-end rounded-xl border border-border bg-card p-6">
-          <p class="text-4xl font-bold text-foreground">200,000+</p>
-          <p class="mt-2 text-muted-foreground">students with regular bike access</p>
+    </div>
+    <div class="grid min-w-0 flex-[1_1_24rem] grid-cols-5 grid-rows-2 gap-3 md:gap-4">
+      <Image
+        src={heroHelmet}
+        alt="A girl having her helmet fitted before a ride"
+        width={420}
+        height={430}
+        fit="cover"
+        priority
+        class="col-span-3 row-span-2 h-full w-full rounded-2xl object-cover"
+      />
+      <Image
+        src={royalOak}
+        alt="Children riding the track at Royal Oak School"
+        width={280}
+        height={210}
+        fit="cover"
+        loading="eager"
+        class="col-span-2 aspect-[4/3] h-full w-full rounded-2xl object-cover"
+      />
+      <Image
+        src={ptEngland}
+        alt="Riders at the Pt England School opening"
+        width={280}
+        height={210}
+        fit="cover"
+        loading="eager"
+        class="col-span-2 aspect-[4/3] h-full w-full rounded-2xl object-cover"
+      />
+    </div>
+  </section>
+
+  <section class="container-page pb-[var(--section)]">
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <a href="/guide/introduction" class="panel">
+        <Icon name="tabler:book" class="h-6 w-6 text-primary" />
+        <div>
+          <h3 class="h3">Read the guide</h3>
+          <p class="copy mt-1">Plan and run a project.</p>
         </div>
-        <div class="h-40 overflow-hidden rounded-xl sm:h-auto">
-          <img src="/images/about/friends-on-the-track.jpg" alt="Kids riding on a bike track" class="h-full w-full object-cover" loading="lazy" />
+      </a>
+      <a href="/map" class="panel">
+        <Icon name="tabler:map" class="h-6 w-6 text-primary" />
+        <div>
+          <h3 class="h3">Explore the map</h3>
+          <p class="copy mt-1">400+ schools across Aotearoa.</p>
         </div>
-        <div class="flex flex-col justify-end rounded-xl border border-border bg-card p-6">
-          <p class="text-4xl font-bold text-foreground">350+</p>
-          <p class="mt-2 text-muted-foreground">schools with a project</p>
+      </a>
+      <a href="/resources" class="panel">
+        <Icon name="tabler:school-bell" class="h-6 w-6 text-primary" />
+        <div>
+          <h3 class="h3">Teaching resources</h3>
+          <p class="copy mt-1">Games, curriculum, and videos.</p>
         </div>
-        <div class="h-40 overflow-hidden rounded-xl sm:h-auto">
-          <img src="/images/about/ribbon-cutting.jpg" alt="Bikes in Schools opening event" class="h-full w-full object-cover" loading="lazy" />
+      </a>
+      <a href="/contact" class="panel">
+        <Icon name="tabler:mail" class="h-6 w-6 text-primary" />
+        <div>
+          <h3 class="h3">Contact us</h3>
+          <p class="copy mt-1">Free advice for any school.</p>
         </div>
-        <div class="flex flex-col justify-end rounded-xl border border-border bg-card p-6">
-          <p class="text-4xl font-bold text-foreground">2010</p>
-          <p class="mt-2 text-muted-foreground">the year we started</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="bg-tint">
+    <div class="container-page section">
+      <h2 class="h2">What is Bikes in Schools?</h2>
+      <div class="mt-8 grid gap-8 md:grid-cols-3 md:gap-12">
+        <div>
+          <h3 class="h3">A complete package</h3>
+          <p class="copy mt-2">
+            The school owns a fleet of bikes, helmets, and tracks, all on-site. Every child can ride
+            during the school day, not just those with a bike at home.
+          </p>
         </div>
-        <div class="h-40 overflow-hidden rounded-xl sm:h-auto">
-          <img src="/images/about/holy-cross-kids.jpg" alt="Children with bikes at school" class="h-full w-full object-cover" loading="lazy" />
+        <div>
+          <h3 class="h3">Built into the school day</h3>
+          <p class="copy mt-2">
+            Teachers incorporate riding into the curriculum. No special trips or transport. Kids walk
+            out the door and ride. Low input for staff, high output for students.
+          </p>
+        </div>
+        <div>
+          <h3 class="h3">Everything included</h3>
+          <p class="copy mt-2">
+            Bikes, helmets, tracks, secure storage, and cycle skills training. Around $200 per child
+            one-off, with funding support available from councils and funders.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="overflow-hidden py-16 md:py-20">
-    <div class="container-page mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-      <div>
-        <h2 class="text-3xl font-bold tracking-tight text-wrap-balance md:text-4xl">What people say</h2>
-        <p class="mt-4 max-w-lg text-[17px] text-muted-foreground text-wrap-balance">
-          Principals, politicians, and world champion riders on Bikes in Schools.
+  <section class="container-page section flex flex-wrap items-center gap-12">
+    <div class="flex min-w-0 flex-[1_1_24rem] flex-col gap-4">
+      <h2 class="h2">Why Bikes in Schools?</h2>
+      <p class="copy">
+        In 1990, Kiwi kids biked 28 minutes a week. Today it's under 5 minutes, and many
+        don't ride at all.
+      </p>
+      <p class="copy">
+        Bikes in Schools puts a complete biking package on school grounds so every child can
+        ride, not just those with a bike at home. Principals report more confident, active
+        students.
+      </p>
+    </div>
+    <div class="min-w-0 flex-[1_1_24rem]">
+      <Image
+        src={bledisloe}
+        alt="Bikes in Schools opening event"
+        width={580}
+        class="w-full rounded-2xl object-cover"
+      />
+    </div>
+  </section>
+
+  <section class="bg-tint">
+    <div class="container-page section">
+      <div class="flex flex-col items-start gap-4">
+        <h2 class="h2">Impact, nationwide</h2>
+        <p class="lead">
+          Every school day, kids who might never ride otherwise are out on bikes, helmets, and tracks
+          built right into their school grounds.
         </p>
+        <a href="/map" class="btn mt-2">Explore the map</a>
       </div>
-      <div class="flex items-center gap-2">
-        <button id="testimonial-prev" class="flex h-12 w-12 items-center justify-center rounded-lg border border-border transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" aria-label="Previous testimonial">
-          <Icon name="tabler:arrow-left" class="h-5 w-5" />
-        </button>
-        <button id="testimonial-next" class="flex h-12 w-12 items-center justify-center rounded-lg border border-border transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" aria-label="Next testimonial">
-          <Icon name="tabler:arrow-right" class="h-5 w-5" />
-        </button>
-      </div>
-    </div>
-    <div class="container-page">
-      <div id="testimonial-viewport" class="overflow-hidden">
-        <div id="testimonial-track" class="flex snap-x snap-mandatory overflow-x-auto gap-6 pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-          {testimonials.map((t) => (
-            <figure class="flex w-[85%] shrink-0 snap-start flex-col overflow-hidden rounded-xl border border-border bg-card md:w-[45%] lg:w-[31%]">
-              <div class="aspect-[16/9] overflow-hidden">
-                <img src={t.image} alt={t.name} class="h-full w-full object-cover" loading="lazy" />
-              </div>
-              <div class="p-6">
-                <blockquote class="text-[17px] leading-[1.7] text-foreground">&ldquo;{t.quote}&rdquo;</blockquote>
-                <figcaption class="mt-6 flex items-center gap-4">
-                  <div>
-                    <p class="font-semibold">{t.name}</p>
-                    <p class="text-sm text-muted-foreground">{t.role}</p>
-                  </div>
-                </figcaption>
-              </div>
-            </figure>
-          ))}
-        </div>
-      </div>
-      <div class="mt-6 flex items-center justify-center">
-        <div id="testimonial-dots" class="flex gap-1.5"></div>
-      </div>
+      <ImpactGrid items={impact} />
     </div>
   </section>
 
-  <section class="bg-muted/20">
-    <div class="container-page py-20">
-      <h2 class="text-center text-3xl font-bold tracking-tight md:text-4xl">Explore the guide</h2>
-      <p class="mx-auto mt-6 max-w-[68ch] text-balance text-center text-[17px] text-muted-foreground">
+  <section class="container-page section">
+    <div class="flex flex-col gap-4">
+      <h2 class="h2">Explore the guide</h2>
+      <p class="lead">
         Everything you need to plan, build, and run a Bikes in Schools project. The school owns all the
-        bikes and helmets, and the tracks are built on school grounds. See it in action on our
-        <a href="https://www.youtube.com/@bikesinschoolsnz" class="underline hover:no-underline" target="_blank" rel="noopener noreferrer"> YouTube channel</a>.
+        bikes and helmets, and the tracks are built on school grounds. See it in action on our{' '}
+        <a href="https://www.youtube.com/@bikesinschoolsnz" target="_blank" rel="noopener noreferrer">YouTube channel</a>.
       </p>
-      <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {guides.map((guide) => (
-          <a
-            href={`/guide/${guide.id}`}
-            class="group flex flex-col gap-4 rounded-xl border border-border bg-card p-6 transition-all hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-          >
-            <Icon name={guideIcons[guide.id] ?? 'tabler:circle'} class="h-6 w-6 text-primary" />
-            <div>
-              <h3 class="text-xl font-semibold">{guide.data.title}</h3>
-              <p class="mt-1 text-[17px] text-muted-foreground">{guide.data.description}</p>
-            </div>
-          </a>
-        ))}
-      </div>
+    </div>
+    <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {guides.map((guide) => (
+        <a href={`/guide/${guide.id}`} class="panel">
+          <Icon name={guideIcons[guide.id] ?? 'tabler:circle'} class="h-6 w-6 text-primary" />
+          <div>
+            <h3 class="h3">{guide.data.title}</h3>
+            <p class="copy mt-1">{guide.data.description}</p>
+          </div>
+        </a>
+      ))}
     </div>
   </section>
+
+  <Testimonials divider />
 
   <CTASection />
 </Layout>
-
-<script>
-  const track = document.getElementById('testimonial-track');
-  const prevBtn = document.getElementById('testimonial-prev');
-  const nextBtn = document.getElementById('testimonial-next');
-  const dotsContainer = document.getElementById('testimonial-dots');
-  if (track && prevBtn && nextBtn && dotsContainer) {
-    const total = track.children.length;
-    for (let i = 0; i < total; i++) {
-      const dot = document.createElement('button');
-      dot.className = 'h-2 w-2 rounded-full transition-colors' + (i === 0 ? ' bg-primary' : ' bg-border hover:bg-muted-foreground');
-      dot.setAttribute('aria-label', `Go to testimonial ${i + 1}`);
-      dot.addEventListener('click', () => {
-        track.children[i].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
-      });
-      dotsContainer.appendChild(dot);
-    }
-    function updateDots() {
-      const cardWidth = track.children[0].offsetWidth + 24;
-      const idx = Math.round(track.scrollLeft / cardWidth);
-      Array.from(dotsContainer.children).forEach((d, i) => {
-        d.className = 'h-2 w-2 rounded-full transition-colors' + (i === idx ? ' bg-primary' : ' bg-border hover:bg-muted-foreground');
-      });
-    }
-    prevBtn.addEventListener('click', () => {
-      track.scrollBy({ left: -track.children[0].offsetWidth - 24, behavior: 'smooth' });
-    });
-    nextBtn.addEventListener('click', () => {
-      track.scrollBy({ left: track.children[0].offsetWidth + 24, behavior: 'smooth' });
-    });
-    track.addEventListener('scroll', () => {
-      requestAnimationFrame(updateDots);
-    });
-    updateDots();
-  }
-
-  const cta = document.getElementById('cta-block');
-  const polaroids = document.querySelectorAll('.polaroid');
-  if (cta && polaroids.length) {
-    const delays = Array.from(polaroids).map(() => 50 + Math.random() * 150);
-    const minDelay = Math.min(...delays);
-    cta.addEventListener('mouseenter', () => {
-      polaroids.forEach((p, i) => {
-        p.style.transition = 'none';
-        p.style.transform = 'translateY(2rem)';
-        p.offsetHeight;
-        p.style.transition = `transform 200ms cubic-bezier(0.34, 1.56, 0.64, 1) ${delays[i] - minDelay}ms`;
-        p.style.transform = 'translateY(-1.25rem)';
-      });
-    });
-    cta.addEventListener('mouseleave', () => {
-      polaroids.forEach((p, i) => {
-        p.style.transition = `transform 200ms ease-out ${delays[i] - minDelay}ms`;
-        p.style.transform = 'translateY(2rem)';
-      });
-    });
-  }
-</script>
-
-<script is:inline>
-  (function() {
-    var toggle = document.getElementById('hero-video-toggle');
-    var iframe = document.getElementById('hero-video-iframe');
-    var iconSpan = toggle.querySelector('span');
-    var playing = true;
-
-    function post(func) {
-      iframe.contentWindow.postMessage(JSON.stringify({ event: 'command', func: func, args: '' }), '*');
-    }
-
-    toggle.addEventListener('click', function() {
-      if (playing) {
-        post('pauseVideo');
-        toggle.setAttribute('aria-label', 'Play video');
-        iconSpan.style.opacity = '1';
-        playing = false;
-      } else {
-        post('playVideo');
-        toggle.setAttribute('aria-label', 'Pause video');
-        iconSpan.style.opacity = '';
-        playing = true;
-      }
-    });
-  })();
-</script>

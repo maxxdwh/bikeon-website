@@ -1,8 +1,10 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { Icon } from 'astro-icon/components';
+import { Image } from 'astro:assets';
 import { getCollection, render } from 'astro:content';
-import { supplierCategories } from '../../data/suppliers';
+import SupplierList from '../../components/SupplierList.astro';
+import GuideExport from '../../components/GuideExport.astro';
 export async function getStaticPaths() {
   const guides = (await getCollection('guide')).sort((a, b) => a.data.order - b.data.order);
   return guides.map((guide, i) => ({
@@ -19,19 +21,28 @@ const { guide, prev, next } = Astro.props;
 const { Content } = await render(guide);
 const allGuides = (await getCollection('guide')).sort((a, b) => a.data.order - b.data.order);
 
-const showBikeSuppliers = guide.id === 'bikes';
-const showStorageSuppliers = guide.id === 'bike-storage';
-const logoKey = import.meta.env.PUBLIC_LOGO_DEV_KEY;
+const supplierCategory = { bikes: 'Bikes', 'bike-storage': 'Bike storage' }[guide.id as string];
 ---
 
-<Layout title={`${guide.data.title} — Bike On NZ`} description={guide.data.description}>
-  <nav id="guide-nav" class="sticky top-[76px] z-40 mx-auto w-[calc(100%-1.5rem)] max-w-[80rem] rounded-2xl border border-black/5 transition-colors duration-200">
+<Layout
+  title={`${guide.data.title} — Bike On NZ`}
+  description={guide.data.description}
+  schema={{
+    '@type': 'Article',
+    headline: guide.data.title,
+    description: guide.data.description,
+    image: new URL(guide.data.heroImage.src, Astro.site).href,
+    articleSection: 'The Bikes in Schools guide',
+  }}
+>
+  <nav class="no-print sticky top-[calc(var(--header-h)+1px)] z-40 border-b border-border bg-white" aria-label="Guide sections">
     <div class="container-page">
-      <div class="flex justify-center gap-1 overflow-x-auto px-6 py-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+      <div class="flex gap-x-5 overflow-x-auto font-semibold [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         {allGuides.map((g) => (
           <a
             href={`/guide/${g.id}`}
-            class={`shrink-0 rounded-full px-3 py-1.5 text-sm font-medium transition-colors ${g.id === guide.id ? 'bg-primary/10 text-foreground' : 'text-muted-foreground hover:bg-muted hover:text-foreground'}`}
+            aria-current={g.id === guide.id ? 'page' : undefined}
+            class={`shrink-0 border-b-2 py-3 text-base text-ink no-underline transition-colors ${g.id === guide.id ? 'border-primary' : 'border-transparent hover:border-brand'}`}
           >
             {g.data.title}
           </a>
@@ -40,145 +51,61 @@ const logoKey = import.meta.env.PUBLIC_LOGO_DEV_KEY;
     </div>
   </nav>
 
-  <section class="relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-b from-[#23adef]/20 to-background"></div>
-    <div class="relative z-10 container-page pt-28 pb-12 text-center md:pt-44">
-      <p class="text-sm font-semibold uppercase tracking-wider text-primary" style="font-family: var(--font-mono)">Guide</p>
-      <div class="mx-auto mt-3 max-w-[68ch]">
-        <h1 class="text-4xl font-bold tracking-tight [text-wrap:balance] md:text-5xl lg:text-6xl">{guide.data.title}</h1>
-        <p class="mt-6 text-[17px] text-muted-foreground [text-wrap:balance] md:text-xl">{guide.data.description}</p>
-      </div>
-    </div>
-  </section>
+  <div class="container-page page-top page-end print:w-full print:p-0">
+    <div class="flex w-full gap-12 lg:items-start lg:justify-between">
+      <div class="w-full min-w-0 max-w-[var(--measure)] print:max-w-none">
+        <header class="flex flex-col gap-4">
+          <p class="eyebrow">Guide</p>
+          <h1 class="h-page">{guide.data.title}</h1>
+          <p class="lead">{guide.data.description}</p>
+        </header>
 
-  <div class="w-full py-12">
-    <div class="mx-auto flex w-full max-w-[80rem] gap-12 px-6 lg:items-start">
-      <article class="prose mx-auto w-full max-w-[60ch] flex-1 px-6 lg:px-0 prose-p:text-[17px] prose-p:leading-[1.7] prose-headings:font-bold prose-headings:tracking-tight prose-headings:font-[var(--font-heading)] prose-headings:text-wrap-balance prose-h2:text-3xl prose-h2:mt-14 prose-h2:mb-4 prose-h2:first:mt-0 prose-h3:text-xl prose-h3:mt-10 prose-h3:mb-3 prose-h4:text-xl prose-h4:mt-8 prose-h4:mb-3 prose-p:mt-5 prose-p:mb-5 prose-p:text-wrap-pretty prose-ul:mt-5 prose-ul:mb-5 prose-ol:mt-5 prose-ol:mb-5 prose-li:mt-2 prose-a:underline prose-a:font-normal prose-strong:font-normal">
-        <div class="not-prose mb-8 lg:hidden">
-          <p class="mb-2 text-sm font-semibold text-muted-foreground">On this page</p>
-          <div id="toc-pills" class="flex flex-wrap gap-2"></div>
+        <div class="no-print mt-8 rounded-lg bg-tint-2 px-6 py-5 lg:hidden">
+          <p class="mb-3 text-lg font-bold">On this page</p>
+          <div id="toc-pills" class="flex flex-col gap-2"></div>
+          <GuideExport id="export-inline" />
         </div>
-        <img src={guide.data.heroImage} alt="" class="not-prose mb-8 w-full rounded-lg object-cover shadow-sm" />
-        <Content />
 
-        {(showBikeSuppliers || showStorageSuppliers) && (
-          <div class="not-prose mt-8">
-            <div class="divide-y divide-border">
-              {(showBikeSuppliers ? supplierCategories.find((c) => c.category === 'Bikes')?.suppliers : supplierCategories.find((c) => c.category === 'Bike storage')?.suppliers)?.map((s) => (
-                <div class="flex flex-row items-center gap-3 py-4 sm:gap-6">
-                  <div class="flex items-center gap-4 min-w-0 flex-1 sm:gap-6">
-                    {s.website && (
-                      <img
-                        src={`https://img.logo.dev/${new URL(s.website).hostname}?token=${logoKey}&size=128&format=webp&retina=true`}
-                        alt=""
-                        width="40"
-                        height="40"
-                        class="h-10 w-10 rounded-md shrink-0 object-contain"
-                        loading="lazy"
-                      />
-                    )}
-                    <div>
-                      <p class="text-base font-semibold leading-tight text-foreground sm:text-lg" style="font-family: var(--font-heading)">{s.name}</p>
-                      <div class="mt-1 flex flex-row gap-4 text-base text-muted-foreground">
-                        {s.contact && <span class="font-medium text-foreground">{s.contact}</span>}
-                        {s.phone && <span>{s.phone}</span>}
-                      </div>
-                    </div>
-                  </div>
-                  <div class="flex items-center gap-1 shrink-0">
-                    {s.email && (
-                      <button
-                        type="button"
-                        class="copy-btn inline-flex h-8 items-center gap-1.5 rounded-lg px-2 text-base font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-                        data-copy={s.email}
-                        aria-label={`Copy email address: ${s.email}`}
-                      >
-                        <Icon name="tabler:copy" class="h-4 w-4" />
-                        <span class="copy-label">Email</span>
-                      </button>
-                    )}
-                    {s.website && (
-                      <a
-                        href={s.website}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="inline-flex h-8 items-center gap-1.5 rounded-lg px-2 text-base font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-                        aria-label={`Visit ${s.name} website (opens in new tab)`}
-                      >
-                        <span>Website</span>
-                        <Icon name="tabler:external-link" class="h-4 w-4" />
-                      </a>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-      </article>
+        <Image src={guide.data.heroImage} alt="" width={760} priority class="no-print mt-8 w-full rounded-2xl object-cover" />
 
-      <aside class="hidden shrink-0 self-stretch lg:block" style="width: 260px;">
-        <div class="sticky top-[130px]">
-          <p class="mb-2 text-base font-semibold">On this page</p>
-          <ul id="toc-list" class="space-y-0 text-sm"></ul>
+        <article class="prose mt-10 print:mt-4 [&_h2]:scroll-mt-40" data-guide-text>
+          <Content />
+
+          {supplierCategory && <SupplierList category={supplierCategory} />}
+        </article>
+
+        <nav class="no-print mt-16 flex flex-col gap-4 border-t border-line-soft pt-6 sm:grid sm:grid-cols-2" aria-label="Guide navigation">
+          {prev ? (
+            <a href={`/guide/${prev.id}`} class="panel gap-1">
+              <span class="meta flex items-center gap-1">
+                <Icon name="tabler:arrow-left" class="h-4 w-4" /> Previous
+              </span>
+              <span class="text-lg font-bold">{prev.data.title}</span>
+            </a>
+          ) : <span />}
+          {next ? (
+            <a href={`/guide/${next.id}`} class="panel items-end gap-1 text-right">
+              <span class="meta flex items-center gap-1">
+                Next <Icon name="tabler:arrow-right" class="h-4 w-4" />
+              </span>
+              <span class="text-lg font-bold">{next.data.title}</span>
+            </a>
+          ) : <span />}
+        </nav>
+      </div>
+
+      <aside class="no-print hidden shrink-0 self-stretch lg:block" style="width: 260px;">
+        <div class="sticky top-40 max-h-[calc(100svh-11rem)] overflow-y-auto rounded-lg bg-tint-2 px-6 py-5">
+          <p class="mb-3 text-lg font-bold">On this page</p>
+          <ul id="toc-list" class="flex flex-col gap-2"></ul>
+          <GuideExport id="export-aside" />
         </div>
       </aside>
     </div>
-
-    <nav class="mx-auto mt-16 w-full max-w-[60ch] px-6 flex flex-col gap-4 sm:grid sm:grid-cols-2 lg:px-0" aria-label="Guide navigation">
-      {prev ? (
-        <a href={`/guide/${prev.id}`} class="group flex flex-col gap-1 rounded-xl border border-border p-5 transition-colors hover:bg-primary/10 hover:border-primary/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
-          <span class="flex items-center gap-1 text-sm text-muted-foreground">
-            <Icon name="tabler:arrow-left" class="h-4 w-4" /> Previous
-          </span>
-          <p class="font-semibold group-hover:text-foreground">{prev.data.title}</p>
-        </a>
-      ) : <span />}
-      {next ? (
-        <a href={`/guide/${next.id}`} class="group flex flex-col items-end gap-1 rounded-xl border border-border p-5 text-right transition-colors hover:bg-primary/10 hover:border-primary/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
-          <span class="flex items-center gap-1 text-sm text-muted-foreground">
-            Next <Icon name="tabler:arrow-right" class="h-4 w-4" />
-          </span>
-          <p class="font-semibold group-hover:text-foreground">{next.data.title}</p>
-        </a>
-      ) : <span />}
-    </nav>
   </div>
 </Layout>
 
 <script>
-  const guideNav = document.getElementById('guide-nav');
-  if (guideNav) {
-    const update = () => {
-      guideNav.classList.toggle('bg-background/80', window.scrollY > 100);
-      guideNav.classList.toggle('backdrop-blur-lg', window.scrollY > 100);
-    };
-    window.addEventListener('scroll', update);
-    update();
-  }
-</script>
-
-<script>
-  document.querySelectorAll('.copy-btn')?.forEach((btn) => {
-    btn.addEventListener('click', async () => {
-      const text = btn.dataset.copy;
-      if (!text) return;
-      const label = btn.querySelector('.copy-label');
-      try {
-        await navigator.clipboard.writeText(text);
-        if (label) {
-          const original = label.textContent;
-          label.textContent = 'Copied';
-          btn.classList.add('text-foreground');
-          setTimeout(() => {
-            label.textContent = original;
-            btn.classList.remove('text-foreground');
-          }, 1500);
-        }
-      } catch {}
-    });
-  });
-
   const article = document.querySelector('article');
   const tocList = document.getElementById('toc-list');
   if (article && tocList) {
@@ -190,14 +117,14 @@ const logoKey = import.meta.env.PUBLIC_LOGO_DEV_KEY;
       const a = document.createElement('a');
       a.href = '#' + h.id;
       a.textContent = h.textContent;
-      a.className = 'toc-link -ml-3 block rounded-lg px-3 py-1.5 text-muted-foreground transition-colors hover:bg-primary/10 hover:text-foreground';
+      a.className = 'toc-link block font-semibold leading-snug no-underline hover:underline';
       li.appendChild(a);
       tocList.appendChild(li);
       if (tocPills) {
         const pill = document.createElement('a');
         pill.href = '#' + h.id;
         pill.textContent = h.textContent;
-        pill.className = 'toc-pill rounded-full border border-border px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:bg-muted';
+        pill.className = 'toc-pill block font-semibold leading-snug no-underline hover:underline';
         tocPills.appendChild(pill);
       }
     });
@@ -209,25 +136,10 @@ const logoKey = import.meta.env.PUBLIC_LOGO_DEV_KEY;
       let activeIdx = -1;
       headings.forEach((h, i) => {
         const rect = h.getBoundingClientRect();
-        if (rect.top <= 140) activeIdx = i;
+        if (rect.top <= 180) activeIdx = i;
       });
-      tocLinks.forEach((link, i) => {
-        if (i === activeIdx) {
-          link.classList.add('text-foreground', 'font-medium');
-          link.classList.remove('text-muted-foreground');
-        } else {
-          link.classList.remove('text-foreground', 'font-medium');
-          link.classList.add('text-muted-foreground');
-        }
-      });
-      tocPillsAll.forEach((pill, i) => {
-        if (i === activeIdx) {
-          pill.classList.add('bg-primary/10', 'text-foreground', 'font-medium');
-          pill.classList.remove('text-muted-foreground');
-        } else {
-          pill.classList.remove('bg-primary/10', 'text-foreground', 'font-medium');
-          pill.classList.add('text-muted-foreground');
-        }
+      [...tocLinks, ...tocPillsAll].forEach((link, i) => {
+        link.classList.toggle('text-ink', i % headings.length === activeIdx);
       });
       ticking = false;
     }
@@ -244,13 +156,13 @@ const logoKey = import.meta.env.PUBLIC_LOGO_DEV_KEY;
 <script is:inline>
   document.querySelectorAll('article table').forEach((table) => {
     var wrapper = document.createElement('div');
-    wrapper.className = 'not-prose mt-2 mb-8 relative hidden lg:block';
+    wrapper.className = 'not-prose no-print mt-2 mb-8 relative hidden lg:block';
     table.parentNode.insertBefore(wrapper, table.nextSibling);
 
     var btn = document.createElement('button');
     btn.setAttribute('aria-haspopup', 'true');
     btn.setAttribute('aria-expanded', 'false');
-    btn.className = 'inline-flex h-8 items-center gap-1.5 rounded-[0.625rem] border border-border bg-background px-3 text-sm font-medium transition-colors hover:bg-muted';
+    btn.className = 'btn btn-secondary btn-sm';
     var dlIcon = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>';
     var chevIcon = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chevron transition-transform duration-150"><polyline points="6 9 12 15 18 9"/></svg>';
     var btnLabel = 'Download this table';
@@ -258,7 +170,7 @@ const logoKey = import.meta.env.PUBLIC_LOGO_DEV_KEY;
 
     var menu = document.createElement('div');
     menu.setAttribute('role', 'menu');
-    menu.className = 'absolute left-0 top-9 z-10 hidden rounded-[0.625rem] border border-border bg-background py-1 shadow-lg';
+    menu.className = 'absolute left-0 top-12 z-10 hidden rounded-lg border border-border bg-white p-2 shadow-[0_12px_24px_-12px_rgb(11_31_42/0.25)]';
     var svgWrap = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 text-muted-foreground">';
     var icons = {
       csv: svgWrap + '<path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M5 12V5a2 2 0 0 1 2-2h7l5 5v4M7 16.5a1.5 1.5 0 0 0-3 0v3a1.5 1.5 0 0 0 3 0m3 .75c0 .414.336.75.75.75H12a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1h-1a1 1 0 0 1-1-1v-1a1 1 0 0 1 1-1h1.25a.75.75 0 0 1 .75.75m3-.75l2 6l2-6"/></svg>',
@@ -271,7 +183,7 @@ const logoKey = import.meta.env.PUBLIC_LOGO_DEV_KEY;
       { fmt: 'pdf', label: 'Download as PDF' }
     ];
     menu.innerHTML = items.map(function(item, i) {
-      return '<button role="menuitem" tabindex="-1" class="menu-item flex w-full items-center gap-2 px-4 py-1.5 text-left text-sm hover:bg-primary/10 hover:text-foreground focus:bg-primary/10 focus:text-foreground focus:outline-none" data-fmt="' + item.fmt + '">' + icons[item.fmt] + ' ' + item.label + '</button>';
+      return '<button role="menuitem" tabindex="-1" class="menu-item flex w-full cursor-pointer items-center gap-2 rounded-sm px-3 py-2 text-left text-base font-semibold whitespace-nowrap hover:bg-tint-2 focus:bg-tint-2 focus:outline-none" data-fmt="' + item.fmt + '">' + icons[item.fmt] + ' ' + item.label + '</button>';
     }).join('');
     wrapper.appendChild(btn);
     wrapper.appendChild(menu);
@@ -370,12 +282,16 @@ const logoKey = import.meta.env.PUBLIC_LOGO_DEV_KEY;
         downloadTable(item.getAttribute('data-fmt'));
         closeMenu();
         btnText.textContent = 'Downloaded!';
-        btn.classList.add('text-primary');
         setTimeout(function() {
           btnText.textContent = btnLabel;
-          btn.classList.remove('text-primary');
         }, 1500);
       });
     });
   });
 </script>
+
+<style is:global>
+  @page {
+    margin: 14mm 15mm;
+  }
+</style>

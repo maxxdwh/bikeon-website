@@ -1,20 +1,64 @@
 ---
-import '@fontsource-variable/inclusive-sans';
-import '@fontsource-variable/geist';
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { Icon } from 'astro-icon/components';
+import { getImage } from 'astro:assets';
+import PostHog from '../components/PostHog.astro';
+import shareImage from '../assets/images/bledisloe-opening.jpg';
+import logo from '../assets/images/logo-long.svg';
+import { socialLinks } from '../data/nav';
 
 interface Props {
   title?: string;
   description?: string;
+  noindex?: boolean;
+  schema?: Record<string, unknown>;
 }
 
 const {
   title = 'Bike On NZ — Every Kiwi kid, riding a bike at school',
   description = 'We help schools across New Zealand set up a complete Bikes in Schools package: bikes, helmets, bike tracks, secure storage, and cycle skills training, all on-site.',
+  noindex = false,
+  schema,
 } = Astro.props;
+
+const canonical = new URL(Astro.url.pathname.replace(/(.)\/$/, '$1'), Astro.site);
+const share = await getImage({ src: shareImage, width: 1200, height: 630, fit: 'cover', format: 'jpg' });
+const shareUrl = new URL(share.src, Astro.site);
+
+const organisation = {
+  '@type': 'NGO',
+  '@id': new URL('/#organisation', Astro.site).href,
+  name: 'Bike On New Zealand Charitable Trust',
+  alternateName: ['Bike On NZ', 'Bikes in Schools'],
+  url: new URL('/', Astro.site).href,
+  logo: new URL(logo.src, Astro.site).href,
+  image: shareUrl.href,
+  description: 'A charitable trust helping schools across New Zealand give every student the chance to ride a bike at school.',
+  foundingDate: '2010',
+  email: 'info@bikeon.org.nz',
+  identifier: { '@type': 'PropertyValue', name: 'New Zealand Charities Register number', value: 'CC44779' },
+  address: { '@type': 'PostalAddress', postOfficeBoxNumber: '13009', addressLocality: 'Hastings', addressCountry: 'NZ' },
+  areaServed: { '@type': 'Country', name: 'New Zealand' },
+  sameAs: socialLinks.map((link) => link.href),
+};
+const website = {
+  '@type': 'WebSite',
+  '@id': new URL('/#website', Astro.site).href,
+  name: 'Bikes in Schools',
+  url: new URL('/', Astro.site).href,
+  inLanguage: 'en-NZ',
+  publisher: { '@id': organisation['@id'] },
+};
+const page = schema && {
+  ...schema,
+  url: canonical.href,
+  inLanguage: 'en-NZ',
+  isPartOf: { '@id': website['@id'] },
+  publisher: { '@id': organisation['@id'] },
+};
+const jsonLd = { '@context': 'https://schema.org', '@graph': [organisation, website, ...(page ? [page] : [])] };
 ---
 
 <!doctype html>
@@ -22,31 +66,46 @@ const {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script is:inline>
+      document.documentElement.classList.add('js');
+    </script>
+    <meta name="theme-color" content="#0B1F2A" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <link rel="canonical" href={canonical} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
     <meta property="og:title" content={title} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={shareUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_NZ" />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Bike On NZ" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={shareUrl} />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
+    <PostHog />
   </head>
-  <body class="flex min-h-screen flex-col">
+  <body class="flex min-h-svh flex-col">
     <a href="#main-content" class="skip-link">Skip to content</a>
     <Header />
-    <main id="main-content" class="flex-1 pb-12 md:pb-20">
+    <main id="main-content" class="flex-1">
       <slot />
     </main>
     <Footer />
     <button
       id="back-to-top"
       aria-label="Back to top"
-      class="group fixed bottom-6 right-6 z-30 flex h-12 w-12 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg transition-all duration-200 hover:bg-primary/90 opacity-0 translate-y-4 pointer-events-none"
+      class="no-print group fixed bottom-6 right-6 z-30 flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-primary text-primary-foreground transition-all duration-200 hover:bg-ink opacity-0 translate-y-4 pointer-events-none"
     >
       <Icon name="tabler:chevron-up" class="h-6 w-6" />
-      <span class="pointer-events-none absolute right-full mr-2 hidden whitespace-nowrap rounded-md bg-foreground px-2 py-1 text-sm text-background opacity-0 transition-opacity duration-150 group-hover:opacity-100 md:block">Back to top</span>
+      <span class="pointer-events-none absolute right-full mr-2 hidden whitespace-nowrap rounded-full bg-ink px-3 py-1 text-sm font-semibold text-white opacity-0 transition-opacity duration-150 group-hover:opacity-100 md:block">Back to top</span>
     </button>
   </body>
 </html>
