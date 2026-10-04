@@ -27,11 +27,9 @@ Kiwi kids are biking a lot less than they used to. Between 1990 and 2014, the av
 
 Bikes in Schools changes that fast. Regular access to a bike goes from around 30% of students to 100%, and that shift is both immediate and easy to measure.
 
-Principals, teachers, parents, and cycle skills providers report the same things again and again: more confident, resilient kids; health and wellbeing gains; a chance for students to manage a bit of risk safely; and a habit of riding that often follows kids and their families well beyond the school gates.
+Principals, teachers, parents, and cycle skills providers report the same things again and again: more confident, resilient kids; health and wellbeing gains; a chance for students to manage a bit of risk safely; and a habit of riding that often follows kids and their families well beyond the school gates. Several independent studies back this up.
 
 ## What the research says
-
-Several independent studies back this up.
 
 ### Eastern Institute of Technology (2013)
 
@@ -45,7 +43,7 @@ The EIT tracked three schools over two years through testing, surveys, and focus
 
 Mackie Research conducted evaluations commissioned and funded by ACC. The 2018 [Preliminary Report: Fun, Active, Safe & Social (PDF)](/downloads/evaluation-2018-preliminary-report-executive-summary.pdf) provided preliminary findings, recommendations, and school snapshots.
 
-The 2019 [Final Report (PDF)](/downloads/evaluation-2019-recommendations-for-schools.pdf) expanded on these findings. Two handy handouts came from this work:
+The 2019 final report expanded on these findings. Two handy handouts came from this work:
 - [Recommendations for Schools (PDF)](/downloads/evaluation-2019-recommendations-for-schools.pdf)
 - [Recommendations for Stakeholders, Councils & Funders (PDF)](/downloads/evaluation-2019-recommendations-for-stakeholders.pdf)
 
@@ -71,25 +69,15 @@ We recommend that all schools review the above information, particularly the two
 
 ## How to plan your project
 
-Every project is different, but most schools work through the same three stages. Each step links to the part of the guide that covers it.
-
-### Plan
+Every project is different, but most schools work through the same steps. Each one links to the part of the guide that covers it.
 
 1. **Get your school behind it.** Talk to your principal, teachers, Board of Trustees, and parents, and decide who will lead the project. Visiting a nearby school that already has tracks is the quickest way to bring people on board. [Find one on the map](/map).
-2. **Decide what you need and get quotes.** Work out how many [bikes](/guide/bikes) and [helmets](/guide/helmets) suit your roll, which [tracks](/guide/bike-tracks) fit your grounds, and whether you need [bike storage](/guide/bike-storage). Ask the suppliers listed in this guide for quotes, then get extra quotes from local bike shops and suppliers, including the cost of ongoing servicing.
-3. **Get Board approval.** Formally confirm Board of Trustees approval before any fundraising starts. Most funders want a letter confirming Board support and a minuted resolution covering where, who, and how much you're applying for.
-4. **Line up your funding.** Funding usually comes from several sources rather than one grant. See [Costs and funding](/guide/costs-and-funding).
-
-### Build
-
-5. **Build the tracks.** Where you can, wait until all or most of the funding is confirmed, so contractors can be on-site together and share equipment. Get a BMX club or professional track builder in for the pump track, and an experienced provider for the skills track. See [Bike tracks](/guide/bike-tracks).
-6. **Order bikes, helmets, and storage.** If you're getting a shipping container, check the delivery truck can reach the spot where it will sit. Talk to your track builder and bike supplier together before the pump track is built, so it suits the bikes you'll be riding.
-
-### Ride
-
-7. **Book cycle skills training.** Contact your local provider (usually your council, a Regional Sports Trust, or local Police) in advance, so training runs from the day the tracks open. See [Cycle skills training](/guide/cycle-skills-training).
-8. **Hold your opening.** Most schools mark the finished project with an official opening and use it to thank their funders.
-9. **Keep it going.** Set aside around $3,000 a year from your operational budget for bike and track [maintenance](/guide/maintenance), and show funders you've done so.
+2. **Work out what you need and get quotes.** Work out how many [bikes](/guide/bikes) and [helmets](/guide/helmets) suit your roll, which [tracks](/guide/bike-tracks) fit your grounds, and whether you need [bike storage](/guide/bike-storage). Ask the suppliers listed in this guide for quotes, then get extra quotes from local bike shops and suppliers, including the cost of ongoing servicing.
+3. **Get Board approval and line up your funding.** Confirm Board of Trustees approval before any fundraising starts. Most funders want a letter confirming Board support and a minuted resolution covering where, who, and how much you're applying for. Funding usually comes from several sources rather than one grant. See [Costs and funding](/guide/costs-and-funding).
+4. **Build the tracks.** Where you can, wait until all or most of the funding is confirmed, so contractors can be on-site together and share equipment. Get a BMX club or professional track builder in for the pump track, and an experienced provider for the skills track. See [Bike tracks](/guide/bike-tracks).
+5. **Order bikes, helmets, and storage.** If you're getting a shipping container, check the delivery truck can reach the spot where it will sit. Talk to your track builder and bike supplier together before the pump track is built, so it suits the bikes you'll be riding.
+6. **Book cycle skills training.** Contact your local provider (usually your council, a Regional Sports Trust, or local Police) in advance, so training runs from the day the tracks open. See [Cycle skills training](/guide/cycle-skills-training).
+7. **Hold your opening and keep it going.** Most schools mark the finished project with an official opening and use it to thank their funders. Set aside around $3,000 a year from your operational budget for bike and track [maintenance](/guide/maintenance), and show funders you've done so.
 
 ## What an opening event looks like
 

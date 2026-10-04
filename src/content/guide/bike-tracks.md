@@ -17,7 +17,7 @@ Fifty or more kids can ride at once on a well-built riding track. Beyond biking,
 - 200 to 700+ metres long, depending on the school
 - 75 to 100mm deep
 - Gentle curves rather than straight lines: more fun to ride, and they naturally slow things down
-- Costs vary by region; check with local builders on the right surface material for your area
+- A 300m limestone track typically costs around $45,000, though costs vary significantly by region; check with local builders on the right surface material for your area
 
 [Limesand Track Construction (PDF)](/downloads/limesand-track-construction.pdf)
 
@@ -33,6 +33,7 @@ More schools are choosing asphalt or hot mix over limestone. It costs more upfro
 - Asphalt: 25 to 40mm deep, 2.0m wide
 - Gentle curves, not straight lines
 - Depth of basecourse can vary; get local advice
+- Costs $45,000 to $90,000 depending on length
 
 ![A riding track made of asphalt](../../assets/images/guide/bike-tracks.webp)
 
@@ -46,7 +47,7 @@ Limit it to six riders at a time. Loop your track designer in with your bike sup
 - Not a jump track
 - Around 20m by 20m, though some schools have made it work in as little as 5m by 15m
 - A BMX club or professional track builder is worth getting in for design and construction
-- Costs run $3,000 to $8,000, depending on size and region
+- Costs run $8,000 to $15,000, depending on size and region
 
 ![A pump track](../../assets/images/guide/pump-track.webp)
 

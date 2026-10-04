@@ -21,12 +21,12 @@ const pack = [
 ];
 
 const costs = [
-  ['50 bikes', '$16,000'],
-  ['100 helmets', '$2,000'],
-  ['Riding track (limestone), 300m', '$30,000'],
-  ['Pump track', '$8,000'],
-  ['Skills track', '$10,000'],
-  ['Bike storage (converted container)', '$14,000'],
+  ['50 bikes', '$15,000'],
+  ['100 helmets', '$3,000'],
+  ['Riding track (limestone), 300m', '$45,000'],
+  ['Pump track', '$15,000'],
+  ['Skills track', '$7,000'],
+  ['Bike storage (converted container)', '$15,000'],
 ];
 
 const tracks = [
@@ -48,15 +48,13 @@ const tracks = [
 ];
 
 const steps = [
-  ['Plan', 'Get your school behind it', 'Talk to your principal, teachers, Board of Trustees and parents, and decide who will lead the project. Visit a nearby school that already has tracks.'],
-  ['', 'Decide what you need and get quotes', 'Work out how many bikes and helmets suit your roll, which tracks fit your grounds, and whether you need storage. Get quotes, including from local bike shops.'],
-  ['', 'Get Board approval', 'Confirm Board approval before fundraising. Most funders want a letter of Board support and a minuted resolution covering where, who and how much.'],
-  ['', 'Line up your funding', 'Funding usually comes from several sources rather than one grant.'],
-  ['Build', 'Build the tracks', 'Where you can, wait until all or most of the funding is confirmed, so contractors can be on-site together and share equipment.'],
-  ['', 'Order bikes, helmets and storage', 'If you are getting a shipping container, check the delivery truck can reach the spot where it will sit.'],
-  ['Ride', 'Book cycle skills training', 'Contact your local provider (usually your council, a Regional Sports Trust or local Police) in advance, so training runs from the day the tracks open.'],
-  ['', 'Hold your opening', 'Most schools hold an official opening with a local Mayor, MP or sportsperson, and use it to thank their funders.'],
-  ['', 'Keep it going', 'Set aside around $3,000 a year from your operational budget for bike and track maintenance.'],
+  ['Get your school behind it', 'Talk to your principal, teachers, Board of Trustees and parents, and decide who will lead the project. Visit a nearby school that already has tracks.'],
+  ['Work out what you need and get quotes', 'Work out how many bikes and helmets suit your roll, which tracks fit your grounds, and whether you need storage. Get quotes, including from local bike shops.'],
+  ['Get Board approval and line up funding', 'Confirm Board approval before fundraising. Most funders want a letter of Board support and a minuted resolution covering where, who and how much. Funding usually comes from several sources rather than one grant.'],
+  ['Build the tracks', 'Where you can, wait until all or most of the funding is confirmed, so contractors can be on-site together and share equipment.'],
+  ['Order bikes, helmets and storage', 'If you are getting a shipping container, check the delivery truck can reach the spot where it will sit.'],
+  ['Book cycle skills training', 'Contact your local provider (usually your council, a Regional Sports Trust or local Police) in advance, so training runs from the day the tracks open.'],
+  ['Hold your opening and keep it going', 'Most schools hold an official opening with a local Mayor, MP or sportsperson, and use it to thank their funders. Set aside around $3,000 a year for maintenance.'],
 ];
 
 const quotes = ['Hon John Key', 'Sarah Walker']
@@ -138,7 +136,7 @@ const quotes = ['Hon John Key', 'Sarah Walker']
                 ))}
                 <tr class="total">
                   <td>Average total</td>
-                  <td>$80,000</td>
+                  <td>$100,000</td>
                 </tr>
               </tbody>
             </table>
@@ -195,14 +193,11 @@ const quotes = ['Hon John Key', 'Sarah Walker']
 
         <h2>How to plan your project</h2>
         <ol class="steps">
-          {steps.map(([stage, title, text], i) => (
+          {steps.map(([title, text], i) => (
             <li>
               <span class="steps__n">{i + 1}</span>
               <div>
-                <h3>
-                  {stage && <span class="steps__stage">{stage}</span>}
-                  {title}
-                </h3>
+                <h3>{title}</h3>
                 <p>{text}</p>
               </div>
               <span class="steps__box" aria-hidden="true"></span>
@@ -414,16 +409,6 @@ const quotes = ['Hon John Key', 'Sarah Walker']
   }
   .steps p {
     margin: 0.5mm 0 0;
-  }
-  .steps__stage {
-    margin-right: 1.5mm;
-    padding: 0.3mm 2mm;
-    border-radius: 999px;
-    background: var(--tint);
-    font-size: 8pt;
-    font-weight: 700;
-    color: var(--blue-700);
-    vertical-align: 0.3mm;
   }
   .steps__n {
     display: flex;

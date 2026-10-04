@@ -26,7 +26,7 @@ Intermediate schools usually need a narrower range: a mix of 24-inch and small a
 
 If your school has younger learners, two or three balance bikes go a long way. See them in action in this [Bikes in Pre-Schools video](https://www.youtube.com/watch?v=chtcf7MhtiM&list=PLd3WukBTPWElnlFTvnQmPiXY7rCO0_6i2).
 
-Number every bike (1 to 50, say) so kids can spot their size fast. Colour-coding helps too. Ask your supplier if they can do this for you. If possible, have different sizes in the same colour to make it easier to identify which bike a student should be using, e.g. all the 18" bikes are red, all the 20" bikes are green, all the 24" bikes are blue.
+Number every bike (1 to 50, say) so kids can spot their size fast. Colour-coding helps too. Ask your supplier if they can do this for you. If possible, give each size its own colour so it's easy to tell which bike a student should be using, e.g. all the 18" bikes are red, all the 20" bikes are green, all the 24" bikes are blue.
 
 ## Bike examples
 
@@ -62,4 +62,4 @@ A full fleet typically costs $10,000 to $15,000 + GST, depending on supplier, br
 
 ## Getting quotes from local bike shops
 
-Get a couple of extra quotes from local bike shops too, especially for servicing.
+Start with the suppliers below, then get a couple of extra quotes from local bike shops, especially for servicing.
