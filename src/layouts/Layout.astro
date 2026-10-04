@@ -6,6 +6,7 @@ import { Icon } from 'astro-icon/components';
 import { Font, fontData, getImage } from 'astro:assets';
 import PostHog from '../components/PostHog.astro';
 import Analytics from '@vercel/analytics/astro';
+import SpeedInsights from '@vercel/speed-insights/astro';
 import shareImage from '../assets/images/bledisloe-opening.jpg';
 import logo from '../assets/images/logo-long.svg';
 import { socialLinks } from '../data/nav';
@@ -121,6 +122,7 @@ const jsonLd = { '@context': 'https://schema.org', '@graph': [organisation, webs
       <Icon name="tabler:chevron-up" class="h-6 w-6" />
       <span class="pointer-events-none absolute right-full mr-2 hidden whitespace-nowrap rounded-full bg-ink px-3 py-1 text-sm font-semibold text-white opacity-0 transition-opacity duration-150 group-hover:opacity-100 md:block">Back to top</span>
     </button>
+    <SpeedInsights />
   </body>
 </html>
 
