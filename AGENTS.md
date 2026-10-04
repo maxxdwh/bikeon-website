@@ -28,7 +28,7 @@ Icons render as inline SVGs with `<symbol>`/`<use>` for deduplication. The one e
 Visual language is ported from the `bikes-in-schools` repo: flat, ink-on-white, tinted bands, ruled headings, pill buttons. No gradients, shadows, or bordered cards.
 
 - **Tailwind v4** via `@tailwindcss/vite` — config and tokens are in `src/styles/global.css`, not a `tailwind.config.js`
-- **Font**: Geist Variable throughout. Headings are weight 800 with `-0.02em` tracking; body is 17px
+- **Font**: Geist Variable throughout, set up with Astro's Fonts API in `astro.config.mjs` (self-hosted variable woff2 from `@fontsource-variable/geist`, regular and italic, Latin and Latin Extended). `<Font cssVariable="--font-geist" />` is in `Layout.astro`, which also preloads the Latin regular file. Headings are weight 800 with `-0.02em` tracking; body is 17px
 - **Colours**: `--ink #0b1f2a` (text, rules, footer), `--blue-700 #0b6fa4` (links, primary buttons; Tailwind `primary`/`link`), `--brand #23adef` (decorative only: focus ring, quote border; never text on white), `--tint`/`--tint-2` (bands and panels), `--text` (body copy), `--line`/`--line-soft` (keylines)
 - **Component classes** (in `global.css`): `.container-page` (75rem), `.measure` (47.5rem), `.section`, `.page-top`, `.page-end`, `.h-hero`, `.h-page`, `.h2`, `.h3`, `.lead`, `.copy`, `.meta`, `.eyebrow`, `.stat`, `.panel` (+ `.panel--white`), `.quote`, `.field`, `.btn` (+ `.btn-secondary`, `.btn-sm`)
 - **Text wrap**: headings, `.lead`, `.copy` and the footer blurb use `text-wrap: balance`; long prose uses `pretty`
@@ -86,7 +86,7 @@ Schema defined in `src/content.config.ts`. Guide markdown files have frontmatter
 
 ## SEO and analytics
 
-- `src/layouts/Layout.astro` sets the canonical URL, Open Graph and Twitter tags, and a 1200×630 share image generated from `bledisloe-opening.jpg`. Pass `noindex` for pages that should stay out of search.
+- `src/layouts/Layout.astro` sets the canonical URL and Open Graph and Twitter tags. The share image is a per-page card drawn by `api/og.ts` (Vercel OG, edge runtime) from the page title and description; its fonts and logo are bundled from `api/_assets/`. `@vercel/og` is pinned to 0.11 because the 1.0 edge build does not deploy outside Next.js. A photo generated from `bledisloe-opening.jpg` is listed second as a fallback. Pass `noindex` for pages that should stay out of search.
 - URLs have no trailing slash: `trailingSlash: 'never'` in `astro.config.mjs`, matched by `trailingSlash: false` and `cleanUrls` in `vercel.json`.
 - `public/robots.txt` points to the sitemap. `/101`, `/guide/print` and the 404 page are excluded from it.
 - Links prefetch on hover (`prefetch` in `astro.config.mjs`).

@@ -49,7 +49,7 @@ const regions = [...new Set(schools.map((s) => s.region))].sort();
         <div id="map" style="height: 100%; width: 100%; min-height: 400px;"></div>
       </div>
 
-      <div class="max-h-[400px] overflow-y-auto border-y-2 border-t-ink border-b-line-soft lg:max-h-[600px]">
+      <div class="max-h-[400px] overflow-y-auto border-y border-line lg:max-h-[600px]">
         <ul id="school-list" class="divide-y divide-line-soft">
           {schools.map((school, i) => (
             <li
@@ -168,7 +168,7 @@ const regions = [...new Set(schools.map((s) => s.region))].sort();
 
     updateList(hasFilters);
 
-    if (hasFilters && matched.length > 0 && matched.length <= 50) {
+    if (hasFilters && matched.length > 0) {
       const bounds = new google.maps.LatLngBounds();
       matched.forEach(({ school }) => {
         bounds.extend({ lat: school.lat, lng: school.lng });
