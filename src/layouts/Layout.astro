@@ -3,7 +3,7 @@ import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { Icon } from 'astro-icon/components';
-import { getImage } from 'astro:assets';
+import { Font, fontData, getImage } from 'astro:assets';
 import PostHog from '../components/PostHog.astro';
 import shareImage from '../assets/images/bledisloe-opening.jpg';
 import logo from '../assets/images/logo-long.svg';
@@ -23,9 +23,16 @@ const {
   schema,
 } = Astro.props;
 
+const fontPreload = fontData['--font-geist']?.[0]?.src[0]?.url;
 const canonical = new URL(Astro.url.pathname.replace(/(.)\/$/, '$1'), Astro.site);
 const share = await getImage({ src: shareImage, width: 1200, height: 630, fit: 'cover', format: 'jpg' });
 const shareUrl = new URL(share.src, Astro.site);
+
+const cardUrl = new URL('/api/og', Astro.site);
+if (Astro.props.title) {
+  cardUrl.searchParams.set('title', title.replace(/ — Bike On NZ$/, ''));
+  cardUrl.searchParams.set('description', description);
+}
 
 const organisation = {
   '@type': 'NGO',
@@ -73,6 +80,8 @@ const jsonLd = { '@context': 'https://schema.org', '@graph': [organisation, webs
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
+    {fontPreload && <link rel="preload" href={fontPreload} as="font" type="font/woff2" crossorigin />}
+    <Font cssVariable="--font-geist" />
     <title>{title}</title>
     <meta name="description" content={description} />
     {noindex && <meta name="robots" content="noindex" />}
@@ -80,6 +89,9 @@ const jsonLd = { '@context': 'https://schema.org', '@graph': [organisation, webs
     <link rel="sitemap" href="/sitemap-index.xml" />
     <meta property="og:title" content={title} />
     <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={cardUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:image" content={shareUrl} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -88,7 +100,7 @@ const jsonLd = { '@context': 'https://schema.org', '@graph': [organisation, webs
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Bike On NZ" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content={shareUrl} />
+    <meta name="twitter:image" content={cardUrl} />
     <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
     <PostHog />
   </head>

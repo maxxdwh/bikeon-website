@@ -45,7 +45,22 @@ const isGroupActive = (item: (typeof navItems)[number]) =>
               )}
             </a>
             {item.children && (
-              <ul class="sub">
+              <button
+                type="button"
+                class="sub-toggle"
+                aria-expanded={isGroupActive(item) ? 'true' : 'false'}
+                aria-controls="sub-guide"
+                data-current={isGroupActive(item) ? '' : undefined}
+                data-sub-toggle
+              >
+                {item.label}
+                <svg width="16" height="16" viewBox="0 0 12 12" aria-hidden="true" focusable="false">
+                  <path d="M2.5 4.5 6 8l3.5-3.5"></path>
+                </svg>
+              </button>
+            )}
+            {item.children && (
+              <ul class="sub" id="sub-guide" data-open={isGroupActive(item) ? '' : undefined}>
                 {item.children.map((child) => (
                   <li>
                     <a href={child.href} aria-current={isActive(child.href) ? 'page' : undefined}>
@@ -85,6 +100,15 @@ const isGroupActive = (item: (typeof navItems)[number]) =>
     });
     matchMedia('(min-width: 64rem)').addEventListener('change', (e) => e.matches && setOpen(false));
   }
+
+  document.querySelectorAll<HTMLButtonElement>('[data-sub-toggle]').forEach((button) => {
+    const sub = document.getElementById(button.getAttribute('aria-controls') ?? '');
+    button.addEventListener('click', () => {
+      const open = button.getAttribute('aria-expanded') !== 'true';
+      button.setAttribute('aria-expanded', String(open));
+      sub?.toggleAttribute('data-open', open);
+    });
+  });
 </script>
 
 <style>
@@ -159,6 +183,9 @@ const isGroupActive = (item: (typeof navItems)[number]) =>
     color: var(--blue-700);
   }
 
+  .sub-toggle {
+    display: none;
+  }
   .menu-toggle {
     display: none;
     align-items: center;
@@ -246,10 +273,45 @@ const isGroupActive = (item: (typeof navItems)[number]) =>
     .caret {
       display: none;
     }
+    :global(.js) .site-nav__list > li.has-sub > a {
+      display: none;
+    }
+    :global(.js) .sub-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 0.875rem 0.25rem;
+      border: 0;
+      border-bottom: 1px solid var(--line-soft);
+      background: none;
+      font-size: 1.125rem;
+      font-weight: 600;
+      text-align: left;
+      color: var(--ink);
+      cursor: pointer;
+    }
+    .sub-toggle[data-current] {
+      color: var(--blue-700);
+    }
+    .sub-toggle svg {
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: transform 0.15s;
+    }
+    .sub-toggle[aria-expanded='true'] svg {
+      transform: rotate(180deg);
+    }
     .sub {
       padding: 0.25rem 0 0.5rem 0.75rem;
       border-bottom: 1px solid var(--line-soft);
       font-weight: 500;
+    }
+    :global(.js) .sub:not([data-open]) {
+      display: none;
     }
   }
 </style>

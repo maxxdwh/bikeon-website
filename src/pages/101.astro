@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import { Image } from 'astro:assets';
+import { Font, Image } from 'astro:assets';
 import logo from '../assets/images/logo-long.svg';
 import helmetFit from '../assets/images/guide/helmets.webp';
 import royalOak from '../assets/images/about/royal-oak-opening.jpg';
@@ -70,6 +70,7 @@ const quotes = ['Hon John Key', 'Sarah Walker']
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex" />
+    <Font cssVariable="--font-geist" />
     <title>Bikes in Schools 101</title>
   </head>
   <body>
@@ -372,7 +373,7 @@ const quotes = ['Hon John Key', 'Sarah Walker']
     width: 100%;
     margin-bottom: 2.5mm;
     border-collapse: collapse;
-    border-top: 2px solid var(--ink);
+    border-top: 2px solid var(--line-strong);
   }
   td {
     padding: 1.4mm 0;
@@ -384,7 +385,7 @@ const quotes = ['Hon John Key', 'Sarah Walker']
     white-space: nowrap;
   }
   .total td {
-    border-bottom: 2px solid var(--ink);
+    border-bottom: 2px solid var(--line-strong);
     font-weight: 700;
     color: var(--ink);
   }
@@ -439,7 +440,7 @@ const quotes = ['Hon John Key', 'Sarah Walker']
     width: 5.5mm;
     height: 5.5mm;
     margin-top: 0.5mm;
-    border: 1.5px solid var(--ink);
+    border: 1.5px solid var(--line-strong);
     border-radius: 1mm;
   }
   .quotes {
