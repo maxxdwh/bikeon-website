@@ -26,11 +26,10 @@ export default async function handler(request: Request) {
   const title = clip(url.searchParams.get('title'), 80, DEFAULT_TITLE);
   const description = clip(url.searchParams.get('description'), 150, DEFAULT_DESCRIPTION);
 
-  const asset = (path: string) => fetch(new URL(path, url.origin));
   const [regular, bold, logoSvg] = await Promise.all([
-    asset('/og/geist-latin-400-normal.woff').then((r) => r.arrayBuffer()),
-    asset('/og/geist-latin-800-normal.woff').then((r) => r.arrayBuffer()),
-    asset('/og/logo.svg').then((r) => r.text()),
+    fetch(new URL('./_assets/geist-400.woff', import.meta.url)).then((r) => r.arrayBuffer()),
+    fetch(new URL('./_assets/geist-800.woff', import.meta.url)).then((r) => r.arrayBuffer()),
+    fetch(new URL('./_assets/logo.svg', import.meta.url)).then((r) => r.text()),
   ]);
   const logo = `data:image/svg+xml;base64,${btoa(logoSvg)}`;
 
