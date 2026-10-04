@@ -2,7 +2,7 @@
 title: "Bike tracks"
 description: "Specs and costs for riding, pump, and skills tracks."
 order: 5
-heroImage: "/images/guide/bike-tracks.webp"
+heroImage: "../../assets/images/guide/bike-tracks.webp"
 ---
 
 ## The riding track
@@ -19,9 +19,9 @@ Fifty or more kids can ride at once on a well-built riding track. Beyond biking,
 - Gentle curves rather than straight lines: more fun to ride, and they naturally slow things down
 - Costs vary by region; check with local builders on the right surface material for your area
 
-[Limesand Track Construction (PDF)](https://bikeon.org.nz/wp-content/uploads/2016/03/limesand-track-construction.pdf)
+[Limesand Track Construction (PDF)](/downloads/limesand-track-construction.pdf)
 
-![A riding track made of limestone](/images/guide/limestone-track.jpg)
+![A riding track made of limestone](../../assets/images/guide/limestone-track.jpg)
 
 ### Riding track: Building in asphalt
 
@@ -34,7 +34,7 @@ More schools are choosing asphalt or hot mix over limestone. It costs more upfro
 - Gentle curves, not straight lines
 - Depth of basecourse can vary; get local advice
 
-![A riding track made of asphalt](/images/guide/bike-tracks.webp)
+![A riding track made of asphalt](../../assets/images/guide/bike-tracks.webp)
 
 ## The pump track
 
@@ -48,7 +48,7 @@ Limit it to six riders at a time. Loop your track designer in with your bike sup
 - A BMX club or professional track builder is worth getting in for design and construction
 - Costs run $3,000 to $8,000, depending on size and region
 
-![A pump track](/images/guide/pump-track.webp)
+![A pump track](../../assets/images/guide/pump-track.webp)
 
 ## The skills track
 
@@ -58,8 +58,8 @@ A limestone track with a series of obstacles: skinnies, a slalom, a see-saw, and
 - Costs run $6,000 to $10,000, depending on size, obstacle count, and region
 - Get an experienced provider to build it
 
-[How to build a Skills Track (PDF)](https://bikeon.org.nz/wp-content/uploads/2016/03/skills_track.pdf)
+[How to build a Skills Track (PDF)](/downloads/how-to-build-a-skills-track.pdf)
 
 A few schools have built their skills track with asphalt as this reduces ongoing maintenance needed.
 
-![A skills track made of asphalt](/images/guide/skills-track.webp)
+![A skills track made of asphalt](../../assets/images/guide/skills-track.webp)

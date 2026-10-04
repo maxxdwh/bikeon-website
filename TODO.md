@@ -5,6 +5,9 @@
 - [ ] Note: Lat/lng columns in the Excel file are labelled in reverse (column "Longitude" contains latitude values, column "Latitude" contains longitude values). This is handled correctly in the generated `src/data/schools.json`.
 - [ ] Consider adding a status filter (OPENED, ACC Y1-Y3, NCES Y1-Y7) to the map if useful — the spreadsheet has this data but it's currently not included.
 
+## Link audit
+- [ ] Work through `LINK-AUDIT.md` (dead links, PDFs still hosted on the old site, media stories to archive or bring across) before the old WordPress site is switched off.
+
 ## Research links — broken
 The following research links from the old bikeon.org.nz site are broken and were NOT included:
 - [ ] **EIT report** (allteams.co.nz) — 404. May need to re-upload to bikeon.org.nz or find a new host.

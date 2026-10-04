@@ -25,15 +25,22 @@ Icons render as inline SVGs with `<symbol>`/`<use>` for deduplication. The one e
 
 ## Styling rules
 
-- **Tailwind v4** via `@tailwindcss/vite` — config is in `src/styles/global.css`, not a `tailwind.config.js`
-- **16px minimum font** — never use `text-xs` (12px). Use `text-base` (16px) or larger. Exception: `text-sm` (14px) is allowed for meta/secondary text (dates, sources, captions)
-- **Body text in prose**: `text-[17px]`
-- **Prose max-width**: `72ch`
-- **Heading font**: Inclusive Sans Variable. **Body font**: Geist Variable
-- **Headings**: `text-4xl md:text-5xl` for H2s on homepage/about/resources
-- **Prose links**: underlined, `font-weight: 400`, not bold. Hover changes decoration color to `--link`
-- **Prose strong**: `font-normal` (not bold)
-- **Brand colors**: `--primary: #23adef` (decorative), `--link: #0c6d9c` (text/links). Dark text on primary backgrounds
+Visual language is ported from the `bikes-in-schools` repo: flat, ink-on-white, tinted bands, ruled headings, pill buttons. No gradients, shadows, or bordered cards.
+
+- **Tailwind v4** via `@tailwindcss/vite` — config and tokens are in `src/styles/global.css`, not a `tailwind.config.js`
+- **Font**: Geist Variable throughout. Headings are weight 800 with `-0.02em` tracking; body is 17px
+- **Colours**: `--ink #0b1f2a` (text, rules, footer), `--blue-700 #0b6fa4` (links, primary buttons; Tailwind `primary`/`link`), `--brand #23adef` (decorative only: focus ring, quote border; never text on white), `--tint`/`--tint-2` (bands and panels), `--text` (body copy), `--line`/`--line-soft` (keylines)
+- **Component classes** (in `global.css`): `.container-page` (75rem), `.measure` (47.5rem), `.section`, `.page-top`, `.page-end`, `.h-hero`, `.h-page`, `.h2`, `.h3`, `.lead`, `.copy`, `.meta`, `.eyebrow`, `.stat`, `.panel` (+ `.panel--white`), `.quote`, `.field`, `.btn` (+ `.btn-secondary`, `.btn-sm`)
+- **Text wrap**: headings, `.lead`, `.copy` and the footer blurb use `text-wrap: balance`; long prose uses `pretty`
+- **Prose**: custom `.prose` rules in `global.css` (no typography plugin). 18px / 1.7, H2s get a 1px keyline. Wrap non-prose children in `.not-prose`
+- **16px minimum font** — never use `text-xs` (12px). Exception: `text-sm` / `.meta` (14px) for meta/secondary text (dates, sources, captions)
+- **Prose links**: underlined, `font-weight: 400`, not bold
+- **Prose strong**: `font-weight: 400`, ink colour (not bold)
+- **Header** is `sticky top-0` with a fixed height (`--header-h`, 4rem); the guide section nav sticks directly beneath it. Offset any other sticky element or `scroll-margin` by `--header-h`
+
+## Images
+
+All images are served through Astro's image optimiser. Files live in `src/assets/images/` and are rendered with `<Image>` from `astro:assets`, or by relative path in guide markdown. Rules and the two exceptions are in `.claude/skills/site-standards/SKILL.md`, which also holds the owner's other standing expectations; read it before changing images, pages or components.
 
 ## Rehype plugins (astro.config.mjs)
 
@@ -44,14 +51,22 @@ Two custom rehype plugins process guide markdown:
 
 ## Guide layout
 
-`src/pages/guide/[slug].astro` uses a 12-column grid:
-- 3 cols: sticky sidebar nav (`top-28`), pill-style active states
-- 7 cols: article (prose, 72ch max-width)
+`src/pages/guide/[slug].astro` uses a flex layout:
+- Article column (`--measure`, 47.5rem) with page header, hero image and prose
+- 260px sticky "On this page" panel on the right (inline panel on mobile)
 - Prev/next navigation at bottom
+
+## Printing and downloads
+
+- **Print or save menu** (`src/components/GuideExport.astro`) sits under "On this page" on guide pages: this page or the whole guide, with or without images, print/save as PDF or copy as text.
+- **Whole guide** is `src/pages/guide/print.astro` (`/guide/print`, noindex, excluded from the sitemap). `?print=1` opens the print dialog on load; `?images=0` hides images.
+- **Print styles** are the `@media print` block in `global.css`. Compact by design: 10.5pt body, thin rules, no header, footer, navs or hero image. Mark screen-only elements with `.no-print`.
+- **Bikes in Schools 101** is `src/pages/101.astro` (`/101`, two A4 sheets, noindex). The PDF in `public/downloads/bikes-in-schools-101.pdf` is generated from it; after editing the page, regenerate with headless Chrome: `--headless=new --no-pdf-header-footer --print-to-pdf=public/downloads/bikes-in-schools-101.pdf http://localhost:4321/101`.
+- Other PDFs live in `public/downloads/`; old WordPress addresses redirect to them in `vercel.json`.
 
 ## Content collection
 
-Schema defined in `src/content.config.ts`. Guide markdown files have frontmatter: `title`, `description`, `order` (for sidebar sort).
+Schema defined in `src/content.config.ts`. Guide markdown files have frontmatter: `title`, `description`, `order` (for sidebar sort), `heroImage` (relative path to a file in `src/assets/images/`, validated with `image()`).
 
 ## Contact form
 
@@ -68,6 +83,16 @@ Schema defined in `src/content.config.ts`. Guide markdown files have frontmatter
 ## Schools map
 
 `src/data/schools.json` — 352 schools with `name`, `lat`, `lng`, `status`. Rendered with Google Maps JavaScript API. Fuzzy search, keyboard accessible.
+
+## SEO and analytics
+
+- `src/layouts/Layout.astro` sets the canonical URL, Open Graph and Twitter tags, and a 1200×630 share image generated from `bledisloe-opening.jpg`. Pass `noindex` for pages that should stay out of search.
+- URLs have no trailing slash: `trailingSlash: 'never'` in `astro.config.mjs`, matched by `trailingSlash: false` and `cleanUrls` in `vercel.json`.
+- `public/robots.txt` points to the sitemap. `/101`, `/guide/print` and the 404 page are excluded from it.
+- Links prefetch on hover (`prefetch` in `astro.config.mjs`).
+- PostHog (EU host) loads from `src/components/PostHog.astro`, in production builds only. The project key is a public client key and lives in that file.
+- `vercel.json` also sets long-lived caching for `/_astro/*` and basic security headers.
+- `npx astro check` should report 0 errors.
 
 ## Deployment
 

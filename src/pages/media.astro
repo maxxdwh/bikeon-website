@@ -4,7 +4,7 @@ import HeroSection from '../components/HeroSection.astro';
 import { Icon } from 'astro-icon/components';
 import media from '../data/media.json';
 
-function getHostname(url) {
+function getHostname(url: string) {
   try {
     return new URL(url).hostname.replace(/^www\./, '');
   } catch {
@@ -12,14 +12,18 @@ function getHostname(url) {
   }
 }
 
+const pinnedSource = 'Beehive (NZ Government)';
+
 const sourceCounts = Object.entries(
-  media.reduce((acc, m) => {
+  media.reduce<Record<string, number>>((acc, m) => {
     acc[m.source] = (acc[m.source] ?? 0) + 1;
     return acc;
   }, {})
-).sort((a, b) => b[1] - a[1]).filter(([, count]) => count >= 5);
+).sort((a, b) => b[1] - a[1])
+  .filter(([source, count]) => count >= 5 || source === pinnedSource)
+  .sort((a, b) => Number(b[0] === pinnedSource) - Number(a[0] === pinnedSource));
 
-const sourceHostnames = {};
+const sourceHostnames: Record<string, string> = {};
 for (const m of media) {
   if (!sourceHostnames[m.source]) {
     const h = getHostname(m.url);
@@ -37,13 +41,12 @@ const mediaWithLogos = media.map((m) => ({
   <HeroSection
     title="Media"
     description="Year by year press coverage since the very first Bikes in Schools opening back in 2010."
-    centered
   />
 
-  <section class="container-page py-6">
-    <div class="flex flex-col gap-4 lg:flex-row lg:items-stretch">
-      <div class="flex flex-col lg:w-80 lg:shrink-0">
-        <div class="mb-3 space-y-2">
+  <section class="container-page page-end pt-4">
+    <div class="flex flex-col gap-x-12 gap-y-6 lg:flex-row lg:items-start">
+      <div class="flex flex-col lg:sticky lg:top-24 lg:w-72 lg:shrink-0">
+        <div class="space-y-3">
           <div class="relative">
             <Icon name="tabler:search" class="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
             <label for="media-search" class="sr-only">Search stories</label>
@@ -51,19 +54,18 @@ const mediaWithLogos = media.map((m) => ({
               type="search"
               id="media-search"
               placeholder="Search stories..."
-              class="w-full rounded-[0.625rem] border border-border bg-background pl-10 pr-4 text-base outline-none focus:border-ring focus:ring-2 focus:ring-ring"
-              style="height: 2.5rem;"
+              class="field pl-10"
             />
           </div>
 
           <button id="mobile-filter-toggle" class="btn btn-secondary w-full lg:hidden">
-            <Icon name="tabler:adjustments" class="mr-2 h-4 w-4" /> Filter
+            <Icon name="tabler:adjustments" class="h-4 w-4" /> Filter
           </button>
 
           <div id="publisher-list" class="space-y-1 lg:block hidden">
-            <button data-source="all" class="publisher-chip flex w-full items-center justify-between gap-2 rounded-lg px-3 py-1.5 text-sm transition-colors bg-primary/10 font-semibold text-primary">Show all</button>
+            <button data-source="all" class="publisher-chip flex w-full cursor-pointer items-center justify-between gap-2 rounded-sm px-3 py-2 text-left text-base font-semibold transition-colors hover:bg-tint-2 bg-tint text-primary">Show all</button>
             {sourceCounts.map(([source, count]) => (
-              <button data-source={source} class="publisher-chip flex w-full items-center gap-2 rounded-lg px-3 py-1.5 text-sm transition-colors hover:bg-muted">
+              <button data-source={source} class="publisher-chip flex w-full cursor-pointer items-center gap-2 rounded-sm px-3 py-2 text-left text-base font-semibold transition-colors hover:bg-tint-2">
                 {sourceHostnames[source] ? (
                   <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-white">
                     <img
@@ -77,27 +79,27 @@ const mediaWithLogos = media.map((m) => ({
                   </span>
                 ) : null}
                 <span class="truncate">{source}</span>
-                <span class="ml-auto shrink-0 opacity-50">{count}</span>
+                <span class="meta ml-auto shrink-0 font-normal">{count}</span>
               </button>
             ))}
           </div>
 
-          <div class="flex items-center justify-between text-base text-muted-foreground">
+          <div class="flex items-center justify-between px-3 text-base text-muted-foreground">
             <span id="story-count">{media.length} stories</span>
-            <button id="reset-search" class="hidden text-foreground underline hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded">Clear</button>
+            <button id="reset-search" class="hidden cursor-pointer font-semibold text-link underline hover:text-ink">Clear</button>
           </div>
         </div>
       </div>
 
       <div class="flex-1">
-        <div id="media-cards" class="divide-y divide-border rounded-xl border border-border">
+        <div id="media-cards" class="divide-y divide-line-soft border-y-2 border-t-ink border-b-line-soft">
           {mediaWithLogos.map((story) => (
             story.archived ? (
               <div
                 data-search={`${story.title} ${story.source} ${story.date} ${story.year}`.toLowerCase()}
                 data-year={story.year}
                 data-source={story.source}
-                class="media-card group flex items-start gap-3 p-3 transition-colors hover:bg-muted"
+                class="media-card group flex items-start gap-3 py-3.5"
               >
                 {story.hostname ? (
                   <img
@@ -105,19 +107,19 @@ const mediaWithLogos = media.map((m) => ({
                     alt=""
                     width="20"
                     height="20"
-                    class="h-5 w-5 shrink-0 object-contain"
+                    class="mt-1 h-5 w-5 shrink-0 object-contain"
                     loading="lazy"
                   />
                 ) : (
-                  <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-primary/10 text-sm font-medium text-primary">
+                  <span class="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-tint text-sm font-bold text-primary">
                     {story.source.charAt(0)}
                   </span>
                 )}
                 <div class="min-w-0 flex-1">
-                  <p class="font-medium leading-snug group-hover:text-foreground">{story.title}</p>
-                  <p class="mt-0.5 text-sm text-muted-foreground">{story.source} · {story.date}</p>
+                  <p class="font-semibold leading-snug text-ink">{story.title}</p>
+                  <p class="meta mt-0.5">{story.source} · {story.date}</p>
                 </div>
-                <span class="mt-0.5 shrink-0 text-sm text-muted-foreground opacity-0 transition-opacity duration-150 group-hover:opacity-100">Archived</span>
+                <span class="meta mt-0.5 shrink-0">Archived</span>
               </div>
             ) : (
               <a
@@ -127,7 +129,7 @@ const mediaWithLogos = media.map((m) => ({
                 data-search={`${story.title} ${story.source} ${story.date} ${story.year}`.toLowerCase()}
                 data-year={story.year}
                 data-source={story.source}
-                class="media-card group flex items-start gap-3 p-3 transition-colors hover:bg-muted focus-visible:outline-none focus-visible:bg-muted"
+                class="media-card group flex items-start gap-3 py-3.5 no-underline"
               >
                 {story.hostname ? (
                   <img
@@ -135,27 +137,27 @@ const mediaWithLogos = media.map((m) => ({
                     alt=""
                     width="20"
                     height="20"
-                    class="h-5 w-5 shrink-0 object-contain"
+                    class="mt-1 h-5 w-5 shrink-0 object-contain"
                     loading="lazy"
                   />
                 ) : (
-                  <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-primary/10 text-sm font-medium text-primary">
+                  <span class="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-tint text-sm font-bold text-primary">
                     {story.source.charAt(0)}
                   </span>
                 )}
                 <div class="min-w-0 flex-1">
-                  <p class="font-medium leading-snug group-hover:text-foreground">{story.title}</p>
-                  <p class="mt-0.5 text-sm text-muted-foreground">{story.source} · {story.date}</p>
+                  <p class="font-semibold leading-snug group-hover:underline">{story.title}</p>
+                  <p class="meta mt-0.5">{story.source} · {story.date}</p>
                 </div>
-                <Icon name="tabler:arrow-up-right" class="h-4 w-4 shrink-0 text-muted-foreground opacity-40 transition-opacity group-hover:opacity-100" />
+                <Icon name="tabler:arrow-up-right" class="mt-1 h-4 w-4 shrink-0 text-muted-foreground group-hover:text-ink" />
               </a>
             )
           ))}
         </div>
         <div id="no-results" class="hidden flex-col items-center justify-center gap-3 py-16 text-center">
           <div class="space-y-1">
-            <p class="text-lg font-medium">No stories found</p>
-            <p class="text-sm text-muted-foreground">Try a different search or clear your filters.</p>
+            <p class="h3">No stories found</p>
+            <p class="copy">Try a different search or clear your filters.</p>
           </div>
           <button id="no-results-clear" class="btn btn-secondary mt-4">Clear filters</button>
         </div>
@@ -163,11 +165,11 @@ const mediaWithLogos = media.map((m) => ({
     </div>
   </section>
 
-  <div id="drawer-overlay" class="fixed inset-0 z-40 bg-black/40 lg:hidden hidden"></div>
-  <aside id="publisher-drawer" class="fixed inset-x-0 bottom-0 z-50 max-h-[75vh] translate-y-full rounded-t-2xl bg-background p-5 shadow-xl transition-transform duration-200 lg:hidden">
+  <div id="drawer-overlay" class="fixed inset-0 z-[60] bg-ink/50 lg:hidden hidden"></div>
+  <aside id="publisher-drawer" class="fixed inset-x-0 bottom-0 z-[70] max-h-[75vh] translate-y-full rounded-t-2xl bg-white p-5 transition-transform duration-200 lg:hidden">
     <div class="flex items-center justify-between">
-      <h2 class="text-lg font-semibold">Publishers</h2>
-      <button id="drawer-close" class="rounded-lg p-1.5 hover:bg-muted" aria-label="Close">
+      <h2 class="h3">Publishers</h2>
+      <button id="drawer-close" class="cursor-pointer rounded-full p-2 hover:bg-tint-2" aria-label="Close">
         <Icon name="tabler:x" class="h-5 w-5" />
       </button>
     </div>
@@ -207,8 +209,8 @@ const mediaWithLogos = media.map((m) => ({
   chips.forEach((chip) => {
     chip.addEventListener('click', () => {
       activeSource = chip.getAttribute('data-source');
-      chips.forEach((c) => c.classList.remove('bg-primary/10', 'text-primary', 'font-semibold'));
-      chip.classList.add('bg-primary/10', 'text-primary', 'font-semibold');
+      chips.forEach((c) => c.classList.remove('bg-tint', 'text-primary'));
+      chip.classList.add('bg-tint', 'text-primary');
       filter();
     });
   });
@@ -217,8 +219,8 @@ const mediaWithLogos = media.map((m) => ({
   function clearFilters() {
     searchInput.value = '';
     activeSource = 'all';
-    chips.forEach((c) => c.classList.remove('bg-primary/10', 'text-primary', 'font-semibold'));
-    chips[0].classList.add('bg-primary/10', 'text-primary', 'font-semibold');
+    chips.forEach((c) => c.classList.remove('bg-tint', 'text-primary'));
+    chips[0].classList.add('bg-tint', 'text-primary');
     filter();
   }
   resetBtn.addEventListener('click', clearFilters);
@@ -238,12 +240,12 @@ const mediaWithLogos = media.map((m) => ({
     document.body.style.overflow = 'hidden';
     drawerPublishers.querySelectorAll('.publisher-chip').forEach((chip) => {
       if (chip.getAttribute('data-source') === activeSource) {
-        chip.classList.add('bg-primary/10', 'text-primary', 'font-semibold');
+        chip.classList.add('bg-tint', 'text-primary');
       }
       chip.addEventListener('click', () => {
         activeSource = chip.getAttribute('data-source');
-        publisherList.querySelectorAll('.publisher-chip').forEach((c) => c.classList.remove('bg-primary/10', 'text-primary', 'font-semibold'));
-        publisherList.querySelector(`[data-source="${activeSource}"]`).classList.add('bg-primary/10', 'text-primary', 'font-semibold');
+        publisherList.querySelectorAll('.publisher-chip').forEach((c) => c.classList.remove('bg-tint', 'text-primary'));
+        publisherList.querySelector(`[data-source="${activeSource}"]`).classList.add('bg-tint', 'text-primary');
         closeDrawer();
         filter();
       });

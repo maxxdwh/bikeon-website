@@ -2,7 +2,7 @@
 title: "Costs and funding"
 description: "Typical costs, funding sources, and Board approval."
 order: 7
-heroImage: "/images/guide/costs-and-funding.jpg"
+heroImage: "../../assets/images/guide/costs-and-funding.jpg"
 ---
 
 ## What does it cost?

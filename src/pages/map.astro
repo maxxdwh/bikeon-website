@@ -11,12 +11,11 @@ const regions = [...new Set(schools.map((s) => s.region))].sort();
   <HeroSection
     title="Map of Schools"
     description={`${schools.length}+ schools across New Zealand with a Bikes in Schools project. Search by name, filter by region, or pan the map to see what's nearby.`}
-    centered
   />
 
-  <section class="container-page py-6">
+  <section class="container-page page-end pt-4">
     <div class="grid gap-4 lg:grid-cols-[20rem_1fr]">
-      <div class="space-y-2">
+      <div class="space-y-3">
         <div class="relative">
           <Icon name="tabler:search" class="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
           <label for="school-search" class="sr-only">Search school name</label>
@@ -24,16 +23,14 @@ const regions = [...new Set(schools.map((s) => s.region))].sort();
             type="search"
             id="school-search"
             placeholder="Search school name..."
-            class="w-full rounded-[0.625rem] border border-border bg-background pl-10 pr-4 text-base outline-none focus:border-ring focus:ring-2 focus:ring-ring"
-            style="height: 2.5rem;"
+            class="field pl-10"
           />
         </div>
         <div class="relative">
           <label for="region-filter" class="sr-only">Filter by region</label>
           <select
             id="region-filter"
-            class="w-full appearance-none rounded-[0.625rem] border border-border bg-background px-4 pr-10 text-base outline-none focus:border-ring focus:ring-2 focus:ring-ring"
-            style="height: 2.5rem;"
+            class="field appearance-none pr-10"
           >
             <option value="all">All regions</option>
             {regions.map((region) => (
@@ -44,19 +41,19 @@ const regions = [...new Set(schools.map((s) => s.region))].sort();
         </div>
         <div class="flex items-center justify-between text-base text-muted-foreground">
           <span id="school-count">{schools.length} schools</span>
-          <button id="reset-search" class="hidden text-foreground underline hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded">Show all schools</button>
+          <button id="reset-search" class="hidden cursor-pointer font-semibold text-link underline hover:text-ink">Show all schools</button>
         </div>
       </div>
 
-      <div class="min-h-[400px] overflow-hidden rounded-xl border border-border lg:row-span-2 lg:min-h-[600px]">
+      <div class="min-h-[400px] overflow-hidden rounded-xl bg-tint lg:row-span-2 lg:min-h-[600px]">
         <div id="map" style="height: 100%; width: 100%; min-height: 400px;"></div>
       </div>
 
-      <div class="overflow-y-auto rounded-xl border border-border max-h-[400px] lg:max-h-[600px]">
-        <ul id="school-list" class="divide-y divide-border">
+      <div class="max-h-[400px] overflow-y-auto border-y-2 border-t-ink border-b-line-soft lg:max-h-[600px]">
+        <ul id="school-list" class="divide-y divide-line-soft">
           {schools.map((school, i) => (
             <li
-              class="school-item flex cursor-pointer items-start gap-3 p-3 transition-colors hover:bg-muted focus-visible:bg-muted focus-visible:outline-none"
+              class="school-item flex cursor-pointer items-start gap-3 px-2 py-3 transition-colors hover:bg-tint-2 focus-visible:-outline-offset-2"
               tabindex="0"
               role="button"
               aria-label={`Focus ${school.name} on the map`}
@@ -70,8 +67,8 @@ const regions = [...new Set(schools.map((s) => s.region))].sort();
                 <Icon name="tabler:map-pin" class="h-4 w-4" />
               </div>
               <div class="min-w-0">
-                <p class="truncate text-base font-medium">{school.name}</p>
-                <p class="truncate text-sm text-muted-foreground">{school.town}, {school.region}</p>
+                <p class="truncate text-base font-semibold">{school.name}</p>
+                <p class="meta truncate">{school.town}, {school.region}</p>
               </div>
             </li>
           ))}

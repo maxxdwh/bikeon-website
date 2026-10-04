@@ -4,11 +4,11 @@ import { glob } from 'astro/loaders';
 
 const guide = defineCollection({
   loader: glob({ pattern: '*.md', base: './src/content/guide' }),
-  schema: z.object({
+  schema: ({ image }) => z.object({
     title: z.string(),
     description: z.string(),
     order: z.number(),
-    heroImage: z.string(),
+    heroImage: image(),
   }),
 });
 

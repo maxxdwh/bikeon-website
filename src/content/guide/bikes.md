@@ -2,7 +2,7 @@
 title: "Bikes"
 description: "Choosing, sizing, and buying your bike fleet."
 order: 2
-heroImage: "/images/guide/bikes.jpg"
+heroImage: "../../assets/images/guide/bikes.jpg"
 ---
 
 ## Choosing the right bikes
@@ -32,19 +32,19 @@ Number every bike (1 to 50, say) so kids can spot their size fast. Colour-coding
 
 ### ByK E350 Custom, E450 Custom, and E540 Custom
 
-![ByK E350 Custom](/images/bikes/byk-e350.jpg)
+![ByK E350 Custom](../../assets/images/bikes/byk-e350.jpg)
 
-![ByK E450 Custom](/images/bikes/byk-e450.jpg)
+![ByK E450 Custom](../../assets/images/bikes/byk-e450.jpg)
 
-![ByK E540 Custom](/images/bikes/byk-e540.jpg)
+![ByK E540 Custom](../../assets/images/bikes/byk-e540.jpg)
 
 ### Shadow 18i, 20i, and 24i
 
-![Shadow 18i](/images/bikes/shadow-18.jpg)
+![Shadow 18i](../../assets/images/bikes/shadow-18.jpg)
 
-![Shadow 20i](/images/bikes/shadow-20.jpg)
+![Shadow 20i](../../assets/images/bikes/shadow-20.jpg)
 
-![Shadow 24i](/images/bikes/shadow-24.jpg)
+![Shadow 24i](../../assets/images/bikes/shadow-24.jpg)
 
 ## Assembly
 

@@ -2,7 +2,7 @@
 title: "Start here"
 description: "What a Bikes in Schools project is and how to plan one."
 order: 1
-heroImage: "/images/testimonials/pt-england-opening.jpg"
+heroImage: "../../assets/images/about/pt-england-opening.jpg"
 ---
 
 ## What is Bikes in Schools?
@@ -23,11 +23,11 @@ Some councils and providers run complementary programmes worth pairing this with
 
 ## Why it matters
 
-Kiwi kids are biking a lot less than they used to. Between 1990 and 2014, the average time New Zealand 5 to 12 year olds spent biking dropped from 28 minutes a week to just 4. Distance biked fell from 2.8km a week to 0.5km. (Source: [Ministry of Transport NZ Household Travel Survey](https://bikeon.org.nz/wp-content/uploads/2019/01/Cycling-NZ-Household-Travel-Survey-2011-to-2014.pdf).)
+Kiwi kids are biking a lot less than they used to. Between 1990 and 2014, the average time New Zealand 5 to 12 year olds spent biking dropped from 28 minutes a week to just 4. Distance biked fell from 2.8km a week to 0.5km. (Source: [Ministry of Transport NZ Household Travel Survey](/downloads/nz-household-travel-survey-cycling-2011-2014.pdf).)
 
 Bikes in Schools changes that fast. Regular access to a bike goes from around 30% of students to 100%, and that shift is both immediate and easy to measure.
 
-Principals, teachers, parents, and cycle skills providers report the same things again and again: more confident, resilient kids; health and wellbeing gains; a chance for students to manage a bit of risk safely; and a habit of riding that often follows kids and their families well beyond the school gates. Read about how it played out at [Pinehaven School](http://www.enviroschools.org.nz/in_your_region/wellington/featured-projects/bikes-build-resilience-at-pinehaven-school).
+Principals, teachers, parents, and cycle skills providers report the same things again and again: more confident, resilient kids; health and wellbeing gains; a chance for students to manage a bit of risk safely; and a habit of riding that often follows kids and their families well beyond the school gates.
 
 ## What the research says
 
@@ -43,19 +43,19 @@ The EIT tracked three schools over two years through testing, surveys, and focus
 
 ### Mackie Research: ACC evaluations (2018 & 2019)
 
-Mackie Research conducted evaluations commissioned and funded by ACC. The 2018 [Preliminary Report: Fun, Active, Safe & Social (PDF)](https://bikeon.org.nz/wp-content/uploads/2018/04/Preliminary-Report.-Short-term-Evaluation-of-Bikes-in-Schools-March-2018-Executive-Summary-5th-April-2018.pdf) provided preliminary findings, recommendations, and school snapshots.
+Mackie Research conducted evaluations commissioned and funded by ACC. The 2018 [Preliminary Report: Fun, Active, Safe & Social (PDF)](/downloads/evaluation-2018-preliminary-report-executive-summary.pdf) provided preliminary findings, recommendations, and school snapshots.
 
-The 2019 [Final Report (PDF)](https://bikeon.org.nz/wp-content/uploads/2019/05/Bikes-in-Schools-Evaluation-2019-Recommendations-for-Schools.pdf) expanded on these findings. Two handy handouts came from this work:
-- [Recommendations for Schools (PDF)](https://bikeon.org.nz/wp-content/uploads/2019/05/Bikes-in-Schools-Evaluation-2019-Recommendations-for-Schools.pdf)
-- [Recommendations for Stakeholders, Councils & Funders (PDF)](https://bikeon.org.nz/wp-content/uploads/2019/05/Bikes-in-Schools-Evaluation-2019-Recommendations-for-Stakeholders-Councils-Funders.pdf)
+The 2019 [Final Report (PDF)](/downloads/evaluation-2019-recommendations-for-schools.pdf) expanded on these findings. Two handy handouts came from this work:
+- [Recommendations for Schools (PDF)](/downloads/evaluation-2019-recommendations-for-schools.pdf)
+- [Recommendations for Stakeholders, Councils & Funders (PDF)](/downloads/evaluation-2019-recommendations-for-stakeholders.pdf)
 
 ### ViaStrada: Palmerston North City Council (2017)
 
-ViaStrada Consultants completed a detailed [Bikes in Schools Programme Assessment (PDF)](https://bikeon.org.nz/wp-content/uploads/2018/02/Bikes-in-Schools-Programme-Assessment.pdf) for the Palmerston North City Council, which resulted in the council confirming funding for additional schools. As reported in the [local media](https://www.stuff.co.nz/manawatu-standard/news/100049092/more-bikes-in-schools-confirmed-thanks-to-council-funding), "So far, six schools are part of the programme, which has been hailed a success in a review by consultants ViaStrada, with more than 1600 children now riding more often, with better skills, and health benefits."
+ViaStrada Consultants completed a detailed [Bikes in Schools Programme Assessment (PDF)](/downloads/bikes-in-schools-programme-assessment.pdf) for the Palmerston North City Council, which resulted in the council confirming funding for additional schools. As reported in the [local media](https://www.stuff.co.nz/manawatu-standard/news/100049092/more-bikes-in-schools-confirmed-thanks-to-council-funding), "So far, six schools are part of the programme, which has been hailed a success in a review by consultants ViaStrada, with more than 1600 children now riding more often, with better skills, and health benefits."
 
 ### Porirua City Council (2020)
 
-In December 2020, Porirua City Council released [Riding Easy: Porirua Bikes in Schools Story (PDF)](https://bikeon.org.nz/wp-content/uploads/2021/02/Porirua-Bikes-in-Schools-Story-with-pics-Dec-2020.pdf), written by Louise Thornley for the Porirua Bikes in Schools network.
+In December 2020, Porirua City Council released [Riding Easy: Porirua Bikes in Schools Story (PDF)](/downloads/porirua-bikes-in-schools-story-2020.pdf), written by Louise Thornley for the Porirua Bikes in Schools network.
 
 ### What we recommend schools do
 
@@ -71,27 +71,25 @@ We recommend that all schools review the above information, particularly the two
 
 ## How to plan your project
 
-Here's roughly how the pieces come together.
+Every project is different, but most schools work through the same three stages. Each step links to the part of the guide that covers it.
 
-### 1. Get Board approval first
+### Plan
 
-Before any fundraising starts, get formal sign-off from your Board of Trustees. Most funders will want a written confirmation of BOT support and a minuted resolution covering where the project will sit, who's leading it, and how much you're applying for. It's also worth committing, in writing, to the $3,000 a year ongoing maintenance budget; funders like to see that the project's built to last.
+1. **Get your school behind it.** Talk to your principal, teachers, Board of Trustees, and parents, and decide who will lead the project. Visiting a nearby school that already has tracks is the quickest way to bring people on board. [Find one on the map](/map).
+2. **Decide what you need and get quotes.** Work out how many [bikes](/guide/bikes) and [helmets](/guide/helmets) suit your roll, which [tracks](/guide/bike-tracks) fit your grounds, and whether you need [bike storage](/guide/bike-storage). Ask the suppliers listed in this guide for quotes, then get extra quotes from local bike shops and suppliers, including the cost of ongoing servicing.
+3. **Get Board approval.** Formally confirm Board of Trustees approval before any fundraising starts. Most funders want a letter confirming Board support and a minuted resolution covering where, who, and how much you're applying for.
+4. **Line up your funding.** Funding usually comes from several sources rather than one grant. See [Costs and funding](/guide/costs-and-funding).
 
-### 2. Line up your funding
+### Build
 
-Most schools piece funding together from a few different sources rather than one big grant. Hold off on building until most of the money's confirmed. It makes the whole build smoother and lets contractors share time and equipment on-site. See Costs and funding for the full breakdown.
+5. **Build the tracks.** Where you can, wait until all or most of the funding is confirmed, so contractors can be on-site together and share equipment. Get a BMX club or professional track builder in for the pump track, and an experienced provider for the skills track. See [Bike tracks](/guide/bike-tracks).
+6. **Order bikes, helmets, and storage.** If you're getting a shipping container, check the delivery truck can reach the spot where it will sit. Talk to your track builder and bike supplier together before the pump track is built, so it suits the bikes you'll be riding.
 
-### 3. Order bikes, helmets, and storage with time to spare
+### Ride
 
-Suppliers need lead time, especially for a full fleet or a converted shipping container. Get a few quotes for each and ask about delivery timeframes early, so nothing holds up your build.
-
-### 4. Book cycle skills training
-
-Get in touch with your local cycle skills provider (usually your council, a Regional Sports Trust, or local Police) well before your tracks are due to open. Training booked in advance means kids are ready to ride safely from day one.
-
-### 5. Plan your opening
-
-Most schools mark the finished project with an official opening: a local Mayor, MP, or sportsperson to do the honours, plus parents, the local community, and often local media. A simple press release, an acknowledgement sign thanking your funders, and a heads-up to your local paper go a long way. See our Media page for examples of how other schools' openings have been covered.
+7. **Book cycle skills training.** Contact your local provider (usually your council, a Regional Sports Trust, or local Police) in advance, so training runs from the day the tracks open. See [Cycle skills training](/guide/cycle-skills-training).
+8. **Hold your opening.** Most schools mark the finished project with an official opening and use it to thank their funders.
+9. **Keep it going.** Set aside around $3,000 a year from your operational budget for bike and track [maintenance](/guide/maintenance), and show funders you've done so.
 
 ## What an opening event looks like
 

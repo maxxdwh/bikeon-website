@@ -1,0 +1,121 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SupplierList from '../../components/SupplierList.astro';
+import { getCollection, render } from 'astro:content';
+
+const guides = (await getCollection('guide')).sort((a, b) => a.data.order - b.data.order);
+const sections = await Promise.all(
+  guides.map(async (guide) => ({ guide, Content: (await render(guide)).Content })),
+);
+const supplierCategory: Record<string, string> = { bikes: 'Bikes', 'bike-storage': 'Bike storage' };
+const printed = new Intl.DateTimeFormat('en-NZ', { month: 'long', year: 'numeric' }).format(new Date());
+---
+
+<Layout
+  title="The Bikes in Schools guide — Bike On NZ"
+  description="The complete Bikes in Schools guide on one page, for printing or saving."
+  noindex
+>
+  <div class="measure page-top page-end print:w-full print:p-0">
+    <header class="flex flex-col gap-4">
+      <p class="eyebrow">Bike On New Zealand Charitable Trust · bikeon.org.nz</p>
+      <h1 class="h-page">The Bikes in Schools guide</h1>
+      <p class="lead">
+        Everything you need to plan, build, and run a Bikes in Schools project, in one document.
+      </p>
+      <p class="meta">Printed {printed}. Prices exclude GST. The latest version is at bikeon.org.nz/guide.</p>
+      <div class="no-print flex flex-wrap items-center gap-x-6 gap-y-3">
+        <button type="button" class="btn" data-print>Print or save as PDF</button>
+        <label class="flex min-h-11 cursor-pointer items-center gap-2">
+          <input type="checkbox" data-images checked class="h-4 w-4 accent-primary" />
+          Include images
+        </label>
+        <a href="/guide/introduction">Back to the guide</a>
+      </div>
+    </header>
+
+    <ol class="guide-contents mt-8 rounded-lg bg-tint-2 px-6 py-5 font-semibold">
+      {sections.map(({ guide }) => (
+        <li>
+          <a href={`#${guide.id}`} class="no-underline hover:underline">{guide.data.title}</a>
+        </li>
+      ))}
+    </ol>
+
+    {sections.map(({ guide, Content }) => (
+      <section id={guide.id} class="guide-section mt-14 print:mt-6">
+        <h2 class="guide-section__title h-page" data-guide-title>
+          {guide.data.order}. {guide.data.title}
+        </h2>
+        <p class="lead mt-2">{guide.data.description}</p>
+        <article class="prose mt-8 print:mt-3" data-guide-text>
+          <Content />
+          {supplierCategory[guide.id] && <SupplierList category={supplierCategory[guide.id]} />}
+        </article>
+      </section>
+    ))}
+  </div>
+</Layout>
+
+<script>
+  const params = new URLSearchParams(location.search);
+  const box = document.querySelector<HTMLInputElement>('[data-images]');
+  const apply = () => document.documentElement.classList.toggle('no-images', !box?.checked);
+
+  if (box) {
+    if (params.get('images') === '0') box.checked = false;
+    box.addEventListener('change', apply);
+    apply();
+  }
+
+  const print = async () => {
+    if (box?.checked) {
+      const images = Array.from(document.querySelectorAll<HTMLImageElement>('.prose img'));
+      images.forEach((img) => (img.loading = 'eager'));
+      await Promise.all(images.map((img) => img.decode().catch(() => {})));
+    }
+    window.print();
+  };
+
+  document.querySelector('[data-print]')?.addEventListener('click', print);
+  if (params.get('print') === '1') window.addEventListener('load', print);
+</script>
+
+<style>
+  .guide-contents {
+    padding-left: 2.75rem;
+    list-style: decimal;
+    columns: 2 13.75rem;
+    column-gap: 2.5rem;
+  }
+  .guide-contents li {
+    margin-bottom: 0.5rem;
+    break-inside: avoid;
+  }
+  .guide-section__title {
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--line);
+    scroll-margin-top: calc(var(--header-h) + 1.5rem);
+  }
+  @media print {
+    .guide-contents {
+      margin-top: 4mm;
+      padding-block: 3mm;
+      background: none;
+      border: 1px solid #999;
+      font-size: 10.5pt;
+    }
+    .guide-section__title {
+      padding-bottom: 1.5mm;
+      border-bottom-width: 1.5pt;
+      font-size: 17pt;
+      break-after: avoid;
+    }
+  }
+</style>
+
+<style is:global>
+  @page {
+    margin: 14mm 15mm;
+  }
+</style>

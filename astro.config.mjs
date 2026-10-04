@@ -6,17 +6,26 @@ import icon from 'astro-icon';
 
 export default defineConfig({
   site: 'https://bikeon.org.nz',
+  trailingSlash: 'never',
+  prefetch: { prefetchAll: true, defaultStrategy: 'hover' },
   vite: { plugins: [tailwindcss()] },
-  integrations: [sitemap(), icon()],
+  integrations: [sitemap({ filter: (page) => !/\/(101|guide\/print)\/?$/.test(page) }), icon()],
+  image: {
+    layout: 'constrained',
+    domains: ['img.youtube.com'],
+  },
   markdown: {
     rehypePlugins: [
-      () => (tree) => {
-        const visit = (node) => {
+      () => (/** @type {any} */ tree) => {
+        const visit = (/** @type {any} */ node) => {
           if (node.type === 'element' && node.tagName === 'a' && node.properties && node.properties.href) {
             const href = node.properties.href;
-            if (href.startsWith('http') && !href.startsWith('https://bikeon.org.nz')) {
+            const external = href.startsWith('http') && !href.startsWith('https://bikeon.org.nz');
+            if (!href.startsWith('#') && !href.startsWith('mailto:') && !href.startsWith('tel:')) {
               node.properties.target = '_blank';
-              node.properties.rel = 'noopener noreferrer';
+              node.properties.rel = external ? 'noopener noreferrer' : 'noopener';
+            }
+            if (external) {
               if (node.children) {
                 node.children.push({
                   type: 'element',
@@ -43,16 +52,16 @@ export default defineConfig({
         };
         visit(tree);
       },
-      () => (tree) => {
+      () => (/** @type {any} */ tree) => {
         if (!tree.children) return;
 
-        const isImagePara = (node) =>
+        const isImagePara = (/** @type {any} */ node) =>
           node.type === 'element' && node.tagName === 'p' &&
           node.children && node.children.length === 1 &&
           node.children[0].type === 'element' && node.children[0].tagName === 'img' &&
           node.children[0].properties && node.children[0].properties.alt;
 
-        const isWhitespace = (node) =>
+        const isWhitespace = (/** @type {any} */ node) =>
           node.type === 'text' && (!node.value || node.value.trim() === '');
 
         const newChildren = [];
