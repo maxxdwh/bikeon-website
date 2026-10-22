@@ -19,7 +19,7 @@ Standing expectations for this repo. Each section is a short list of rules. Add 
 - Images visible on first load get `loading="eager"`; the main one gets `priority`. Everything else keeps the default lazy loading.
 - In guide markdown, reference images by relative path (`../../assets/images/...`) so they are optimised. Frontmatter `heroImage` uses the same relative path and is validated by the `image()` schema helper in `src/content.config.ts`.
 - Remote images go through `<Image>` too. Add the host to `image.domains` in `astro.config.mjs` and pass explicit `width` and `height`.
-- Current exceptions, which stay as plain `<img>`: supplier logos from logo.dev (already served as sized WebP by their CDN, and the URL carries a key) and the 16–20px publisher favicons on the media page.
+- Supplier logos are local files in `src/assets/images/suppliers/` rendered with `<Image layout="fixed">`. To add or refresh one, fetch `https://img.logo.dev/<hostname>?token=$PUBLIC_LOGO_DEV_KEY&size=128&format=webp&retina=true` and save it into that directory as `<hostname>.webp`.
 - Keep source files at the highest resolution available; the optimiser handles downsizing. Do not hand-resize or pre-compress before adding them.
 - After changing `src/content.config.ts`, restart the dev server. It serves stale content otherwise.
 
