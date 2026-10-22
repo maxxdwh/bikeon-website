@@ -17,7 +17,7 @@ const { id } = Astro.props;
     <Icon name="tabler:chevron-down" class="h-4 w-4 transition-transform group-open:rotate-180" />
   </summary>
 
-  <div class="flex flex-col gap-4 pt-4 pb-1">
+  <div class="guide-export-body flex flex-col gap-4 pt-4 pb-1">
     <fieldset class="flex flex-col gap-1">
       <legend class="meta mb-1 font-semibold">What to include</legend>
       <label class="flex min-h-9 cursor-pointer items-center gap-2">
@@ -44,9 +44,32 @@ const { id } = Astro.props;
       </button>
     </div>
 
-    <p class="meta">To save a PDF, choose "Save as PDF" in the print window.</p>
+    <p class="meta">To save a PDF, choose “Save as PDF” in the print window.</p>
   </div>
 </details>
+
+<style>
+  @supports (interpolate-size: allow-keywords) {
+    html {
+      interpolate-size: allow-keywords;
+    }
+    .guide-export::details-content {
+      height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: height 0.25s ease-out, opacity 0.25s ease-out,
+        content-visibility 0.25s ease-out allow-discrete;
+    }
+    .guide-export[open]::details-content {
+      height: auto;
+      opacity: 1;
+      @starting-style {
+        opacity: 0;
+        height: 0;
+      }
+    }
+  }
+</style>
 
 <script>
   const blocks = 'h1, h2, h3, h4, p, li, tr, figcaption';

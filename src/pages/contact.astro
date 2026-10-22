@@ -44,6 +44,7 @@ import royalOak from '../assets/images/about/royal-oak-opening.jpg';
               type="text"
               id="name"
               name="name"
+              autocomplete="name"
               required
               class="field mt-1.5"
             />
@@ -54,6 +55,8 @@ import royalOak from '../assets/images/about/royal-oak-opening.jpg';
               type="email"
               id="email"
               name="email"
+              autocomplete="email"
+              spellcheck="false"
               required
               class="field mt-1.5"
             />
@@ -69,13 +72,13 @@ import royalOak from '../assets/images/about/royal-oak-opening.jpg';
             ></textarea>
           </div>
           <div id="turnstile-container" data-sitekey={import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || "YOUR_SITE_KEY"}></div>
-          <button type="submit" class="btn">
+          <button type="submit" class="btn" data-submit>
             Send message
           </button>
-          <p id="form-success" class="hidden rounded-md bg-green-50 p-4 text-base font-semibold text-green-800">
+          <p id="form-success" role="status" class="hidden rounded-md bg-green-50 p-4 text-base font-semibold text-green-800">
             Your message has been received! We'll get back to you soon.
           </p>
-          <p id="form-error" class="hidden rounded-md bg-red-50 p-4 text-base font-semibold text-red-800">
+          <p id="form-error" role="alert" class="hidden rounded-md bg-red-50 p-4 text-base font-semibold text-red-800">
             That didn't work. Please try again.
           </p>
         </form>
@@ -84,6 +87,22 @@ import royalOak from '../assets/images/about/royal-oak-opening.jpg';
   </section>
 </Layout>
 
+<style>
+  #form-success,
+  #form-error {
+    transition:
+      opacity 0.25s ease-out,
+      translate 0.25s ease-out;
+  }
+
+  #form-success:not(.hidden),
+  #form-error:not(.hidden) {
+    @starting-style {
+      opacity: 0;
+      translate: 0 4px;
+    }
+  }
+</style>
 <script is:inline>
   window.onTurnstileLoad = function () {
     var container = document.getElementById('turnstile-container');
@@ -98,12 +117,17 @@ import royalOak from '../assets/images/about/royal-oak-opening.jpg';
 <script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onTurnstileLoad" async defer></script>
 <script>
   const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const submitBtn = document.querySelector<HTMLButtonElement>('[data-submit]');
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
     const success = document.getElementById('form-success');
     const error = document.getElementById('form-error');
     success?.classList.add('hidden');
     error?.classList.add('hidden');
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+    }
     try {
       const formData = new FormData(form);
       const response = await fetch('/api/contact', {
@@ -119,6 +143,10 @@ import royalOak from '../assets/images/about/royal-oak-opening.jpg';
     } catch {
       error?.classList.remove('hidden');
     } finally {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send message';
+      }
       const widgetId = (window as any).turnstileWidgetId;
       if (widgetId !== undefined) {
         (window as any).turnstile?.reset(widgetId);
