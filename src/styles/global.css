@@ -99,6 +99,7 @@
     text-size-adjust: none;
   }
 
+
   @media (prefers-reduced-motion: reduce) {
     html {
       scroll-behavior: auto;
@@ -331,13 +332,18 @@
     transition:
       background-color 0.15s,
       border-color 0.15s,
-      color 0.15s;
+      color 0.15s,
+      transform 0.16s ease-out;
   }
 
   .btn:hover {
     background: var(--ink);
     border-color: var(--ink);
     color: #fff;
+  }
+
+  .btn:active {
+    transform: scale(0.98);
   }
 
   .btn-secondary,
