@@ -9,6 +9,7 @@ export interface Supplier {
 
 export interface SupplierCategory {
   category: string;
+  suppliers: Supplier[];
   note?: string;
 }
 
