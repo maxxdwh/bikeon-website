@@ -14,9 +14,9 @@ export const navItems: NavGroup[] = [
   { label: "About", href: "/about" },
   {
     label: "Guide",
-    href: "/guide/introduction",
+    href: "/guide/start-here",
     children: [
-      { label: "Start here", href: "/guide/introduction" },
+      { label: "Start here", href: "/guide/start-here" },
       { label: "Bikes", href: "/guide/bikes" },
       { label: "Helmets", href: "/guide/helmets" },
       { label: "Bike storage", href: "/guide/bike-storage" },
@@ -33,7 +33,7 @@ export const navItems: NavGroup[] = [
 ];
 
 export const guideLinks: NavLink[] = [
-  { label: "Start here", href: "/guide/introduction" },
+  { label: "Start here", href: "/guide/start-here" },
   { label: "Bikes", href: "/guide/bikes" },
   { label: "Helmets", href: "/guide/helmets" },
   { label: "Bike storage", href: "/guide/bike-storage" },

@@ -11,15 +11,11 @@ These figures are approximate, vary by region, and exclude GST. Based on an aver
 
 | Item | Typical cost | Notes |
 | --- | --- | --- |
-| 50 bikes | $15,000 | Number of bikes may vary |
-| 100 helmets | $3,000 | Mix of small, medium, large |
-| Riding track (limestone), 300m | $45,000 | Length affects cost |
-| Pump track | $15,000 | Highly recommended |
-| Skills track | $7,000 | Highly recommended |
+| 50 bikes | $18,000 | Number of bikes may vary |
+| 80 helmets | $2,000 | Mix of small, medium, large |
+| Riding track (concrete/asphalt), 300m | $85,000 | Length affects cost |
 | Bike storage | $15,000 | Converted container, if needed |
-| **Average total** | **$100,000** | Limestone-track basis |
-
-A similar project built with asphalt tracks instead runs closer to **$125,000**.
+| **Average total** | **$120,000** |
 
 Budget around **$3,000 a year** for ongoing maintenance, and build that into your operational budget from the start.
 

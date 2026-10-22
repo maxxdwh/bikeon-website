@@ -65,7 +65,7 @@ We recommend that all schools review the above information, particularly the two
 - **Kids want it.** Bikes are an easy sell to students.
 - **It's complete.** Everything's on-site, ready to go.
 - **It needs little from teachers.** Low organisational overhead once running.
-- **It's good value.** Around $200 per child to set up, roughly $60,000 for a typical school.
+- **It's good value.** Around $400 per child to set up, roughly $120,000 for a typical school.
 
 ## How to plan your project
 

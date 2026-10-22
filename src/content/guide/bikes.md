@@ -58,7 +58,7 @@ Record each bike's serial number in your school's asset register, and add the wh
 
 ## Approximate cost
 
-A full fleet typically costs $10,000 to $15,000 + GST, depending on supplier, brand, spec, and whether delivery and assembly are included. Get a few quotes, and ask each supplier about their ongoing servicing plan.
+A full fleet of 50 bikes typically costs approximately $18,000 + GST, depending on supplier, brand, spec, and whether delivery and assembly are included. Get a few quotes, and ask each supplier about their ongoing servicing plan.
 
 ## Getting quotes from local bike shops
 

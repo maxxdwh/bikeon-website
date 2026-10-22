@@ -10,12 +10,17 @@
     },
     {
       "source": "/bikes-in-schools-intro",
-      "destination": "/guide/introduction",
+      "destination": "/guide/start-here",
       "permanent": true
     },
     {
       "source": "/bikes-in-schools",
-      "destination": "/guide/introduction",
+      "destination": "/guide/start-here",
+      "permanent": true
+    },
+    {
+      "source": "/guide/introduction",
+      "destination": "/guide/start-here",
       "permanent": true
     },
     {
@@ -40,7 +45,7 @@
     },
     {
       "source": "/wp-content/uploads/2016/03/limesand-track-construction.pdf",
-      "destination": "/downloads/limesand-track-construction.pdf",
+      "destination": "/guide/bike-tracks",
       "permanent": true
     },
     {
