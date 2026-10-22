@@ -94,8 +94,8 @@ async function main() {
             'div',
             { display: 'flex', flexDirection: 'column' },
             [
-              el('div', { display: 'flex', fontSize: title.length > 40 ? 56 : 64, fontWeight: 800, letterSpacing: '-0.02em', lineHeight: 1.05, color: photo ? '#ffffff' : INK }, title),
-              el('div', { display: 'flex', marginTop: 24, fontSize: 26, lineHeight: 1.35, color: photo ? '#dbe7f4' : '#2b3d4f' }, desc),
+              el('div', { display: 'flex', fontSize: title.length > 40 ? 56 : 64, fontWeight: 800, letterSpacing: '-0.02em', lineHeight: 1.05, color: photo ? '#ffffff' : INK, textWrap: 'balance' }, title),
+              el('div', { display: 'flex', marginTop: 24, fontSize: 26, lineHeight: 1.35, color: photo ? '#dbe7f4' : '#2b3d4f', textWrap: 'balance' }, desc),
             ],
           ),
         ],
