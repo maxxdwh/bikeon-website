@@ -45,7 +45,7 @@ const mediaWithLogos = media.map((m) => ({
 
   <section class="container-page page-end pt-4">
     <div class="flex flex-col gap-x-12 gap-y-6 lg:flex-row lg:items-start">
-      <div class="flex flex-col lg:sticky lg:top-24 lg:w-72 lg:shrink-0">
+      <div class="flex flex-col lg:sticky lg:top-24 lg:w-80 lg:shrink-0">
         <div class="space-y-3">
           <div class="relative">
             <Icon name="tabler:search" class="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
@@ -53,13 +53,13 @@ const mediaWithLogos = media.map((m) => ({
             <input
               type="search"
               id="media-search"
-              placeholder="Search stories..."
+              placeholder="Search stories…"
               class="field pl-10"
             />
           </div>
 
-          <button id="mobile-filter-toggle" class="btn btn-secondary w-full lg:hidden">
-            <Icon name="tabler:adjustments" class="h-4 w-4" /> Filter
+          <button id="mobile-filter-toggle" class="btn btn-secondary w-full lg:hidden" aria-expanded="false" aria-controls="publisher-drawer">
+            <Icon name="tabler:adjustments" class="h-4 w-4" aria-hidden="true" /> Filter
           </button>
 
           <div id="publisher-list" class="space-y-1 lg:block hidden">
@@ -85,7 +85,7 @@ const mediaWithLogos = media.map((m) => ({
           </div>
 
           <div class="flex items-center justify-between px-3 text-base text-muted-foreground">
-            <span id="story-count">{media.length} stories</span>
+            <span id="story-count" role="status">{media.length} stories</span>
             <button id="reset-search" class="hidden cursor-pointer font-semibold text-link underline hover:text-ink">Clear</button>
           </div>
         </div>
@@ -154,7 +154,7 @@ const mediaWithLogos = media.map((m) => ({
             )
           ))}
         </div>
-        <div id="no-results" class="hidden flex-col items-center justify-center gap-3 py-16 text-center">
+        <div id="no-results" role="status" class="hidden flex-col items-center justify-center gap-3 py-16 text-center">
           <div class="space-y-1">
             <p class="h3">No stories found</p>
             <p class="copy">Try a different search or clear your filters.</p>
@@ -166,11 +166,11 @@ const mediaWithLogos = media.map((m) => ({
   </section>
 
   <div id="drawer-overlay" class="fixed inset-0 z-[60] bg-ink/50 lg:hidden hidden"></div>
-  <aside id="publisher-drawer" class="fixed inset-x-0 bottom-0 z-[70] max-h-[75vh] translate-y-full rounded-t-2xl bg-white p-5 transition-transform duration-200 lg:hidden">
+  <aside id="publisher-drawer" class="fixed inset-x-0 bottom-0 z-[70] max-h-[75vh] translate-y-full rounded-t-2xl bg-white p-5 transition-transform duration-200 lg:hidden" aria-hidden="true">
     <div class="flex items-center justify-between">
       <h2 class="h3">Publishers</h2>
       <button id="drawer-close" class="cursor-pointer rounded-full p-2 hover:bg-tint-2" aria-label="Close">
-        <Icon name="tabler:x" class="h-5 w-5" />
+        <Icon name="tabler:x" class="h-5 w-5" aria-hidden="true" />
       </button>
     </div>
     <div id="drawer-publishers" class="mt-4 max-h-[60vh] space-y-1 overflow-y-auto"></div>
@@ -256,9 +256,31 @@ const mediaWithLogos = media.map((m) => ({
     drawer.classList.add('translate-y-full');
     overlay.classList.add('hidden');
     document.body.style.overflow = '';
+    drawer.setAttribute('aria-hidden', 'true');
+    mobileToggle.setAttribute('aria-expanded', 'false');
   }
 
-  mobileToggle.addEventListener('click', openDrawer);
-  drawerClose.addEventListener('click', closeDrawer);
+  mobileToggle.addEventListener('click', () => {
+    openDrawer();
+    drawer.setAttribute('aria-hidden', 'false');
+    mobileToggle.setAttribute('aria-expanded', 'true');
+    drawerClose.focus();
+  });
+  drawerClose.addEventListener('click', () => {
+    closeDrawer();
+    mobileToggle.focus();
+  });
   overlay.addEventListener('click', closeDrawer);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !drawer.classList.contains('translate-y-full')) {
+      closeDrawer();
+      mobileToggle.focus();
+    }
+  });
+  document.addEventListener('focusin', (e) => {
+    if (drawer.getAttribute('aria-hidden') !== 'true' && !drawer.contains(e.target)) {
+      const firstChip = drawer.querySelector('.publisher-chip');
+      (firstChip ?? drawerClose).focus();
+    }
+  });
 </script>

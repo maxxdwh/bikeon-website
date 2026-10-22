@@ -1,5 +1,4 @@
 ---
-import { Image } from 'astro:assets';
 import logo from '../assets/images/logo-long.svg';
 import { navItems } from '../data/nav';
 
@@ -15,7 +14,7 @@ const isGroupActive = (item: (typeof navItems)[number]) =>
 <header class="site-header">
   <div class="container-page bar">
     <a class="brand" href="/">
-      <Image src={logo} alt="Bikes in Schools" width={178} height={28} layout="fixed" loading="eager" class="h-7 w-auto" />
+      <img src={logo.src} alt="Bikes in Schools" width="178" height="28" class="h-7 w-auto" />
     </a>
 
     <button
@@ -135,10 +134,11 @@ const isGroupActive = (item: (typeof navItems)[number]) =>
     font-weight: 600;
     font-size: 1rem;
   }
-  .site-nav ul {
+  :global(.site-nav ul) {
     padding: 0;
     list-style: none;
   }
+
   .site-nav__list {
     display: flex;
     flex-wrap: wrap;

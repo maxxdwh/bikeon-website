@@ -22,7 +22,7 @@ const regions = [...new Set(schools.map((s) => s.region))].sort();
           <input
             type="search"
             id="school-search"
-            placeholder="Search school name..."
+            placeholder="Search school name…"
             class="field pl-10"
           />
         </div>
@@ -40,7 +40,7 @@ const regions = [...new Set(schools.map((s) => s.region))].sort();
           <Icon name="tabler:chevron-down" class="pointer-events-none absolute right-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
         </div>
         <div class="flex items-center justify-between text-base text-muted-foreground">
-          <span id="school-count">{schools.length} schools</span>
+          <span id="school-count" role="status">{schools.length} schools</span>
           <button id="reset-search" class="hidden cursor-pointer font-semibold text-link underline hover:text-ink">Show all schools</button>
         </div>
       </div>
@@ -73,7 +73,7 @@ const regions = [...new Set(schools.map((s) => s.region))].sort();
             </li>
           ))}
         </ul>
-        <p id="no-results" class="hidden p-6 text-center text-base text-muted-foreground">
+        <p id="no-results" role="status" class="hidden p-6 text-center text-base text-muted-foreground">
           No schools found. Try a different search or clear your filters.
         </p>
       </div>
@@ -81,7 +81,9 @@ const regions = [...new Set(schools.map((s) => s.region))].sort();
   </section>
 </Layout>
 
-<script is:inline define:vars={{ schools }}>
+<script is:inline>
+  let schools = [];
+  const schoolsReady = fetch('/schools.json').then((r) => r.json()).then((data) => (schools = data));
   let map;
   let markers = [];
   let infoWindow;
@@ -95,7 +97,8 @@ const regions = [...new Set(schools.map((s) => s.region))].sort();
   const defaultCenter = { lat: -40.9006, lng: 174.886 };
   const defaultZoom = 6;
 
-  function initMap() {
+  async function initMap() {
+    await schoolsReady;
     const center = { lat: -40.9006, lng: 174.886 };
     map = new google.maps.Map(document.getElementById('map'), {
       zoom: 6,
@@ -119,6 +122,11 @@ const regions = [...new Set(schools.map((s) => s.region))].sort();
     });
 
     map.addListener('idle', updateListFromMapBounds);
+    if (pendingFocusIndex !== null) {
+      const index = pendingFocusIndex;
+      pendingFocusIndex = null;
+      focusSchool(index);
+    }
   }
 
   function openInfoWindow(index) {
@@ -129,7 +137,14 @@ const regions = [...new Set(schools.map((s) => s.region))].sort();
     infoWindow.open(map, marker);
   }
 
+  let pendingFocusIndex = null;
+
   function focusSchool(index) {
+    if (!markers.length) {
+      pendingFocusIndex = index;
+      loadGoogleMapsNow();
+      return;
+    }
     const { school } = markers[index];
     schoolFocused = true;
     map.panTo({ lat: school.lat, lng: school.lng });
@@ -150,7 +165,8 @@ const regions = [...new Set(schools.map((s) => s.region))].sort();
       .trim();
   }
 
-  function applyFilters() {
+  async function applyFilters() {
+    await schoolsReady;
     const query = normalize(searchInput.value);
     const region = regionFilter.value;
     const hasFilters = query !== '' || region !== 'all';
@@ -168,7 +184,7 @@ const regions = [...new Set(schools.map((s) => s.region))].sort();
 
     updateList(hasFilters);
 
-    if (hasFilters && matched.length > 0) {
+    if (hasFilters && matched.length > 0 && map) {
       const bounds = new google.maps.LatLngBounds();
       matched.forEach(({ school }) => {
         bounds.extend({ lat: school.lat, lng: school.lng });
@@ -237,10 +253,12 @@ const regions = [...new Set(schools.map((s) => s.region))].sort();
     searchInput.value = '';
     regionFilter.value = 'all';
     schoolFocused = false;
-    infoWindow.close();
+    if (infoWindow) infoWindow.close();
     applyFilters();
-    map.setCenter(defaultCenter);
-    map.setZoom(defaultZoom);
+    if (map) {
+      map.setCenter(defaultCenter);
+      map.setZoom(defaultZoom);
+    }
     updateResetButton();
   }
 
@@ -280,8 +298,35 @@ const regions = [...new Set(schools.map((s) => s.region))].sort();
   });
 </script>
 
-<script
-  is:inline
-  src={`https://maps.googleapis.com/maps/api/js?key=${import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY || 'YOUR_API_KEY'}&callback=initMap`}
-  async defer
-></script>
+<script is:inline define:vars={{ mapsApiKey: import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY || 'YOUR_API_KEY' }}>
+  let googleMapsLoaded = false;
+  function loadGoogleMapsNow() {
+    if (googleMapsLoaded) return;
+    googleMapsLoaded = true;
+    for (const href of ['https://maps.googleapis.com', 'https://maps.gstatic.com']) {
+      const link = document.createElement('link');
+      link.rel = 'preconnect';
+      link.href = href;
+      document.head.appendChild(link);
+    }
+    const script = document.createElement('script');
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${mapsApiKey}&callback=initMap`;
+    script.async = true;
+    document.head.appendChild(script);
+  }
+  const mapEl = document.getElementById('map');
+  if ('IntersectionObserver' in window && mapEl) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          observer.disconnect();
+          loadGoogleMapsNow();
+        }
+      },
+      { rootMargin: '200px' }
+    );
+    observer.observe(mapEl);
+  } else {
+    loadGoogleMapsNow();
+  }
+</script>

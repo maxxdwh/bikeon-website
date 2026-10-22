@@ -78,15 +78,17 @@ Schema defined in `src/content.config.ts`. Guide markdown files have frontmatter
 
 ## Suppliers
 
-`src/data/suppliers.ts` — sorted alphabetically. Each has `name`, `url`, `email`, `region`. Logos fetched via logo.dev API at build time. Supplier rows use keylines only (no boxes/borders), ghost buttons for email (copy-to-clipboard) and website (external link).
+`src/data/suppliers.ts` — sorted alphabetically. Each has `name`, `url`, `email`, `region`. Logos are local WebP files in `src/assets/images/suppliers/` (fetched once from logo.dev with the build key; re-fetch with `curl "https://img.logo.dev/<hostname>?token=$PUBLIC_LOGO_DEV_KEY&size=128&format=webp&retina=true"`), rendered through `<Image>` with `layout="fixed"`. Supplier rows use keylines only (no boxes/borders), ghost buttons for email (copy-to-clipboard) and website (external link).
+
+Supplier logos live once in `src/assets/images/suppliers/` per hostname — when a supplier changes, re-fetch its logo file.
 
 ## Schools map
 
-`src/data/schools.json` — 352 schools with `name`, `lat`, `lng`, `status`. Rendered with Google Maps JavaScript API. Fuzzy search, keyboard accessible.
+`src/data/schools.json` — 352 schools with `name`, `lat`, `lng`, `status`. A build-time copy ships as `/schools.json` (keep `public/schools.json` in sync with `src/data/schools.json` when the data changes), fetched client-side on the map page. Google Maps loads lazily when the map scrolls near the viewport. Fuzzy search, keyboard accessible.
 
 ## SEO and analytics
 
-- `src/layouts/Layout.astro` sets the canonical URL and Open Graph and Twitter tags. The share image is a per-page card drawn by `api/og.ts` (Vercel OG, edge runtime) from the page title and description; its fonts and logo are bundled from `api/_assets/`. `@vercel/og` is pinned to 0.11 because the 1.0 edge build does not deploy outside Next.js. A photo generated from `bledisloe-opening.jpg` is listed second as a fallback. Pass `noindex` for pages that should stay out of search.
+- `src/layouts/Layout.astro` sets the canonical URL and Open Graph and Twitter tags. The share image is a per-page JPG generated at build time by `scripts/og.mjs` into `dist/og/` (satori via `@vercel/og` + sharp, run after `astro build`): page title + description over the page's first `/_astro/` image when present, white logo on a dark gradient over the photo, brand rule at the foot; plain white card with ink logo otherwise. Fonts and logos live in `scripts/og-assets/`. A photo generated from `bledisloe-opening.jpg` is listed second as a fallback. Pass `noindex` for pages that should stay out of search.
 - URLs have no trailing slash: `trailingSlash: 'never'` in `astro.config.mjs`, matched by `trailingSlash: false` and `cleanUrls` in `vercel.json`.
 - `public/robots.txt` points to the sitemap. `/101`, `/guide/print` and the 404 page are excluded from it.
 - Links prefetch on hover (`prefetch` in `astro.config.mjs`).

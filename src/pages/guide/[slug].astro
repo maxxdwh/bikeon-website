@@ -1,7 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { Icon } from 'astro-icon/components';
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 import { getCollection, render } from 'astro:content';
 import SupplierList from '../../components/SupplierList.astro';
 import GuideExport from '../../components/GuideExport.astro';
@@ -22,6 +22,7 @@ const { Content } = await render(guide);
 const allGuides = (await getCollection('guide')).sort((a, b) => a.data.order - b.data.order);
 
 const supplierCategory = { bikes: 'Bikes', 'bike-storage': 'Bike storage' }[guide.id as string];
+const heroOptimised = await getImage({ src: guide.data.heroImage, width: 1200, format: 'webp' });
 ---
 
 <Layout
@@ -31,7 +32,7 @@ const supplierCategory = { bikes: 'Bikes', 'bike-storage': 'Bike storage' }[guid
     '@type': 'Article',
     headline: guide.data.title,
     description: guide.data.description,
-    image: new URL(guide.data.heroImage.src, Astro.site).href,
+    image: new URL(heroOptimised.src, Astro.site).href,
     articleSection: 'The Bikes in Schools guide',
   }}
 >
@@ -94,7 +95,7 @@ const supplierCategory = { bikes: 'Bikes', 'bike-storage': 'Bike storage' }[guid
         </nav>
       </div>
 
-      <aside class="no-print hidden shrink-0 self-stretch lg:block" style="width: 260px;">
+      <aside class="no-print hidden w-80 shrink-0 self-stretch lg:block">
         <div class="sticky top-40 max-h-[calc(100svh-11rem)] overflow-y-auto rounded-lg bg-tint-2 px-6 py-5">
           <p class="mb-3 text-lg font-bold">On this page</p>
           <ul id="toc-list" class="flex flex-col gap-2"></ul>
@@ -139,7 +140,10 @@ const supplierCategory = { bikes: 'Bikes', 'bike-storage': 'Bike storage' }[guid
         if (rect.top <= 180) activeIdx = i;
       });
       [...tocLinks, ...tocPillsAll].forEach((link, i) => {
-        link.classList.toggle('text-ink', i % headings.length === activeIdx);
+        const active = i % headings.length === activeIdx;
+        link.classList.toggle('text-ink', active);
+        if (active) link.setAttribute('aria-current', 'true');
+        else link.removeAttribute('aria-current');
       });
       ticking = false;
     }
@@ -163,15 +167,15 @@ const supplierCategory = { bikes: 'Bikes', 'bike-storage': 'Bike storage' }[guid
     btn.setAttribute('aria-haspopup', 'true');
     btn.setAttribute('aria-expanded', 'false');
     btn.className = 'btn btn-secondary btn-sm';
-    var dlIcon = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>';
-    var chevIcon = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chevron transition-transform duration-150"><polyline points="6 9 12 15 18 9"/></svg>';
+    var dlIcon = '<svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>';
+    var chevIcon = '<svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chevron transition-transform duration-150"><polyline points="6 9 12 15 18 9"/></svg>';
     var btnLabel = 'Download this table';
     btn.innerHTML = dlIcon + ' <span class="btn-text">' + btnLabel + '</span> ' + chevIcon;
 
     var menu = document.createElement('div');
     menu.setAttribute('role', 'menu');
-    menu.className = 'absolute left-0 top-12 z-10 hidden rounded-lg border border-border bg-white p-2 shadow-[0_12px_24px_-12px_rgb(11_31_42/0.25)]';
-    var svgWrap = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 text-muted-foreground">';
+    menu.className = 'table-export-menu absolute left-0 top-12 z-10 hidden rounded-lg border border-border bg-white p-2 shadow-[0_12px_24px_-12px_rgb(11_31_42/0.25)]';
+    var svgWrap = '<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 text-muted-foreground">';
     var icons = {
       csv: svgWrap + '<path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M5 12V5a2 2 0 0 1 2-2h7l5 5v4M7 16.5a1.5 1.5 0 0 0-3 0v3a1.5 1.5 0 0 0 3 0m3 .75c0 .414.336.75.75.75H12a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1h-1a1 1 0 0 1-1-1v-1a1 1 0 0 1 1-1h1.25a.75.75 0 0 1 .75.75m3-.75l2 6l2-6"/></svg>',
       xls: svgWrap + '<path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M5 12V5a2 2 0 0 1 2-2h7l5 5v4M4 15l4 6m-4 0l4-6m9 5.25c0 .414.336.75.75.75H19a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1h-1a1 1 0 0 1-1-1v-1a1 1 0 0 1 1-1h1.25a.75.75 0 0 1 .75.75M11 15v6h3"/></svg>',
@@ -182,7 +186,7 @@ const supplierCategory = { bikes: 'Bikes', 'bike-storage': 'Bike storage' }[guid
       { fmt: 'xls', label: 'Download as Excel (XLS)' },
       { fmt: 'pdf', label: 'Download as PDF' }
     ];
-    menu.innerHTML = items.map(function(item, i) {
+    menu.innerHTML = items.map(function(item) {
       return '<button role="menuitem" tabindex="-1" class="menu-item flex w-full cursor-pointer items-center gap-2 rounded-sm px-3 py-2 text-left text-base font-semibold whitespace-nowrap hover:bg-tint-2 focus:bg-tint-2 focus:outline-none" data-fmt="' + item.fmt + '">' + icons[item.fmt] + ' ' + item.label + '</button>';
     }).join('');
     wrapper.appendChild(btn);
@@ -293,5 +297,18 @@ const supplierCategory = { bikes: 'Bikes', 'bike-storage': 'Bike storage' }[guid
 <style is:global>
   @page {
     margin: 14mm 15mm;
+  }
+  .table-export-menu {
+    transform-origin: top left;
+  }
+
+  .table-export-menu:not(.hidden) {
+    transition:
+      opacity 0.2s ease-out,
+      transform 0.2s ease-out;
+    @starting-style {
+      opacity: 0;
+      transform: scale(0.97);
+    }
   }
 </style>

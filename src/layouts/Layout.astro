@@ -29,11 +29,10 @@ const canonical = new URL(Astro.url.pathname.replace(/(.)\/$/, '$1'), Astro.site
 const share = await getImage({ src: shareImage, width: 1200, height: 630, fit: 'cover', format: 'jpg' });
 const shareUrl = new URL(share.src, Astro.site);
 
-const cardUrl = new URL('/api/og', Astro.site);
-if (Astro.props.title) {
-  cardUrl.searchParams.set('title', title.replace(/ — Bike On NZ$/, ''));
-  cardUrl.searchParams.set('description', description);
-}
+const ogName = (Astro.url.pathname === '/' || Astro.url.pathname === ''
+  ? 'home'
+  : Astro.url.pathname.replace(/^\//, '').replaceAll('/', '-').replace(/-+$/, ''));
+const cardUrl = new URL(`/og/${ogName}.jpg`, Astro.site);
 
 const organisation = {
   '@type': 'NGO',
@@ -94,8 +93,6 @@ const jsonLd = { '@context': 'https://schema.org', '@graph': [organisation, webs
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image" content={shareUrl} />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="en_NZ" />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />

@@ -1,6 +1,16 @@
 ---
 import { Icon } from 'astro-icon/components';
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
 import { supplierCategories } from '../data/suppliers';
+import evocycles from '../assets/images/suppliers/evocycles.co.nz.webp';
+import myride from '../assets/images/suppliers/myride.co.nz.webp';
+import torpedo7 from '../assets/images/suppliers/www.torpedo7.co.nz.webp';
+import a1containers from '../assets/images/suppliers/www.a1containers.co.nz.webp';
+import boxman from '../assets/images/suppliers/boxman.co.nz.webp';
+import nzbox from '../assets/images/suppliers/nzbox.kiwi.nz.webp';
+import royalwolf from '../assets/images/suppliers/www.royalwolf.co.nz.webp';
+import seacontainers from '../assets/images/suppliers/www.seacontainers.co.nz.webp';
 
 interface Props {
   category: string;
@@ -8,7 +18,16 @@ interface Props {
 
 const { category } = Astro.props;
 const suppliers = supplierCategories.find((c) => c.category === category)?.suppliers ?? [];
-const logoKey = import.meta.env.PUBLIC_LOGO_DEV_KEY;
+const logos: Record<string, ImageMetadata> = {
+  'evocycles.co.nz': evocycles,
+  'myride.co.nz': myride,
+  'www.torpedo7.co.nz': torpedo7,
+  'www.a1containers.co.nz': a1containers,
+  'boxman.co.nz': boxman,
+  'nzbox.kiwi.nz': nzbox,
+  'www.royalwolf.co.nz': royalwolf,
+  'www.seacontainers.co.nz': seacontainers,
+};
 ---
 
 <div class="supplier-list not-prose mt-8 rounded-lg border border-border px-5 sm:px-6">
@@ -16,14 +35,14 @@ const logoKey = import.meta.env.PUBLIC_LOGO_DEV_KEY;
     {suppliers.map((s) => (
       <div class="supplier flex flex-row items-center gap-3 py-4 sm:gap-6">
         <div class="flex min-w-0 flex-1 items-center gap-4 sm:gap-6">
-          {s.website && (
-            <img
-              src={`https://img.logo.dev/${new URL(s.website).hostname}?token=${logoKey}&size=128&format=webp&retina=true`}
+          {s.website && logos[new URL(s.website).hostname] && (
+            <Image
+              src={logos[new URL(s.website).hostname]}
               alt=""
-              width="40"
-              height="40"
+              width={40}
+              height={40}
+              layout="fixed"
               class="h-10 w-10 shrink-0 rounded-sm object-contain print:hidden"
-              loading="lazy"
             />
           )}
           <div>
