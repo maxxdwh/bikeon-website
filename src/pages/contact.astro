@@ -130,9 +130,11 @@ import royalOak from '../assets/images/about/royal-oak-opening.jpg';
     }
     try {
       const formData = new FormData(form);
+      const payload = Object.fromEntries(formData.entries());
       const response = await fetch('/api/contact', {
         method: 'POST',
-        body: formData,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
       });
       if (response.ok) {
         success?.classList.remove('hidden');
