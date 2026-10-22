@@ -11,6 +11,7 @@ import russellBurt from '../assets/images/testimonials/russell-burt.jpg';
 import michelleJadoo from '../assets/images/testimonials/michelle-jadoo.jpg';
 import robPosthumus from '../assets/images/testimonials/rob-posthumus.jpg';
 import billieJeanPotaka from '../assets/images/testimonials/billie-jean-potaka.jpg';
+import chrisBishop from '../assets/images/testimonials/chris-bishop-kelson.jpg';
 import simonBridgesTwo from '../assets/images/testimonials/simon-bridges-2.jpg';
 
 export interface Testimonial {
@@ -27,6 +28,13 @@ export const testimonials: Testimonial[] = [
     name: "Hon John Key",
     role: "Former Prime Minister of New Zealand",
     image: johnKey,
+  },
+  {
+    quote:
+      "The programme gives kids the chance to build confidence, stay active, and pick up key skills in a safe school setting before they head out onto the road.",
+    name: "Hon Chris Bishop",
+    role: "Minister of Transport",
+    image: chrisBishop,
   },
   {
     quote:

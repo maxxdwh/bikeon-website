@@ -9,7 +9,7 @@ export interface Supplier {
 
 export interface SupplierCategory {
   category: string;
-  suppliers: Supplier[];
+  note?: string;
 }
 
 export const supplierCategories: SupplierCategory[] = [
@@ -32,15 +32,8 @@ export const supplierCategories: SupplierCategory[] = [
         website: "https://myride.co.nz/",
         region: "Nationwide",
       },
-      {
-        name: "Torpedo 7",
-        contact: "Emily Fernandes",
-        phone: "021 890 742",
-        email: "emily.fernandes@twgroup.co.nz",
-        website: "https://www.torpedo7.co.nz/",
-        region: "Nationwide",
-      },
     ],
+    note: "Your local bike shop can also quote on a fleet and look after ongoing servicing and spare parts.",
   },
   {
     category: "Bike storage",

@@ -50,4 +50,4 @@ If anyone has a crash (especially a knock to the head), tell an adult straight a
 
 ## Approximate cost
 
-100 helmets (a mix of sizes) typically costs around **$2,000**.
+80 helmets (a mix of sizes) typically cost around **$2,000**.

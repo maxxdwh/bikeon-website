@@ -11,29 +11,15 @@ This is where most of the riding happens. Schools usually run it around the outs
 
 Fifty or more kids can ride at once on a well-built riding track. Beyond biking, schools use the same track for walking, running, school triathlons (if there's a pool), and scooters if it's surfaced in asphalt.
 
-### Riding track: Building in limestone
-
-- 2 metres wide
-- 200 to 700+ metres long, depending on the school
-- 75 to 100mm deep
-- Gentle curves rather than straight lines: more fun to ride, and they naturally slow things down
-- A 300m limestone track typically costs around $45,000, though costs vary significantly by region; check with local builders on the right surface material for your area
-
-[Limesand Track Construction (PDF)](/downloads/limesand-track-construction.pdf)
-
-![A riding track made of limestone](../../assets/images/guide/limestone-track.jpg)
-
-### Riding track: Building in asphalt
-
-More schools are choosing asphalt or hot mix over limestone. It costs more upfront but needs far less maintenance, handles scooters as well as bikes, and rides well in any weather.
+### Riding track: Building in asphalt or concrete
 
 - 2 metres wide
 - 200 to 700+ metres long
 - Basecourse: GAP 40, 75 to 100mm deep, 2.5m wide
-- Asphalt: 25 to 40mm deep, 2.0m wide
-- Gentle curves, not straight lines
+- Surfacing: asphalt or concrete, 25 to 40mm deep, 2.0m wide
+- Gentle curves, not straight lines: more fun to ride, and they naturally slow things down
 - Depth of basecourse can vary; get local advice
-- Costs $45,000 to $90,000 depending on length
+- A 300m track like this typically costs around $85,000, though costs vary significantly by length and region
 
 ![A riding track made of asphalt](../../assets/images/guide/bike-tracks.webp)
 

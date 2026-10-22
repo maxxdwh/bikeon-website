@@ -92,7 +92,7 @@ export default async function handler(req: any, res: any) {
     const resend = new Resend(process.env.RESEND_API_KEY || '');
 
     await resend.emails.send({
-      from: 'Bike On NZ Contact <onboarding@resend.dev>',
+      from: 'Bike On NZ <contact@bikeon.org.nz>',
       to: process.env.CONTACT_EMAIL || 'info@bikeon.org.nz',
       replyTo: email,
       subject: `New contact form submission from ${name}`,
