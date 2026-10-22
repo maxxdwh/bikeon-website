@@ -88,7 +88,7 @@ Supplier logos live once in `src/assets/images/suppliers/` per hostname — when
 
 ## SEO and analytics
 
-- `src/layouts/Layout.astro` sets the canonical URL and Open Graph and Twitter tags. The share image is a per-page card drawn by `api/og.ts` (Vercel OG, edge runtime) from the page title and description; its fonts and logo are bundled from `api/_assets/`. `@vercel/og` is pinned to 0.11 because the 1.0 edge build does not deploy outside Next.js. A photo generated from `bledisloe-opening.jpg` is listed second as a fallback. Pass `noindex` for pages that should stay out of search.
+- `src/layouts/Layout.astro` sets the canonical URL and Open Graph and Twitter tags. The share image is a per-page JPG generated at build time by `scripts/og.mjs` into `dist/og/` (satori via `@vercel/og` + sharp, run after `astro build`): page title + description over the page's first `/_astro/` image when present, white logo on a dark gradient over the photo, brand rule at the foot; plain white card with ink logo otherwise. Fonts and logos live in `scripts/og-assets/`. A photo generated from `bledisloe-opening.jpg` is listed second as a fallback. Pass `noindex` for pages that should stay out of search.
 - URLs have no trailing slash: `trailingSlash: 'never'` in `astro.config.mjs`, matched by `trailingSlash: false` and `cleanUrls` in `vercel.json`.
 - `public/robots.txt` points to the sitemap. `/101`, `/guide/print` and the 404 page are excluded from it.
 - Links prefetch on hover (`prefetch` in `astro.config.mjs`).
