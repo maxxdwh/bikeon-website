@@ -161,7 +161,7 @@ const gameVideos = videosWithThumbs.filter((v) => v.category === 'Bike Games');
       </div>
       </div>
 
-      <aside class="no-print hidden shrink-0 self-stretch lg:block" style="width: 260px;">
+      <aside class="no-print hidden w-80 shrink-0 self-stretch lg:block">
         <div class="sticky top-24 rounded-lg bg-tint-2 px-6 py-5">
           <p class="mb-3 text-lg font-bold">On this page</p>
           <ul id="toc-list" class="flex flex-col gap-2"></ul>
@@ -207,7 +207,10 @@ const gameVideos = videosWithThumbs.filter((v) => v.category === 'Bike Games');
         if (rect.top <= 120) activeIdx = i;
       });
       [...tocLinks, ...tocPillsAll].forEach((link, i) => {
-        link.classList.toggle('text-ink', i % headings.length === activeIdx);
+        const active = i % headings.length === activeIdx;
+        link.classList.toggle('text-ink', active);
+        if (active) link.setAttribute('aria-current', 'true');
+        else link.removeAttribute('aria-current');
       });
       ticking = false;
     }
