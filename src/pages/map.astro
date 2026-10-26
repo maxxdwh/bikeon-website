@@ -209,11 +209,12 @@ const regions = [...new Set(schools.map((s) => s.region))].sort();
     let visibleCount = 0;
     const query = normalize(searchInput.value);
     const region = regionFilter.value;
+    const clipToBounds = !fromSearch && !isOverviewView();
 
     listItems.forEach((item) => {
       const index = parseInt(item.dataset.index);
       const school = schools[index];
-      const inView = fromSearch ? true : isInBounds(school);
+      const inView = clipToBounds ? isInBounds(school) : true;
       const visible = schoolMatches(school, query, region) && inView;
       item.style.display = visible ? '' : 'none';
       if (visible) visibleCount++;
@@ -227,12 +228,17 @@ const regions = [...new Set(schools.map((s) => s.region))].sort();
 
   function updateListFromMapBounds() {
     if (hasActiveFilters()) return;
-    const zoom = map.getZoom();
-    const center = map.getCenter();
-    const atDefault = zoom <= defaultZoom && center && Math.abs(center.lat() - defaultCenter.lat) < 0.01 && Math.abs(center.lng() - defaultCenter.lng) < 0.01;
-    if (atDefault && schoolFocused) {
-      schoolFocused = false;
-      updateResetButton();
+    if (isOverviewView()) {
+      if (schoolFocused) {
+        schoolFocused = false;
+        updateResetButton();
+      }
+      listItems.forEach((item) => {
+        item.style.display = '';
+      });
+      countLabel.textContent = `${schools.length} schools`;
+      noResults.classList.add('hidden');
+      return;
     }
     let visibleCount = 0;
     listItems.forEach((item) => {
@@ -244,6 +250,14 @@ const regions = [...new Set(schools.map((s) => s.region))].sort();
     });
     countLabel.textContent = `${visibleCount} school${visibleCount !== 1 ? 's' : ''} in view`;
     noResults.classList.toggle('hidden', visibleCount > 0);
+  }
+
+  // Country overview still clips Chatham / far-north markers at the tile edge —
+  // show the full list until the user zooms in past the default.
+  function isOverviewView() {
+    if (!map) return true;
+    const zoom = map.getZoom();
+    return zoom == null || zoom <= defaultZoom + 0.25;
   }
 
   function isInBounds(school) {
