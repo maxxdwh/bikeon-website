@@ -1,7 +1,7 @@
 # Bike On NZ — Notes & Things to Check
 
 ## Schools data
-- [x] Schools data imported from Excel (352 schools with projects/coordinates). Source: `Schools database  schools for Google Map (1).xlsx`. Note: The spreadsheet has 835 total entries but only 352 have coordinates — the rest are prospects/in discussion/fundraising with no project yet.
+- [x] Schools data imported from Excel (441 schools with projects/coordinates). Source: `List of school for BiS Map on the new website.xlsx` (Oct 2026). Previous import was 352 from `Schools database  schools for Google Map (1).xlsx`.
 - [ ] Note: Lat/lng columns in the Excel file are labelled in reverse (column "Longitude" contains latitude values, column "Latitude" contains longitude values). This is handled correctly in the generated `src/data/schools.json`.
 - [ ] Consider adding a status filter (OPENED, ACC Y1-Y3, NCES Y1-Y7) to the map if useful — the spreadsheet has this data but it's currently not included.
 

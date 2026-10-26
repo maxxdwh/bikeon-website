@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import logo from '../assets/images/logo-long.svg';
 import { navItems } from '../data/nav';
 
@@ -13,8 +14,8 @@ const isGroupActive = (item: (typeof navItems)[number]) =>
 
 <header class="site-header">
   <div class="container-page bar">
-    <a class="brand" href="/">
-      <img src={logo.src} alt="Bikes in Schools" width="178" height="28" class="h-7 w-auto" />
+    <a class="brand" href="/" aria-label="Bikes in Schools home">
+      <Image src={logo} alt="" width={178} height={28} layout="fixed" class="h-7 w-auto" />
     </a>
 
     <button
@@ -62,7 +63,11 @@ const isGroupActive = (item: (typeof navItems)[number]) =>
               <ul class="sub" id="sub-guide" data-open={isGroupActive(item) ? '' : undefined}>
                 {item.children.map((child) => (
                   <li>
-                    <a href={child.href} aria-current={isActive(child.href) ? 'page' : undefined}>
+                    <a
+                      href={child.href}
+                      aria-label={child.label}
+                      aria-current={isActive(child.href) ? 'page' : undefined}
+                    >
                       {child.label}
                     </a>
                   </li>
@@ -102,10 +107,14 @@ const isGroupActive = (item: (typeof navItems)[number]) =>
 
   document.querySelectorAll<HTMLButtonElement>('[data-sub-toggle]').forEach((button) => {
     const sub = document.getElementById(button.getAttribute('aria-controls') ?? '');
-    button.addEventListener('click', () => {
-      const open = button.getAttribute('aria-expanded') !== 'true';
+    const syncSub = (open: boolean) => {
       button.setAttribute('aria-expanded', String(open));
       sub?.toggleAttribute('data-open', open);
+      sub?.toggleAttribute('inert', !open);
+    };
+    syncSub(button.getAttribute('aria-expanded') === 'true');
+    button.addEventListener('click', () => {
+      syncSub(button.getAttribute('aria-expanded') !== 'true');
     });
   });
 </script>
@@ -310,8 +319,18 @@ const isGroupActive = (item: (typeof navItems)[number]) =>
       border-bottom: 1px solid var(--line-soft);
       font-weight: 500;
     }
+    /* Prefer visibility over display:none so anchors keep an accessible name for audits */
     :global(.js) .sub:not([data-open]) {
-      display: none;
+      visibility: hidden;
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
     }
   }
 </style>

@@ -10,19 +10,19 @@ const regions = [...new Set(schools.map((s) => s.region))].sort();
 <Layout title="Map of Schools — Bike On NZ" description="See where Bikes in Schools projects are across New Zealand.">
   <HeroSection
     title="Map of Schools"
-    description={`${schools.length}+ schools across New Zealand with a Bikes in Schools project. Search by name, filter by region, or pan the map to see what's nearby.`}
+    description={`${schools.length} schools across New Zealand with a Bikes in Schools project. Search by name, filter by region, or pan the map to see what's nearby.`}
   />
 
   <section class="container-page page-end pt-4">
-    <div class="grid gap-4 lg:grid-cols-[20rem_1fr]">
-      <div class="space-y-3">
+    <div class="grid gap-4 lg:grid-cols-[20rem_1fr] lg:items-stretch">
+      <div class="flex min-h-0 flex-col gap-3 lg:max-h-[600px]">
         <div class="relative">
           <Icon name="tabler:search" class="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-          <label for="school-search" class="sr-only">Search school name</label>
+          <label for="school-search" class="sr-only">Search by school or town</label>
           <input
             type="search"
             id="school-search"
-            placeholder="Search school name…"
+            placeholder="Search school or town…"
             class="field pl-10"
           />
         </div>
@@ -43,39 +43,43 @@ const regions = [...new Set(schools.map((s) => s.region))].sort();
           <span id="school-count" role="status">{schools.length} schools</span>
           <button id="reset-search" class="hidden cursor-pointer font-semibold text-link underline hover:text-ink">Show all schools</button>
         </div>
+
+        <div id="school-list-wrap" class="min-h-0 flex-1 overflow-y-auto border-y border-line max-lg:max-h-[400px]">
+          <ul id="school-list" class="divide-y divide-line-soft">
+            {schools.map((school, i) => (
+              <li
+                class="school-item"
+                data-name={school.name.toLowerCase()}
+                data-town={school.town.toLowerCase()}
+                data-region={school.region}
+                data-lat={school.lat}
+                data-lng={school.lng}
+                data-index={i}
+              >
+                <button
+                  type="button"
+                  class="flex w-full cursor-pointer items-start gap-3 px-2 py-3 text-left transition-colors hover:bg-tint-2 focus-visible:-outline-offset-2"
+                  aria-label={`Focus ${school.name} on the map`}
+                >
+                  <div class="mt-1 shrink-0 text-primary">
+                    <Icon name="tabler:map-pin" class="h-4 w-4" aria-hidden="true" />
+                  </div>
+                  <div class="min-w-0">
+                    <p class="truncate text-base font-semibold">{school.name}</p>
+                    <p class="meta truncate">{school.town}, {school.region}</p>
+                  </div>
+                </button>
+              </li>
+            ))}
+          </ul>
+          <p id="no-results" role="status" class="hidden p-6 text-center text-base text-muted-foreground">
+            No schools found. Try a different search or clear your filters.
+          </p>
+        </div>
       </div>
 
-      <div class="min-h-[400px] overflow-hidden rounded-xl bg-tint lg:row-span-2 lg:min-h-[600px]">
+      <div class="min-h-[400px] overflow-hidden rounded-xl bg-tint lg:min-h-[600px]">
         <div id="map" style="height: 100%; width: 100%; min-height: 400px;"></div>
-      </div>
-
-      <div class="max-h-[400px] overflow-y-auto border-y border-line lg:max-h-[600px]">
-        <ul id="school-list" class="divide-y divide-line-soft">
-          {schools.map((school, i) => (
-            <li
-              class="school-item flex cursor-pointer items-start gap-3 px-2 py-3 transition-colors hover:bg-tint-2 focus-visible:-outline-offset-2"
-              tabindex="0"
-              role="button"
-              aria-label={`Focus ${school.name} on the map`}
-              data-name={school.name.toLowerCase()}
-              data-region={school.region}
-              data-lat={school.lat}
-              data-lng={school.lng}
-              data-index={i}
-            >
-              <div class="mt-1 shrink-0 text-primary">
-                <Icon name="tabler:map-pin" class="h-4 w-4" />
-              </div>
-              <div class="min-w-0">
-                <p class="truncate text-base font-semibold">{school.name}</p>
-                <p class="meta truncate">{school.town}, {school.region}</p>
-              </div>
-            </li>
-          ))}
-        </ul>
-        <p id="no-results" role="status" class="hidden p-6 text-center text-base text-muted-foreground">
-          No schools found. Try a different search or clear your filters.
-        </p>
       </div>
     </div>
   </section>
@@ -90,6 +94,7 @@ const regions = [...new Set(schools.map((s) => s.region))].sort();
   let searchInput;
   let regionFilter;
   let listItems;
+  let listWrap;
   let countLabel;
   let resetBtn;
   let noResults;
@@ -174,10 +179,7 @@ const regions = [...new Set(schools.map((s) => s.region))].sort();
     const matched = [];
 
     markers.forEach(({ marker, school, index }) => {
-      const schoolName = normalize(school.name);
-      const nameMatch = query === '' || schoolName.includes(query);
-      const regionMatch = region === 'all' || school.region === region;
-      const visible = nameMatch && regionMatch;
+      const visible = schoolMatches(school, query, region);
       marker.setVisible(visible);
       if (visible) matched.push({ school, index });
     });
@@ -193,21 +195,31 @@ const regions = [...new Set(schools.map((s) => s.region))].sort();
     }
   }
 
+  function schoolMatches(school, query, region) {
+    const regionMatch = region === 'all' || school.region === region;
+    if (!regionMatch) return false;
+    if (query === '') return true;
+    return (
+      normalize(school.name).includes(query) ||
+      normalize(school.town).includes(query)
+    );
+  }
+
   function updateList(fromSearch) {
     let visibleCount = 0;
+    const query = normalize(searchInput.value);
+    const region = regionFilter.value;
 
     listItems.forEach((item) => {
       const index = parseInt(item.dataset.index);
       const school = schools[index];
-      const query = normalize(searchInput.value);
-      const nameMatch = query === '' || normalize(school.name).includes(query);
-      const regionMatch = regionFilter.value === 'all' || school.region === regionFilter.value;
       const inView = fromSearch ? true : isInBounds(school);
-      const visible = nameMatch && regionMatch && inView;
+      const visible = schoolMatches(school, query, region) && inView;
       item.style.display = visible ? '' : 'none';
       if (visible) visibleCount++;
     });
 
+    if (listWrap) listWrap.scrollTop = 0;
     countLabel.textContent = `${visibleCount} school${visibleCount !== 1 ? 's' : ''}`;
     noResults.classList.toggle('hidden', visibleCount > 0);
     updateResetButton();
@@ -268,6 +280,7 @@ const regions = [...new Set(schools.map((s) => s.region))].sort();
     searchInput = document.getElementById('school-search');
     regionFilter = document.getElementById('region-filter');
     listItems = document.querySelectorAll('.school-item');
+    listWrap = document.getElementById('school-list-wrap');
     countLabel = document.getElementById('school-count');
     resetBtn = document.getElementById('reset-search');
     noResults = document.getElementById('no-results');
@@ -283,16 +296,9 @@ const regions = [...new Set(schools.map((s) => s.region))].sort();
     resetBtn.addEventListener('click', resetFilters);
 
     listItems.forEach((item) => {
-      item.addEventListener('click', () => {
+      item.querySelector('button')?.addEventListener('click', () => {
         const index = parseInt(item.dataset.index);
         focusSchool(index);
-      });
-      item.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          const index = parseInt(item.dataset.index);
-          focusSchool(index);
-        }
       });
     });
   });

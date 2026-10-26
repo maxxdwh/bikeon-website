@@ -84,7 +84,7 @@ Supplier logos live once in `src/assets/images/suppliers/` per hostname — when
 
 ## Schools map
 
-`src/data/schools.json` — 352 schools with `name`, `lat`, `lng`, `status`. A build-time copy ships as `/schools.json` (keep `public/schools.json` in sync with `src/data/schools.json` when the data changes), fetched client-side on the map page. Google Maps loads lazily when the map scrolls near the viewport. Fuzzy search, keyboard accessible.
+`src/data/schools.json` — 441 schools with `name`, `town`, `region`, `lat`, `lng`. A build-time copy ships as `/schools.json` (keep `public/schools.json` in sync with `src/data/schools.json` when the data changes), fetched client-side on the map page. Google Maps loads lazily when the map scrolls near the viewport. Fuzzy search, keyboard accessible.
 
 ## SEO and analytics
 

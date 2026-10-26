@@ -6,7 +6,7 @@ Static Astro site replacing the old WordPress site at bikeon.org.nz. Built for s
 
 - **Homepage** — Hero, stats, guide overview, testimonials, call to action
 - **Guide** — 8 markdown chapters covering bikes, helmets, storage, tracks, training, costs, maintenance, and an introduction
-- **Schools map** — Google Maps integration showing 352 schools with Bikes in Schools projects, with fuzzy search and keyboard navigation
+- **Schools map** — Google Maps integration showing 441 schools with Bikes in Schools projects, with fuzzy search and keyboard navigation
 - **About** — Trust info, history, people
 - **Resources** — Research reports, guides, links
 - **Media** — Photos and videos
@@ -34,7 +34,7 @@ src/
   components/             Header, Footer
   content/guide/          8 markdown guide chapters
   data/
-    schools.json          352 schools with coordinates
+    schools.json          441 schools with coordinates
     suppliers.ts          Bike supplier data (names, URLs, emails)
   layouts/Layout.astro    Base layout (fonts, meta, skip link)
   pages/

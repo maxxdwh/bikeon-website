@@ -6,6 +6,7 @@ import { Image } from 'astro:assets';
 import readyToCutRibbon from '../assets/images/about/ready-to-cut-ribbon.jpg';
 import mayorAndRiders from '../assets/images/about/mayor-and-riders.jpg';
 import newsAtSchool from '../assets/images/about/news-at-school.jpg';
+import { schoolCountLabel } from '../data/schoolCount';
 ---
 
 <Layout title="About — Bike On NZ" description="Bike On New Zealand Charitable Trust (CC44779) was founded in 2010 to help more New Zealanders experience the joys and benefits of riding a bike.">
@@ -147,7 +148,7 @@ import newsAtSchool from '../assets/images/about/news-at-school.jpg';
       <div class="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4">
         <a href="/map" class="btn">View the map</a>
         <p class="copy">
-          See every school with a Bikes in Schools project across Aotearoa, 400+ and counting.
+          See every school with a Bikes in Schools project across Aotearoa, {schoolCountLabel} and counting.
         </p>
       </div>
     </div>

@@ -137,7 +137,7 @@ Another example
 
 Too promotional: "Our proven programme is transforming communities across New Zealand."
 
-Bike On: "More than 400 schools have introduced biking at school, giving thousands of children regular access to a bike and a safe place to ride."
+Bike On: "More than 440 schools have introduced biking at school, giving thousands of children regular access to a bike and a safe place to ride."
 
 ## When writing a page
 

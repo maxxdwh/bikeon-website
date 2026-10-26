@@ -13,12 +13,13 @@ import ribbonCutting from '../assets/images/about/ribbon-cutting.jpg';
 import holyCross from '../assets/images/about/holy-cross-kids.jpg';
 import Testimonials from '../components/Testimonials.astro';
 import ImpactGrid from '../components/ImpactGrid.astro';
+import { schoolCountLabel } from '../data/schoolCount';
 
 const guides = (await getCollection('guide')).sort((a, b) => a.data.order - b.data.order);
 
 const impact = [
   { stat: '200,000+', label: 'students with regular bike access', image: friendsOnTrack, alt: 'Kids riding on a bike track' },
-  { stat: '400+', label: 'schools with a project', image: ribbonCutting, alt: 'Bikes in Schools opening event' },
+  { stat: schoolCountLabel, label: 'schools with a project', image: ribbonCutting, alt: 'Bikes in Schools opening event' },
   { stat: '2010', label: 'the year we started', image: holyCross, alt: 'Children with bikes at school' },
 ];
 
@@ -110,7 +111,7 @@ const guideIcons: Record<string, string> = {
         <Icon name="tabler:map" class="h-6 w-6 text-primary" />
         <div>
           <h3 class="h3">Explore the map</h3>
-          <p class="copy mt-1">400+ schools across Aotearoa.</p>
+          <p class="copy mt-1">{schoolCountLabel} schools across Aotearoa.</p>
         </div>
       </a>
       <a href="/contact" class="panel">

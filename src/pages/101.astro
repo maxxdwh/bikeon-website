@@ -9,8 +9,10 @@ import pumpTrack from '../assets/images/guide/pump-track.webp';
 import skillsTrack from '../assets/images/guide/skills-track.webp';
 import ridingTrack from '../assets/images/guide/bike-tracks.webp';
 import { testimonials } from '../data/testimonials';
+import { schoolCount } from '../data/schoolCount';
 
 const year = new Date().getFullYear();
+const schoolCountRounded = Math.floor(schoolCount / 10) * 10;
 
 const pack = [
   ['Bikes', 'A fleet of 30 to 50 quality bikes, usually across four sizes'],
@@ -73,7 +75,7 @@ const quotes = ['Hon John Key', 'Sarah Walker']
     <main>
       <section class="sheet">
         <header class="masthead">
-          <img src={logo.src} alt="Bikes in Schools" width="433" height="68" />
+          <Image src={logo} alt="Bikes in Schools" width={433} height={68} layout="fixed" />
           <span class="masthead__tag">101</span>
         </header>
 
@@ -116,7 +118,7 @@ const quotes = ['Hon John Key', 'Sarah Walker']
               </div>
             </div>
             <p>
-              Since 2010, more than 400 schools have set up Bikes in Schools or a similar project, and over
+              Since 2010, more than {schoolCountRounded} schools have set up Bikes in Schools or a similar project, and over
               200,000 children now ride at school.
             </p>
           </div>
@@ -174,7 +176,7 @@ const quotes = ['Hon John Key', 'Sarah Walker']
 
       <section class="sheet">
         <header class="masthead masthead--small">
-          <img src={logo.src} alt="Bikes in Schools" width="433" height="68" />
+          <Image src={logo} alt="Bikes in Schools" width={433} height={68} layout="fixed" />
           <span class="masthead__tag">101</span>
         </header>
 

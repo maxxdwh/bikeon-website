@@ -1,10 +1,24 @@
 [
   {
+    "name": "Abbotsford School",
+    "town": "Dunedin",
+    "region": "Otago/Southland",
+    "lat": -45.893177,
+    "lng": 170.417606
+  },
+  {
     "name": "Albany School",
     "town": "Auckland",
     "region": "Auckland",
     "lat": -36.736702,
     "lng": 174.690624
+  },
+  {
+    "name": "Alfriston School",
+    "town": "Auckland",
+    "region": "Auckland",
+    "lat": -37.01684,
+    "lng": 174.940896
   },
   {
     "name": "Allandale School",
@@ -42,6 +56,20 @@
     "lng": 173.119986
   },
   {
+    "name": "Arahoe School",
+    "town": "Waitakere",
+    "region": "Auckland",
+    "lat": -36.92322,
+    "lng": 174.673898
+  },
+  {
+    "name": "Arakura School",
+    "town": "Lower Hutt",
+    "region": "Wellington",
+    "lat": -41.241506,
+    "lng": 174.943461
+  },
+  {
     "name": "Ashbrook School",
     "town": "Opotiki",
     "region": "Bay of Plenty/Waiariki",
@@ -63,21 +91,28 @@
     "lng": 173.277868
   },
   {
-    "name": "Avondale Primary School",
+    "name": "Avalon School",
+    "town": "Lower Hutt",
+    "region": "Wellington",
+    "lat": -41.195009,
+    "lng": 174.943885
+  },
+  {
+    "name": "Avondale Primary School (Auckland)",
     "town": "Auckland",
     "region": "Auckland",
     "lat": -36.896286,
     "lng": 174.698538
   },
   {
-    "name": "Awapuni School",
+    "name": "Awapuni School (Gisborne)",
     "town": "Gisborne",
     "region": "Hawke's Bay/Tairawhiti",
     "lat": -38.667285,
     "lng": 178.01001
   },
   {
-    "name": "Awapuni School",
+    "name": "Awapuni School (P.North)",
     "town": "Palmerston North",
     "region": "Taranaki/Whanganui/Manawatu",
     "lat": -40.372503,
@@ -98,6 +133,13 @@
     "lng": 174.999507
   },
   {
+    "name": "Belmont School (Lower Hutt)",
+    "town": "Lower Hutt",
+    "region": "Wellington",
+    "lat": -41.191775,
+    "lng": 174.92812
+  },
+  {
     "name": "Big Rock Primary School",
     "town": "Brighton",
     "region": "Otago/Southland",
@@ -112,11 +154,25 @@
     "lng": 173.224448
   },
   {
+    "name": "Bishopdale School",
+    "town": "Christchurch",
+    "region": "Canterbury/Chatham Islands",
+    "lat": -43.486429,
+    "lng": 172.595458
+  },
+  {
     "name": "Bledisloe School",
     "town": "Napier",
     "region": "Hawke's Bay/Tairawhiti",
     "lat": -39.537197,
     "lng": 176.851603
+  },
+  {
+    "name": "Boulcott School",
+    "town": "Lower Hutt",
+    "region": "Wellington",
+    "lat": -41.201015,
+    "lng": 174.922136
   },
   {
     "name": "Bradford School",
@@ -126,6 +182,13 @@
     "lng": 170.467373
   },
   {
+    "name": "Brandon Intermediate",
+    "town": "Porirua",
+    "region": "Wellington",
+    "lat": -41.143457,
+    "lng": 174.870742
+  },
+  {
     "name": "Bridge Pa School",
     "town": "Bridge Pa",
     "region": "Hawke's Bay/Tairawhiti",
@@ -133,11 +196,25 @@
     "lng": 176.754604
   },
   {
+    "name": "Brightwater School",
+    "town": "Brightwater",
+    "region": "Nelson/Marlborough/West Coast",
+    "lat": -41.379351,
+    "lng": 173.112545
+  },
+  {
     "name": "Broadgreen Intermediate",
     "town": "Nelson",
     "region": "Nelson/Marlborough/West Coast",
     "lat": -41.306113,
     "lng": 173.232856
+  },
+  {
+    "name": "Bromley School",
+    "town": "Christchurch",
+    "region": "Canterbury/Chatham Islands",
+    "lat": -43.536099,
+    "lng": 172.688036
   },
   {
     "name": "Camberley School",
@@ -154,6 +231,13 @@
     "lng": 175.467817
   },
   {
+    "name": "Cannons Creek School",
+    "town": "Porirua",
+    "region": "Wellington",
+    "lat": -41.140021,
+    "lng": 174.865743
+  },
+  {
     "name": "Carisbrook School",
     "town": "Dunedin",
     "region": "Otago/Southland",
@@ -168,6 +252,13 @@
     "lng": 175.530685
   },
   {
+    "name": "Castlecliff School",
+    "town": "Whanganui",
+    "region": "Taranaki/Whanganui/Manawatu",
+    "lat": -39.941057,
+    "lng": 174.991869
+  },
+  {
     "name": "Central Normal School",
     "town": "Palmerston North",
     "region": "Taranaki/Whanganui/Manawatu",
@@ -175,7 +266,14 @@
     "lng": 175.60348
   },
   {
-    "name": "Christ the King Catholic School",
+    "name": "Chaucer School",
+    "town": "Auckland",
+    "region": "Auckland",
+    "lat": -36.914079,
+    "lng": 174.69435
+  },
+  {
+    "name": "Christ the King Catholic School (Owairaka)",
     "town": "Auckland",
     "region": "Auckland",
     "lat": -36.904106,
@@ -187,6 +285,13 @@
     "region": "Auckland",
     "lat": -37.041063,
     "lng": 174.896892
+  },
+  {
+    "name": "Clifton Terrace School",
+    "town": "Nelson",
+    "region": "Nelson/Marlborough/West Coast",
+    "lat": -41.225,
+    "lng": 173.322179
   },
   {
     "name": "Cloverlea School",
@@ -231,11 +336,25 @@
     "lng": 175.232276
   },
   {
+    "name": "Darfield School",
+    "town": "Darfield",
+    "region": "Canterbury/Chatham Islands",
+    "lat": -43.49028,
+    "lng": 172.106429
+  },
+  {
     "name": "Dawson School",
     "town": "Auckland",
     "region": "Auckland",
     "lat": -36.974375,
     "lng": 174.893387
+  },
+  {
+    "name": "Devon Intermediate",
+    "town": "New Plymouth",
+    "region": "Taranaki/Whanganui/Manawatu",
+    "lat": -39.062666,
+    "lng": 174.053079
   },
   {
     "name": "Discovery School",
@@ -252,11 +371,25 @@
     "lng": 174.936278
   },
   {
+    "name": "East Taieri School",
+    "town": "Mosgiel",
+    "region": "Otago/Southland",
+    "lat": -45.889361,
+    "lng": 170.347089
+  },
+  {
     "name": "East Tamaki School",
     "town": "Auckland",
     "region": "Auckland",
     "lat": -36.962715,
     "lng": 174.887947
+  },
+  {
+    "name": "Ebbett Park School",
+    "town": "Hastings",
+    "region": "Hawke's Bay/Tairawhiti",
+    "lat": -39.644609,
+    "lng": 176.825785
   },
   {
     "name": "Edmonton School",
@@ -301,6 +434,13 @@
     "lng": 174.933369
   },
   {
+    "name": "Eskdale School",
+    "town": "Napier",
+    "region": "Hawke's Bay/Tairawhiti",
+    "lat": -39.402465,
+    "lng": 176.853238
+  },
+  {
     "name": "Evans Bay Intermediate",
     "town": "Wellington",
     "region": "Wellington",
@@ -308,11 +448,25 @@
     "lng": 174.797044
   },
   {
-    "name": "Fairhaven School",
+    "name": "Fairfield School (Dunedin)",
+    "town": "Dunedin",
+    "region": "Otago/Southland",
+    "lat": -45.900343,
+    "lng": 170.390615
+  },
+  {
+    "name": "Fairhaven School (Napier)",
     "town": "Napier",
     "region": "Hawke's Bay/Tairawhiti",
     "lat": -39.536993,
     "lng": 176.851618
+  },
+  {
+    "name": "Favona School",
+    "town": "Auckland",
+    "region": "Auckland",
+    "lat": -36.953777,
+    "lng": 174.806602
   },
   {
     "name": "Featherston School",
@@ -350,6 +504,13 @@
     "lng": 175.764422
   },
   {
+    "name": "Flat Bush School",
+    "town": "Auckland",
+    "region": "Auckland",
+    "lat": -36.974541,
+    "lng": 174.883346
+  },
+  {
     "name": "Flaxmere Primary School",
     "town": "Hastings",
     "region": "Hawke's Bay/Tairawhiti",
@@ -371,6 +532,13 @@
     "lng": 174.752809
   },
   {
+    "name": "Freyberg Community School",
+    "town": "Auckland",
+    "region": "Auckland",
+    "lat": -36.870358,
+    "lng": 174.650671
+  },
+  {
     "name": "Fruitvale Road School",
     "town": "Auckland",
     "region": "Auckland",
@@ -385,11 +553,32 @@
     "lng": 176.145836
   },
   {
+    "name": "Gilberthorpe School",
+    "town": "Christchurch",
+    "region": "Canterbury/Chatham Islands",
+    "lat": -43.528848,
+    "lng": 172.520358
+  },
+  {
     "name": "Gisborne Intermediate",
     "town": "Gisborne",
     "region": "Hawke's Bay/Tairawhiti",
     "lat": -38.662329,
     "lng": 178.011292
+  },
+  {
+    "name": "Gladstone School (Masterton)",
+    "town": "Gladstone",
+    "region": "Wellington",
+    "lat": -41.080235,
+    "lng": 175.654138
+  },
+  {
+    "name": "Glen Innes School",
+    "town": "Auckland",
+    "region": "Auckland",
+    "lat": -36.873095,
+    "lng": 174.856741
   },
   {
     "name": "Glen Taylor School",
@@ -420,6 +609,13 @@
     "lng": 174.732175
   },
   {
+    "name": "Glentunnel School",
+    "town": "Glentunnel",
+    "region": "Canterbury/Chatham Islands",
+    "lat": -43.482095,
+    "lng": 171.932977
+  },
+  {
     "name": "Gonville School",
     "town": "Whanganui",
     "region": "Taranaki/Whanganui/Manawatu",
@@ -434,6 +630,13 @@
     "lng": 175.472019
   },
   {
+    "name": "Gracefield School",
+    "town": "Lower Hutt",
+    "region": "Wellington",
+    "lat": -41.231358,
+    "lng": 174.916223
+  },
+  {
     "name": "Green Island School",
     "town": "Dunedin",
     "region": "Otago/Southland",
@@ -441,7 +644,7 @@
     "lng": 170.429455
   },
   {
-    "name": "Greenpark School",
+    "name": "Greenpark School (Tauranga)",
     "town": "Tauranga",
     "region": "Bay of Plenty/Waiariki",
     "lat": -37.732545,
@@ -539,11 +742,32 @@
     "lng": 174.089797
   },
   {
+    "name": "Hikurangi School",
+    "town": "Hikurangi",
+    "region": "Tai Tokerau",
+    "lat": -35.596875,
+    "lng": 174.287356
+  },
+  {
     "name": "Hillcrest Normal School",
     "town": "Hamilton",
     "region": "Waikato",
     "lat": -37.801124,
     "lng": 175.321223
+  },
+  {
+    "name": "Hingaia Peninsula School",
+    "town": "Auckland",
+    "region": "Auckland",
+    "lat": -37.07717,
+    "lng": 174.916073
+  },
+  {
+    "name": "Hiruharama School",
+    "town": "Ruatoria",
+    "region": "Hawke's Bay/Tairawhiti",
+    "lat": -37.927672,
+    "lng": 178.260185
   },
   {
     "name": "Hobsonville Point Primary School",
@@ -567,14 +791,14 @@
     "lng": 175.6297
   },
   {
-    "name": "Holy Cross School",
+    "name": "Holy Cross School (Miramar)",
     "town": "Wellington",
     "region": "Wellington",
     "lat": -41.317091,
     "lng": 174.82005
   },
   {
-    "name": "Holy Family School",
+    "name": "Holy Family School (Porirua)",
     "town": "Porirua",
     "region": "Wellington",
     "lat": -41.139873,
@@ -588,11 +812,18 @@
     "lng": 174.880252
   },
   {
-    "name": "Hora Hora School",
+    "name": "Hora Hora School (Te Mai)",
     "town": "Whangarei",
     "region": "Tai Tokerau",
     "lat": -35.736034,
     "lng": 174.308142
+  },
+  {
+    "name": "Horahora School (Cambridge)",
+    "town": "Cambridge",
+    "region": "Waikato",
+    "lat": -37.981579,
+    "lng": 175.625643
   },
   {
     "name": "Horotiu School",
@@ -700,11 +931,32 @@
     "lng": 174.722326
   },
   {
+    "name": "Kauri Flats School",
+    "town": "Auckland",
+    "region": "Auckland",
+    "lat": -37.044406,
+    "lng": 174.95065
+  },
+  {
     "name": "Kaurihohore School",
     "town": "Kauri",
     "region": "Tai Tokerau",
     "lat": -35.643104,
     "lng": 174.289052
+  },
+  {
+    "name": "Kawerau Putauaki School",
+    "town": "Kawerau",
+    "region": "Bay of Plenty/Waiariki",
+    "lat": -38.089182,
+    "lng": 176.686025
+  },
+  {
+    "name": "Kawerau South School",
+    "town": "Kawerau",
+    "region": "Bay of Plenty/Waiariki",
+    "lat": -38.096475,
+    "lng": 176.700797
   },
   {
     "name": "Kedgley Intermediate",
@@ -726,6 +978,13 @@
     "region": "Wellington",
     "lat": -41.180638,
     "lng": 174.933121
+  },
+  {
+    "name": "Kelston School",
+    "town": "Auckland",
+    "region": "Auckland",
+    "lat": -36.903497,
+    "lng": 174.666285
   },
   {
     "name": "Kelvin Road School",
@@ -777,18 +1036,32 @@
     "lng": 174.139157
   },
   {
-    "name": "Konini Primary School",
+    "name": "Konini Primary School (Wainuiomata)",
     "town": "Lower Hutt",
     "region": "Wellington",
     "lat": -41.254826,
     "lng": 174.936129
   },
   {
-    "name": "Konini School",
+    "name": "Konini School (Auckland)",
     "town": "Auckland",
     "region": "Auckland",
     "lat": -36.927233,
     "lng": 174.64289
+  },
+  {
+    "name": "Koraunui School",
+    "town": "Lower Hutt",
+    "region": "Wellington",
+    "lat": -41.180294,
+    "lng": 174.984929
+  },
+  {
+    "name": "Korokoro School",
+    "town": "Lower Hutt",
+    "region": "Wellington",
+    "lat": -41.215471,
+    "lng": 174.866932
   },
   {
     "name": "Lakeview School",
@@ -798,11 +1071,25 @@
     "lng": 175.679087
   },
   {
+    "name": "Leigh School",
+    "town": "Warkworth",
+    "region": "Auckland",
+    "lat": -36.290998,
+    "lng": 174.803558
+  },
+  {
     "name": "Lincoln Heights School",
     "town": "Auckland",
     "region": "Auckland",
     "lat": -36.84487,
     "lng": 174.619682
+  },
+  {
+    "name": "Linwood Avenue School",
+    "town": "Christchurch",
+    "region": "Canterbury/Chatham Islands",
+    "lat": -43.5351,
+    "lng": 172.674025
   },
   {
     "name": "Longburn School",
@@ -824,6 +1111,13 @@
     "region": "Taranaki/Whanganui/Manawatu",
     "lat": -40.218404,
     "lng": 175.576842
+  },
+  {
+    "name": "Macandrew Bay School",
+    "town": "Dunedin",
+    "region": "Otago/Southland",
+    "lat": -45.869997,
+    "lng": 170.598364
   },
   {
     "name": "Mahora School",
@@ -882,11 +1176,11 @@
     "lng": 174.786866
   },
   {
-    "name": "Māngere East School",
+    "name": "Manurewa East School",
     "town": "Auckland",
     "region": "Auckland",
-    "lat": -36.964508,
-    "lng": 174.825119
+    "lat": -37.0217,
+    "lng": 174.908835
   },
   {
     "name": "Mapua School",
@@ -896,11 +1190,18 @@
     "lng": 173.090942
   },
   {
-    "name": "Maraenui Bilingual School",
+    "name": "Maraenui Bilingual School (Napier)",
     "town": "Napier",
     "region": "Hawke's Bay/Tairawhiti",
     "lat": -39.513585,
     "lng": 176.905655
+  },
+  {
+    "name": "Maraeroa School",
+    "town": "Porirua",
+    "region": "Wellington",
+    "lat": -41.139876,
+    "lng": 174.872501
   },
   {
     "name": "Maramarua School",
@@ -917,11 +1218,18 @@
     "lng": 174.045053
   },
   {
-    "name": "Marist School",
+    "name": "Marist School (Mt Albert)",
     "town": "Auckland",
     "region": "Auckland",
     "lat": -36.880871,
     "lng": 174.725359
+  },
+  {
+    "name": "Marlborough School",
+    "town": "Auckland",
+    "region": "Auckland",
+    "lat": -36.785462,
+    "lng": 174.731554
   },
   {
     "name": "Marshall Laing School",
@@ -952,6 +1260,27 @@
     "lng": 174.820835
   },
   {
+    "name": "Maungaraki School",
+    "town": "Lower Hutt",
+    "region": "Wellington",
+    "lat": -41.209523,
+    "lng": 174.877207
+  },
+  {
+    "name": "Maungatapu School",
+    "town": "Tauranga",
+    "region": "Bay of Plenty/Waiariki",
+    "lat": -37.72164,
+    "lng": 176.173081
+  },
+  {
+    "name": "Maungaturoto School",
+    "town": "Maungaturoto",
+    "region": "Tai Tokerau",
+    "lat": -36.110065,
+    "lng": 174.352422
+  },
+  {
     "name": "May Road School",
     "town": "Auckland",
     "region": "Auckland",
@@ -959,7 +1288,7 @@
     "lng": 174.730592
   },
   {
-    "name": "Mayfield School",
+    "name": "Mayfield School (Blenheim)",
     "town": "Blenheim",
     "region": "Nelson/Marlborough/West Coast",
     "lat": -41.499975,
@@ -1022,6 +1351,13 @@
     "lng": 174.322127
   },
   {
+    "name": "Mornington School",
+    "town": "Dunedin",
+    "region": "Otago/Southland",
+    "lat": -45.882365,
+    "lng": 170.474679
+  },
+  {
     "name": "Motueka South School",
     "town": "Motueka",
     "region": "Nelson/Marlborough/West Coast",
@@ -1041,6 +1377,13 @@
     "region": "Auckland",
     "lat": -36.878118,
     "lng": 174.731511
+  },
+  {
+    "name": "Mt Roskill Intermediate",
+    "town": "Auckland",
+    "region": "Auckland",
+    "lat": -36.909353,
+    "lng": 174.745321
   },
   {
     "name": "Murchison Area School",
@@ -1071,6 +1414,20 @@
     "lng": 170.514738
   },
   {
+    "name": "Māngere East School",
+    "town": "Auckland",
+    "region": "Auckland",
+    "lat": -36.964508,
+    "lng": 174.825119
+  },
+  {
+    "name": "Naenae School",
+    "town": "Lower Hutt",
+    "region": "Wellington",
+    "lat": -41.204353,
+    "lng": 174.946069
+  },
+  {
     "name": "Nayland Primary School",
     "town": "Nelson",
     "region": "Nelson/Marlborough/West Coast",
@@ -1099,11 +1456,25 @@
     "lng": 174.681073
   },
   {
+    "name": "New Windsor School",
+    "town": "Auckland",
+    "region": "Auckland",
+    "lat": -36.907837,
+    "lng": 174.711938
+  },
+  {
     "name": "Newlands Intermediate",
     "town": "Wellington",
     "region": "Wellington",
     "lat": -41.219122,
     "lng": 174.824028
+  },
+  {
+    "name": "Newtown School",
+    "town": "Wellington",
+    "region": "Wellington",
+    "lat": -41.311155,
+    "lng": 174.779983
   },
   {
     "name": "Nga Iwi School",
@@ -1134,18 +1505,25 @@
     "lng": 170.530524
   },
   {
+    "name": "Northcote School (Auckland)",
+    "town": "Auckland",
+    "region": "Auckland",
+    "lat": -36.809947,
+    "lng": 174.742588
+  },
+  {
+    "name": "Oaklands School",
+    "town": "Christchurch",
+    "region": "Canterbury/Chatham Islands",
+    "lat": -43.571976,
+    "lng": 172.564395
+  },
+  {
     "name": "Ohaeawai School",
     "town": "Kaikohe",
     "region": "Tai Tokerau",
     "lat": -35.35262,
     "lng": 173.883892
-  },
-  {
-    "name": "Ōhope Beach School",
-    "town": "Ohope Beach",
-    "region": "Bay of Plenty/Waiariki",
-    "lat": -37.96964,
-    "lng": 177.049331
   },
   {
     "name": "Omahu School",
@@ -1232,11 +1610,18 @@
     "lng": 167.993263
   },
   {
-    "name": "Our Lady of the Rosary School",
+    "name": "Our Lady of the Rosary School (Waiwhetu)",
     "town": "Lower Hutt",
     "region": "Wellington",
     "lat": -41.225611,
     "lng": 174.914634
+  },
+  {
+    "name": "Owairaka District School",
+    "town": "Auckland",
+    "region": "Auckland",
+    "lat": -36.895982,
+    "lng": 174.715715
   },
   {
     "name": "Owhata School",
@@ -1253,11 +1638,25 @@
     "lng": 175.07508
   },
   {
+    "name": "Paerata School",
+    "town": "Paerata",
+    "region": "Auckland",
+    "lat": -37.141142,
+    "lng": 174.886651
+  },
+  {
     "name": "Pakowhai School",
     "town": "Napier",
     "region": "Hawke's Bay/Tairawhiti",
     "lat": -39.581205,
     "lng": 176.863311
+  },
+  {
+    "name": "Panama Road School",
+    "town": "Auckland",
+    "region": "Auckland",
+    "lat": -36.926588,
+    "lng": 174.854018
   },
   {
     "name": "Papakaio School",
@@ -1302,6 +1701,13 @@
     "lng": 174.233448
   },
   {
+    "name": "Papatoetoe East School",
+    "town": "Auckland",
+    "region": "Auckland",
+    "lat": -36.972868,
+    "lng": 174.875818
+  },
+  {
     "name": "Papatoetoe Intermediate",
     "town": "Auckland",
     "region": "Auckland",
@@ -1316,7 +1722,21 @@
     "lng": 174.432924
   },
   {
-    "name": "Parklands School",
+    "name": "Parawai School",
+    "town": "Thames",
+    "region": "Waikato",
+    "lat": -37.155316,
+    "lng": 175.559756
+  },
+  {
+    "name": "Pareawa Banks Avenue School",
+    "town": "Christchurch",
+    "region": "Canterbury/Chatham Islands",
+    "lat": -43.511936,
+    "lng": 172.65967
+  },
+  {
+    "name": "Parklands School (Motueka)",
     "town": "Motueka",
     "region": "Nelson/Marlborough/West Coast",
     "lat": -41.110341,
@@ -1328,6 +1748,13 @@
     "region": "Hawke's Bay/Tairawhiti",
     "lat": -39.652152,
     "lng": 176.860432
+  },
+  {
+    "name": "Parua Bay School",
+    "town": "Whangarei",
+    "region": "Tai Tokerau",
+    "lat": -35.77034,
+    "lng": 174.479675
   },
   {
     "name": "Peria School",
@@ -1344,7 +1771,7 @@
     "lng": 176.791461
   },
   {
-    "name": "Pine Hill School",
+    "name": "Pine Hill School (Dunedin)",
     "town": "Dunedin",
     "region": "Otago/Southland",
     "lat": -45.846459,
@@ -1379,11 +1806,25 @@
     "lng": 176.47693
   },
   {
+    "name": "Porirua East School",
+    "town": "Porirua",
+    "region": "Wellington",
+    "lat": -41.139407,
+    "lng": 174.848386
+  },
+  {
     "name": "Poroti School",
     "town": "Whangarei",
     "region": "Tai Tokerau",
     "lat": -35.739143,
     "lng": 174.139016
+  },
+  {
+    "name": "Portland School",
+    "town": "Whangarei",
+    "region": "Tai Tokerau",
+    "lat": -35.798906,
+    "lng": 174.326737
   },
   {
     "name": "Postgate School",
@@ -1412,6 +1853,13 @@
     "region": "Wellington",
     "lat": -41.035405,
     "lng": 174.885228
+  },
+  {
+    "name": "Pukete School",
+    "town": "Hamilton",
+    "region": "Waikato",
+    "lat": -37.745021,
+    "lng": 175.241277
   },
   {
     "name": "Puni School",
@@ -1463,11 +1911,11 @@
     "lng": 174.362661
   },
   {
-    "name": "Rāwhiti School",
-    "town": "Christchurch",
-    "region": "Canterbury/Chatham Islands",
-    "lat": -43.496105,
-    "lng": 172.717708
+    "name": "Redhill School",
+    "town": "Papakura",
+    "region": "Auckland",
+    "lat": -37.070173,
+    "lng": 174.971167
   },
   {
     "name": "Redwoodtown School",
@@ -1477,6 +1925,13 @@
     "lng": 173.953141
   },
   {
+    "name": "Rewa Rewa School",
+    "town": "Wellington",
+    "region": "Wellington",
+    "lat": -41.220889,
+    "lng": 174.819055
+  },
+  {
     "name": "Rhode Street School",
     "town": "Hamilton",
     "region": "Waikato",
@@ -1484,7 +1939,7 @@
     "lng": 175.25179
   },
   {
-    "name": "Richmond School",
+    "name": "Richmond School (Napier)",
     "town": "Napier",
     "region": "Hawke's Bay/Tairawhiti",
     "lat": -39.519237,
@@ -1498,11 +1953,25 @@
     "lng": 174.764465
   },
   {
-    "name": "Riverdale School",
+    "name": "Riverdale School (Gisborne)",
     "town": "Gisborne",
     "region": "Hawke's Bay/Tairawhiti",
     "lat": -38.644379,
     "lng": 178.002553
+  },
+  {
+    "name": "Riverhills School",
+    "town": "Auckland",
+    "region": "Auckland",
+    "lat": -36.919787,
+    "lng": 174.890145
+  },
+  {
+    "name": "Riverina School",
+    "town": "Auckland",
+    "region": "Auckland",
+    "lat": -36.914657,
+    "lng": 174.862885
   },
   {
     "name": "Rongomai School",
@@ -1596,6 +2065,13 @@
     "lng": 175.019272
   },
   {
+    "name": "Rāwhiti School",
+    "town": "Christchurch",
+    "region": "Canterbury/Chatham Islands",
+    "lat": -43.496105,
+    "lng": 172.717708
+  },
+  {
     "name": "Sawyers Bay School",
     "town": "Port Chalmers",
     "region": "Otago/Southland",
@@ -1624,7 +2100,7 @@
     "lng": 176.225507
   },
   {
-    "name": "Sherwood School",
+    "name": "Sherwood School (Auckland)",
     "town": "Auckland",
     "region": "Auckland",
     "lat": -36.715417,
@@ -1680,7 +2156,7 @@
     "lng": 173.932774
   },
   {
-    "name": "St Anne's Catholic School",
+    "name": "St Anne's Catholic School (Manurewa)",
     "town": "Auckland",
     "region": "Auckland",
     "lat": -37.021108,
@@ -1694,7 +2170,7 @@
     "lng": 174.938944
   },
   {
-    "name": "St Dominic's Catholic School",
+    "name": "St Dominic's Catholic School (Blockhouse Bay)",
     "town": "Auckland",
     "region": "Auckland",
     "lat": -36.919392,
@@ -1708,49 +2184,56 @@
     "lng": 172.639393
   },
   {
-    "name": "St Francis Xavier Catholic School",
+    "name": "St Francis Xavier Catholic School (Whangarei)",
     "town": "Whangarei",
     "region": "Tai Tokerau",
     "lat": -35.702866,
     "lng": 174.31496
   },
   {
-    "name": "St John Bosco School",
+    "name": "St John Bosco School (New Plymouth)",
     "town": "New Plymouth",
     "region": "Taranaki/Whanganui/Manawatu",
     "lat": -39.051143,
     "lng": 174.102278
   },
   {
-    "name": "St Joseph's Catholic School",
+    "name": "St Joseph's Catholic School (Onehunga)",
     "town": "Auckland",
     "region": "Auckland",
     "lat": -36.922912,
     "lng": 174.788102
   },
   {
-    "name": "St Joseph's School",
+    "name": "St Joseph's School (Hastings)",
     "town": "Hastings",
     "region": "Hawke's Bay/Tairawhiti",
     "lat": -39.646231,
     "lng": 176.846363
   },
   {
-    "name": "St Joseph's School",
+    "name": "St Joseph's School (Nelson)",
     "town": "Nelson",
     "region": "Nelson/Marlborough/West Coast",
     "lat": -41.278585,
     "lng": 173.287786
   },
   {
-    "name": "St Joseph's School",
+    "name": "St Joseph's School (New Plymouth)",
     "town": "New Plymouth",
     "region": "Taranaki/Whanganui/Manawatu",
     "lat": -39.063408,
     "lng": 174.050768
   },
   {
-    "name": "St Joseph's School",
+    "name": "St Joseph's School (Taihape)",
+    "town": "Taihape",
+    "region": "Taranaki/Whanganui/Manawatu",
+    "lat": -39.684745,
+    "lng": 175.809201
+  },
+  {
+    "name": "St Joseph's School (Waipukurau)",
     "town": "Waipukurau",
     "region": "Hawke's Bay/Tairawhiti",
     "lat": -39.994546,
@@ -1764,70 +2247,91 @@
     "lng": 174.662759
   },
   {
-    "name": "St Marcellin School",
+    "name": "St Marcellin School (Wanganui)",
     "town": "Whanganui",
     "region": "Taranaki/Whanganui/Manawatu",
     "lat": -39.937475,
     "lng": 175.015339
   },
   {
-    "name": "St Mary's Catholic School",
+    "name": "St Mary MacKillop Catholic School",
+    "town": "Auckland",
+    "region": "Auckland",
+    "lat": -36.962154,
+    "lng": 174.811129
+  },
+  {
+    "name": "St Mary's Catholic School (Avondale)",
     "town": "Auckland",
     "region": "Auckland",
     "lat": -36.901674,
     "lng": 174.693382
   },
   {
-    "name": "St Mary's Catholic School",
+    "name": "St Mary's Catholic School (Gisborne)",
     "town": "Gisborne",
     "region": "Hawke's Bay/Tairawhiti",
     "lat": -38.648417,
     "lng": 177.990033
   },
   {
-    "name": "St Mary's Catholic School",
+    "name": "St Mary's Catholic School (Hastings)",
     "town": "Hastings",
     "region": "Hawke's Bay/Tairawhiti",
     "lat": -39.623917,
     "lng": 176.847238
   },
   {
-    "name": "St Mary's School",
+    "name": "St Mary's School (Ellerslie)",
     "town": "Auckland",
     "region": "Auckland",
     "lat": -36.895625,
     "lng": 174.803433
   },
   {
-    "name": "St Mary's School",
+    "name": "St Mary's School (P North)",
     "town": "Palmerston North",
     "region": "Taranaki/Whanganui/Manawatu",
     "lat": -40.338749,
     "lng": 175.622461
   },
   {
-    "name": "St Michael's School",
+    "name": "St Michael's Catholic School (Rotorua)",
+    "town": "Rotorua",
+    "region": "Bay of Plenty/Waiariki",
+    "lat": -38.131044,
+    "lng": 176.218761
+  },
+  {
+    "name": "St Michael's School (Taita)",
     "town": "Lower Hutt",
     "region": "Wellington",
     "lat": -41.177116,
     "lng": 174.960972
   },
   {
-    "name": "St Paul's School",
+    "name": "St Paul's School (Richmond)",
     "town": "Nelson",
     "region": "Nelson/Marlborough/West Coast",
     "lat": -41.337953,
     "lng": 173.194838
   },
   {
-    "name": "St Peter's Catholic School",
+    "name": "St Peter's Catholic School (Cambridge)",
     "town": "Cambridge",
     "region": "Waikato",
     "lat": -37.892754,
     "lng": 175.472146
   },
   {
-    "name": "St Thomas School",
+    "name": "St Pius X Catholic School (Glen Innes)",
+    "town": "Auckland",
+    "region": "Auckland",
+    "lat": -36.870871,
+    "lng": 174.853938
+  },
+  {
+    "name": "St Thomas School (Auckland)",
     "town": "Auckland",
     "region": "Auckland",
     "lat": -36.863082,
@@ -1846,6 +2350,13 @@
     "region": "Nelson/Marlborough/West Coast",
     "lat": -41.316379,
     "lng": 173.230619
+  },
+  {
+    "name": "Strathmore School",
+    "town": "Tokoroa",
+    "region": "Waikato",
+    "lat": -38.233466,
+    "lng": 175.871836
   },
   {
     "name": "Summerland Primary",
@@ -1932,18 +2443,18 @@
     "lng": 176.34649
   },
   {
+    "name": "Takapuna School",
+    "town": "Auckland",
+    "region": "Auckland",
+    "lat": -36.787123,
+    "lng": 174.768137
+  },
+  {
     "name": "Takaro School",
     "town": "Palmerston North",
     "region": "Taranaki/Whanganui/Manawatu",
     "lat": -40.359755,
     "lng": 175.590336
-  },
-  {
-    "name": "Tāmaki School",
-    "town": "Auckland",
-    "region": "Auckland",
-    "lat": -36.89468,
-    "lng": 174.864557
   },
   {
     "name": "Taneatua School",
@@ -1981,6 +2492,13 @@
     "lng": 176.110904
   },
   {
+    "name": "Tawa School",
+    "town": "Wellington",
+    "region": "Wellington",
+    "lat": -41.174089,
+    "lng": 174.826213
+  },
+  {
     "name": "Tawhai School",
     "town": "Lower Hutt",
     "region": "Wellington",
@@ -2009,11 +2527,25 @@
     "lng": 176.916673
   },
   {
+    "name": "Te Awamutu Primary School",
+    "town": "Te Awamutu",
+    "region": "Waikato",
+    "lat": -38.012655,
+    "lng": 175.31895
+  },
+  {
     "name": "Te Hapara School",
     "town": "Gisborne",
     "region": "Hawke's Bay/Tairawhiti",
     "lat": -38.651399,
     "lng": 178.00129
+  },
+  {
+    "name": "Te Horo School (Whangarei)",
+    "town": "Whangarei",
+    "region": "Tai Tokerau",
+    "lat": -35.6204,
+    "lng": 174.018173
   },
   {
     "name": "Te Huruhi School",
@@ -2072,6 +2604,13 @@
     "lng": 175.584621
   },
   {
+    "name": "Te Manawa ō Pāpāmoa School",
+    "town": "Papamoa",
+    "region": "Bay of Plenty/Waiariki",
+    "lat": -37.720936,
+    "lng": 176.319672
+  },
+  {
     "name": "Te Matauranga",
     "town": "Auckland",
     "region": "Auckland",
@@ -2086,11 +2625,32 @@
     "lng": 175.545052
   },
   {
+    "name": "Te Pa o Rakaihautu",
+    "town": "Christchurch",
+    "region": "Canterbury/Chatham Islands",
+    "lat": -43.529234,
+    "lng": 172.673452
+  },
+  {
     "name": "Te Paina School",
     "town": "Mercer",
     "region": "Auckland",
     "lat": -37.276205,
     "lng": 175.057254
+  },
+  {
+    "name": "Te Papapa School",
+    "town": "Auckland",
+    "region": "Auckland",
+    "lat": -36.915373,
+    "lng": 174.800092
+  },
+  {
+    "name": "Te Pi'ipi'inga Kakano Mai I Rangiatea",
+    "town": "New Plymouth",
+    "region": "Taranaki/Whanganui/Manawatu",
+    "lat": -39.073038,
+    "lng": 174.036012
   },
   {
     "name": "Te Puke Primary School",
@@ -2107,7 +2667,7 @@
     "lng": 176.076681
   },
   {
-    "name": "Te Wharau School",
+    "name": "Te Wharau School (Gisborne)",
     "town": "Gisborne",
     "region": "Hawke's Bay/Tairawhiti",
     "lat": -38.668854,
@@ -2135,7 +2695,7 @@
     "lng": 175.54827
   },
   {
-    "name": "The Terrace School",
+    "name": "The Terrace School (Waipukurau)",
     "town": "Waipukurau",
     "region": "Hawke's Bay/Tairawhiti",
     "lat": -40.00643,
@@ -2161,6 +2721,13 @@
     "region": "Wellington",
     "lat": -41.111639,
     "lng": 174.840144
+  },
+  {
+    "name": "TKKM o Harataunga",
+    "town": "Kennedy Bay",
+    "region": "Waikato",
+    "lat": -36.668596,
+    "lng": 175.550203
   },
   {
     "name": "TKKM o Ngati Kahungunu o Te Wairoa",
@@ -2205,6 +2772,13 @@
     "lng": 174.983215
   },
   {
+    "name": "Tāmaki School",
+    "town": "Auckland",
+    "region": "Auckland",
+    "lat": -36.89468,
+    "lng": 174.864557
+  },
+  {
     "name": "Upper Harbour Primary School",
     "town": "Auckland",
     "region": "Auckland",
@@ -2226,6 +2800,13 @@
     "lng": 175.256973
   },
   {
+    "name": "Verran Primary School",
+    "town": "Auckland",
+    "region": "Auckland",
+    "lat": -36.801897,
+    "lng": 174.713545
+  },
+  {
     "name": "Victory Primary School",
     "town": "Nelson",
     "region": "Nelson/Marlborough/West Coast",
@@ -2238,13 +2819,6 @@
     "region": "Auckland",
     "lat": -36.967462,
     "lng": 174.791455
-  },
-  {
-    "name": "Waihi East School",
-    "town": "Waihi",
-    "region": "Waikato",
-    "lat": -37.38184,
-    "lng": 175.856227
   },
   {
     "name": "Waikirikiri School",
@@ -2324,11 +2898,25 @@
     "lng": 175.697237
   },
   {
+    "name": "Weedons School",
+    "town": "Christchurch",
+    "region": "Canterbury/Chatham Islands",
+    "lat": -43.570413,
+    "lng": 172.402957
+  },
+  {
     "name": "Welbourn School",
     "town": "New Plymouth",
     "region": "Taranaki/Whanganui/Manawatu",
     "lat": -39.072168,
     "lng": 174.092675
+  },
+  {
+    "name": "Welcome Bay School",
+    "town": "Tauranga",
+    "region": "Bay of Plenty/Waiariki",
+    "lat": -37.726394,
+    "lng": 176.196131
   },
   {
     "name": "Wellsford School",
@@ -2373,11 +2961,18 @@
     "lng": 172.355917
   },
   {
-    "name": "Westmere School",
+    "name": "Westmere School (Wanganui)",
     "town": "Whanganui",
     "region": "Taranaki/Whanganui/Manawatu",
     "lat": -39.896953,
     "lng": 174.994822
+  },
+  {
+    "name": "Westown School",
+    "town": "New Plymouth",
+    "region": "Taranaki/Whanganui/Manawatu",
+    "lat": -39.072139,
+    "lng": 174.063836
   },
   {
     "name": "Weymouth School",
@@ -2401,7 +2996,7 @@
     "lng": 174.454687
   },
   {
-    "name": "Whangaparaoa School",
+    "name": "Whangaparaoa School (Auckland)",
     "town": "Whangaparaoa",
     "region": "Auckland",
     "lat": -36.635549,
@@ -2443,6 +3038,20 @@
     "lng": 174.618891
   },
   {
+    "name": "Whītau School",
+    "town": "Christchurch",
+    "region": "Canterbury/Chatham Islands",
+    "lat": -43.523944,
+    "lng": 172.675733
+  },
+  {
+    "name": "Wilford School",
+    "town": "Lower Hutt",
+    "region": "Wellington",
+    "lat": -41.223329,
+    "lng": 174.891873
+  },
+  {
     "name": "Willow Park School",
     "town": "Auckland",
     "region": "Auckland",
@@ -2450,7 +3059,7 @@
     "lng": 174.733482
   },
   {
-    "name": "Willowbank School",
+    "name": "Willowbank School (Howick)",
     "town": "Auckland",
     "region": "Auckland",
     "lat": -36.948733,
@@ -2462,5 +3071,19 @@
     "region": "Otago/Southland",
     "lat": -46.324627,
     "lng": 168.843097
+  },
+  {
+    "name": "Yendarra School",
+    "town": "Auckland",
+    "region": "Auckland",
+    "lat": -36.965696,
+    "lng": 174.877366
+  },
+  {
+    "name": "Ōhope Beach School",
+    "town": "Ohope Beach",
+    "region": "Bay of Plenty/Waiariki",
+    "lat": -37.96964,
+    "lng": 177.049331
   }
 ]

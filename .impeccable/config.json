@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "src/pages/101.astro"
+        ],
+        "createdAt": "2026-10-26T07:44:21.878Z",
+        "reason": "Existing Bike On quote left-rule on /101 print sheet; matches site .quote, not a new AI card side-tab"
+      }
+    ]
+  }
+}
