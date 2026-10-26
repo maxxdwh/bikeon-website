@@ -33,7 +33,7 @@ export default defineConfig({
   integrations: [sitemap({ filter: (page) => !/\/(101|guide\/print)\/?$/.test(page) }), icon()],
   image: {
     layout: 'constrained',
-    domains: ['img.youtube.com', 'www.google.com'],
+    domains: ['img.youtube.com'],
   },
   markdown: {
     rehypePlugins: [
