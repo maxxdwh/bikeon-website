@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import logo from '../assets/images/logo-long.svg';
+import { Icon } from 'astro-icon/components';
 import { navItems } from '../data/nav';
 
 const pathname = Astro.url.pathname;
@@ -77,6 +78,16 @@ const isGroupActive = (item: (typeof navItems)[number]) =>
           </li>
         ))}
       </ul>
+        <button
+          id="theme-toggle"
+          type="button"
+          class="theme-toggle"
+          aria-label="Switch to dark theme"
+        >
+          <Icon name="tabler:moon" class="h-5 w-5" aria-hidden="true" data-theme-icon="moon" />
+          <Icon name="tabler:sun" class="h-5 w-5 hidden" aria-hidden="true" data-theme-icon="sun" />
+          <span class="theme-toggle-label">Theme</span>
+        </button>
     </nav>
   </div>
 </header>
@@ -126,6 +137,26 @@ const isGroupActive = (item: (typeof navItems)[number]) =>
 </script>
 
 <style>
+  .theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.375rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-left: 1.25rem;
+    border-radius: 999px;
+    color: var(--ink);
+    border: 0;
+    background: none;
+    cursor: pointer;
+  }
+  .theme-toggle:hover {
+    color: var(--blue-700);
+  }
+  .theme-toggle-label {
+    display: none;
+  }
   .site-header {
     position: sticky;
     top: 0;
@@ -229,6 +260,10 @@ const isGroupActive = (item: (typeof navItems)[number]) =>
   }
 
   @media (min-width: 64rem) {
+    .site-nav {
+      display: flex;
+      align-items: center;
+    }
     .site-nav__list > li > a {
       height: var(--header-h);
       padding-block: 0;
@@ -261,10 +296,10 @@ const isGroupActive = (item: (typeof navItems)[number]) =>
       display: inline-flex;
     }
     .site-nav {
+      display: flex;
+      flex-direction: column;
       width: 100%;
-      height: calc(100dvh - var(--header-h) - 1px);
-      overflow-y: auto;
-      overscroll-behavior: contain;
+      min-height: calc(100dvh - var(--header-h) - 1px);
       padding-bottom: 2rem;
     }
     :global(.js) .site-nav:not([data-open]) {
@@ -337,6 +372,22 @@ const isGroupActive = (item: (typeof navItems)[number]) =>
       clip: rect(0, 0, 0, 0);
       white-space: nowrap;
       border: 0;
+    }
+    :global(.js) .theme-toggle {
+      display: flex;
+      width: 100%;
+      margin: auto 0 0;
+      padding: 0.875rem 0.25rem 0;
+      color: var(--ink);
+      background: none;
+    }
+    .theme-toggle-label {
+      font-size: 1.125rem;
+      font-weight: 600;
+    }
+    .theme-toggle .theme-toggle-label {
+      display: inline;
+      margin-left: 0.25rem;
     }
   }
 </style>
