@@ -81,6 +81,11 @@ export default defineConfig({
           node.children && node.children.length === 1 &&
           node.children[0].type === 'element' && node.children[0].tagName === 'img' &&
           node.children[0].properties && node.children[0].properties.alt;
+        const tagCutouts = (/** @type {any} */ img) => {
+          if (typeof img.properties.src === 'string' && /\/bikes\/(byk-|shadow-)/.test(img.properties.src)) {
+            img.properties.className = ['bike-cutout'];
+          }
+        };
 
         const isWhitespace = (/** @type {any} */ node) =>
           node.type === 'text' && (!node.value || node.value.trim() === '');
@@ -113,6 +118,7 @@ export default defineConfig({
 
           if (group.length === 1) {
             const img = group[0];
+            tagCutouts(img);
             newChildren.push({
               type: 'element', tagName: 'figure', properties: {},
               children: [
@@ -122,14 +128,17 @@ export default defineConfig({
               ],
             });
           } else {
-            const figs = group.map((img) => ({
-              type: 'element', tagName: 'figure', properties: {},
-              children: [
-                img,
-                { type: 'element', tagName: 'figcaption', properties: {},
-                  children: [{ type: 'text', value: img.properties.alt }] },
-              ],
-            }));
+            const figs = group.map((img) => {
+              tagCutouts(img);
+              return {
+                type: 'element', tagName: 'figure', properties: {},
+                children: [
+                  img,
+                  { type: 'element', tagName: 'figcaption', properties: {},
+                    children: [{ type: 'text', value: img.properties.alt }] },
+                ],
+              };
+            });
             newChildren.push({
               type: 'element', tagName: 'div',
               properties: { className: ['fig-grid'] },

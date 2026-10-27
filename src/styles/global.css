@@ -456,6 +456,17 @@
     border-radius: var(--radius);
   }
 
+  .prose img.bike-cutout {
+    background: var(--card);
+    object-fit: contain;
+    padding: 0.75rem;
+    object-position: center;
+  }
+
+  [data-theme='dark'] .prose img.bike-cutout {
+    filter: brightness(0.82) contrast(0.95);
+  }
+
   .prose figure {
     margin: 2rem 0;
   }
