@@ -107,15 +107,21 @@ const isGroupActive = (item: (typeof navItems)[number]) =>
 
   document.querySelectorAll<HTMLButtonElement>('[data-sub-toggle]').forEach((button) => {
     const sub = document.getElementById(button.getAttribute('aria-controls') ?? '');
+    const desktop = matchMedia('(min-width: 64rem)');
     const syncSub = (open: boolean) => {
       button.setAttribute('aria-expanded', String(open));
-      sub?.toggleAttribute('data-open', open);
-      sub?.toggleAttribute('inert', !open);
+      if (desktop.matches) {
+        sub?.removeAttribute('data-open');
+        sub?.removeAttribute('inert');
+      } else {
+        sub?.toggleAttribute('data-open', open);
+        sub?.toggleAttribute('inert', !open);
+      }
     };
-    syncSub(button.getAttribute('aria-expanded') === 'true');
-    button.addEventListener('click', () => {
-      syncSub(button.getAttribute('aria-expanded') !== 'true');
-    });
+    const isOpen = () => button.getAttribute('aria-expanded') === 'true';
+    syncSub(isOpen());
+    button.addEventListener('click', () => syncSub(!isOpen()));
+    desktop.addEventListener('change', () => syncSub(isOpen()));
   });
 </script>
 
