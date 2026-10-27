@@ -1,0 +1,235 @@
+---
+import '../styles/global.css';
+import { Font, Image } from 'astro:assets';
+import logo from '../assets/images/logo-long.svg';
+import maintenanceImg from '../assets/images/guide/maintenance.webp';
+
+const year = new Date().getFullYear();
+
+const notes = [
+  'Encourage kids to carry out basic safety checks each time they ride.',
+  'Teachers or parents should schedule a monthly check of each bike, and set aside any bikes with issues.',
+  'We recommend that an experienced cycle mechanic carries out the six-month and annual checks on each bike.',
+];
+
+const columns = [
+  {
+    frequency: 'Every ride',
+    title: 'Simple checks for kids',
+    items: [
+      'Check that tyres are inflated and look for any signs of wear on tread',
+      'Check brakes are working',
+    ],
+  },
+  {
+    frequency: 'Monthly',
+    title: 'Cleaning and basic checks',
+    items: [
+      'Clean the bike with a rag',
+      'Inspect each bike frame and components for signs of wear',
+      'Wipe the chain and cassette cogs clean with a rag/degreaser and relube',
+      'Check wheels for loose spokes',
+      'Spin wheels and look for wobbles',
+      'Replace worn handlebar grips and bar end plugs',
+    ],
+  },
+  {
+    frequency: 'Six months',
+    title: 'Replace and lubricate where needed',
+    items: [
+      'Check for worn brake pads and replace if needed',
+      'Replace worn handlebar grips and bar end plugs',
+      'Clean and check chain and cogs and replace worn parts as required',
+      'Lube and check the cables to prevent binding and check for fraying and rusting — replace if necessary',
+      'Check and replace tyres if needed',
+    ],
+  },
+  {
+    frequency: 'Annually',
+    title: 'Detailed assessment and replacement parts where needed',
+    items: [
+      'Check all bearings: hubs, bottom bracket, headset and pedals, and adjust or overhaul as needed',
+      'Check all cables and housings for fraying, breaks, rust and corrosion and replace if necessary',
+      'Replace brake pads and handlebar grips and bar end plugs if needed',
+      'Clean and check wheels carefully for signs of wear such as worn sidewalls or broken spokes',
+      'Check and lube the drivetrain and replace parts if needed',
+      'Check the brake levers',
+    ],
+  },
+];
+---
+
+<!doctype html>
+<html lang="en-NZ">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <Font cssVariable="--font-geist" />
+    <title>Bike Maintenance Schedule</title>
+  </head>
+  <body>
+    <main>
+      <section class="sheet">
+        <header class="masthead masthead--small">
+          <Image src={logo} alt="Bikes in Schools" width={433} height={68} layout="fixed" />
+          <span class="masthead__tag">Maintenance</span>
+        </header>
+
+        <p class="intro">
+          To ensure that your bikes stay well maintained, we recommend that you follow this bike
+          maintenance schedule.
+        </p>
+        <ul class="notes">
+          {notes.map((note) => (
+            <li>{note}</li>
+          ))}
+        </ul>
+
+        <div class="schedule">
+          {columns.map((col) => (
+            <section class="schedule__col">
+              <h2 class="schedule__freq">{col.frequency}</h2>
+              <h3>{col.title}</h3>
+              <ul>
+                {col.items.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            </section>
+          ))}
+        </div>
+
+        <footer class="foot">
+          <span>bikeon.org.nz</span>
+          <span>Bike On New Zealand Charitable Trust (CC44779)</span>
+        </footer>
+      </section>
+    </main>
+  </body>
+</html>
+
+<style>
+  @page {
+    size: A4;
+    margin: 0;
+  }
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    background: var(--line-soft);
+    font-size: 9.5pt;
+    line-height: 1.45;
+    color: var(--text);
+  }
+  .sheet {
+    position: relative;
+    width: 210mm;
+    height: 297mm;
+    margin: 8mm auto;
+    padding: 13mm 14mm 16mm;
+    overflow: hidden;
+    background: #fff;
+  }
+  .masthead {
+    display: flex;
+    align-items: flex-end;
+    gap: 3mm;
+    padding-bottom: 4mm;
+    border-bottom: 2px solid var(--blue-700);
+  }
+  .masthead :global(img) {
+    height: 8.5mm;
+    width: auto;
+  }
+  .masthead__tag {
+    font-family: var(--font-heading);
+    font-size: 18pt;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 0.95;
+    color: var(--ink);
+  }
+  .intro {
+    margin-top: 5mm;
+    font-size: 11.5pt;
+    line-height: 1.45;
+    color: var(--ink);
+    text-wrap: balance;
+  }
+  .notes {
+    margin: 4mm 0 5mm;
+    padding: 0;
+    list-style: none;
+  }
+  .notes li {
+    display: flex;
+    gap: 3mm;
+    padding-block: 1.3mm;
+    border-bottom: 1px solid var(--line-soft);
+    color: var(--ink);
+  }
+  .schedule {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4mm;
+    margin-top: 6mm;
+  }
+  .schedule__col {
+    min-width: 0;
+  }
+  .schedule__freq {
+    margin: 0 0 2mm;
+    padding: 1.5mm 2.5mm;
+    border-radius: 2.5mm;
+    background: var(--tint);
+    font-size: 10.5pt;
+    color: var(--ink);
+    text-align: center;
+  }
+  .schedule__col h3 {
+    min-height: 11mm;
+    margin: 0 0 2mm;
+    font-size: 9.5pt;
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--ink);
+  }
+  .schedule__col ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .schedule__col li {
+    display: flex;
+    gap: 2mm;
+    padding-block: 1.2mm;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .schedule__col li::before {
+    content: '';
+    width: 3.5mm;
+    height: 3.5mm;
+    margin-top: 0.6mm;
+    flex: none;
+    border: 1px solid var(--line-strong);
+    border-radius: 0.8mm;
+  }
+  .foot {
+    position: absolute;
+    inset: auto 14mm 7mm;
+    display: flex;
+    justify-content: space-between;
+    font-size: 8pt;
+    color: var(--muted-foreground);
+  }
+  @media print {
+    body {
+      background: #fff;
+    }
+    .sheet {
+      margin: 0;
+    }
+  }
+</style>
