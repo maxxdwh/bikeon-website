@@ -12,8 +12,7 @@
   --color-primary-foreground: var(--primary-foreground);
   --color-brand: var(--brand);
   --color-link: var(--link);
-  --color-ink: var(--ink);
-  --color-body: var(--text);
+  --color-inverse: var(--inverse);
   --color-tint: var(--tint);
   --color-tint-2: var(--tint-2);
   --color-line-soft: var(--line-soft);
@@ -49,6 +48,7 @@
   --tint-2: #f3f8fb;
   --on-dark: #d6e3ec;
   --on-dark-muted: #b9cad6;
+  --inverse: #0b1f2a;
 
   --radius: 1.125rem;
   --radius-lg-token: 1.75rem;
@@ -82,6 +82,30 @@
   --border: var(--line);
   --input: var(--line);
   --ring: var(--brand);
+}
+
+[data-theme='dark'] {
+  --brand: #35b8ea;
+  --blue-700: #3f87ab;
+  --ink: #e3edf4;
+  --ink-2: #22384c;
+  --text: #b9c9d6;
+  --line: #2c435a;
+  --line-soft: #24374a;
+  --line-strong: #3d566e;
+  --tint: #15283a;
+  --tint-2: #1a3145;
+  --inverse: #08141f;
+
+  --background: #0d1f2b;
+  --card: #16293a;
+  --link: #6fbcd8;
+  --muted-foreground: #91a4b6;
+  color-scheme: dark;
+}
+
+[data-theme='dark'] ::selection {
+  color: #0b1f2a;
 }
 
 @layer base {
@@ -252,11 +276,11 @@
   }
 
   .panel--white {
-    background: #fff;
+    background: var(--card);
   }
 
   a.panel--white:hover {
-    background: #fff;
+    background: var(--card);
     box-shadow: inset 0 0 0 2px var(--blue-700);
   }
 
@@ -282,7 +306,7 @@
     padding: 0.625rem 1rem;
     border: 2px solid var(--line);
     border-radius: 0.75rem;
-    background: #fff;
+    background: var(--card);
     color: var(--ink);
     font-size: 1rem;
     transition: border-color 0.15s;
@@ -303,7 +327,7 @@
     z-index: 100;
     padding: 0.75rem 1rem;
     border-radius: 0.5rem;
-    background: var(--ink);
+    background: var(--inverse);
     color: #fff;
     font-weight: 700;
     text-decoration: none;
@@ -311,7 +335,6 @@
 
   .skip-link:focus {
     top: 1rem;
-    color: #fff;
   }
 
   .btn {
@@ -337,8 +360,8 @@
   }
 
   .btn:hover {
-    background: var(--ink);
-    border-color: var(--ink);
+    background: var(--inverse);
+    border-color: var(--inverse);
     color: #fff;
   }
 
@@ -355,10 +378,11 @@
 
   .btn-secondary:hover,
   .btn-ghost:hover {
-    background: var(--ink);
-    border-color: var(--ink);
+    background: var(--inverse);
+    border-color: var(--inverse);
     color: #fff;
   }
+
 
   .btn-sm {
     min-height: 2.5rem;

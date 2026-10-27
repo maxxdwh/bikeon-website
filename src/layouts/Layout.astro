@@ -77,7 +77,15 @@ const jsonLd = { '@context': 'https://schema.org', '@graph': [organisation, webs
     <script is:inline>
       document.documentElement.classList.add('js');
     </script>
-    <meta name="theme-color" content="#0B1F2A" />
+    <script is:inline>
+      document.documentElement.dataset.theme =
+        localStorage.getItem('theme') === 'light' || localStorage.getItem('theme') === 'dark'
+          ? localStorage.getItem('theme')
+          : matchMedia('(prefers-color-scheme: dark)').matches
+            ? 'dark'
+            : 'light';
+    </script>
+    <meta name="theme-color" id="theme-color" content="#ffffff" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
@@ -117,14 +125,20 @@ const jsonLd = { '@context': 'https://schema.org', '@graph': [organisation, webs
     <main id="main-content" class="flex-1">
       <slot />
     </main>
-    <Footer />
     <button
-      id="back-to-top"
+      id="theme-toggle"
+      aria-label="Switch to dark theme"
+      class="no-print fixed bottom-6 left-6 z-30 flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border-2 border-border bg-background text-foreground transition-colors hover:border-ink"
+    >
+      <Icon name="tabler:moon" class="h-5 w-5" aria-hidden="true" data-theme-icon="moon" />
+      <Icon name="tabler:sun" class="h-5 w-5 hidden" aria-hidden="true" data-theme-icon="sun" />
+    </button>
+    <button
+      class="no-print group fixed bottom-6 right-6 z-30 flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-primary text-primary-foreground transition-all duration-200 hover:bg-inverse opacity-0 translate-y-4 pointer-events-none"
       aria-label="Back to top"
-      class="no-print group fixed bottom-6 right-6 z-30 flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-primary text-primary-foreground transition-all duration-200 hover:bg-ink opacity-0 translate-y-4 pointer-events-none"
     >
       <Icon name="tabler:chevron-up" class="h-6 w-6" />
-      <span class="pointer-events-none absolute right-full mr-2 hidden whitespace-nowrap rounded-full bg-ink px-3 py-1 text-sm font-semibold text-white opacity-0 transition-opacity duration-150 group-hover:opacity-100 md:block">Back to top</span>
+      <span class="pointer-events-none absolute right-full mr-2 hidden whitespace-nowrap rounded-full bg-inverse px-3 py-1 text-sm font-semibold text-white opacity-0 transition-opacity duration-150 group-hover:opacity-100 md:block">Back to top</span>
     </button>
     <SpeedInsights />
   </body>
@@ -154,4 +168,26 @@ const jsonLd = { '@context': 'https://schema.org', '@graph': [organisation, webs
   backToTop.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
+</script>
+<script is:inline>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcons = {
+      moon: document.querySelector('[data-theme-icon="moon"]'),
+      sun: document.querySelector('[data-theme-icon="sun"]'),
+    };
+    const themeColorMeta = document.getElementById('theme-color');
+    const syncThemeUi = () => {
+      const dark = document.documentElement.dataset.theme === 'dark';
+      themeIcons.moon.classList.toggle('hidden', dark);
+      themeIcons.sun.classList.toggle('hidden', !dark);
+      themeToggle.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
+      themeColorMeta.setAttribute('content', dark ? '#0d1f2b' : '#ffffff');
+    };
+    syncThemeUi();
+    themeToggle.addEventListener('click', () => {
+      const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = next;
+      localStorage.setItem('theme', next);
+      syncThemeUi();
+    });
 </script>
