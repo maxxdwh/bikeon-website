@@ -86,7 +86,7 @@
 
 [data-theme='dark'] {
   --brand: #35b8ea;
-  --blue-700: #3f87ab;
+  --blue-700: #5fa9c9;
   --ink: #e3edf4;
   --ink-2: #22384c;
   --text: #b9c9d6;
@@ -101,6 +101,7 @@
   --card: #23394d;
   --link: #6fbcd8;
   --muted-foreground: #91a4b6;
+  --primary-foreground: #0b1f2a;
   color-scheme: dark;
 }
 
@@ -347,7 +348,7 @@
     border-radius: 999px;
     border: 2px solid var(--blue-700);
     background: var(--blue-700);
-    color: #fff;
+    color: var(--primary-foreground);
     font-size: 1rem;
     font-weight: 700;
     text-decoration: none;
