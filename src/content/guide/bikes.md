@@ -46,6 +46,14 @@ Number every bike (1 to 50, say) so kids can spot their size fast. Colour-coding
 
 ![Shadow 24i](../../assets/images/bikes/shadow-24.jpg)
 
+### Evo Pump 20, 24, and 26
+
+![Evo Pump 20](../../assets/images/bikes/evo-pump-20.jpg)
+
+![Evo Pump 24](../../assets/images/bikes/evo-pump-24.jpg)
+
+![Evo Pump 26](../../assets/images/bikes/evo-pump-26.jpg)
+
 ## Assembly
 
 Some suppliers include assembly in their quote. Others deliver bikes boxed. If your bikes arrive in boxes, older students, staff, and parents can help unpack them, but get every bike checked over by a professional before anyone rides it. A local bike shop or mobile bike mechanic can usually do this on-site.
