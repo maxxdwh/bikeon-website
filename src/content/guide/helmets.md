@@ -19,17 +19,9 @@ Look for helmets that meet the AS/NZS 2063 standard and check for the certificat
 
 ![AS/NZS 2063 certification sticker](../../assets/images/guide/helmet-standard-sticker.png)
 
-A couple of examples of what's out there:
+An example of what's out there:
 
-### Ride9 supplied helmet
-
-- EPS foam construction, lightweight outer shell
-- Available sizes:
-  - XXS–XS (47–53cm)
-  - S–M (54–58cm)
-  - M–L (58–62cm)
-
-### Avanti supplied helmet
+### MyRide supplied helmet
 
 - Bell Crest Junior, fusion in-mould polycarbonate shell
 - Sizes:

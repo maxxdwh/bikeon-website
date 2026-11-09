@@ -78,9 +78,14 @@ Plenty of schools go the DIY route: upcycled wooden pallets make a solid bike ra
 
 Forest green is a popular choice for blending into the grounds, but most suppliers can match your school colours. Ask for a colour chart. Some schools turn the painting into a student art project.
 
+## Smart stacking saves space
+
+Bikes and equipment that are stored smartly make everyone's lives easier, and let students have more riding time. Watch this [video explaining a clever stacking system](https://www.youtube.com/watch?v=THpkAuj_BB0) that really does save space, reduce damage, and is easy for everyone to follow.
+
 ## Storage ideas worth borrowing
 
 - Hang helmets on the opposite wall from the bikes, so there's no bottleneck at the door
+- Store helmets in flexible storage bins sorted by size (about $6 each from Bunnings or Mitre 10). Make these the first items out when setting up and the last packed away when closing the container, so helmets are always easy to reach
 - Group same-sized bikes together
 - Number bikes and use a matching asset sticker system
 - Top-and-tail bikes on the floor to fit more in
