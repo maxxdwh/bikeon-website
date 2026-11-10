@@ -30,13 +30,16 @@ Number every bike (1 to 50, say) so kids can spot their size fast. Colour-coding
 
 ## Bike examples
 
-### ByK E350 Custom, E450 Custom, and E540 Custom
+### Evo Mover 16" and Evo Pump 20", 24", and 26"
 
-![ByK E350 Custom](../../assets/images/bikes/byk-e350.jpg)
+Evo Cycles makes a custom range for school fleets, with each size in its own colour:
 
-![ByK E450 Custom](../../assets/images/bikes/byk-e450.jpg)
+- [Evo Mover 16"](https://www.evocycles.co.nz/Product/586424/evo-mover-16-blackorange) (black and orange)
+- [Evo Pump 20"](https://www.evocycles.co.nz/Product/612514/evo-pump-20-greyred) (grey and red)
+- [Evo Pump 24"](https://www.evocycles.co.nz/Product/612516/evo-pump-24-greyblue) (grey and blue)
+- [Evo Pump 26"](https://www.evocycles.co.nz/Product/612518/evo-pump-rigid-26-greyblack) (grey and black)
 
-![ByK E540 Custom](../../assets/images/bikes/byk-e540.jpg)
+Evo can send a size guide for the range. Their contact details are in the supplier list below.
 
 ### Shadow 18i, 20i, and 24i
 
