@@ -30,13 +30,13 @@ Number every bike (1 to 50, say) so kids can spot their size fast. Colour-coding
 
 ## Bike examples
 
-### ByK E350 Custom, E450 Custom, and E540 Custom
+### Evo Pump 20, 24, and 26
 
-![ByK E350 Custom](../../assets/images/bikes/byk-e350.jpg)
+![Evo Pump 20](../../assets/images/bikes/evo-pump-20.jpg)
 
-![ByK E450 Custom](../../assets/images/bikes/byk-e450.jpg)
+![Evo Pump 24](../../assets/images/bikes/evo-pump-24.jpg)
 
-![ByK E540 Custom](../../assets/images/bikes/byk-e540.jpg)
+![Evo Pump 26](../../assets/images/bikes/evo-pump-26.jpg)
 
 ### Shadow 18i, 20i, and 24i
 
@@ -45,14 +45,6 @@ Number every bike (1 to 50, say) so kids can spot their size fast. Colour-coding
 ![Shadow 20i](../../assets/images/bikes/shadow-20.jpg)
 
 ![Shadow 24i](../../assets/images/bikes/shadow-24.jpg)
-
-### Evo Pump 20, 24, and 26
-
-![Evo Pump 20](../../assets/images/bikes/evo-pump-20.jpg)
-
-![Evo Pump 24](../../assets/images/bikes/evo-pump-24.jpg)
-
-![Evo Pump 26](../../assets/images/bikes/evo-pump-26.jpg)
 
 ## Assembly
 
