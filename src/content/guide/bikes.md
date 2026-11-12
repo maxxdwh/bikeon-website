@@ -30,13 +30,17 @@ Number every bike (1 to 50, say) so kids can spot their size fast. Colour-coding
 
 ## Bike examples
 
-### ByK E350 Custom, E450 Custom, and E540 Custom
+### Evo custom bikes
 
-![ByK E350 Custom](../../assets/images/bikes/byk-e350.jpg)
+Evo Cycles make custom bikes in two ranges: the EVO Mover (16-inch) and the EVO Pump (20-inch, 24-inch, and 26-inch).
 
-![ByK E450 Custom](../../assets/images/bikes/byk-e450.jpg)
+![EVO Mover 16 inch](../../assets/images/bikes/evo-mover-16.jpg)
 
-![ByK E540 Custom](../../assets/images/bikes/byk-e540.jpg)
+![EVO Pump 20 inch](../../assets/images/bikes/evo-pump-20.jpg)
+
+![EVO Pump 24 inch](../../assets/images/bikes/evo-pump-24.jpg)
+
+![EVO Pump 26 inch](../../assets/images/bikes/evo-pump-26.jpg)
 
 ### Shadow 18i, 20i, and 24i
 
