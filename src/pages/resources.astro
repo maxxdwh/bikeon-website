@@ -15,7 +15,7 @@ const educationVideos = videosWithThumbs.filter((v) => v.category === 'Cycle edu
 const gameVideos = videosWithThumbs.filter((v) => v.category === 'Bike Games');
 ---
 
-<Layout title="Resources — Bike On NZ" description="Games, curriculum resources, and videos to use alongside a Bikes in Schools project, for teachers and classroom use.">
+<Layout title="Resources — Bike On NZ" schema={{ '@type': 'CollectionPage' }} breadcrumbs={[{ name: 'Resources', href: '/resources' }]} description="Games, curriculum resources, and videos to use alongside a Bikes in Schools project, for teachers and classroom use.">
   <section class="container-page page-top pb-[var(--section)]">
     <div class="flex w-full gap-12 lg:items-start lg:justify-between">
       <div class="w-full min-w-0 max-w-[var(--measure)]">
@@ -43,7 +43,7 @@ const gameVideos = videosWithThumbs.filter((v) => v.category === 'Bike Games');
           <Image src={bikeGames} alt="Bike games for schools" width={760} class="w-full rounded-xl object-cover" />
         </div>
         <p>
-          <a href="https://www.bikeready.govt.nz/assets/BikeReady/Public-Resources/bikeready-bike-games-for-schools.pdf" target="_blank" rel="noopener noreferrer">Bike games for schools (PDF, 2 MB) <Icon name="tabler:arrow-up-right" class="ml-1 inline h-4 w-4 align-baseline" /></a>
+          <a href="https://www.bikeready.govt.nz/assets/BikeReady/Public-Resources/bikeready-bike-games-for-schools.pdf" target="_blank" rel="noopener noreferrer">Bike games for schools (PDF, 2 MB) <Icon name="tabler:arrow-up-right" class="ml-1 inline h-4 w-4 align-baseline" /> <span class="sr-only">(opens in a new tab)</span></a>
         </p>
 
         <h2>For the classroom</h2>
@@ -54,25 +54,25 @@ const gameVideos = videosWithThumbs.filter((v) => v.category === 'Bike Games');
         </p>
         <ul>
           <li>
-            <a href="https://www.bikeready.govt.nz/schools/curriculum-resources/" target="_blank" rel="noopener noreferrer">BikeReady curriculum resources</a>
+            <a href="https://www.bikeready.govt.nz/schools/curriculum-resources/" target="_blank" rel="noopener noreferrer">BikeReady curriculum resources <span class="sr-only">(opens in a new tab)</span></a>
             <br />
             Written by education specialist Pam Hook, aligned with New Zealand Curriculum achievement
             objectives, covering both practical and classroom-based learning.
           </li>
           <li>
-            <a href="https://kurakete.gw.govt.nz/assets/Uploads/Making-it-count/ATA-full-resource.pdf" target="_blank" rel="noopener noreferrer">Active Travel Action resource (PDF)</a>
+            <a href="https://kurakete.gw.govt.nz/assets/Uploads/Making-it-count/ATA-full-resource.pdf" target="_blank" rel="noopener noreferrer">Active Travel Action resource (PDF) <span class="sr-only">(opens in a new tab)</span></a>
             <br />
             Developed by Greater Wellington Regional Council and Enviroschools, guides schools through
             sustainable active transport practices through student inquiry.
           </li>
           <li>
-            <a href="/downloads/bikes-in-schools-guide-greater-wellington.pdf" target="_blank" rel="noopener noreferrer">Bikes in Schools: Schools Guide (PDF)</a>
+            <a href="/downloads/bikes-in-schools-guide-greater-wellington.pdf" target="_blank" rel="noopener noreferrer">Bikes in Schools: Schools Guide (PDF) <span class="sr-only">(opens in a new tab)</span></a>
             <br />
             Produced by Greater Wellington Regional Council, a handy guide for schools planning a
             Bikes in Schools project. Covers implementation, maintenance, and curriculum links.
           </li>
           <li>
-            <a href="https://at.govt.nz/cycling-walking/travelwise-school-programme/travelwise-resources/" target="_blank" rel="noopener noreferrer">Travelwise resources</a>
+            <a href="https://at.govt.nz/cycling-walking/travelwise-school-programme/travelwise-resources/" target="_blank" rel="noopener noreferrer">Travelwise resources <span class="sr-only">(opens in a new tab)</span></a>
             <br />
             Auckland Transport's resources covering safe travel behaviour for teachers and students.
           </li>
@@ -84,7 +84,7 @@ const gameVideos = videosWithThumbs.filter((v) => v.category === 'Bike Games');
           skills.
         </p>
         <p>
-          <a href={playlistUrl} target="_blank" rel="noopener noreferrer"> See the full playlist on YouTube </a>.
+          <a href={playlistUrl} target="_blank" rel="noopener noreferrer"> See the full playlist on YouTube  <span class="sr-only">(opens in a new tab)</span></a>.
         </p>
         <div class="not-prose mt-6 grid gap-4 sm:grid-cols-2">
           {educationVideos.map((video) => (
@@ -113,7 +113,7 @@ const gameVideos = videosWithThumbs.filter((v) => v.category === 'Bike Games');
                 <p class="font-bold leading-snug">{video.title}</p>
                 <p class="meta mt-1">Video · {video.duration} · NZTA on YouTube</p>
               </div>
-            </a>
+             <span class="sr-only">(opens in a new tab)</span></a>
           ))}
         </div>
 
@@ -127,7 +127,7 @@ const gameVideos = videosWithThumbs.filter((v) => v.category === 'Bike Games');
           skills and confidence.
         </p>
         <p>
-          <a href="https://at.govt.nz/cycling-walking/travelwise-school-programme/bikes-in-schools-game-resources" target="_blank" rel="noopener noreferrer">Auckland Transport bike games videos</a>
+          <a href="https://at.govt.nz/cycling-walking/travelwise-school-programme/bikes-in-schools-game-resources" target="_blank" rel="noopener noreferrer">Auckland Transport bike games videos <span class="sr-only">(opens in a new tab)</span></a>
         </p>
         <p>
           These bike games from NZTA are a fun way for students to practise key bike control skills
@@ -162,11 +162,11 @@ const gameVideos = videosWithThumbs.filter((v) => v.category === 'Bike Games');
                 <p class="font-bold leading-snug">{video.title}</p>
                 <p class="meta mt-1">Video · {video.duration} · NZTA on YouTube</p>
               </div>
-            </a>
+             <span class="sr-only">(opens in a new tab)</span></a>
           ))}
         </div>
         <p class="mt-8">
-          Looking for training to go alongside these resources? See our <a href="/guide/cycle-skills-training" target="_blank" rel="noopener">Cycle skills training</a> page.
+          Looking for training to go alongside these resources? See our <a href="/guide/cycle-skills-training">Cycle skills training</a> page.
         </p>
 
       </div>

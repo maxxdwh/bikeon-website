@@ -1,7 +1,10 @@
 ---
 import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon/components';
 import logo from '../assets/images/logo-long.svg';
-import { navItems } from '../data/nav';
+import { getNavItems } from '../data/nav';
+
+const navItems = await getNavItems();
 
 const pathname = Astro.url.pathname;
 const isActive = (href: string) => {
@@ -18,19 +21,31 @@ const isGroupActive = (item: (typeof navItems)[number]) =>
       <Image src={logo} alt="" width={178} height={28} layout="fixed" class="h-7 w-auto" />
     </a>
 
-    <button
-      class="menu-toggle"
-      type="button"
-      aria-expanded="false"
-      aria-controls="site-nav"
-      data-menu-toggle
-    >
-      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
-        <path class="i-open" d="M3 6h14M3 10h14M3 14h14"></path>
-        <path class="i-close" d="M5 5l10 10M15 5L5 15"></path>
-      </svg>
-      <span data-menu-label>Menu</span>
-    </button>
+    <div class="actions">
+      <button
+        class="search-btn"
+        type="button"
+        aria-label="Search"
+        aria-keyshortcuts="Control+K Meta+K"
+        title="Search (Ctrl K or ⌘K)"
+        data-search-open
+      >
+        <Icon name="tabler:search" class="h-5 w-5" />
+      </button>
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-nav"
+        data-menu-toggle
+      >
+        <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+          <path class="i-open" d="M3 6h14M3 10h14M3 14h14"></path>
+          <path class="i-close" d="M5 5l10 10M15 5L5 15"></path>
+        </svg>
+        <span data-menu-label>Menu</span>
+      </button>
+    </div>
 
     <nav id="site-nav" class="site-nav" aria-label="Main">
       <ul class="site-nav__list">
@@ -145,6 +160,28 @@ const isGroupActive = (item: (typeof navItems)[number]) =>
     align-items: center;
     min-height: var(--header-h);
   }
+  .actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .search-btn {
+    display: none;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border: 2px solid var(--line-strong);
+    border-radius: 999px;
+    background: #fff;
+    color: var(--ink);
+    cursor: pointer;
+  }
+  .search-btn:hover {
+    border-color: var(--brand);
+  }
+  :global(.js) .search-btn {
+    display: grid;
+  }
   .site-nav {
     font-weight: 600;
     font-size: 1rem;
@@ -229,6 +266,12 @@ const isGroupActive = (item: (typeof navItems)[number]) =>
   }
 
   @media (min-width: 64rem) {
+    .actions {
+      order: 3;
+    }
+    .site-nav {
+      margin-left: auto;
+    }
     .site-nav__list > li > a {
       height: var(--header-h);
       padding-block: 0;

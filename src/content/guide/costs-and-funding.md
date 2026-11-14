@@ -3,6 +3,11 @@ title: "Costs and funding"
 description: "Typical costs, funding sources, and Board approval."
 order: 7
 heroImage: "../../assets/images/guide/costs-and-funding.jpg"
+heroAlt: "Students riding bikes under a balloon arch at the opening of a school bike track while guests look on"
+seoTitle: "Bikes in Schools costs and funding in NZ | Bike On NZ"
+seoDescription: "A typical NZ school project costs about $120,000. See the cost breakdown, ways to bring it down, who funds these projects, and how to get Board approval."
+published: 2026-09-27
+updated: 2026-11-14
 ---
 
 ## What does it cost?
@@ -11,22 +16,22 @@ These figures are approximate, vary by region, and exclude GST. Based on an aver
 
 | Item | Typical cost | Notes |
 | --- | --- | --- |
-| 50 bikes | $18,000 | Number of bikes may vary |
-| 80 helmets | $2,000 | Mix of small, medium, large |
-| Riding track (concrete/asphalt), 300m | $85,000 | Length affects cost |
-| Bike storage | $15,000 | Converted container, if needed |
+| [50 bikes](/guide/bikes) | $18,000 | Number of bikes may vary |
+| [80 helmets](/guide/helmets) | $2,000 | Mix of small, medium, large |
+| [Riding track](/guide/bike-tracks) (concrete/asphalt), 300m | $85,000 | Length affects cost |
+| [Bike storage](/guide/bike-storage) | $15,000 | Converted container, if needed |
 | **Average total** | **$120,000** |
 
-Budget around **$3,000 a year** for ongoing maintenance, and build that into your operational budget from the start.
+Budget around **$3,000 a year** for ongoing [maintenance](/guide/maintenance), and build that into your operational budget from the start.
 
 Costs can also shift by region. Bikes and helmets are priced fairly consistently nationwide, but track-building costs can vary significantly between areas, and even between contractors in the same town. The riding track is usually the biggest variable.
 
 ## Ways to bring the cost down
 
-- Build one or two tracks rather than all three
+- Build one or two [tracks](/guide/bike-tracks) rather than all three
 - Buy a smaller fleet
 - Buy fewer helmets (we wouldn't recommend kids sharing, though)
-- Use storage space your school already has
+- Use [storage](/guide/bike-storage) space your school already has
 - Get track construction done in kind or at cost by a local company
 - Source track material (limestone, for example) in kind or at cost from a local supplier
 
@@ -46,6 +51,8 @@ Funding has come from a mix of sources over the years:
 
 Where you can, hold off building until most of the funding's secured. It makes the whole build smoother and often lets different contractors share equipment and time on-site.
 
+Cycle skills training is often covered separately by councils: see [Cycle skills training](/guide/cycle-skills-training).
+
 Some schools have also been able to put Ministry of Education 5-Year Agreement (5YA) or 10-Year Property Plan (10YPP) funding toward building tracks. [Read the government press release](https://www.beehive.govt.nz/release/government-supports-school-cycle-and-fitness-tracks).
 
 ## Getting Board approval
@@ -53,3 +60,5 @@ Some schools have also been able to put Ministry of Education 5-Year Agreement (
 Confirm Board of Trustees approval before fundraising or building starts. Most funders will want written confirmation of BOT support, along with a minuted resolution covering where, who, and how much you're applying for.
 
 Showing funders that your school has committed to the $3,000 a year maintenance budget goes a long way too. It tells them the project's built to last.
+
+For the order to do things in, see [How to plan your project](/guide/start-here#how-to-plan-your-project).

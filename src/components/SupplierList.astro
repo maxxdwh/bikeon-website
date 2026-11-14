@@ -61,6 +61,7 @@ const logos: Record<string, ImageMetadata> = {
               type="button"
               class="copy-btn inline-flex min-h-11 cursor-pointer items-center gap-1.5 text-base font-semibold text-link underline hover:text-ink"
               data-copy={s.email}
+              data-supplier={s.name}
               aria-label={`Copy email address: ${s.email}`}
             >
               <Icon name="tabler:copy" class="h-4 w-4" />
@@ -70,6 +71,7 @@ const logos: Record<string, ImageMetadata> = {
           {s.website && (
             <a
               href={s.website}
+              data-supplier={s.name}
               target="_blank"
               rel="noopener noreferrer"
               class="inline-flex min-h-11 items-center gap-1.5 text-base font-semibold"

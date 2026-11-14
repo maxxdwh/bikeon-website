@@ -23,20 +23,30 @@ const allGuides = (await getCollection('guide')).sort((a, b) => a.data.order - b
 
 const supplierCategory = { bikes: 'Bikes', 'bike-storage': 'Bike storage' }[guide.id as string];
 const heroOptimised = await getImage({ src: guide.data.heroImage, width: 1200, format: 'webp' });
+const reviewed = guide.data.updated.toLocaleDateString('en-NZ', { month: 'long', year: 'numeric', timeZone: 'UTC' });
 ---
 
 <Layout
-  title={`${guide.data.title} — Bike On NZ`}
-  description={guide.data.description}
+  title={guide.data.seoTitle ?? `${guide.data.title} — Bike On NZ`}
+  description={guide.data.seoDescription ?? guide.data.description}
+  ogType="article"
+  imageAlt={guide.data.heroAlt}
+  modified={guide.data.updated}
+  breadcrumbs={[
+    { name: 'Guide', href: '/guide/start-here' },
+    { name: guide.data.title, href: `/guide/${guide.id}` },
+  ]}
   schema={{
     '@type': 'Article',
     headline: guide.data.title,
-    description: guide.data.description,
+    description: guide.data.seoDescription ?? guide.data.description,
     image: new URL(heroOptimised.src, Astro.site).href,
     articleSection: 'The Bikes in Schools guide',
+    datePublished: guide.data.published.toISOString(),
+    author: { '@id': new URL('/#organisation', Astro.site).href },
   }}
 >
-  <nav class="no-print sticky top-[calc(var(--header-h)+1px)] z-40 border-b border-border bg-white" aria-label="Guide sections">
+  <nav class="no-print sticky top-[calc(var(--header-h)+1px)] z-40 border-b border-border bg-white" aria-label="Guide sections" data-pagefind-ignore>
     <div class="container-page">
       <div class="flex gap-x-5 overflow-x-auto font-semibold [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         {allGuides.map((g) => (
@@ -56,18 +66,19 @@ const heroOptimised = await getImage({ src: guide.data.heroImage, width: 1200, f
     <div class="flex w-full gap-12 lg:items-start lg:justify-between">
       <div class="w-full min-w-0 max-w-[var(--measure)] print:max-w-none">
         <header class="flex flex-col gap-4">
-          <p class="eyebrow">Guide</p>
+          <p class="eyebrow" data-pagefind-ignore>Guide</p>
           <h1 class="h-page">{guide.data.title}</h1>
           <p class="lead">{guide.data.description}</p>
+          <p class="meta" data-pagefind-ignore>Last updated {reviewed}</p>
         </header>
 
-        <div class="no-print mt-8 rounded-lg bg-tint-2 px-6 py-5 lg:hidden">
+        <div class="no-print mt-8 rounded-lg bg-tint-2 px-6 py-5 lg:hidden" data-pagefind-ignore>
           <p class="mb-3 text-lg font-bold">On this page</p>
           <div id="toc-pills" class="flex flex-col gap-2"></div>
           <GuideExport id="export-inline" />
         </div>
 
-        <Image src={guide.data.heroImage} alt="" width={760} priority class="no-print mt-8 w-full rounded-2xl object-cover" />
+        <Image src={guide.data.heroImage} alt={guide.data.heroAlt} width={760} priority class="no-print mt-8 w-full rounded-2xl object-cover" />
 
         <article class="prose mt-10 print:mt-4 [&_h2]:scroll-mt-40" data-guide-text>
           <Content />
@@ -75,7 +86,7 @@ const heroOptimised = await getImage({ src: guide.data.heroImage, width: 1200, f
           {supplierCategory && <SupplierList category={supplierCategory} />}
         </article>
 
-        <nav class="no-print mt-16 flex flex-col gap-4 border-t border-line-soft pt-6 sm:grid sm:grid-cols-2" aria-label="Guide navigation">
+        <nav class="no-print mt-16 flex flex-col gap-4 border-t border-line-soft pt-6 sm:grid sm:grid-cols-2" aria-label="Guide navigation" data-pagefind-ignore>
           {prev ? (
             <a href={`/guide/${prev.id}`} class="panel gap-1">
               <span class="meta flex items-center gap-1">
@@ -95,7 +106,7 @@ const heroOptimised = await getImage({ src: guide.data.heroImage, width: 1200, f
         </nav>
       </div>
 
-      <aside class="no-print hidden w-80 shrink-0 self-stretch lg:block">
+      <aside class="no-print hidden w-80 shrink-0 self-stretch lg:block" data-pagefind-ignore>
         <div class="sticky top-40 max-h-[calc(100svh-11rem)] overflow-y-auto rounded-lg bg-tint-2 px-6 py-5">
           <p class="mb-3 text-lg font-bold">On this page</p>
           <ul id="toc-list" class="flex flex-col gap-2"></ul>
@@ -231,6 +242,10 @@ const heroOptimised = await getImage({ src: guide.data.heroImage, width: 1200, f
       }
     });
 
+    function esc(text) {
+      return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
     function downloadTable(fmt) {
       var rows = table.querySelectorAll('tr');
       var data = Array.from(rows).map(function(row) {
@@ -254,7 +269,7 @@ const heroOptimised = await getImage({ src: guide.data.heroImage, width: 1200, f
         var xls = data.map(function(row, i) {
           var cells = row.map(function(cell) {
             var tag = i === 0 ? 'th' : 'td';
-            return '<' + tag + '>' + cell + '</' + tag + '>';
+            return '<' + tag + '>' + esc(cell) + '</' + tag + '>';
           }).join('');
           return '<tr>' + cells + '</tr>';
         }).join('');
@@ -266,18 +281,33 @@ const heroOptimised = await getImage({ src: guide.data.heroImage, width: 1200, f
         a.click();
         URL.revokeObjectURL(a.href);
       } else if (fmt === 'pdf') {
-        var tbl = data.map(function(row, i) {
-          var cells = row.map(function(cell) {
-            var tag = i === 0 ? 'th' : 'td';
-            return '<' + tag + ' style="border:1px solid #ddd;padding:8px 12px;text-align:left;font-size:14px">' + cell + '</' + tag + '>';
-          }).join('');
-          return '<tr>' + cells + '</tr>';
-        }).join('');
-        var printWin = window.open('', '_blank');
-        printWin.document.write('<html><head><title>Typical costs for Bikes in Schools</title><style>body{font-family:system-ui,sans-serif;padding:2rem}h1{font-size:18px;margin-bottom:0}h2{font-size:13px;font-weight:400;color:#666;margin-bottom:1.5rem}table{border-collapse:collapse;width:100%}th{font-weight:600;background:#f5f5f5}</style></head><body><h1>Typical costs for Bikes in Schools</h1><h2>bikeon.org.nz</h2><table>' + tbl + '</table></body></html>');
-        printWin.document.close();
-        printWin.focus();
-        setTimeout(function() { printWin.print(); }, 250);
+        var frame = document.createElement('iframe');
+        frame.setAttribute('aria-hidden', 'true');
+        frame.style.cssText = 'position:fixed;width:0;height:0;border:0';
+        document.body.appendChild(frame);
+        var doc = frame.contentDocument;
+        doc.title = 'Typical costs for Bikes in Schools';
+        var style = doc.createElement('style');
+        style.textContent = 'body{font-family:system-ui,sans-serif;padding:2rem}h1{font-size:18px;margin:0}p{font-size:13px;color:#666;margin:0 0 1.5rem}table{border-collapse:collapse;width:100%}th,td{border:1px solid #ddd;padding:8px 12px;text-align:left;font-size:14px}th{font-weight:600;background:#f5f5f5}';
+        doc.head.appendChild(style);
+        var heading = doc.createElement('h1');
+        heading.textContent = 'Typical costs for Bikes in Schools';
+        var site = doc.createElement('p');
+        site.textContent = 'bikeon.org.nz';
+        var printTable = doc.createElement('table');
+        data.forEach(function(row, i) {
+          var tr = doc.createElement('tr');
+          row.forEach(function(cell) {
+            var td = doc.createElement(i === 0 ? 'th' : 'td');
+            td.textContent = cell;
+            tr.appendChild(td);
+          });
+          printTable.appendChild(tr);
+        });
+        doc.body.append(heading, site, printTable);
+        frame.contentWindow.addEventListener('afterprint', function() { frame.remove(); });
+        frame.contentWindow.focus();
+        frame.contentWindow.print();
       }
     }
 

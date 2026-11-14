@@ -3,13 +3,20 @@ title: "Bikes"
 description: "Choosing, sizing, and buying your bike fleet."
 order: 2
 heroImage: "../../assets/images/guide/bikes.jpg"
+heroAlt: "A row of school bikes lined up on grass beside a new pump track while students gather in the background"
+seoTitle: "Choosing school bikes: fleet sizes and costs | Bike On NZ"
+seoDescription: "How to choose, size and buy a bike fleet for your school: a typical 50-bike mix of sizes, assembly, asset tracking, and approximate costs."
+published: 2026-09-27
+updated: 2026-11-14
 ---
 
 ## Choosing the right bikes
 
 Buy good-quality bikes built for daily school use. It costs more up front, but cheaper bikes break down faster and end up costing more in the long run.
 
-Good local servicing matters as much as the bikes themselves. Find a few people (staff, whānau, or someone from the community) who are happy to learn basic bike care and keep the fleet ticking over.
+Good local servicing matters as much as the bikes themselves. Find a few people (staff, whānau, or someone from the community) who are happy to learn basic bike care and keep the fleet ticking over. See [Maintenance](/guide/maintenance) for a simple routine.
+
+If you're building a pump track, tell your bike supplier early. Different bikes suit the track differently, as explained in [Bike tracks](/guide/bike-tracks).
 
 Most suppliers can build teacher-sized bikes into the fleet. Step-through bikes are a good pick for staff supervising sessions: they're the easiest to get on and off.
 
@@ -34,21 +41,21 @@ Number every bike (1 to 50, say) so kids can spot their size fast. Colour-coding
 
 Evo Cycles make custom bikes in two ranges: the EVO Mover (16-inch) and the EVO Pump (20-inch, 24-inch, and 26-inch).
 
-![EVO Mover 16 inch](../../assets/images/bikes/evo-mover-16.jpg)
+![EVO Mover 16-inch bike](../../assets/images/bikes/evo-mover-16.jpg)
 
-![EVO Pump 20 inch](../../assets/images/bikes/evo-pump-20.jpg)
+![EVO Pump 20-inch bike](../../assets/images/bikes/evo-pump-20.jpg)
 
-![EVO Pump 24 inch](../../assets/images/bikes/evo-pump-24.jpg)
+![EVO Pump 24-inch bike](../../assets/images/bikes/evo-pump-24.jpg)
 
-![EVO Pump 26 inch](../../assets/images/bikes/evo-pump-26.jpg)
+![EVO Pump 26-inch bike](../../assets/images/bikes/evo-pump-26.jpg)
 
 ### Shadow 18i, 20i, and 24i
 
-![Shadow 18i](../../assets/images/bikes/shadow-18.jpg)
+![Shadow 18i bike](../../assets/images/bikes/shadow-18.jpg)
 
-![Shadow 20i](../../assets/images/bikes/shadow-20.jpg)
+![Shadow 20i bike](../../assets/images/bikes/shadow-20.jpg)
 
-![Shadow 24i](../../assets/images/bikes/shadow-24.jpg)
+![Shadow 24i bike](../../assets/images/bikes/shadow-24.jpg)
 
 ## Assembly
 
@@ -58,12 +65,12 @@ Ask your supplier whether a six-week service check is included.
 
 ## Tracking the fleet
 
-Record each bike's serial number in your school's asset register, and add the whole fleet (bikes and helmets) to your insurance policy. Most schools file these under sports or PE equipment.
+Record each bike's serial number in your school's asset register, and add the whole fleet (bikes and [helmets](/guide/helmets)) to your insurance policy. Most schools file these under sports or PE equipment.
 
 ## Approximate cost
 
-A full fleet of 50 bikes typically costs approximately $18,000 + GST, depending on supplier, brand, spec, and whether delivery and assembly are included. Get a few quotes, and ask each supplier about their ongoing servicing plan.
+A full fleet of 50 bikes typically costs approximately $18,000 + GST, depending on supplier, brand, spec, and whether delivery and assembly are included. Get a few quotes, and ask each supplier about their ongoing servicing plan. See [Costs and funding](/guide/costs-and-funding) for the full project budget.
 
 ## Getting quotes from local bike shops
 
-Start with the suppliers below, then get a couple of extra quotes from local bike shops, especially for servicing.
+Start with the suppliers below, then get a couple of extra quotes from local bike shops, especially for servicing. You'll also need somewhere to keep the fleet: see [Bike storage](/guide/bike-storage).

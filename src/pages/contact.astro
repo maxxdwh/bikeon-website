@@ -5,7 +5,7 @@ import { Image } from 'astro:assets';
 import royalOak from '../assets/images/about/royal-oak-opening.jpg';
 ---
 
-<Layout title="Contact — Bike On NZ" description="Get in touch with Bike On NZ about starting a Bikes in Schools project.">
+<Layout title="Contact — Bike On NZ" schema={{ '@type': 'ContactPage' }} breadcrumbs={[{ name: 'Contact', href: '/contact' }]} description="Get in touch with Bike On NZ about starting a Bikes in Schools project.">
   <HeroSection
     title="Get in touch"
     description="Got a question about starting a Bikes in Schools project, or want to talk through what it'd take at your school? Get in touch, we're happy to help."
@@ -139,11 +139,14 @@ import royalOak from '../assets/images/about/royal-oak-opening.jpg';
       if (response.ok) {
         success?.classList.remove('hidden');
         form.reset();
+        (window as any).posthog?.capture('contact_form_submitted');
       } else {
         error?.classList.remove('hidden');
+        (window as any).posthog?.capture('contact_form_failed', { status: response.status });
       }
     } catch {
       error?.classList.remove('hidden');
+      (window as any).posthog?.capture('contact_form_failed', { status: 0 });
     } finally {
       if (submitBtn) {
         submitBtn.disabled = false;

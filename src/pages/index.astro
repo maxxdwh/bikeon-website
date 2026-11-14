@@ -41,11 +41,11 @@ const guideIcons: Record<string, string> = {
       <h1 class="h-hero">Every Kiwi kid, riding a bike at school.</h1>
       <p class="lead">
         We help schools across New Zealand set up a complete Bikes in Schools package:{' '}
-        <a href="/guide/bikes" target="_blank" rel="noopener">bikes</a>,{' '}
-        <a href="/guide/helmets" target="_blank" rel="noopener">helmets</a>,{' '}
-        <a href="/guide/bike-tracks" target="_blank" rel="noopener">bike tracks</a>,{' '}
-        <a href="/guide/bike-storage" target="_blank" rel="noopener">secure storage</a>, and{' '}
-        <a href="/guide/cycle-skills-training" target="_blank" rel="noopener">cycle skills training</a>,
+        <a href="/guide/bikes">bikes</a>,{' '}
+        <a href="/guide/helmets">helmets</a>,{' '}
+        <a href="/guide/bike-tracks">bike tracks</a>,{' '}
+        <a href="/guide/bike-storage">secure storage</a>, and{' '}
+        <a href="/guide/cycle-skills-training">cycle skills training</a>,
         all on-site.
       </p>
       <div class="flex flex-wrap gap-3">
@@ -57,13 +57,14 @@ const guideIcons: Record<string, string> = {
           class="btn btn-secondary"
         >
           1-pager PDF
-        </a>
+         <span class="sr-only">(opens in a new tab)</span></a>
       </div>
     </div>
     <div class="grid min-w-0 flex-[1_1_24rem] grid-cols-5 grid-rows-2 gap-3 md:gap-4">
       <Image
         src={heroHelmet}
         alt="A girl having her helmet fitted before a ride"
+        sizes="(min-width: 64rem) 420px, 60vw"
         width={420}
         height={430}
         fit="cover"
@@ -96,28 +97,28 @@ const guideIcons: Record<string, string> = {
       <a href="/guide/start-here" class="panel">
         <Icon name="tabler:book" class="h-6 w-6 text-primary" />
         <div>
-          <h3 class="h3">Read the guide</h3>
+          <h2 class="h3">Read the guide</h2>
           <p class="copy mt-1">Plan and run a project.</p>
         </div>
       </a>
       <a href="/guide/costs-and-funding" class="panel">
         <Icon name="tabler:calculator" class="h-6 w-6 text-primary" />
         <div>
-          <h3 class="h3">Approximate costs</h3>
+          <h2 class="h3">Approximate costs</h2>
           <p class="copy mt-1">What a project typically costs.</p>
         </div>
       </a>
       <a href="/map" class="panel">
         <Icon name="tabler:map" class="h-6 w-6 text-primary" />
         <div>
-          <h3 class="h3">Explore the map</h3>
+          <h2 class="h3">Explore the map</h2>
           <p class="copy mt-1">{schoolCountLabel} schools across Aotearoa.</p>
         </div>
       </a>
       <a href="/contact" class="panel">
         <Icon name="tabler:mail" class="h-6 w-6 text-primary" />
         <div>
-          <h3 class="h3">Contact us</h3>
+          <h2 class="h3">Contact us</h2>
           <p class="copy mt-1">Free advice for any school.</p>
         </div>
       </a>
@@ -205,10 +206,10 @@ const guideIcons: Record<string, string> = {
       <p class="lead">
         Everything you need to plan, build, and run a Bikes in Schools project. The school owns all the
         bikes and helmets, and the tracks are built on school grounds. See it in action on our{' '}
-        <a href="https://www.youtube.com/@bikesinschoolsnz" target="_blank" rel="noopener noreferrer">YouTube channel</a>.
+        <a href="https://www.youtube.com/@bikesinschoolsnz" target="_blank" rel="noopener noreferrer">YouTube channel <span class="sr-only">(opens in a new tab)</span></a>.
       </p>
     </div>
-    <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4" data-pagefind-ignore>
       {guides.map((guide) => (
         <a href={`/guide/${guide.id}`} class="panel">
           <Icon name={guideIcons[guide.id] ?? 'tabler:circle'} class="h-6 w-6 text-primary" />

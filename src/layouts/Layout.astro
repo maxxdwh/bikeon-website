@@ -9,6 +9,7 @@ import Analytics from '@vercel/analytics/astro';
 import SpeedInsights from '@vercel/speed-insights/astro';
 import shareImage from '../assets/images/bledisloe-opening.jpg';
 import logo from '../assets/images/logo-long.svg';
+import SearchDialog from '../components/SearchDialog.astro';
 import { socialLinks } from '../data/nav';
 
 interface Props {
@@ -16,6 +17,10 @@ interface Props {
   description?: string;
   noindex?: boolean;
   schema?: Record<string, unknown>;
+  ogType?: 'website' | 'article';
+  imageAlt?: string;
+  modified?: Date;
+  breadcrumbs?: { name: string; href: string }[];
 }
 
 const {
@@ -23,6 +28,10 @@ const {
   description = 'We help schools across New Zealand set up a complete Bikes in Schools package: bikes, helmets, bike tracks, secure storage, and cycle skills training, all on-site.',
   noindex = false,
   schema,
+  ogType = 'website',
+  imageAlt = title,
+  modified,
+  breadcrumbs,
 } = Astro.props;
 
 const fontPreload = fontData['--font-geist']?.[0]?.src[0]?.url;
@@ -60,13 +69,25 @@ const website = {
   publisher: { '@id': organisation['@id'] },
 };
 const page = schema && {
+  name: title,
+  description,
   ...schema,
   url: canonical.href,
   inLanguage: 'en-NZ',
   isPartOf: { '@id': website['@id'] },
   publisher: { '@id': organisation['@id'] },
+  ...(modified && { dateModified: modified.toISOString() }),
 };
-const jsonLd = { '@context': 'https://schema.org', '@graph': [organisation, website, ...(page ? [page] : [])] };
+const crumbs = breadcrumbs && {
+  '@type': 'BreadcrumbList',
+  itemListElement: [{ name: 'Home', href: '/' }, ...breadcrumbs].map((crumb, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: crumb.name,
+    item: new URL(crumb.href, Astro.site).href,
+  })),
+};
+const jsonLd = { '@context': 'https://schema.org', '@graph': [organisation, website, ...(page ? [page] : []), ...(crumbs ? [crumbs] : [])] };
 ---
 
 <!doctype html>
@@ -87,19 +108,26 @@ const jsonLd = { '@context': 'https://schema.org', '@graph': [organisation, webs
     <meta name="description" content={description} />
     {noindex && <meta name="robots" content="noindex" />}
     <link rel="canonical" href={canonical} />
+    <link rel="preconnect" href="https://eu-assets.i.posthog.com" crossorigin />
+    <link rel="preconnect" href="https://eu.i.posthog.com" crossorigin />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <meta property="og:title" content={title} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={cardUrl} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={imageAlt} />
     <meta property="og:image" content={shareUrl} />
     <meta property="og:locale" content="en_NZ" />
     <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
+    {modified && <meta property="article:modified_time" content={modified.toISOString()} />}
     <meta property="og:site_name" content="Bike On NZ" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={cardUrl} />
+    <meta name="twitter:image:alt" content={imageAlt} />
     <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
     <PostHog />
     <Analytics />
@@ -114,10 +142,11 @@ const jsonLd = { '@context': 'https://schema.org', '@graph': [organisation, webs
   <body class="flex min-h-svh flex-col">
     <a href="#main-content" class="skip-link">Skip to content</a>
     <Header />
-    <main id="main-content" class="flex-1">
+    <main id="main-content" class="flex-1" data-pagefind-body={noindex ? undefined : ''}>
       <slot />
     </main>
     <Footer />
+    <SearchDialog />
     <button
       id="back-to-top"
       aria-label="Back to top"
@@ -129,6 +158,25 @@ const jsonLd = { '@context': 'https://schema.org', '@graph': [organisation, webs
     <SpeedInsights />
   </body>
 </html>
+
+<script is:inline>
+  document.addEventListener('click', (e) => {
+    const ph = window.posthog;
+    const el = e.target instanceof Element ? e.target.closest('a[href], [data-copy]') : null;
+    if (!ph || !el) return;
+    if (el.dataset.copy) {
+      ph.capture('supplier_email_copied', { supplier: el.dataset.supplier, page: location.pathname });
+      return;
+    }
+    const url = new URL(el.href, location.href);
+    const text = (el.getAttribute('aria-label') || el.textContent || '').trim().slice(0, 100);
+    if (/\.pdf$/i.test(url.pathname)) {
+      ph.capture('pdf_download', { url: url.href, text, page: location.pathname });
+    } else if (url.origin !== location.origin && /^https?:$/.test(url.protocol)) {
+      ph.capture('outbound_click', { url: url.href, host: url.hostname, text, supplier: el.dataset.supplier, page: location.pathname });
+    }
+  });
+</script>
 
 <script is:inline>
   const backToTop = document.getElementById('back-to-top');

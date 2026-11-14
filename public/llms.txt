@@ -1,0 +1,22 @@
+# Bike On NZ
+
+> Bike On New Zealand Charitable Trust helps New Zealand schools set up Bikes in Schools projects: a fleet of bikes, helmets, bike tracks, secure storage and cycle skills training, all on-site. Advice is free to any school or council.
+
+## The guide
+
+- [Start here](https://bikeon.org.nz/guide/start-here): what a project includes, the research behind it, and the steps to plan one
+- [Bikes](https://bikeon.org.nz/guide/bikes): choosing, sizing and buying a fleet
+- [Helmets](https://bikeon.org.nz/guide/helmets): standards, fitting and costs
+- [Bike storage](https://bikeon.org.nz/guide/bike-storage): shipping container storage, security and siting
+- [Bike tracks](https://bikeon.org.nz/guide/bike-tracks): riding, pump and skills tracks
+- [Cycle skills training](https://bikeon.org.nz/guide/cycle-skills-training): booking training and BikeReady
+- [Costs and funding](https://bikeon.org.nz/guide/costs-and-funding): typical costs, funders and Board approval
+- [Maintenance](https://bikeon.org.nz/guide/maintenance): keeping bikes, tracks and helmets safe
+
+## Other pages
+
+- [About](https://bikeon.org.nz/about): the trust and its history
+- [Resources](https://bikeon.org.nz/resources): games, curriculum resources and videos for teachers
+- [Map of schools](https://bikeon.org.nz/map): where Bikes in Schools projects are
+- [Media](https://bikeon.org.nz/media): press coverage since 2010
+- [Contact](https://bikeon.org.nz/contact)

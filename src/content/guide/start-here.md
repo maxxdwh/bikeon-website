@@ -3,6 +3,11 @@ title: "Start here"
 description: "What a Bikes in Schools project is and how to plan one."
 order: 1
 heroImage: "../../assets/images/about/pt-england-opening.jpg"
+heroAlt: "Students in red uniforms and helmets riding bikes along a dirt track at the Pt England School opening, with a storage container behind them"
+seoTitle: "How to start a Bikes in Schools project | Bike On NZ"
+seoDescription: "A plain guide for NZ schools: what a Bikes in Schools project includes, what the research says, what it costs, and the steps to plan yours."
+published: 2026-09-27
+updated: 2026-11-14
 ---
 
 ## What is Bikes in Schools?
@@ -13,11 +18,11 @@ The school owns everything: the bikes, the helmets, the tracks, the storage. We 
 
 A typical package includes:
 
-- A fleet of 30 to 50 quality bikes, usually across four sizes
-- A good-quality helmet for every child
-- A riding track, pump track, skills track, or some combination of the three
-- Secure bike storage, where it's needed
-- Introductory cycle skills training to cover the riding and safety basics
+- A fleet of 30 to 50 quality [bikes](/guide/bikes), usually across four sizes
+- A good-quality [helmet](/guide/helmets) for every child
+- A riding track, pump track, skills track, or some combination of the three ([bike tracks](/guide/bike-tracks))
+- Secure [bike storage](/guide/bike-storage), where it's needed
+- Introductory [cycle skills training](/guide/cycle-skills-training) to cover the riding and safety basics
 
 Some councils and providers run complementary programmes worth pairing this with, like Travelwise Safe School Travel Plans in Auckland, or Pedal Ready in Wellington.
 
@@ -65,7 +70,7 @@ We recommend that all schools review the above information, particularly the two
 - **Kids want it.** Bikes are an easy sell to students.
 - **It's complete.** Everything's on-site, ready to go.
 - **It needs little from teachers.** Low organisational overhead once running.
-- **It's good value.** Around $400 per child to set up, roughly $120,000 for a typical school.
+- **It's good value.** Around $400 per child to set up, roughly $120,000 for a typical school. See [Costs and funding](/guide/costs-and-funding).
 
 ## How to plan your project
 
@@ -73,8 +78,8 @@ Every project is different, but most schools work through the same steps. Each o
 
 1. **Get your school behind it.** Talk to your principal, teachers, Board of Trustees, and parents, and decide who will lead the project. Visiting a nearby school that already has tracks is the quickest way to bring people on board. [Find one on the map](/map).
 2. **Work out what you need and get quotes.** Work out how many [bikes](/guide/bikes) and [helmets](/guide/helmets) suit your roll, which [tracks](/guide/bike-tracks) fit your grounds, and whether you need [bike storage](/guide/bike-storage). Ask the suppliers listed in this guide for quotes, then get extra quotes from local bike shops and suppliers, including the cost of ongoing servicing.
-3. **Get Board approval and line up your funding.** Confirm Board of Trustees approval before any fundraising starts. Most funders want a letter confirming Board support and a minuted resolution covering where, who, and how much you're applying for. Funding usually comes from several sources rather than one grant. See [Costs and funding](/guide/costs-and-funding).
-4. **Build the tracks.** Where you can, wait until all or most of the funding is confirmed, so contractors can be on-site together and share equipment. Get a BMX club or professional track builder in for the pump track, and an experienced provider for the skills track. See [Bike tracks](/guide/bike-tracks).
+3. **Get Board approval and line up your funding.** Confirm Board of Trustees approval before any fundraising starts. Funding usually comes from several sources rather than one grant, and funders will ask for specific paperwork. See [Costs and funding](/guide/costs-and-funding).
+4. **Build the tracks.** Where you can, wait until all or most of the funding is confirmed, so contractors can be on-site together and share equipment. See [Bike tracks](/guide/bike-tracks) for who to get in for each one.
 5. **Order bikes, helmets, and storage.** If you're getting a shipping container, check the delivery truck can reach the spot where it will sit. Talk to your track builder and bike supplier together before the pump track is built, so it suits the bikes you'll be riding.
 6. **Book cycle skills training.** Contact your local provider (usually your council, a Regional Sports Trust, or local Police) in advance, so training runs from the day the tracks open. See [Cycle skills training](/guide/cycle-skills-training).
 7. **Hold your opening and keep it going.** Most schools mark the finished project with an official opening and use it to thank their funders. Set aside around $3,000 a year from your operational budget for bike and track [maintenance](/guide/maintenance), and show funders you've done so.

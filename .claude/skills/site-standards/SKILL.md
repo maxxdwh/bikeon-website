@@ -29,8 +29,10 @@ Standing expectations for this repo. Each section is a short list of rules. Add 
 
 ## Links
 
-- Links in page content open in a new tab: inline text links (internal or external), external links, and PDFs. Use `target="_blank"` with `rel="noopener"` (add `noreferrer` for external sites). Guide markdown gets this automatically from the rehype plugin in `astro.config.mjs`.
-- Navigation stays in the same tab: header, footer, guide section bar, "On this page" links, previous/next, and buttons or cards that move around the site. Same-page `#` links and `mailto:` links also stay put.
+- Links to other pages on this site open in the same tab, including inline text links. Readers can open a new tab themselves.
+- Links that leave the site, and links to PDFs and other downloads, open in a new tab with `target="_blank"` and `rel="noopener"` (add `noreferrer` for external sites).
+- Every link that opens a new tab says so to screen readers with `<span class="sr-only">(opens in a new tab)</span>` inside the link. Guide markdown gets this, and the external-link icon, from the rehype plugin in `astro.config.mjs`.
+- Same-page `#` links, `mailto:` and `tel:` links stay put.
 - After changing the rehype plugins, delete `.astro/data-store.json` and restart the dev server; rendered markdown is cached.
 
 ## Content and copy

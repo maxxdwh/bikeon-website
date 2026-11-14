@@ -3,13 +3,18 @@ title: "Bike tracks"
 description: "Specs and costs for riding, pump, and skills tracks."
 order: 5
 heroImage: "../../assets/images/guide/bike-tracks.webp"
+heroAlt: "Children in green school jumpers riding bikes along an asphalt riding track around a school field"
+seoTitle: "School bike tracks: riding, pump and skills | Bike On NZ"
+seoDescription: "Specs, sizes and costs for the three tracks schools build: a riding track, a pump track and a skills track, with advice from schools that have done it."
+published: 2026-09-27
+updated: 2026-11-14
 ---
 
 ## The riding track
 
 This is where most of the riding happens. Schools usually run it around the outside of the playing fields, so it doesn't cut across rugby and soccer. Some loop partway around and double back to fit the available space.
 
-Fifty or more kids can ride at once on a well-built riding track. Beyond biking, schools use the same track for walking, running, school triathlons (if there's a pool), and scooters if it's surfaced in asphalt.
+Fifty or more kids can ride at once on a well-built riding track. Beyond biking, schools use the same track for walking, running, school triathlons (if there's a pool), and scooters if it's surfaced in asphalt. Put your [bike storage](/guide/bike-storage) close to the start of the track so bikes get ridden more.
 
 ### Riding track: Building in asphalt or concrete
 
@@ -21,13 +26,13 @@ Fifty or more kids can ride at once on a well-built riding track. Beyond biking,
 - Depth of basecourse can vary; get local advice
 - A 300m track like this typically costs around $85,000, though costs vary significantly by length and region
 
-![A riding track made of asphalt](../../assets/images/guide/bike-tracks.webp)
+![Children in green school jumpers riding bikes along an asphalt riding track around a school field](../../assets/images/guide/bike-tracks.webp)
 
 ## The pump track
 
 Kids don't pedal on a pump track. They pump their bikes through the rollers to keep moving, a bit like working a swing. It's the track kids love most, and it burns more energy than the others.
 
-Limit it to six riders at a time. Loop your track designer in with your bike supplier before building starts; different bikes have different centres of gravity, and having a kid's bike on-site during construction helps the design suit what you'll actually be riding.
+Limit it to six riders at a time. Loop your track designer in with your [bike supplier](/guide/bikes) before building starts; different bikes have different centres of gravity, and having a kid's bike on-site during construction helps the design suit what you'll actually be riding.
 
 - Mostly dirt, with limestone along the top
 - Not a jump track
@@ -35,7 +40,7 @@ Limit it to six riders at a time. Loop your track designer in with your bike sup
 - A BMX club or professional track builder is worth getting in for design and construction
 - Costs run $8,000 to $15,000, depending on size and region
 
-![A pump track](../../assets/images/guide/pump-track.webp)
+![A rider in a red top and helmet pumping a mountain bike over sandy rollers on a limestone pump track](../../assets/images/guide/pump-track.webp)
 
 ## The skills track
 
@@ -43,10 +48,10 @@ A limestone track with a series of obstacles: skinnies, a slalom, a see-saw, and
 
 - Around 10m by 30m
 - Costs run $6,000 to $10,000, depending on size, obstacle count, and region
-- Get an experienced provider to build it
+- Get an experienced provider to build it, and book [cycle skills training](/guide/cycle-skills-training) so kids learn each obstacle properly
 
 [How to build a Skills Track (PDF)](/downloads/how-to-build-a-skills-track.pdf)
 
 A few schools have built their skills track with asphalt as this reduces ongoing maintenance needed.
 
-![A skills track made of asphalt](../../assets/images/guide/skills-track.webp)
+![A child on a pink bike on a paved skills track beside a garden bed edged with old tyres](../../assets/images/guide/skills-track.webp)

@@ -9,6 +9,11 @@ const guide = defineCollection({
     description: z.string(),
     order: z.number(),
     heroImage: image(),
+    heroAlt: z.string(),
+    seoTitle: z.string().optional(),
+    seoDescription: z.string().optional(),
+    published: z.coerce.date(),
+    updated: z.coerce.date(),
   }),
 });
 
