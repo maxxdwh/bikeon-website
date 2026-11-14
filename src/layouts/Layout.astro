@@ -24,7 +24,7 @@ interface Props {
 }
 
 const {
-  title = 'Bike On NZ — Every Kiwi kid, riding a bike at school',
+  title = 'Bike On NZ | Every Kiwi kid, riding a bike at school',
   description = 'We help schools across New Zealand set up a complete Bikes in Schools package: bikes, helmets, bike tracks, secure storage, and cycle skills training, all on-site.',
   noindex = false,
   schema,
@@ -131,13 +131,9 @@ const jsonLd = { '@context': 'https://schema.org', '@graph': [organisation, webs
     <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
     <PostHog />
     <Analytics />
-    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-J10SJB8201"></script>
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-J10SJB8201');
-    </script>
+    {import.meta.env.PROD && (
+      <script is:inline set:html={`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-J10SJB8201');function whenIdle(cb){var done=false;function run(){if(done)return;done=true;cb();}['pointerdown','keydown','scroll','touchstart'].forEach(function(e){addEventListener(e,run,{once:true,passive:true});});addEventListener('load',function(){setTimeout(run,4000);});}whenIdle(function(){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-J10SJB8201';document.head.appendChild(s);});`} />
+    )}
   </head>
   <body class="flex min-h-svh flex-col">
     <a href="#main-content" class="skip-link">Skip to content</a>

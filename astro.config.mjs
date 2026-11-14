@@ -30,6 +30,7 @@ export default defineConfig({
   ],
   site: 'https://bikeon.org.nz',
   trailingSlash: 'never',
+  build: { inlineStylesheets: 'always' },
   prefetch: { prefetchAll: true, defaultStrategy: 'hover' },
   vite: { plugins: [tailwindcss()] },
   integrations: [

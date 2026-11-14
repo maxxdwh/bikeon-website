@@ -64,11 +64,12 @@ const guideIcons: Record<string, string> = {
       <Image
         src={heroHelmet}
         alt="A girl having her helmet fitted before a ride"
-        sizes="(min-width: 64rem) 420px, 60vw"
         width={420}
         height={430}
         fit="cover"
         priority
+        sizes="(min-width: 64rem) 420px, 54vw"
+        quality={60}
         class="col-span-3 row-span-2 h-full w-full rounded-2xl object-cover"
       />
       <Image
@@ -78,6 +79,9 @@ const guideIcons: Record<string, string> = {
         height={210}
         fit="cover"
         loading="eager"
+        fetchpriority="low"
+        sizes="(min-width: 64rem) 280px, 36vw"
+        quality={60}
         class="col-span-2 aspect-[4/3] h-full w-full rounded-2xl object-cover"
       />
       <Image
@@ -87,6 +91,9 @@ const guideIcons: Record<string, string> = {
         height={210}
         fit="cover"
         loading="eager"
+        fetchpriority="low"
+        sizes="(min-width: 64rem) 280px, 36vw"
+        quality={60}
         class="col-span-2 aspect-[4/3] h-full w-full rounded-2xl object-cover"
       />
     </div>

@@ -110,7 +110,7 @@ import { Icon } from 'astro-icon/components';
           tag.textContent = 'Map';
         } else {
           const sub = item.sub_results?.[0];
-          const page = (item.meta.title ?? item.url).replace(/\s+[—|-]\s+Bike On NZ$/, '');
+          const page = (item.meta.title ?? item.url).replace(/\s+[|-]\s+Bike On NZ$/, '');
           const title = document.createElement('span');
           title.className = 'search__title';
           title.textContent = page;

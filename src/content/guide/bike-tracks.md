@@ -48,7 +48,7 @@ A limestone track with a series of obstacles: skinnies, a slalom, a see-saw, and
 
 - Around 10m by 30m
 - Costs run $6,000 to $10,000, depending on size, obstacle count, and region
-- Get an experienced provider to build it, and book [cycle skills training](/guide/cycle-skills-training) so kids learn each obstacle properly
+- Get an experienced provider to build it, and book [cycle skills training](/guide/cycle-skills-training) so a trainer can walk kids through each obstacle
 
 [How to build a Skills Track (PDF)](/downloads/how-to-build-a-skills-track.pdf)
 

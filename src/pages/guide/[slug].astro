@@ -18,7 +18,8 @@ export async function getStaticPaths() {
 }
 
 const { guide, prev, next } = Astro.props;
-const { Content } = await render(guide);
+const { Content, headings } = await render(guide);
+const toc = headings.filter((h) => h.depth === 2);
 const allGuides = (await getCollection('guide')).sort((a, b) => a.data.order - b.data.order);
 
 const supplierCategory = { bikes: 'Bikes', 'bike-storage': 'Bike storage' }[guide.id as string];
@@ -27,7 +28,7 @@ const reviewed = guide.data.updated.toLocaleDateString('en-NZ', { month: 'long',
 ---
 
 <Layout
-  title={guide.data.seoTitle ?? `${guide.data.title} — Bike On NZ`}
+  title={guide.data.seoTitle ?? `${guide.data.title} | Bike On NZ`}
   description={guide.data.seoDescription ?? guide.data.description}
   ogType="article"
   imageAlt={guide.data.heroAlt}
@@ -74,11 +75,13 @@ const reviewed = guide.data.updated.toLocaleDateString('en-NZ', { month: 'long',
 
         <div class="no-print mt-8 rounded-lg bg-tint-2 px-6 py-5 lg:hidden" data-pagefind-ignore>
           <p class="mb-3 text-lg font-bold">On this page</p>
-          <div id="toc-pills" class="flex flex-col gap-2"></div>
+          <div id="toc-pills" class="flex flex-col gap-2">
+            {toc.map((h) => <a href={`#${h.slug}`} class="toc-pill block font-semibold leading-snug no-underline hover:underline">{h.text}</a>)}
+          </div>
           <GuideExport id="export-inline" />
         </div>
 
-        <Image src={guide.data.heroImage} alt={guide.data.heroAlt} width={760} priority class="no-print mt-8 w-full rounded-2xl object-cover" />
+        <Image src={guide.data.heroImage} alt={guide.data.heroAlt} width={760} priority quality={55} widths={[380, 700, 760]} sizes="(min-width: 800px) 760px, 92vw" class="no-print mt-8 w-full rounded-2xl object-cover" />
 
         <article class="prose mt-10 print:mt-4 [&_h2]:scroll-mt-40" data-guide-text>
           <Content />
@@ -109,7 +112,9 @@ const reviewed = guide.data.updated.toLocaleDateString('en-NZ', { month: 'long',
       <aside class="no-print hidden w-80 shrink-0 self-stretch lg:block" data-pagefind-ignore>
         <div class="sticky top-40 max-h-[calc(100svh-11rem)] overflow-y-auto rounded-lg bg-tint-2 px-6 py-5">
           <p class="mb-3 text-lg font-bold">On this page</p>
-          <ul id="toc-list" class="flex flex-col gap-2"></ul>
+          <ul id="toc-list" class="flex flex-col gap-2">
+            {toc.map((h) => <li><a href={`#${h.slug}`} class="toc-link block font-semibold leading-snug no-underline hover:underline">{h.text}</a></li>)}
+          </ul>
           <GuideExport id="export-aside" />
         </div>
       </aside>
@@ -123,24 +128,6 @@ const reviewed = guide.data.updated.toLocaleDateString('en-NZ', { month: 'long',
   if (article && tocList) {
     const headings = article.querySelectorAll('h2');
     const tocPills = document.getElementById('toc-pills');
-    headings.forEach((h, i) => {
-      if (!h.id) h.id = 'heading-' + i;
-      const li = document.createElement('li');
-      const a = document.createElement('a');
-      a.href = '#' + h.id;
-      a.textContent = h.textContent;
-      a.className = 'toc-link block font-semibold leading-snug no-underline hover:underline';
-      li.appendChild(a);
-      tocList.appendChild(li);
-      if (tocPills) {
-        const pill = document.createElement('a');
-        pill.href = '#' + h.id;
-        pill.textContent = h.textContent;
-        pill.className = 'toc-pill block font-semibold leading-snug no-underline hover:underline';
-        tocPills.appendChild(pill);
-      }
-    });
-
     const tocLinks = tocList.querySelectorAll('.toc-link');
     const tocPillsAll = tocPills ? tocPills.querySelectorAll('.toc-pill') : [];
     let ticking = false;

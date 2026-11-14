@@ -43,7 +43,7 @@ Helmets only protect what they're sitting on properly. Three quick checks, easy 
 
 If anyone has a crash (especially a knock to the head), tell an adult straight away.
 
-A good [cycle skills trainer](/guide/cycle-skills-training) will help fit helmets on day one, which is a handy time to teach this check.
+A good [cycle skills trainer](/guide/cycle-skills-training) will help fit helmets on day one.
 
 [More on fitting a helmet correctly](https://at.govt.nz/cycling-walking/bikes-gear/cycling-gear/check-and-fit-your-helmet)
 

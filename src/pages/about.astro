@@ -9,7 +9,7 @@ import newsAtSchool from '../assets/images/about/news-at-school.jpg';
 import { schoolCountLabel } from '../data/schoolCount';
 ---
 
-<Layout title="About — Bike On NZ" schema={{ '@type': 'AboutPage' }} breadcrumbs={[{ name: 'About', href: '/about' }]} description="Bike On New Zealand Charitable Trust (CC44779) was founded in 2010 to help more New Zealanders experience the joys and benefits of riding a bike.">
+<Layout title="About | Bike On NZ" schema={{ '@type': 'AboutPage' }} breadcrumbs={[{ name: 'About', href: '/about' }]} description="Bike On New Zealand Charitable Trust (CC44779) was founded in 2010 to help more New Zealanders experience the joys and benefits of riding a bike.">
   <section class="container-page flex flex-wrap items-center gap-12 py-[clamp(2.5rem,7vw,4rem)]">
     <div class="flex min-w-0 flex-[1_1_26rem] flex-col gap-6">
       <h1 class="h-hero">About Bikes in Schools</h1>
@@ -29,6 +29,8 @@ import { schoolCountLabel } from '../data/schoolCount';
         height={430}
         fit="cover"
         priority
+        sizes="(min-width: 64rem) 420px, 54vw"
+        quality={60}
         class="col-span-3 row-span-2 h-full w-full rounded-2xl object-cover"
       />
       <Image
@@ -38,6 +40,9 @@ import { schoolCountLabel } from '../data/schoolCount';
         height={210}
         fit="cover"
         loading="eager"
+        fetchpriority="low"
+        sizes="(min-width: 64rem) 280px, 36vw"
+        quality={60}
         class="col-span-2 aspect-[4/3] h-full w-full rounded-2xl object-cover"
       />
       <Image
@@ -47,6 +52,9 @@ import { schoolCountLabel } from '../data/schoolCount';
         height={210}
         fit="cover"
         loading="eager"
+        fetchpriority="low"
+        sizes="(min-width: 64rem) 280px, 36vw"
+        quality={60}
         class="col-span-2 aspect-[4/3] h-full w-full rounded-2xl object-cover"
       />
     </div>

@@ -7,7 +7,7 @@ import schools from '../data/schools.json';
 const regions = [...new Set(schools.map((s) => s.region))].sort();
 ---
 
-<Layout title="Map of Schools — Bike On NZ" schema={{ '@type': 'WebPage' }} breadcrumbs={[{ name: 'Map of Schools', href: '/map' }]} description="See where Bikes in Schools projects are across New Zealand.">
+<Layout title="Map of Schools | Bike On NZ" schema={{ '@type': 'WebPage' }} breadcrumbs={[{ name: 'Map of Schools', href: '/map' }]} description="See where Bikes in Schools projects are across New Zealand.">
   <HeroSection
     title="Map of Schools"
     description={`${schools.length} schools across New Zealand with a Bikes in Schools project. Search by name, filter by region, or pan the map to see what's nearby.`}
@@ -260,7 +260,7 @@ const regions = [...new Set(schools.map((s) => s.region))].sort();
     noResults.classList.toggle('hidden', visibleCount > 0);
   }
 
-  // Country overview still clips Chatham / far-north markers at the tile edge —
+  // Country overview still clips Chatham / far-north markers at the tile edge:
   // show the full list until the user zooms in past the default.
   function isOverviewView() {
     if (!map) return true;

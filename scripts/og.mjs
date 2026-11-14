@@ -51,7 +51,7 @@ async function main() {
     const url = '/' + file.slice(DIST.length + 1).replace(/index\.html$/, '').replace(/\.html$/, '');
     const html = await readFile(file, 'utf8');
     const { title: ogTitle, description, imgSrc } = extract(html);
-    const title = clip(ogTitle.replace(/^Bike On NZ — /, '').replace(/ — Bike On NZ$/, ''), 80, DEFAULT_TITLE);
+    const title = clip(ogTitle.replace(/^Bike On NZ \| /, '').replace(/ \| Bike On NZ$/, ''), 80, DEFAULT_TITLE);
     const desc = clip(description, 150, DEFAULT_DESCRIPTION);
 
     let photo = null;

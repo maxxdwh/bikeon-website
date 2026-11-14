@@ -5,7 +5,7 @@ import { Image } from 'astro:assets';
 import royalOak from '../assets/images/about/royal-oak-opening.jpg';
 ---
 
-<Layout title="Contact — Bike On NZ" schema={{ '@type': 'ContactPage' }} breadcrumbs={[{ name: 'Contact', href: '/contact' }]} description="Get in touch with Bike On NZ about starting a Bikes in Schools project.">
+<Layout title="Contact | Bike On NZ" schema={{ '@type': 'ContactPage' }} breadcrumbs={[{ name: 'Contact', href: '/contact' }]} description="Get in touch with Bike On NZ about starting a Bikes in Schools project.">
   <HeroSection
     title="Get in touch"
     description="Got a question about starting a Bikes in Schools project, or want to talk through what it'd take at your school? Get in touch, we're happy to help."
@@ -32,6 +32,9 @@ import royalOak from '../assets/images/about/royal-oak-opening.jpg';
           src={royalOak}
           alt="Bikes in Schools opening event at Royal Oak School"
           width={580}
+          quality={55}
+          sizes="(min-width: 64rem) 580px, 92vw"
+          priority
           class="mt-8 w-full rounded-2xl object-cover"
         />
       </div>
