@@ -43,7 +43,7 @@ export default function pagefind() {
             content: `${school.name}. ${place}`,
             language: 'en-nz',
             meta: { title: school.name, kind: 'school', place },
-            filters: { type: ['Map'] },
+            filters: { type: ['School'] },
           });
           if (record.errors.length) record.errors.forEach(logger.error);
         }

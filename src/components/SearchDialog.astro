@@ -35,7 +35,7 @@ import { Icon } from 'astro-icon/components';
   const status = document.getElementById('search-status');
   const list = document.getElementById('search-results');
   const typesEl = document.getElementById('search-types');
-  const TYPES = ['Guide', 'Page', 'Map', 'News'];
+  const TYPES = ['Guide', 'Page', 'School', 'News'];
   let activeType = 'All';
 
   type Sub = { url: string; title?: string; excerpt?: string };
@@ -128,7 +128,7 @@ import { Icon } from 'astro-icon/components';
             hint.textContent = ' (opens in a new tab)';
             body.append(hint);
           }
-          tag.textContent = news ? 'News' : 'Map';
+          tag.textContent = news ? 'News' : 'School';
         } else {
           const sub = item.sub_results?.[0];
           const page = (item.meta.title ?? item.url).replace(/\s+[|-]\s+Bike On NZ$/, '');
