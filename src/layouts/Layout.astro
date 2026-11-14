@@ -34,6 +34,7 @@ const {
   breadcrumbs,
 } = Astro.props;
 
+const pageType = Astro.url.pathname.startsWith('/guide') ? 'Guide' : 'Page';
 const fontPreload = fontData['--font-geist']?.[0]?.src[0]?.url;
 const canonical = new URL(Astro.url.pathname.replace(/(.)\/$/, '$1'), Astro.site);
 const share = await getImage({ src: shareImage, width: 1200, height: 630, fit: 'cover', format: 'jpg' });
@@ -139,6 +140,7 @@ const jsonLd = { '@context': 'https://schema.org', '@graph': [organisation, webs
     <a href="#main-content" class="skip-link">Skip to content</a>
     <Header />
     <main id="main-content" class="flex-1" data-pagefind-body={noindex ? undefined : ''}>
+      {!noindex && <meta data-pagefind-filter="type[content]" content={pageType} />}
       <slot />
     </main>
     <Footer />

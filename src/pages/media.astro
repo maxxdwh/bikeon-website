@@ -45,7 +45,7 @@ const mediaWithLogos = media.map((m) => ({
 
   <section class="container-page page-end pt-4">
     <div class="flex flex-col gap-x-12 gap-y-6 lg:flex-row lg:items-start">
-      <div class="flex flex-col lg:sticky lg:top-24 lg:w-80 lg:shrink-0">
+      <div class="flex flex-col lg:sticky lg:top-24 lg:w-80 lg:shrink-0" data-pagefind-ignore>
         <div class="space-y-3">
           <div class="relative">
             <Icon name="tabler:search" class="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
@@ -92,7 +92,7 @@ const mediaWithLogos = media.map((m) => ({
       </div>
 
       <div class="flex-1">
-        <div id="media-cards" class="divide-y divide-line-soft border-y border-line">
+        <div id="media-cards" class="divide-y divide-line-soft border-y border-line" data-pagefind-ignore>
           {mediaWithLogos.map((story) => (
             story.archived ? (
               <div
@@ -154,7 +154,7 @@ const mediaWithLogos = media.map((m) => ({
             )
           ))}
         </div>
-        <div id="no-results" role="status" class="hidden flex-col items-center justify-center gap-3 py-16 text-center">
+        <div id="no-results" role="status" data-pagefind-ignore class="hidden flex-col items-center justify-center gap-3 py-16 text-center">
           <div class="space-y-1">
             <p class="h3">No stories found</p>
             <p class="copy">Try a different search or clear your filters.</p>

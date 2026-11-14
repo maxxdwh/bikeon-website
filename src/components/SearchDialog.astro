@@ -24,6 +24,7 @@ import { Icon } from 'astro-icon/components';
       <Icon name="tabler:x" class="h-5 w-5" />
     </button>
   </div>
+  <div id="search-types" class="search__types" role="group" aria-label="Filter results by type" hidden></div>
   <p id="search-status" class="search__status" role="status" aria-live="polite"></p>
   <ul id="search-results" class="search__results" role="listbox" aria-label="Search results"></ul>
 </dialog>
@@ -33,11 +34,19 @@ import { Icon } from 'astro-icon/components';
   const input = document.getElementById('search-input') as HTMLInputElement | null;
   const status = document.getElementById('search-status');
   const list = document.getElementById('search-results');
+  const typesEl = document.getElementById('search-types');
+  const TYPES = ['Guide', 'Page', 'Map', 'News'];
+  let activeType = 'All';
 
   type Sub = { url: string; title?: string; excerpt?: string };
   type Data = { url: string; excerpt: string; meta: { title?: string; kind?: string; place?: string }; sub_results?: Sub[] };
   type Pagefind = {
-    debouncedSearch: (q: string, o?: object, ms?: number) => Promise<{ results: { data: () => Promise<Data> }[] } | null>;
+    filters: () => Promise<unknown>;
+    debouncedSearch: (
+      q: string,
+      o?: object,
+      ms?: number,
+    ) => Promise<{ results: { data: () => Promise<Data> }[]; filters?: { type?: Record<string, number> }; totalFilters?: { type?: Record<string, number> } } | null>;
   };
 
   let pagefind: Pagefind | null = null;
@@ -49,6 +58,7 @@ import { Icon } from 'astro-icon/components';
       try {
         const url = '/pagefind/pagefind.js';
         pagefind = await import(/* @vite-ignore */ url);
+        await pagefind?.filters();
       } catch {
         unavailable = true;
       }
@@ -98,8 +108,13 @@ import { Icon } from 'astro-icon/components';
         body.className = 'search__body';
         const tag = document.createElement('span');
         tag.className = 'search__tag';
-        if (item.meta.kind === 'school') {
+        if (item.meta.kind === 'school' || item.meta.kind === 'news') {
+          const news = item.meta.kind === 'news';
           a.href = item.url;
+          if (news) {
+            a.target = '_blank';
+            a.rel = 'noopener noreferrer';
+          }
           const name = document.createElement('span');
           name.className = 'search__title';
           name.textContent = item.meta.title ?? '';
@@ -107,7 +122,13 @@ import { Icon } from 'astro-icon/components';
           place.className = 'search__excerpt';
           place.textContent = item.meta.place ?? '';
           body.append(name, place);
-          tag.textContent = 'Map';
+          if (news) {
+            const hint = document.createElement('span');
+            hint.className = 'sr-only';
+            hint.textContent = ' (opens in a new tab)';
+            body.append(hint);
+          }
+          tag.textContent = news ? 'News' : 'Map';
         } else {
           const sub = item.sub_results?.[0];
           const page = (item.meta.title ?? item.url).replace(/\s+[|-]\s+Bike On NZ$/, '');
@@ -149,6 +170,8 @@ import { Icon } from 'astro-icon/components';
     const id = ++latest;
     if (!query) {
       list?.replaceChildren();
+      typesEl?.replaceChildren();
+      if (typesEl) typesEl.hidden = true;
       setActive(-1);
       setStatus('');
       return;
@@ -158,17 +181,56 @@ import { Icon } from 'astro-icon/components';
       setStatus('Search works on the built site. Run a build, then preview it.');
       return;
     }
-    const found = await pf.debouncedSearch(query, {}, 150);
+    const options = activeType === 'All' ? {} : { filters: { type: activeType } };
+    const found = await pf.debouncedSearch(query, options, 150);
     if (!found || id !== latest) return;
+    const totals = found.totalFilters?.type;
+    const counts = totals && Object.keys(totals).length ? totals : (found.filters?.type ?? {});
+    if (activeType !== 'All' && !counts[activeType]) {
+      activeType = 'All';
+      run();
+      return;
+    }
     const all = await Promise.all(found.results.slice(0, 24).map((r) => r.data()));
-    const isSchool = (d: Data) => d.meta.kind === 'school';
-    const schoolCap = all.some((d) => !isSchool(d)) ? 3 : 8;
-    let schools = 0;
-    const items = all
-      .filter((d) => !isSchool(d) || ++schools <= schoolCap)
-      .slice(0, 8);
-    if (id === latest) render(items, query);
+    const kindOf = (d: Data) => d.meta.kind ?? 'page';
+    const items =
+      activeType === 'All'
+        ? all.sort((x, y) => Number(kindOf(x) !== 'page') - Number(kindOf(y) !== 'page')).slice(0, 8)
+        : all;
+    if (id !== latest) return;
+    renderTypes(counts);
+    render(items, query);
   };
+
+  const renderTypes = (counts: Record<string, number>) => {
+    if (!typesEl) return;
+    const total = TYPES.reduce((sum, type) => sum + (counts[type] ?? 0), 0);
+    const present = TYPES.filter((type) => counts[type]);
+    if (present.length < 2) {
+      typesEl.hidden = true;
+      typesEl.replaceChildren();
+      return;
+    }
+    typesEl.hidden = false;
+    typesEl.replaceChildren(
+      ...[['All', total] as const, ...present.map((type) => [type, counts[type]] as const)].map(([type, count]) => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'search__pill';
+        button.dataset.type = type;
+        button.setAttribute('aria-pressed', String(type === activeType));
+        button.textContent = `${type} ${count}`;
+        return button;
+      }),
+    );
+  };
+
+  typesEl?.addEventListener('click', (e) => {
+    const pill = (e.target as HTMLElement).closest<HTMLButtonElement>('[data-type]');
+    if (!pill) return;
+    activeType = pill.dataset.type ?? 'All';
+    run();
+  });
 
   const open = () => {
     if (!dialog || dialog.open) return;
@@ -257,7 +319,7 @@ import { Icon } from 'astro-icon/components';
     border: 0;
     background: none;
     font: inherit;
-    font-size: 1.125rem;
+    font-size: 1.0625rem;
     color: var(--ink);
   }
   .search__input:focus {
@@ -280,6 +342,35 @@ import { Icon } from 'astro-icon/components';
   }
   .search__close:hover {
     background: var(--tint-2);
+  }
+  .search__types {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem 0;
+  }
+  .search__types[hidden] {
+    display: none;
+  }
+  .search__pill {
+    padding: 0.125rem 0.875rem;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    background: #fff;
+    color: var(--ink);
+    font: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.6;
+    cursor: pointer;
+  }
+  .search__pill:hover {
+    border-color: var(--brand);
+  }
+  .search__pill[aria-pressed='true'] {
+    border-color: var(--ink);
+    background: var(--ink);
+    color: #fff;
   }
   .search__status {
     margin: 0;
@@ -304,7 +395,7 @@ import { Icon } from 'astro-icon/components';
     align-items: flex-start;
     justify-content: space-between;
     gap: 1rem;
-    padding: 0.75rem;
+    padding: 0.5rem 0.75rem;
     border-radius: 0.75rem;
     color: var(--ink);
     text-decoration: none;
@@ -316,7 +407,7 @@ import { Icon } from 'astro-icon/components';
   .search__body {
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
+    gap: 0.0625rem;
     min-width: 0;
   }
   .search__tag {
@@ -331,8 +422,9 @@ import { Icon } from 'astro-icon/components';
     line-height: 1.5;
   }
   .search__title {
-    font-size: 1.125rem;
+    font-size: 1rem;
     font-weight: 700;
+    line-height: 1.4;
   }
   .search__section {
     color: var(--blue-700);
@@ -342,7 +434,7 @@ import { Icon } from 'astro-icon/components';
   .search__excerpt {
     color: var(--text);
     font-size: 1rem;
-    line-height: 1.5;
+    line-height: 1.4;
   }
   .search__excerpt mark {
     background: var(--tint);

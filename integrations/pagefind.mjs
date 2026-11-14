@@ -43,10 +43,22 @@ export default function pagefind() {
             content: `${school.name}. ${place}`,
             language: 'en-nz',
             meta: { title: school.name, kind: 'school', place },
+            filters: { type: ['Map'] },
           });
           if (record.errors.length) record.errors.forEach(logger.error);
         }
-        logger.info(`Pagefind indexed ${pages.page_count} pages and ${schools.length} schools`);
+        const stories = JSON.parse(readFileSync(new URL('../src/data/media.json', import.meta.url), 'utf8')).filter((story) => !story.archived);
+        for (const story of stories) {
+          const record = await index.addCustomRecord({
+            url: story.url,
+            content: `${story.title}. ${story.source}. ${story.date}`,
+            language: 'en-nz',
+            meta: { title: story.title, kind: 'news', place: `${story.source} · ${story.date}` },
+            filters: { type: ['News'] },
+          });
+          if (record.errors.length) record.errors.forEach(logger.error);
+        }
+        logger.info(`Pagefind indexed ${pages.page_count} pages, ${schools.length} schools and ${stories.length} news stories`);
         const written = await index.writeFiles({ outputPath: path.join(outDir, 'pagefind') });
         if (written.errors.length) written.errors.forEach(logger.error);
       },
