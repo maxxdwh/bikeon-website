@@ -45,7 +45,7 @@ const regions = [...new Set(schools.map((s) => s.region))].sort();
         </div>
 
         <div id="school-list-wrap" class="min-h-0 flex-1 overflow-y-auto border-y border-line max-lg:max-h-[400px]">
-          <ul id="school-list" class="divide-y divide-line-soft">
+          <ul id="school-list" class="divide-y divide-line-soft" data-pagefind-ignore>
             {schools.map((school, i) => (
               <li
                 class="school-item"
@@ -142,6 +142,15 @@ const regions = [...new Set(schools.map((s) => s.region))].sort();
   }
 
   let pendingFocusIndex = null;
+
+  function schoolSlug(school) {
+    return `${school.name} ${school.town}`
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-|-$/g, '');
+  }
 
   function focusSchool(index) {
     if (!markers.length) {
@@ -307,6 +316,17 @@ const regions = [...new Set(schools.map((s) => s.region))].sort();
     regionFilter.addEventListener('change', applyFilters);
 
     resetBtn.addEventListener('click', resetFilters);
+
+    const wanted = new URLSearchParams(location.search).get('school');
+    if (wanted) {
+      schoolsReady.then(() => {
+        const index = schools.findIndex((s) => schoolSlug(s) === wanted);
+        if (index >= 0) {
+          focusSchool(index);
+          document.getElementById('map')?.scrollIntoView({ block: 'center' });
+        }
+      });
+    }
 
     listItems.forEach((item) => {
       item.querySelector('button')?.addEventListener('click', () => {

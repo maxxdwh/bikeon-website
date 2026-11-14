@@ -26,7 +26,7 @@ Fifty or more kids can ride at once on a well-built riding track. Beyond biking,
 - Depth of basecourse can vary; get local advice
 - A 300m track like this typically costs around $85,000, though costs vary significantly by length and region
 
-![Children in green school jumpers riding bikes along an asphalt riding track around a school field](../../assets/images/guide/bike-tracks.webp)
+![Children in green school jumpers riding bikes along an asphalt riding track around a school field](../../assets/images/guide/bike-tracks.webp "A riding track made of asphalt")
 
 ## The pump track
 
@@ -40,7 +40,7 @@ Limit it to six riders at a time. Loop your track designer in with your [bike su
 - A BMX club or professional track builder is worth getting in for design and construction
 - Costs run $8,000 to $15,000, depending on size and region
 
-![A rider in a red top and helmet pumping a mountain bike over sandy rollers on a limestone pump track](../../assets/images/guide/pump-track.webp)
+![A rider in a red top and helmet pumping a mountain bike over sandy rollers on a limestone pump track](../../assets/images/guide/pump-track.webp "A pump track")
 
 ## The skills track
 
@@ -54,4 +54,4 @@ A limestone track with a series of obstacles: skinnies, a slalom, a see-saw, and
 
 A few schools have built their skills track with asphalt as this reduces ongoing maintenance needed.
 
-![A child on a pink bike on a paved skills track beside a garden bed edged with old tyres](../../assets/images/guide/skills-track.webp)
+![A child on a pink bike on a paved skills track beside a garden bed edged with old tyres](../../assets/images/guide/skills-track.webp "A skills track made of asphalt")

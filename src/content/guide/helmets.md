@@ -22,7 +22,7 @@ Some schools run a shared pool instead: around 100 helmets in mixed sizes, store
 
 Look for helmets that meet the AS/NZS 2063 standard and check for the certification sticker before you buy. Easy-adjust straps make fitting faster, especially with a whole class waiting.
 
-![AS/NZS 2063 certified product sticker for bicycle helmets, with a red Certified Product strip and a reference number](../../assets/images/guide/helmet-standard-sticker.png)
+![AS/NZS 2063 certified product sticker for bicycle helmets, with a red Certified Product strip and a reference number](../../assets/images/guide/helmet-standard-sticker.png "AS/NZS 2063 certification sticker")
 
 An example of what's out there:
 

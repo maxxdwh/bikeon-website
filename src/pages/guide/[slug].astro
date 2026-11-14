@@ -48,7 +48,7 @@ const reviewed = guide.data.updated.toLocaleDateString('en-NZ', { month: 'long',
 >
   <nav class="no-print sticky top-[calc(var(--header-h)+1px)] z-40 border-b border-border bg-white" aria-label="Guide sections" data-pagefind-ignore>
     <div class="container-page">
-      <div class="flex gap-x-5 overflow-x-auto font-semibold [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+      <div class="-mx-[var(--gutter)] flex gap-x-5 overflow-x-auto px-[var(--gutter)] font-semibold [scroll-padding-inline:var(--gutter)] [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         {allGuides.map((g) => (
           <a
             href={`/guide/${g.id}`}

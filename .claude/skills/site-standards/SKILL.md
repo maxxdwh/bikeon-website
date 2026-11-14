@@ -22,6 +22,7 @@ Standing expectations for this repo. Each section is a short list of rules. Add 
 - Supplier logos are local files in `src/assets/images/suppliers/` rendered with `<Image layout="fixed">`. To add or refresh one, fetch `https://img.logo.dev/<hostname>?token=$PUBLIC_LOGO_DEV_KEY&size=128&format=webp&retina=true` and save it into that directory as `<hostname>.webp`.
 - Keep source files at the highest resolution available; the optimiser handles downsizing. Do not hand-resize or pre-compress before adding them.
 - After changing `src/content.config.ts`, restart the dev server. It serves stale content otherwise.
+- In guide markdown, the alt text is the full description for screen readers. Add a short visible caption as the image title: `![Long description](path "Short caption")`. Without a title the alt text is used as the caption and hidden from screen readers so it isn't read twice.
 
 ## Typography and layout
 
@@ -33,7 +34,7 @@ Standing expectations for this repo. Each section is a short list of rules. Add 
 - Links that leave the site, and links to PDFs and other downloads, open in a new tab with `target="_blank"` and `rel="noopener"` (add `noreferrer` for external sites).
 - Every link that opens a new tab says so to screen readers with `<span class="sr-only">(opens in a new tab)</span>` inside the link. Guide markdown gets this, and the external-link icon, from the rehype plugin in `astro.config.mjs`.
 - Same-page `#` links, `mailto:` and `tel:` links stay put.
-- After changing the rehype plugins, delete `.astro/data-store.json` and restart the dev server; rendered markdown is cached.
+- After changing the rehype plugins, delete `.astro/data-store.json` and `node_modules/.astro/data-store.json`, then restart the dev server; rendered markdown is cached in both.
 
 ## Content and copy
 

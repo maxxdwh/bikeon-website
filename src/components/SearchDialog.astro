@@ -35,7 +35,7 @@ import { Icon } from 'astro-icon/components';
   const list = document.getElementById('search-results');
 
   type Sub = { url: string; title?: string; excerpt?: string };
-  type Data = { url: string; excerpt: string; meta: { title?: string }; sub_results?: Sub[] };
+  type Data = { url: string; excerpt: string; meta: { title?: string; kind?: string; place?: string }; sub_results?: Sub[] };
   type Pagefind = {
     debouncedSearch: (q: string, o?: object, ms?: number) => Promise<{ results: { data: () => Promise<Data> }[] } | null>;
   };
@@ -94,22 +94,40 @@ import { Icon } from 'astro-icon/components';
         a.id = `search-result-${i}`;
         a.setAttribute('role', 'option');
         a.href = (item.sub_results?.[0]?.url ?? item.url).replace(/(.)\/(#|$)/, '$1$2');
-        const sub = item.sub_results?.[0];
-        const page = (item.meta.title ?? item.url).replace(/\s+[—|-]\s+Bike On NZ$/, '');
-        const title = document.createElement('span');
-        title.className = 'search__title';
-        title.textContent = page;
-        const excerpt = document.createElement('span');
-        excerpt.className = 'search__excerpt';
-        excerpt.innerHTML = sub?.excerpt ?? item.excerpt;
-        a.append(title);
-        if (sub?.title && sub.title !== page) {
-          const section = document.createElement('span');
-          section.className = 'search__section';
-          section.textContent = sub.title;
-          a.append(section);
+        const body = document.createElement('span');
+        body.className = 'search__body';
+        const tag = document.createElement('span');
+        tag.className = 'search__tag';
+        if (item.meta.kind === 'school') {
+          a.href = item.url;
+          const name = document.createElement('span');
+          name.className = 'search__title';
+          name.textContent = item.meta.title ?? '';
+          const place = document.createElement('span');
+          place.className = 'search__excerpt';
+          place.textContent = item.meta.place ?? '';
+          body.append(name, place);
+          tag.textContent = 'Map';
+        } else {
+          const sub = item.sub_results?.[0];
+          const page = (item.meta.title ?? item.url).replace(/\s+[—|-]\s+Bike On NZ$/, '');
+          const title = document.createElement('span');
+          title.className = 'search__title';
+          title.textContent = page;
+          body.append(title);
+          if (sub?.title && sub.title !== page) {
+            const section = document.createElement('span');
+            section.className = 'search__section';
+            section.textContent = sub.title;
+            body.append(section);
+          }
+          const excerpt = document.createElement('span');
+          excerpt.className = 'search__excerpt';
+          excerpt.innerHTML = sub?.excerpt ?? item.excerpt;
+          body.append(excerpt);
+          tag.textContent = new URL(a.href).pathname.startsWith('/guide/') ? 'Guide' : 'Page';
         }
-        a.append(excerpt);
+        a.append(body, tag);
         li.append(a);
         return li;
       }),
@@ -142,7 +160,13 @@ import { Icon } from 'astro-icon/components';
     }
     const found = await pf.debouncedSearch(query, {}, 150);
     if (!found || id !== latest) return;
-    const items = await Promise.all(found.results.slice(0, 8).map((r) => r.data()));
+    const all = await Promise.all(found.results.slice(0, 24).map((r) => r.data()));
+    const isSchool = (d: Data) => d.meta.kind === 'school';
+    const schoolCap = all.some((d) => !isSchool(d)) ? 3 : 8;
+    let schools = 0;
+    const items = all
+      .filter((d) => !isSchool(d) || ++schools <= schoolCap)
+      .slice(0, 8);
     if (id === latest) render(items, query);
   };
 
@@ -277,8 +301,9 @@ import { Icon } from 'astro-icon/components';
   }
   .search__results a {
     display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
     padding: 0.75rem;
     border-radius: 0.75rem;
     color: var(--ink);
@@ -287,6 +312,23 @@ import { Icon } from 'astro-icon/components';
   .search__results a.is-active,
   .search__results a:focus-visible {
     background: var(--tint);
+  }
+  .search__body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    min-width: 0;
+  }
+  .search__tag {
+    flex: none;
+    padding: 0.125rem 0.75rem;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    background: #fff;
+    color: var(--ink);
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.5;
   }
   .search__title {
     font-size: 1.125rem;

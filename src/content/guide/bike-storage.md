@@ -32,7 +32,7 @@ A shipping container with a flat floor is better than a ribbed steel one because
 
 Hinged doors are usually the most secure option and often cheaper than roller doors. A sliding door is a third option some schools choose.
 
-![A blue 40-foot shipping container with a sliding door, beside a paved area](../../assets/images/guide/sliding-door.webp)
+![A blue 40-foot shipping container with a sliding door, beside a paved area](../../assets/images/guide/sliding-door.webp "A converted shipping container with sliding doors")
 
 Smaller fleets or trickier sites sometimes call for a 20-foot container rather than the full 40-foot.
 
@@ -42,17 +42,17 @@ Some schools add lighting, power outlets, and a connection to the school's exist
 
 A welded padlock box works with closed-shackle or standard padlocks, giving extra protection to the padlock itself. If you've gone with a roller door, a security gate fitted over the front makes a real difference.
 
-![Open hinged doors on a brown shipping container, with a welded padlock box on the door and bikes stored inside](../../assets/images/guide/padlock-box.webp)
+![Open hinged doors on a brown shipping container, with a welded padlock box on the door and bikes stored inside](../../assets/images/guide/padlock-box.webp "A welded padlock protective box and hinge door")
 
 ## Where to put the container
 
 If the container's sitting on grass, keep it slightly raised on railway sleepers so air can circulate underneath. A concrete pad for the container and one out front for daytime bike parking, with a ramp up to the door lip, makes for a much smoother daily routine.
 
-![Rows of orange and green school bikes parked on a concrete pad in front of an orange storage container](../../assets/images/guide/bike-storage-hero.webp)
+![Rows of orange and green school bikes parked on a concrete pad in front of an orange storage container](../../assets/images/guide/bike-storage-hero.webp "A concrete pad out front for daytime bike parking")
 
 A container truck is usually around 18 metres long. Make sure there's enough room to get it onto site, and that the truck can park parallel to where the container's going. If you're not sure, ask the trucking company to do a site visit first.
 
-![A blue shipping container arriving on a truck, and a side-lifting crane truck placing a container on site](../../assets/images/guide/container-delivery.png)
+![A blue shipping container arriving on a truck, and a side-lifting crane truck placing a container on site](../../assets/images/guide/container-delivery.png "Delivery of a shipping container")
 
 ## Container dimensions
 
@@ -75,9 +75,9 @@ What goes inside depends on the budget. Some suppliers offer a fit-out package (
 
 Plenty of schools go the DIY route: upcycled wooden pallets make a solid bike rack, especially painted to colour-code where each size parks.
 
-![Inside a storage container, bikes parked in colour-coded bays, with helmets hung on the opposite wall](../../assets/images/guide/colour-coded-parking.webp)
+![Inside a storage container, bikes parked in colour-coded bays, with helmets hung on the opposite wall](../../assets/images/guide/colour-coded-parking.webp "Colour-coded parking bays")
 
-![Helmets hanging on wall hooks and shelves inside a container, with signs showing helmet sizes](../../assets/images/guide/helmet-hooks.webp)
+![Helmets hanging on wall hooks and shelves inside a container, with signs showing helmet sizes](../../assets/images/guide/helmet-hooks.webp "A place to hang helmets")
 
 ### Smart stacking saves space
 
