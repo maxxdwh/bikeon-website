@@ -30,6 +30,8 @@ import { Icon } from 'astro-icon/components';
 </dialog>
 
 <script>
+  import { buildIndex, search, type FuzzyIndex, type FuzzyRecord } from '../lib/fuzzy';
+
   const dialog = document.getElementById('search-dialog') as HTMLDialogElement | null;
   const input = document.getElementById('search-input') as HTMLInputElement | null;
   const status = document.getElementById('search-status');
@@ -65,6 +67,15 @@ import { Icon } from 'astro-icon/components';
       return pagefind;
     })();
     return loading;
+  };
+
+  let fuzzyLoading: Promise<FuzzyIndex | null> | null = null;
+  const loadFuzzy = () => {
+    fuzzyLoading ??= fetch('/pagefind/fuzzy.json')
+      .then((r) => (r.ok ? r.json() : null))
+      .then((rows) => (rows ? buildIndex(rows) : null))
+      .catch(() => null);
+    return fuzzyLoading;
   };
 
   const setStatus = (text: string) => {
@@ -176,28 +187,47 @@ import { Icon } from 'astro-icon/components';
       setStatus('');
       return;
     }
-    const pf = await load();
-    if (!pf) {
+    const [pf, fuzzy] = await Promise.all([load(), loadFuzzy()]);
+    if (!pf && !fuzzy) {
       setStatus('Search works on the built site. Run a build, then preview it.');
       return;
     }
-    const options = activeType === 'All' ? {} : { filters: { type: activeType } };
-    const found = await pf.debouncedSearch(query, options, 150);
-    if (!found || id !== latest) return;
-    const totals = found.totalFilters?.type;
-    const counts = totals && Object.keys(totals).length ? totals : (found.filters?.type ?? {});
+    const fuzzyHits = fuzzy ? search(fuzzy, query) : [];
+    const fuzzyCounts = {
+      School: fuzzyHits.filter((h) => h.kind === 'school').length,
+      News: fuzzyHits.filter((h) => h.kind === 'news').length,
+    };
+    const fuzzyFiltered = ['School', 'News'].includes(activeType);
+    let pages: Data[] = [];
+    let counts: Record<string, number> = {};
+    if (pf && !fuzzyFiltered) {
+      const options = activeType === 'All' ? {} : { filters: { type: activeType } };
+      const found = await pf.debouncedSearch(query, options, 150);
+      if (!found || id !== latest) return;
+      const totals = found.totalFilters?.type;
+      counts = { ...(totals && Object.keys(totals).length ? totals : (found.filters?.type ?? {})) };
+      pages = (await Promise.all(found.results.slice(0, 24).map((r) => r.data()))).filter(
+        (d) => !['school', 'news'].includes(d.meta.kind ?? ''),
+      );
+    }
+    if (id !== latest) return;
+    counts = { ...counts, ...fuzzyCounts };
     if (activeType !== 'All' && !counts[activeType]) {
       activeType = 'All';
       run();
       return;
     }
-    const all = await Promise.all(found.results.slice(0, 24).map((r) => r.data()));
-    const kindOf = (d: Data) => d.meta.kind ?? 'page';
+    const asData = (h: FuzzyRecord): Data => ({ url: h.url, excerpt: '', meta: { title: h.title, kind: h.kind, place: h.place } });
+    const schools = fuzzyHits.filter((h) => h.kind === 'school').map(asData);
+    const news = fuzzyHits.filter((h) => h.kind === 'news').map(asData);
     const items =
       activeType === 'All'
-        ? all.sort((x, y) => Number(kindOf(x) !== 'page') - Number(kindOf(y) !== 'page')).slice(0, 8)
-        : all;
-    if (id !== latest) return;
+        ? [...schools.slice(0, 5), ...news.slice(0, 3), ...pages].slice(0, 8)
+        : activeType === 'School'
+          ? schools.slice(0, 24)
+          : activeType === 'News'
+            ? news.slice(0, 24)
+            : pages;
     renderTypes(counts);
     render(items, query);
   };

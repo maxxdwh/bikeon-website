@@ -1,6 +1,6 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { readFileSync } from 'node:fs';
+import { readFileSync, writeFileSync } from 'node:fs';
 import { createIndex } from 'pagefind';
 import sirv from 'sirv';
 
@@ -36,6 +36,7 @@ export default function pagefind() {
           return;
         }
         const schools = JSON.parse(readFileSync(new URL('../src/data/schools.json', import.meta.url), 'utf8'));
+        const fuzzy = [];
         for (const school of schools) {
           const place = `${school.town}, ${school.region}`;
           const record = await index.addCustomRecord({
@@ -46,6 +47,7 @@ export default function pagefind() {
             filters: { type: ['School'] },
           });
           if (record.errors.length) record.errors.forEach(logger.error);
+          fuzzy.push(['school', school.name, place, `/map?school=${schoolSlug(school)}`]);
         }
         const stories = JSON.parse(readFileSync(new URL('../src/data/media.json', import.meta.url), 'utf8')).filter((story) => !story.archived);
         for (const story of stories) {
@@ -57,10 +59,12 @@ export default function pagefind() {
             filters: { type: ['News'] },
           });
           if (record.errors.length) record.errors.forEach(logger.error);
+          fuzzy.push(['news', story.title, `${story.source} · ${story.date}`, story.url]);
         }
         logger.info(`Pagefind indexed ${pages.page_count} pages, ${schools.length} schools and ${stories.length} news stories`);
         const written = await index.writeFiles({ outputPath: path.join(outDir, 'pagefind') });
         if (written.errors.length) written.errors.forEach(logger.error);
+        writeFileSync(path.join(outDir, 'pagefind', 'fuzzy.json'), JSON.stringify(fuzzy));
       },
     },
   };
