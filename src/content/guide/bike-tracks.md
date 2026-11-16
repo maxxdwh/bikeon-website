@@ -30,6 +30,16 @@ Fifty or more kids can ride at once on a well-built riding track. Beyond biking,
 
 ![Children riding along a curving asphalt track beside a school building with a colourful mural](../../assets/images/photos/track-mural-school.jpg "A curving asphalt riding track")
 
+Road markings can be painted straight onto asphalt or concrete. Give-way triangles, crossings, arrows and bike symbols teach kids road rules in a safe place.
+
+![A give way sign and a painted give way triangle on a curved asphalt track, with painted fence panels beside it](../../assets/images/photos/road-marking-1.jpg "A give way sign and triangle")
+
+![A painted zebra crossing on an asphalt track beside a Bikes in Schools banner](../../assets/images/photos/road-marking-2.jpg "A zebra crossing")
+
+![A painted bike symbol and white lines on an asphalt track beside a school building](../../assets/images/photos/road-marking-3.jpg "A bike symbol and lane lines")
+
+![White arrows, a give way triangle and a green circle painted on a concrete track](../../assets/images/photos/road-marking-4.jpg "Markings on a concrete track")
+
 ## The pump track
 
 Kids don't pedal on a pump track. They pump their bikes through the rollers to keep moving, a bit like working a swing. It's the track kids love most, and it burns more energy than the others.
@@ -43,6 +53,10 @@ Limit it to six riders at a time. Loop your track designer in with your [bike su
 - Costs run $8,000 to $15,000, depending on size and region
 
 ![A pump track with dirt rollers and a sealed black asphalt riding surface, beside school buildings](../../assets/images/photos/pump-track-4-henderson.jpg "A pump track")
+
+![An asphalt pump track with curved rollers and new garden planting beside it](../../assets/images/photos/pump-track-13.jpg "An asphalt pump track")
+
+![An aerial view of an asphalt pump track with painted lines, beside a school field](../../assets/images/photos/pump-track-14.jpg "A pump track from above")
 
 ## The skills track
 
