@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import HeroSection from '../components/HeroSection.astro';
 import { Image } from 'astro:assets';
-import thumbsUp from '../assets/images/photos/thumbs-up-st-dominics.jpg';
+import skillsBridge from '../assets/images/photos/skills-bridge-glen-taylor.jpg';
 ---
 
 <Layout title="Contact | Bike On NZ" schema={{ '@type': 'ContactPage' }} breadcrumbs={[{ name: 'Contact', href: '/contact' }]} description="Get in touch with Bike On NZ about starting a Bikes in Schools project.">
@@ -13,7 +13,7 @@ import thumbsUp from '../assets/images/photos/thumbs-up-st-dominics.jpg';
 
   <section class="container-page page-end pt-4">
     <div class="grid gap-12 md:grid-cols-2">
-      <div class="space-y-8">
+      <div class="flex flex-col gap-8">
         <div>
           <h2 class="h3">Email</h2>
           <p class="mt-2">
@@ -28,15 +28,17 @@ import thumbsUp from '../assets/images/photos/thumbs-up-st-dominics.jpg';
             Hastings, New Zealand
           </p>
         </div>
-        <Image
-          src={thumbsUp}
-          alt="A boy giving a thumbs up as he rides along an asphalt track"
-          width={340}
-          quality={60}
-          sizes="(min-width: 64rem) 340px, 70vw"
-          priority
-          class="mt-8 h-auto w-full max-w-[21rem] rounded-2xl"
-        />
+        <div class="relative md:min-h-64 md:flex-1">
+          <Image
+            src={skillsBridge}
+            alt="Two children in red tops riding over a wooden ramp on an asphalt track, in front of a school with a colourful mural"
+            width={580}
+            quality={55}
+            sizes="(min-width: 64rem) 580px, 92vw"
+            priority
+            class="aspect-[4/3] w-full rounded-2xl object-cover md:absolute md:inset-0 md:aspect-auto md:h-full"
+          />
+        </div>
       </div>
 
       <div>
