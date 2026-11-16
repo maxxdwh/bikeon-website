@@ -5,10 +5,10 @@ import CTASection from '../components/CTASection.astro';
 import { getCollection } from 'astro:content';
 import { Image } from 'astro:assets';
 import heroHelmet from '../assets/images/guide/helmets.webp';
-import royalOak from '../assets/images/about/royal-oak-opening.jpg';
-import ptEngland from '../assets/images/about/pt-england-opening.jpg';
+import concreteTrack from '../assets/images/photos/concrete-track-2-don-buck.jpg';
+import asphaltTrack from '../assets/images/photos/asphalt-track-2-glen-taylor.jpg';
 import bledisloe from '../assets/images/bledisloe-opening.jpg';
-import friendsOnTrack from '../assets/images/about/friends-on-the-track.jpg';
+import asphaltRiders from '../assets/images/photos/asphalt-track-8-st-dominics.jpg';
 import ribbonCutting from '../assets/images/about/ribbon-cutting.jpg';
 import holyCross from '../assets/images/about/holy-cross-kids.jpg';
 import Testimonials from '../components/Testimonials.astro';
@@ -18,7 +18,7 @@ import { schoolCountLabel } from '../data/schoolCount';
 const guides = (await getCollection('guide')).sort((a, b) => a.data.order - b.data.order);
 
 const impact = [
-  { stat: '150,000+', label: 'students with regular bike access', image: friendsOnTrack, alt: 'Kids riding on a bike track' },
+  { stat: '150,000+', label: 'students with regular bike access', image: asphaltRiders, alt: 'A girl in a pink helmet riding along an asphalt bike track' },
   { stat: schoolCountLabel, label: 'schools with a project', image: ribbonCutting, alt: 'Bikes in Schools opening event' },
   { stat: '2010', label: 'the year we started', image: holyCross, alt: 'Children with bikes at school' },
 ];
@@ -73,8 +73,8 @@ const guideIcons: Record<string, string> = {
         class="col-span-3 row-span-2 h-full w-full rounded-2xl object-cover"
       />
       <Image
-        src={royalOak}
-        alt="Children riding the track at Royal Oak School"
+        src={concreteTrack}
+        alt="Children riding along a concrete bike track beside a school field"
         width={280}
         height={210}
         fit="cover"
@@ -85,8 +85,8 @@ const guideIcons: Record<string, string> = {
         class="col-span-2 aspect-[4/3] h-full w-full rounded-2xl object-cover"
       />
       <Image
-        src={ptEngland}
-        alt="Riders at the Pt England School opening"
+        src={asphaltTrack}
+        alt="Children riding over a wooden ramp on an asphalt track"
         width={280}
         height={210}
         fit="cover"

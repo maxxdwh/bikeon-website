@@ -26,7 +26,9 @@ Fifty or more kids can ride at once on a well-built riding track. Beyond biking,
 - Depth of basecourse can vary; get local advice
 - A 300m track like this typically costs around $85,000, though costs vary significantly by length and region
 
-![Children in green school jumpers riding bikes along an asphalt riding track around a school field](../../assets/images/guide/bike-tracks.webp "A riding track made of asphalt")
+![A winding concrete track with a small wooden jump, curving across a school field](../../assets/images/photos/concrete-track-3-panmure.jpg "A concrete riding track at Panmure District School")
+
+![Children riding along a curving asphalt track beside a school building with a colourful mural](../../assets/images/photos/track-mural-school.jpg "A curving asphalt riding track")
 
 ## The pump track
 
@@ -40,7 +42,7 @@ Limit it to six riders at a time. Loop your track designer in with your [bike su
 - A BMX club or professional track builder is worth getting in for design and construction
 - Costs run $8,000 to $15,000, depending on size and region
 
-![A rider in a red top and helmet pumping a mountain bike over sandy rollers on a limestone pump track](../../assets/images/guide/pump-track.webp "A pump track")
+![A pump track with dirt rollers and a sealed black asphalt riding surface, beside school buildings](../../assets/images/photos/pump-track-4-henderson.jpg "A pump track")
 
 ## The skills track
 
@@ -55,3 +57,13 @@ A limestone track with a series of obstacles: skinnies, a slalom, a see-saw, and
 A few schools have built their skills track with asphalt as this reduces ongoing maintenance needed.
 
 ![A child on a pink bike on a paved skills track beside a garden bed edged with old tyres](../../assets/images/guide/skills-track.webp "A skills track made of asphalt")
+
+![A rider in a dark jacket crossing a curved wooden bridge set in a garden bed beside an asphalt track](../../assets/images/photos/wooden-bridge-6-kelvin-road.jpg "A curved wooden bridge")
+
+![A rider in a hi-vis top crossing a wooden bridge beside a tree](../../assets/images/photos/wooden-bridge-4-henderson.jpg "A wooden bridge feature")
+
+![A rider in a red top riding up a wooden ramp while classmates watch](../../assets/images/photos/wooden-bridge-2-glen-taylor.jpg "A wooden ramp feature")
+
+![A boy in a red top riding off a wooden ramp on an asphalt track, with another rider behind him](../../assets/images/photos/skills-bridge-glen-taylor.jpg "A skills bridge")
+
+![A wooden platform beside an asphalt track lined with painted fence panels](../../assets/images/photos/slalom-jump-beachlands.jpg "Skills features along the track")

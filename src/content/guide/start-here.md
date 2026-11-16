@@ -2,8 +2,8 @@
 title: "Start here"
 description: "What a Bikes in Schools project is and how to plan one."
 order: 1
-heroImage: "../../assets/images/about/pt-england-opening.jpg"
-heroAlt: "Students in red uniforms and helmets riding bikes along a dirt track at the Pt England School opening, with a storage container behind them"
+heroImage: "../../assets/images/photos/kids-on-bikes-whangaparaoa.jpg"
+heroAlt: "A line of children in helmets riding bikes along an asphalt track at Whangaparaoa School, with a teacher riding alongside"
 seoTitle: "How to start a Bikes in Schools project | Bike On NZ"
 seoDescription: "A plain guide for NZ schools: what a Bikes in Schools project includes, what the research says, what it costs, and the steps to plan yours."
 published: 2026-09-27
@@ -87,6 +87,8 @@ Every project is different, but most schools work through the same steps. Each o
 ## What an opening event looks like
 
 Most schools launch their Bikes in Schools project with an official opening. Usually, it involves special guests such as the local Mayor, MP, or a famous sportsperson to open it. Parents, the local community, and local media (and sometimes national) are always invited. Each school puts their own style onto the event.
+
+![Children in helmets riding along an asphalt track at a school opening event, some with balloons and scooters decorated for the day](../../assets/images/photos/opening-event-st-dominics.jpg "An opening event at St Dominic's School")
 
 Some schools put out a simple press release about the event detailing the different funders.
 

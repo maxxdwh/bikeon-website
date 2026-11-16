@@ -39,6 +39,14 @@ The [Bike Shed Manual (PDF)](/downloads/bike-shed-manual.pdf) goes into more det
 
 A few "bike tips" signs around the tracks help reinforce safe riding. Examples from Palmerston North City Council and Wellington City Council: [Sign 1 (PDF)](/downloads/track-sign-example-1.pdf) · [Sign 2 (PDF)](/downloads/track-sign-example-2.pdf) · [Sign 3 (PDF)](/downloads/track-sign-example-3.pdf)
 
+Schools have also put up their own signs. A few recent examples:
+
+![A bike track rules sign beside a row of parked bikes, with the rules for helmets, speed and respect](../../assets/images/photos/safety-sign-glenavon.jpg "Bike track rules at Glenavon School")
+
+![A bike and scooter track expectations sign mounted on a storage container](../../assets/images/photos/safety-sign-new-windsor-2.jpg "Track expectations on a container at New Windsor School")
+
+![A freestanding sign listing the track rules and rider responsibilities](../../assets/images/photos/safety-sign-new-windsor-3.jpg "Track rules sign at New Windsor School")
+
 ## Check your helmet
 
 For the quick two-finger fit check, see [Helmets](/guide/helmets).

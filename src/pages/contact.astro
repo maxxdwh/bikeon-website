@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import HeroSection from '../components/HeroSection.astro';
 import { Image } from 'astro:assets';
-import royalOak from '../assets/images/about/royal-oak-opening.jpg';
+import thumbsUp from '../assets/images/photos/thumbs-up-st-dominics.jpg';
 ---
 
 <Layout title="Contact | Bike On NZ" schema={{ '@type': 'ContactPage' }} breadcrumbs={[{ name: 'Contact', href: '/contact' }]} description="Get in touch with Bike On NZ about starting a Bikes in Schools project.">
@@ -29,13 +29,13 @@ import royalOak from '../assets/images/about/royal-oak-opening.jpg';
           </p>
         </div>
         <Image
-          src={royalOak}
-          alt="Bikes in Schools opening event at Royal Oak School"
-          width={580}
-          quality={55}
-          sizes="(min-width: 64rem) 580px, 92vw"
+          src={thumbsUp}
+          alt="A boy giving a thumbs up as he rides along an asphalt track"
+          width={340}
+          quality={60}
+          sizes="(min-width: 64rem) 340px, 70vw"
           priority
-          class="mt-8 w-full rounded-2xl object-cover"
+          class="mt-8 h-auto w-full max-w-[21rem] rounded-2xl"
         />
       </div>
 

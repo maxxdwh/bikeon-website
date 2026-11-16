@@ -43,6 +43,8 @@ Helmets only protect what they're sitting on properly. Three quick checks, easy 
 
 If anyone has a crash (especially a knock to the head), tell an adult straight away.
 
+![One child in a pink helmet adjusting another child's helmet before a ride](../../assets/images/photos/helmet-check-hobsonville.jpg "Checking a helmet at Hobsonville Point Primary School")
+
 A good [cycle skills trainer](/guide/cycle-skills-training) will help fit helmets on day one.
 
 [More on fitting a helmet correctly](https://at.govt.nz/cycling-walking/bikes-gear/cycling-gear/check-and-fit-your-helmet)

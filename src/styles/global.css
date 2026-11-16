@@ -470,6 +470,11 @@
       object-fit: cover;
       aspect-ratio: 4 / 3;
     }
+
+    .prose .fig-grid:has(img[src*='safety-sign']) figure img {
+      flex: none;
+      aspect-ratio: 2 / 3;
+    }
   }
 
   .prose a .external-link-icon {
@@ -654,6 +659,10 @@ html.no-images .prose .fig-grid {
     width: 100%;
     aspect-ratio: 4 / 3;
     object-fit: cover;
+  }
+
+  .prose .fig-grid:has(img[src*='safety-sign']) figure img {
+    aspect-ratio: 2 / 3;
   }
 
   .prose :where(img):not(:where(.not-prose, .not-prose *)) {

@@ -48,7 +48,7 @@ A welded padlock box works with closed-shackle or standard padlocks, giving extr
 
 If the container's sitting on grass, keep it slightly raised on railway sleepers so air can circulate underneath. A concrete pad for the container and one out front for daytime bike parking, with a ramp up to the door lip, makes for a much smoother daily routine.
 
-![Rows of orange and green school bikes parked on a concrete pad in front of an orange storage container](../../assets/images/guide/bike-storage-hero.webp "A concrete pad out front for daytime bike parking")
+![A blue storage container with a green shade sail over a concrete pad, with bikes parked in rows out front](../../assets/images/photos/shipping-container-dawson.jpg "A concrete pad and shade sail out front at Dawson School")
 
 A container truck is usually around 18 metres long. Make sure there's enough room to get it onto site, and that the truck can park parallel to where the container's going. If you're not sure, ask the trucking company to do a site visit first.
 

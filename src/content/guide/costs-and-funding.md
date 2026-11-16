@@ -2,8 +2,8 @@
 title: "Costs and funding"
 description: "Typical costs, funding sources, and Board approval."
 order: 7
-heroImage: "../../assets/images/guide/costs-and-funding.jpg"
-heroAlt: "Students riding bikes under a balloon arch at the opening of a school bike track while guests look on"
+heroImage: "../../assets/images/photos/pump-track-3-glen-taylor.jpg"
+heroAlt: "Children in red and black uniforms riding towards the camera over a sealed asphalt pump track"
 seoTitle: "Bikes in Schools costs and funding in NZ | Bike On NZ"
 seoDescription: "A typical NZ school project costs about $120,000. See the cost breakdown, ways to bring it down, who funds these projects, and how to get Board approval."
 published: 2026-09-27
